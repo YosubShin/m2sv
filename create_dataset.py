@@ -81,6 +81,36 @@ def compute_azimuth(lat1, lon1, lat2, lon2):
     return (np.degrees(np.arctan2(dx, dy)) + 360) % 360
 
 
+def compute_edge_heading_at_node(node_id, row_u, row_v, edge_row, lat_node, lon_node):
+    """Compute heading along the edge geometry at the given node.
+
+    Uses the first segment of the LineString at the node side (u or v). Falls back
+    to the node-to-node heading if geometry is missing or too short.
+    """
+    try:
+        geom = edge_row.get("geometry", None)
+        if geom is not None and hasattr(geom, "coords"):
+            coords = list(geom.coords)
+            if len(coords) >= 2:
+                # Shapely coords are (x, y) == (lon, lat)
+                if node_id == row_u:
+                    (lon1, lat1), (lon2, lat2) = coords[0], coords[1]
+                else:
+                    (lon1, lat1), (lon2, lat2) = coords[-1], coords[-2]
+                return compute_azimuth(lat1, lon1, lat2, lon2)
+    except Exception:
+        # best-effort only; fall back below
+        pass
+
+    # Fallback: use the straight line between nodes
+    try:
+        other_node = row_v if row_u == node_id else row_u
+        lat2, lon2 = edge_row["_lat_other"], edge_row["_lon_other"]
+        return compute_azimuth(lat_node, lon_node, lat2, lon2)
+    except Exception:
+        return None
+
+
 def haversine_distance_m(lat1, lon1, lat2, lon2):
     """Return great-circle distance in meters between two lat/lon points."""
     r_earth_m = 6371000.0
@@ -400,9 +430,17 @@ def main():
             other_node = row_v if row_u == node_id else row_u
             if other_node in nodes.index:
                 lat2, lon2 = nodes.loc[other_node, ["y", "x"]]
-                az = compute_azimuth(lat, lon, lat2, lon2)
+                # Attach for fallback use in heading computation
+                try:
+                    e_local = e.copy()
+                    e_local["_lat_other"], e_local["_lon_other"] = lat2, lon2
+                except Exception:
+                    e_local = e
+                az = compute_edge_heading_at_node(node_id, row_u, row_v, e_local, lat, lon)
+                if az is None:
+                    az = compute_azimuth(lat, lon, lat2, lon2)
                 azimuths.append(az)
-                logger.debug(f"Edge coordinates: ({lat}, {lon}) -> ({lat2}, {lon2}), azimuth: {az}")
+                logger.debug(f"Computed heading at node {node_id} via geometry: {az}")
 
         before_dedupe = len(azimuths)
         azimuths = sorted(list(set(int(round(a / 30) * 30) for a in azimuths)))
