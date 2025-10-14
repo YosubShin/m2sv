@@ -450,6 +450,9 @@ def main():
         if not azimuths:
             logger.debug(f"Skipping node {node_id}: no valid azimuths after dedupe")
             continue
+        if len(azimuths) < 2:
+            logger.debug(f"Skipping node {node_id}: only one distinct road direction after dedupe")
+            continue
 
         # Step 5. Create street view + map entries (use specific pano)
         labels = [chr(ord('A') + i) for i in range(len(azimuths))]
@@ -496,7 +499,7 @@ def main():
         dataset.append(entry)
         created += 1
 
-        question = "Where is the Street View photo taken from?"
+        question = "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?"
         options = labels
         hf_rows.append({
             "id": str(node_id),
