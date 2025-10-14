@@ -119,21 +119,24 @@ class ClaudeProvider:
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10), reraise=True)
     def infer(self, prompt: str, images: List[tuple[bytes, str]]) -> str:
-        media: List[Dict] = []
+        # Anthropic Messages API expects content blocks of type "image" with base64 source
+        content_blocks: List[Dict] = []
         for data, mime in images:
-            media.append({
-                "type": "input_image",
+            content_blocks.append({
+                "type": "image",
                 "source": {
                     "type": "base64",
                     "media_type": mime,
                     "data": encode_b64(data),
                 },
             })
+        # Add the instruction text as a content block
+        content_blocks.append({"type": "text", "text": prompt})
         msg = self.client.messages.create(
             model=self.model,
-            max_tokens=16,
+            max_tokens=1024,
             temperature=0,
-            messages=[{"role": "user", "content": [{"type": "text", "text": prompt}, *media]}],
+            messages=[{"role": "user", "content": content_blocks}],
         )
         return msg.content[0].text.strip()
 
