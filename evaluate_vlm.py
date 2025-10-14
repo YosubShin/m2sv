@@ -54,7 +54,7 @@ def to_image_bytes_and_mime(value, repo_root: Path) -> tuple[bytes, str]:
 
 
 def build_prompt(question: str, options: List[str]) -> str:
-    opts = "\n".join(f"{chr(ord('A') + i)}. {opt}" for i, opt in enumerate(options))
+    opts = "\n".join(f"{chr(ord('A') + i)}" for i, _ in enumerate(options))
     instructions = (
         "You will be given two images: a labeled overhead map and a street-view photo.\n"
         "Choose which labeled direction on the map corresponds to the direction in which the street view photo was taken.\n"
@@ -147,6 +147,9 @@ def normalize_letter(text: str, num_options: int) -> str:
     Priority:
     1) Exact single-letter response (ignoring surrounding whitespace).
     2) Letter inside \boxed{X} (case-insensitive).
+    3) Explicit conclusion phrases like "answer is X" or "final answer: X" (also supports "is:").
+    4) Last non-empty line is effectively just a styled single letter (e.g., **B**, (C), `A`, "C.").
+    5) As a weaker fallback, accept phrases like "choose X", "option X", "arrow X" unless preceded by elimination/negation context.
     Otherwise returns empty string to avoid false positives from prose.
     """
     if text is None:
@@ -155,21 +158,90 @@ def normalize_letter(text: str, num_options: int) -> str:
     if not t:
         return ""
 
+    def is_valid_letter(ch: str) -> str:
+        if not ch:
+            return ""
+        ch_u = ch.upper()
+        idx = ord(ch_u) - ord("A")
+        return ch_u if 0 <= idx < num_options else ""
+
     # 1) Exact single letter
     m = re.fullmatch(r"\s*([A-Za-z])\s*", t)
     if m:
-        ch = m.group(1).upper()
-        idx = ord(ch) - ord("A")
-        if 0 <= idx < num_options:
+        ch = is_valid_letter(m.group(1))
+        if ch:
             return ch
 
     # 2) \boxed{X}
     m = re.search(r"\\boxed\{\s*([A-Za-z])\s*\}", t, flags=re.IGNORECASE)
     if m:
-        ch = m.group(1).upper()
-        idx = ord(ch) - ord("A")
-        if 0 <= idx < num_options:
+        ch = is_valid_letter(m.group(1))
+        if ch:
             return ch
+
+    # 2b) Repeated-letter outputs like "C. C" or "B B" as the entire response
+    m = re.fullmatch(r"\s*([A-Za-z])\s*[\.-:;,]?\s*\1\s*\.?\s*", t)
+    if m:
+        ch = is_valid_letter(m.group(1))
+        if ch:
+            return ch
+
+    # 3) Prefer explicit conclusion phrases anywhere in text (prefer the last such mention)
+    explicit_answer_patterns = [
+        r"(?:\bthe\s+answer\b|\banswer\b)\s*(?:is\s*[:=]?|[:=])\s*([A-Za-z])\b",
+        r"\bfinal\s*(?:answer)?\s*(?:is\s*[:=]?|[:=])\s*([A-Za-z])\b",
+    ]
+    explicit_candidates: list[str] = []
+    for pat in explicit_answer_patterns:
+        for m in re.finditer(pat, t, flags=re.IGNORECASE):
+            explicit_candidates.append(m.group(1))
+    for raw in reversed(explicit_candidates):
+        ch = is_valid_letter(raw)
+        if ch:
+            return ch
+
+    # 4) Last non-empty line: accept if it's effectively just a single styled letter
+    lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
+    if lines:
+        last = lines[-1]
+        # If the last line itself contains an explicit phrase, re-use explicit logic on it for precision
+        for pat in explicit_answer_patterns:
+            m2 = re.search(pat, last, flags=re.IGNORECASE)
+            if m2:
+                ch = is_valid_letter(m2.group(1))
+                if ch:
+                    return ch
+        # Repeated-letter on last line like "C. C"
+        mrep = re.fullmatch(r"\s*([A-Za-z])\s*[\.-:;,]?\s*\1\s*\.?\s*", last)
+        if mrep:
+            ch = is_valid_letter(mrep.group(1))
+            if ch:
+                return ch
+        # Strip typical wrappers and styling around a lone letter
+        stripped = re.sub(r"[\s\*`_~\-–—\(\)\[\]\{\}\"'.:;,!]+", "", last)
+        # If what's left is a single letter, accept it
+        if re.fullmatch(r"[A-Za-z]", stripped):
+            ch = is_valid_letter(stripped)
+            if ch:
+                return ch
+
+    # 5) Weaker fallback: ambiguous phrases choose/option/arrow X, but avoid elimination contexts
+    ambiguous_patterns = [
+        r"\bchoose\s*([A-Za-z])\b",
+        r"\b(?:option|choice|arrow)\s*([A-Za-z])\b",
+    ]
+    last_ch = ""
+    for pat in ambiguous_patterns:
+        for m in re.finditer(pat, t, flags=re.IGNORECASE):
+            start = m.start()
+            context = t[max(0, start-50):start].lower()
+            if any(neg in context for neg in ["eliminate", "eliminates", "eliminated", "eliminating", "not ", "isn't", "is not", "avoid", "eliminates option", "eliminate option"]):
+                continue
+            ch = is_valid_letter(m.group(1))
+            if ch:
+                last_ch = ch
+    if last_ch:
+        return last_ch
 
     return ""
 
@@ -195,6 +267,7 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
     results = []
     correct = 0
     total = 0
+    empty_preds = 0
     if resume_from and Path(resume_from).exists():
         try:
             prev = json.loads(Path(resume_from).read_text())
@@ -243,6 +316,8 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         cflag = bool(is_correct)
         correct += int(cflag)
         total += 1
+        if pred == "":
+            empty_preds += 1
         results.append({
             "id": rid,
             "pred": pred,
@@ -253,8 +328,8 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         added += 1
 
     acc = correct / total if total else 0.0
-    logger.info(f"Accuracy: {acc:.3f} ({correct}/{total})")
-    return {"accuracy": acc, "correct": correct, "total": total, "results": results}
+    logger.info(f"Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds}")
+    return {"accuracy": acc, "correct": correct, "total": total, "empty": empty_preds, "results": results}
 
 
 def reparse_results(dataset_path: str, results_path: str, limit: int | None = None) -> Dict:
@@ -281,6 +356,7 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
     new_results = []
     correct = 0
     total = 0
+    empty_preds = 0
     for i, r in enumerate(results):
         if limit is not None and i >= limit:
             break
@@ -292,14 +368,16 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
         is_correct = pred == gold
         correct += int(is_correct)
         total += 1
+        if pred == "":
+            empty_preds += 1
         nr = dict(r)
         nr["pred"] = pred
         nr["correct"] = is_correct
         new_results.append(nr)
 
     acc = correct / total if total else 0.0
-    logger.info(f"Reparsed accuracy: {acc:.3f} ({correct}/{total})")
-    return {"accuracy": acc, "correct": correct, "total": total, "results": new_results}
+    logger.info(f"Reparsed accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds}")
+    return {"accuracy": acc, "correct": correct, "total": total, "empty": empty_preds, "results": new_results}
 
 
 def main():
@@ -311,7 +389,41 @@ def main():
     parser.add_argument("--out", default=None, help="Optional JSON output path for results")
     parser.add_argument("--reparse-result", action="store_true", help="Re-parse answers from --out JSON without querying any model")
     parser.add_argument("--resume", action="store_true", help="Resume from the JSON at --out; append new rows after the last processed id")
+    parser.add_argument("--self-test", action="store_true", help="Run built-in normalization tests and exit")
     args = parser.parse_args()
+
+    if args.self_test:
+        # Simple self-test suite for normalize_letter
+        cases = [
+            ("The answer is C.", 4, "C"),
+            ("Final answer: B", 3, "B"),
+            ("answer is: A", 3, "A"),
+            ("**B**", 4, "B"),
+            ("(C)", 4, "C"),
+            ("C.", 4, "C"),
+            ("C. C", 4, "C"),
+            ("B. B", 3, "B"),
+            ("Choose A", 3, "A"),
+            ("We eliminate option C. The answer is B", 3, "B"),
+            ("Point C is the corner house... Therefore, the direction is A.\n\nA", 3, "A"),
+            ("The green line (B) ... The answer is: B", 3, "B"),
+            ("\\boxed{ C }", 4, "C"),
+            ("Eliminate B; choose C.", 3, "C"),
+            ("Eliminate C; choose B.", 3, "B"),
+            ("We should not pick C. Final answer: A", 3, "A"),
+        ]
+        failures = []
+        for text, n, expected in cases:
+            got = normalize_letter(text, n)
+            if got != expected:
+                failures.append((text, expected, got))
+        if failures:
+            logger.error(f"Self-test failed {len(failures)} case(s):")
+            for text, exp, got in failures:
+                logger.error(f"Expected {exp}, got {got} for text: {text!r}")
+            raise SystemExit(1)
+        logger.info("Self-test passed: normalize_letter")
+        raise SystemExit(0)
 
     if args.reparse_result:
         if not args.out:
