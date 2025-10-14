@@ -77,12 +77,14 @@ class OpenAIProvider:
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10), reraise=True)
     def infer(self, prompt: str, images: List[tuple[bytes, str]]) -> str:
-        # Use the images as base64 content
+        # Use Chat Completions multimodal schema with image_url data URIs
         content: List[Dict] = [{"type": "text", "text": prompt}]
-        for data, _mime in images:
+        for data, mime in images:
+            b64 = encode_b64(data)
+            data_uri = f"data:{mime};base64,{b64}"
             content.append({
-                "type": "input_image",
-                "image_data": encode_b64(data),
+                "type": "image_url",
+                "image_url": {"url": data_uri, "detail": "auto"},
             })
         resp = self.client.chat.completions.create(
             model=self.model,
