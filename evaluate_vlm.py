@@ -268,6 +268,8 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
     correct = 0
     total = 0
     empty_preds = 0
+    random_expectation_sum = 0.0
+    option_count_hist: Dict[int, int] = {}
     if resume_from and Path(resume_from).exists():
         try:
             prev = json.loads(Path(resume_from).read_text())
@@ -310,7 +312,10 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         except Exception as e:
             logger.warning(f"Inference failed for idx={i}: {e}")
             pred_raw = ""
-        pred = normalize_letter(pred_raw, len(row["options"]))
+        num_opts = len(row["options"])
+        option_count_hist[num_opts] = option_count_hist.get(num_opts, 0) + 1
+        random_expectation_sum += (1.0 / num_opts) if num_opts > 0 else 0.0
+        pred = normalize_letter(pred_raw, num_opts)
         gold = str(row["answer"]).strip().upper()
         is_correct = pred == gold
         cflag = bool(is_correct)
@@ -328,8 +333,19 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         added += 1
 
     acc = correct / total if total else 0.0
-    logger.info(f"Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds}")
-    return {"accuracy": acc, "correct": correct, "total": total, "empty": empty_preds, "results": results}
+    rand_baseline = (random_expectation_sum / total) if total else 0.0
+    logger.info(
+        f"Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
+    )
+    return {
+        "accuracy": acc,
+        "correct": correct,
+        "total": total,
+        "empty": empty_preds,
+        "random_baseline": rand_baseline,
+        "option_count_hist": option_count_hist,
+        "results": results,
+    }
 
 
 def reparse_results(dataset_path: str, results_path: str, limit: int | None = None) -> Dict:
@@ -357,11 +373,15 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
     correct = 0
     total = 0
     empty_preds = 0
+    random_expectation_sum = 0.0
+    option_count_hist: Dict[int, int] = {}
     for i, r in enumerate(results):
         if limit is not None and i >= limit:
             break
         rid = str(r.get("id", i))
         num_opts = id_to_num_opts.get(rid, idx_to_num_opts.get(i, 26))
+        option_count_hist[num_opts] = option_count_hist.get(num_opts, 0) + 1
+        random_expectation_sum += (1.0 / num_opts) if num_opts > 0 else 0.0
         raw = r.get("raw", "")
         gold = str(r.get("gold", "")).strip().upper()
         pred = normalize_letter(raw, num_opts)
@@ -376,8 +396,19 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
         new_results.append(nr)
 
     acc = correct / total if total else 0.0
-    logger.info(f"Reparsed accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds}")
-    return {"accuracy": acc, "correct": correct, "total": total, "empty": empty_preds, "results": new_results}
+    rand_baseline = (random_expectation_sum / total) if total else 0.0
+    logger.info(
+        f"Reparsed accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
+    )
+    return {
+        "accuracy": acc,
+        "correct": correct,
+        "total": total,
+        "empty": empty_preds,
+        "random_baseline": rand_baseline,
+        "option_count_hist": option_count_hist,
+        "results": new_results,
+    }
 
 
 def main():
