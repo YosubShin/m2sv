@@ -1,8 +1,14 @@
 {
-  "accuracy": 0.5102040816326531,
-  "correct": 25,
-  "total": 49,
+  "accuracy": 0.42,
+  "correct": 42,
+  "total": 100,
   "empty": 0,
+  "random_baseline": 0.31833333333333297,
+  "option_count_hist": {
+    "3": 73,
+    "4": 24,
+    "2": 3
+  },
   "results": [
     {
       "id": "110632122",
@@ -345,6 +351,363 @@
       "pred": "A",
       "gold": "C",
       "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545972",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110540439",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "12503999438",
+      "pred": "C",
+      "gold": "A",
+      "raw": "*   **Analyze the Street-View Photo:** The photo is taken from a car on a multi-lane road. On the right side of the road, there are several tall, white high-rise apartment or condominium buildings. On the left side, there is a grassy median strip and a lower, beige-colored building. In the distance, the road continues forward. Large trees overhang the road.\n\n*   **Analyze the Overhead Map:** The map shows a major road running diagonally. To the south (bottom part of the map), there is a cluster of large, high-rise buildings, one of which has tennis courts. To the north (top part of the map), the buildings are generally smaller and lower-rise.\n\n*   **Correlate the Photo and Map:**\n    *   The most prominent feature in the photo is the row of high-rise buildings on the right side.\n    *   On the map, these high-rise buildings are located to the south of the main road.\n    *   For the high-rises to be on the right side of the driver, the vehicle must be traveling southeast (from the top-left towards the bottom-right on the map).\n    *   Now let's examine the labeled directions:\n        *   **Direction from A (red line) and Direction from B (green line):** Both of these viewpoints are looking northwest (from the bottom-right towards the top-left). If the photo were taken from A or B, the high-rise buildings would be on the left side of the road, which contradicts the photo.\n        *   **Direction from C (blue line):** This viewpoint is at an intersection, looking southeast down the main road towards points A and B. From this position and direction, the high-rise buildings would be on the right, and the smaller buildings would be on the left. This perfectly matches the arrangement seen in the street-view photo.\n\n*   **Conclusion:** The street-view photo was taken from point C, looking in the direction of the blue arrow towards A and B.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110575497",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110634356",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "540399293",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "10024771033",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110544054",
+      "pred": "B",
+      "gold": "C",
+      "raw": "*   **Analyze the Street-View Image:** The photo is taken from a street corner or a fork in the road. The road continues straight ahead. Another road joins from the left. On the immediate right is a white house with a porch and stairs. On the left, at the corner where the other road joins, is a very large, leafy tree.\n\n*   **Analyze the Map and Options:**\n    *   **Option A:** This view looks south down a straight road that then splits into a 'Y' intersection. The camera position is before the split. This doesn't match the photo where the camera is *at* the intersection.\n    *   **Option B:** This view looks north up the street towards point A. The camera is on the right-hand fork of the 'Y' intersection. To the immediate right is a corner house. To the left, across the other fork (coming from C), is a corner lot with a very large, prominent tree. The road continues straight ahead after the two forks merge. This configuration perfectly matches the street-view photo: the house on the right, the large tree on the left corner, and the road merging from the left and continuing straight.\n    *   **Option C:** This view also looks north up the street towards point A, but from the left-hand fork of the 'Y'. From this position, the large tree would be on the right, and a house would be on the immediate left. This is the opposite of what is seen in the photo.\n\n*   **Conclusion:** The street-view photo was taken from the location and direction indicated by B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110577115",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110660634",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110575247",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110602210",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110607768",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110632672",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110660683",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "7618651229",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110655493",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110542308",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110652154",
+      "pred": "A",
+      "gold": "D",
+      "raw": "*   **Analyze the Street-View Image:** The photo is taken from an intersection. The main road stretches straight ahead. To the immediate left, another road curves away. In the distance, a large, green mountain is visible. On the left side of the street, there is a house with a dark roof.\n\n*   **Analyze the Overhead Map:** The map shows a central intersection from which the four labeled directions (A, B, C, D) originate.\n\n*   **Evaluate the Options:**\n    *   **Direction A:** Looking from the center point in direction A, the road goes straight ahead. To the left is the road labeled with D, which curves distinctly to the left. This road configuration perfectly matches the street-view image. The house at the corner on the left (between A and D) has a dark roof, which is also consistent with the photo.\n    *   **Direction B:** Looking in this direction, the road ahead is straight, but the road to the left (A) is also relatively straight, not curved as shown in the photo.\n    *   **Direction C:** Looking in this direction, the road itself curves to the right, which contradicts the straight road seen in the photo.\n    *   **Direction D:** Looking in this direction, the road curves to the left. The photo is taken looking down a straight road, not a curved one.\n\n*   **Conclusion:** The arrangement of the roads (a straight road ahead with a road curving to the left) seen in the street-view image is only visible when looking from the central intersection in direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "3728226511",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "8588554309",
+      "pred": "C",
+      "gold": "B",
+      "raw": "*   **Analysis of the Street View Photo:** The photo is taken on a two-lane road looking straight ahead. On the immediate left is a distinctive light-colored, single-story house with a hip roof, solar panels, and a facade with vertical slats. On the right is another house with a low wall in front. Further down the road on the right is a prominent tree with reddish-brown leaves.\n\n*   **Analysis of the Overhead Map and Options:**\n    *   **Direction A:** This arrow points south out of a cul-de-sac onto the main road. The street view image is taken from *along* the main road, not looking out from a side street or cul-de-sac. So, A is incorrect.\n    *   **Direction B:** This arrow points west along the main road. If the photo were taken from the start of this arrow (point B), the view to the left (south) would be of large empty lots. The street view photo clearly shows houses on the left side of the road. So, B is incorrect.\n    *   **Direction C:** This arrow points east along the main road, starting from point C.\n        *   Looking from point C in the eastward direction, the building on the immediate left (north side of the road) is a house with a light-colored roof and what appear to be solar panels. This perfectly matches the distinctive house on the left in the street view photo.\n        *   The property on the immediate right (south side of the road) is another house, which matches the photo.\n        *   Further east on the right side, the map shows two empty lots. The prominent tree in the street view is located in front of where these lots would be, which is a very plausible arrangement.\n\n*   **Conclusion:** The features in the street view photo align perfectly with the map when looking from point C in the direction of the blue arrow.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110563456",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "1164380313",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110645654",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "3536195327",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110542795",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110513915",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619682",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "453703609",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110609040",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110621029",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "525279235",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110658443",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110551700",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110648455",
+      "pred": "A",
+      "gold": "B",
+      "raw": "*   **Analyze the Street-View Image:** The photo is taken from a road that curves gently to the left in the distance. On the immediate left, there is a building with a multi-gabled roof. On the right, there is a dense cluster of tall trees. A road branches off to the right just ahead. In the far distance, you can see green hills/mountains.\n\n*   **Analyze the Overhead Map:** The map shows an intersection. Let's evaluate each labeled direction from the central point where the photo was likely taken.\n    *   **Direction A:** This direction looks up a road that curves to the left. To the left of this road is a building. To the right is a cluster of trees, and a road branches off to the right (towards B). In the distance (top left of the map), there is a large, green, undeveloped area, which would correspond to the hills in the photo. This is a very strong match.\n    *   **Direction B:** This looks down a smaller side road. The large red-roofed building would be on the left. This does not match the view in the photo, which is looking along a main road.\n    *   **Direction C:** This looks down the main road in the opposite direction of A. In this view, the large building with the parking lot would be on the right, and the trees would be on the left. This is the reverse of what is seen in the street-view photo.\n    *   **Direction D:** This looks directly into the parking lot of the building on the left. The photo is clearly looking down a road, not into a parking lot.\n\n*   **Conclusion:** The features seen in the street-view photo (road curvature, positions of the building and trees, and the distant hills) align perfectly with the perspective of looking in Direction A on the map.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110635882",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "2309311992",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110585086",
+      "pred": "A",
+      "gold": "C",
+      "raw": "*   **Analyze the Street-View Photo:** The photo is taken from an intersection, looking down a street. The most prominent feature is a two-story, lime-green building with an external staircase on the immediate right corner. On the left corner, there is a large tree. Far in the distance, down the street, several tall, modern high-rise buildings are visible. A \"STOP\" sign is painted on the road where the photo was taken.\n\n*   **Analyze the Overhead Map:** The map shows a four-way intersection with four labeled directions (A, B, C, D) originating from the center. We need to find the building that matches the lime-green one from the photo. The building on the northeast corner (between arrows A and B) is a larger, rectangular building with a flat roof, which is different from the surrounding single-family homes with hipped roofs. This is the most likely candidate for the apartment-style building seen in the photo.\n\n*   **Correlate the two images:**\n    *   If we assume the building on the northeast corner is the lime-green building, we can test the four directions.\n    *   The photo shows the lime-green building on the **right** side of the view.\n    *   **Direction A (North/Northeast):** Looking in this direction from the intersection, the building on the northeast corner would indeed be on the right. The large tree seen on the left in the photo corresponds to the green patch on the northwest corner of the map. This matches the photo.\n    *   **Direction B (East/Southeast):** Looking in this direction, the large building on the northeast corner would be on the left. This contradicts the photo.\n    *   **Direction C (South/Southwest):** Looking in this direction, the view is of two smaller houses on either corner. This does not match the photo.\n    *   **Direction D (West/Northwest):** Looking in this direction, the view is of a smaller house (and a parking lot behind it) on the right and a white-roofed building on the left. This does not match the photo.\n\n*   **Conclusion:** The only direction that places the distinctive large building on the right and the large tree on the left is direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110608557",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110606149",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110564996",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110637293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "3222767118",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "6132072526",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "12507822811",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110637500",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "C",
+      "gold": "D",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110515915",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
       "correct": false
     }
   ]
