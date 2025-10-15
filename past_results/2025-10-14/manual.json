@@ -1,0 +1,707 @@
+{
+  "accuracy": 0.88,
+  "correct": 88,
+  "total": 100,
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110575924",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110601537",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110572700",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110546785",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "2394655682",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "7785944633",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "1226512565",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110538200",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110597543",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575693",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "525391975",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619734",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "5205421746",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637872",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575673",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110570600",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110550647",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110612231",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "8591690612",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110517640",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110619689",
+      "pred": "B",
+      "gold": "D",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110545067",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110624545",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "358434668",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545952",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637113",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110632100",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539372",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "810809800",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110500838",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110582277",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110593890",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "3728231686",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110599933",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "8588554269",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "682189618",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110545102",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110635335",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110570593",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "682301411",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110577736",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110647381",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110545972",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110540439",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "12503999438",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575497",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110634356",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "540399293",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "10024771033",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110544054",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110577115",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110660634",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110575247",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110602210",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110607768",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110632672",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110660683",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "7618651229",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110655493",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110542308",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110652154",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "3728226511",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "8588554309",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110563456",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "1164380313",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110645654",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "3536195327",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110542795",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110513915",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619682",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "453703609",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110609040",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110621029",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "525279235",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110658443",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110551700",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110648455",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110635882",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "2309311992",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110585086",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110608557",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110606149",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110564996",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110637293",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "3222767118",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "6132072526",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "12507822811",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637500",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110515915",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    }
+  ]
+}

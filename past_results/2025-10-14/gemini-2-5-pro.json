@@ -1,0 +1,351 @@
+{
+  "accuracy": 0.5102040816326531,
+  "correct": 25,
+  "total": 49,
+  "empty": 0,
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110575924",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110546785",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "2394655682",
+      "pred": "B",
+      "gold": "A",
+      "raw": "*   **Analyze the Street View Image:** The photo is taken from a point on a road that is about to curve to the left. At the beginning of this curve, there is a T-intersection where another road joins from the left. On the right side of the road, there is a prominent light-colored house on a corner lot, elevated from the street with a manicured hedge and a staircase leading to the entrance. In the distance, up the hill and to the left, another house with a reddish-brown facade or retaining wall is visible.\n\n*   **Analyze the Map:** The map shows a main road that curves. There are three labeled viewpoints (A, B, C).\n    *   **Viewpoint A:** Looks down the hill. The road ahead is relatively straight before a curve. The T-intersection would be behind the camera. This does not match.\n    *   **Viewpoint C:** This is on the side street, looking towards the T-intersection with the main road. The street view is clearly taken from the main road itself, not the side street. This does not match.\n    *   **Viewpoint B:** This viewpoint is on the main road, looking up the hill towards the T-intersection and the curve. The road ahead curves to the left, and a side street (where C is located) joins from the left. On the right corner of the curve, there is a house that corresponds to the light-colored house in the photo. Across the intersection, on the left, is a house corresponding to the one with the reddish-brown elements. This configuration perfectly matches the street view photo.\n\n*   **Conclusion:** The street view photo was taken from location B, looking in the direction indicated by the green arrow.\n\n**B**",
+      "correct": false
+    },
+    {
+      "id": "7785944633",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "1226512565",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110538200",
+      "pred": "C",
+      "gold": "C",
+      "raw": "*   **Analyze the Street-View Photo:** The photo is taken from a vehicle on a residential street. The main features are the houses on either side. On the right, there is a prominent two-story house with a white garage door and a distinct, high-pitched white roof section. In front of this house is a low wall made of dark stone (likely lava rock). On the left, there is a long, single-story house with a brown exterior and a dark roof, also fronted by a low stone wall. The camera is looking down the length of the street.\n\n*   **Analyze the Overhead Map:** The map shows three labeled directions (A, B, C) originating from a single point on a street.\n    *   The point of origin for the lines is the camera's location.\n    *   The house directly east of the camera's location (at the end of the green line labeled B) has a distinctive roof shape with a large white section, matching the prominent two-story house on the right in the photo.\n    *   The house to the southwest of the camera's location is a long, rectangular building with a dark roof, matching the house on the left in the photo.\n\n*   **Evaluate the Directions:**\n    *   **Direction A:** This view looks northwest along the street. From this perspective, the prominent two-story house would be behind the camera and to the right. The houses immediately visible on the right and left would be different. This does not match the photo.\n    *   **Direction B:** This view looks east, directly at the two-story house. However, the street-view photo is looking *down the street*, not across it directly at a house. So, while it points to a key feature, it's not the correct overall direction of the photograph.\n    *   **Direction C:** This view looks southeast along the street. From this vantage point, the prominent two-story house is on the right side of the road, and the long, dark-roofed house is on the left side of the road. This arrangement perfectly matches the features and their positions in the street-view photo.\n\n*   **Conclusion:** The direction shown in the street-view photo corresponds to direction C on the map.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110597543",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110575693",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "525391975",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619734",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "5205421746",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110637872",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "A",
+      "gold": "B",
+      "raw": "*   **Analyze the Street View Photo:** The photo is taken on a residential street looking uphill. The road curves gently to the left in the distance. On the immediate left is a corner property with a white wall. On the immediate right is a house with a brownish/grey hip roof and a low concrete retaining wall in the front yard.\n\n*   **Analyze the Overhead Map:** The map shows three labeled directions from a central point.\n    *   Point C is on a corner property that matches the description of the house on the left in the street view photo (a corner lot with what appears to be a wall or fence around it).\n    *   Point A is on the property across the street to the north. This property has a dark roof and a swimming pool in the back. This corresponds to the house seen on the right in the street view photo.\n    *   The viewpoint is at the intersection of the colored lines, at the corner where the street with A and B meets the street with C.\n\n*   **Compare Photo and Map:**\n    1.  The street view is looking along the main north-south street, not down the side street. This eliminates option C as the direction of view. The camera is looking either north (towards A) or south (towards B).\n    2.  The house on the left in the photo is the corner house marked with C. The house on the right in the photo is the house marked with A.\n    3.  Therefore, the camera must be looking north, along the red arrow, in the direction of A.\n    4.  This is further confirmed by observing the houses further down the street. In the photo, the next house on the left (past the corner house) has a dark roof. On the map, looking north from the viewpoint, the house north of C indeed has a dark roof. The street also appears to go uphill towards the top of the map, which matches the photo.\n\n*   **Conclusion:** The direction in the street view photo corresponds to looking from the central point towards label A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "A",
+      "gold": "A",
+      "raw": "*   **Analyze the Street View Image:** The photo is taken from within a narrow alley. On the right side, there is a house with a white awning and a green fence, and behind it, a much larger, multi-story, beige or light-yellow building is prominent. On the left side, there is a pickup truck parked next to a house, and further down, a yellow \"DEAD END\" sign is visible at an intersection. Power lines are overhead.\n\n*   **Analyze the Overhead Map and Options:**\n    *   The map shows a residential area with a prominent, large, U-shaped building on the eastern side. This matches the large building in the photo.\n    *   There is a network of narrow alleys between the houses.\n    *   **Direction A (Red Line):** This line points east-northeast along an alley, directly towards the large building. If you are looking in this direction, the large building would be ahead and to your right, which matches the photo. The houses on the left of the alley also match the photo. The red line starts at an intersection with a north-south alley (where the blue line is). The \"DEAD END\" sign seen in the photo is likely for this north-south alley (direction C), which appears to terminate at a fence and grassy area on the map. The sign's placement in the photo (on the left, at the start of the view) is consistent with it being at this intersection, warning traffic about the dead end to the north.\n    *   **Direction B (Green Line):** This line points east along the same alley as A, but from a point further west. From this vantage point, the large building would appear more distant and centered in the view, not prominently on the right side as it does in the photo.\n    *   **Direction C (Blue Line):** This line points north into an alley that clearly dead-ends. However, if you were looking in this direction, the large building would be behind you and to your right, and therefore not visible in the photo. This contradicts the street view image.\n\n*   **Conclusion:** The view in the street photo corresponds to the direction indicated by the red line (A). The camera is looking east-northeast down the alley, with the large building on the right and the intersection with the dead-end alley (where the sign is) on the left.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110575673",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110570600",
+      "pred": "C",
+      "gold": "B",
+      "raw": "*   **Analyze the Street View Photo:** The photo is taken on a street looking towards an intersection.\n    *   On the immediate left is a large, white \"OFFICE BUILDING\".\n    *   On the right is a two-story corner building with a light-colored stone facade. A street sign on the corner indicates an intersecting street.\n    *   In the distance, down the street, a very tall, prominent skyscraper is visible.\n    *   The camera is positioned just before a crosswalk.\n\n*   **Analyze the Overhead Map and Options:**\n    *   We need to find a viewpoint and direction that matches the arrangement of buildings and the view down the street.\n    *   **Option A:** Points away from the main intersection, with a large, uniquely shaped building (curved corner) on the right. This doesn't match the buildings in the photo.\n    *   **Option B:** Points towards the intersection. From this viewpoint, the corner building would be on the left, and the street would be on the right. This is the opposite of the photo.\n    *   **Option C:** This viewpoint is on a street, looking towards the intersection.\n        *   To the left is a large, squarish building with a complex roof structure (matching the location of the white \"OFFICE BUILDING\").\n        *   To the right is the corner building seen in the photo.\n        *   The direction of the arrow points down the street, towards the location where a tall skyscraper would be visible in the distance in a real-world view.\n        *   The viewpoint is just before a crosswalk, which is consistent with the photo. This configuration perfectly matches the street-view image.\n    *   **Option D:** This viewpoint is on the intersecting street, looking towards the corner. The building on the left would be the one with the curved corner, which is not what's seen on the left in the photo.\n\n*   **Conclusion:** The arrangement of buildings and the direction of the view in the street-view photo correspond to the viewpoint and direction indicated by the letter C on the map.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110550647",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110612231",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "8591690612",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110517640",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110619689",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110545067",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110624545",
+      "pred": "A",
+      "gold": "B",
+      "raw": "*   **Analyze the Street-View Photo:** The photo is taken from the perspective of someone on a side street, about to enter a larger main street. This is indicated by the \"STOP\" marking painted on the road directly in front of the camera's position. There is a prominent building on the immediate left corner; it's a two-story building, primarily beige, with a dark (black or dark blue) section on the corner and a blue awning. We are looking down the main street, with a crosswalk right in front.\n\n*   **Analyze the Overhead Map:** The map shows a T-intersection where a smaller street (coming from a parking lot area) meets a larger main road.\n    *   **Point A:** Is located on this side street, right at the intersection, looking out onto the main road. To the immediate left of this viewpoint is a corner building.\n    *   **Point B:** Is further down the main road, looking back towards the intersection.\n    *   **Point C:** Is on the main road, at the intersection, looking down the road towards point B.\n\n*   **Compare and Match:**\n    *   The camera's position behind the \"STOP\" line on a side street perfectly matches the location of point A. The view is from the side street looking out onto the main street.\n    *   The building on the corner to the immediate left in the photo corresponds to the building just to the left of point A on the map.\n    *   The direction of the view in the photo is down the main street, which matches the direction of arrow A.\n    *   Viewpoints B and C are incorrect because they are located on the main road itself, not on the side street from where the photo was clearly taken.\n\n*   **Conclusion:** The labeled direction that corresponds to the street-view photo is A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "358434668",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545952",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637113",
+      "pred": "A",
+      "gold": "D",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110632100",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539372",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "810809800",
+      "pred": "A",
+      "gold": "A",
+      "raw": "*   **Analyze the Street-View Image:** The most prominent feature is a steep, green hill running along the entire left side of the road. On the right side of the road, there is a distinctive house with a reddish-pink roof and a stone wall in front. On the left side, there is a light-colored house with a hedge. The road is straight and heads towards a valley in the distance.\n\n*   **Analyze the Overhead Map:** The map shows a main road running roughly north-south. To the west (left side of the map) of this road, the terrain appears to be rising into a hill, as indicated by the undeveloped green space visible at the edges of the housing development. The houses are located to the east and west of this main road.\n\n*   **Correlate the Images:**\n    1.  For the steep hill to be on the **left** side of the photo, the camera must be pointing **north**. The hill is to the west of the road, so only a northbound view would place it on the left.\n    2.  This eliminates option C, which points south. A southbound view (C) would place the hill on the right.\n    3.  Option B points down a side street, which doesn't match the wide main road in the photo.\n    4.  Option A points north along the main road. This is consistent with the hill being on the left.\n\n*   **Confirm with Building Details for Option A:** Let's assume the photo was taken from a position near point C, looking north towards point A.\n    *   On the left side of the road (west), we would see the houses south of the intersection at A. Looking at the map, just below point C, there is an intersection. The house on the southwest corner has a light-colored roof and a visible hedge, matching the house on the left in the photo.\n    *   On the right side of the road (east), opposite the light-colored house, the map shows a house with a reddish roof. This matches the distinctive house with the red roof on the right side of the photo.\n\n*   **Conclusion:** The direction, the major landscape feature (the hill), and the specific houses all align perfectly with the view described by arrow A.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110500838",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110582277",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110593890",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "3728231686",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110599933",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "8588554269",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "682189618",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110545102",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110635335",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110570593",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "682301411",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110577736",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110647381",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    }
+  ]
+}

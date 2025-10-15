@@ -1,0 +1,43 @@
+{
+  "accuracy": 0.0,
+  "correct": 0,
+  "total": 5,
+  "empty": 0,
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- Houses on both sides of the street\n- Hills/mountains visible in the background\n- The road appears to be going uphill\n- There's a house with a distinctive white/light colored facade on the left side\n\nComparing this to the overhead map, the street view appears to be taken from point A looking northward (up the map). This direction would show the street going uphill toward the cul-de-sac area, with houses on both sides, which matches what we see in the street view photo.\n\nThe answer is: A",
+      "correct": false
+    },
+    {
+      "id": "110575924",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the left side of the street\n- The street appears to be going uphill/ascending\n- There's a stone/rock wall on the left side\n- Houses on both sides of the street\n\nComparing this to the overhead map, I need to find which colored line direction would show this perspective.\n\nThe green line (B) appears to be heading in a direction that would show the street ascending away from the intersection, with houses on both sides as seen in the street view photo. The perspective and arrangement of houses matches what would be visible looking in direction B.\n\nThe answer is: B",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A road going uphill/downhill\n- Power lines running along the street\n- Houses on both sides of the road\n- The road appears to be going upward in the distance\n- There's a white/light colored building on the left side\n\nComparing this to the overhead map:\n- Point A faces east along the main road\n- Point B faces south down a perpendicular street\n- Point C faces west along the main road\n\nThe street view shows a road that continues straight ahead with houses on both sides, which matches the view from point C looking west along the main horizontal road. The uphill perspective and the arrangement of houses visible in the street view align with looking west from point C's position.\n\nThe answer is C.",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- The sun is visible in the sky, creating a bright glare\n- There's a stone/rock wall on the right side of the road\n- Houses with driveways are visible on the left side\n- The road appears to be going slightly uphill\n\nComparing this to the overhead map, the red line (direction A) points northeast. Given the sun's position in the image (which appears to be either early morning or late afternoon based on the low angle), and the layout of houses and the stone wall visible in the street view matching what would be seen looking northeast from that intersection, direction A corresponds to the street view photo.\n\nThe answer is: A",
+      "correct": false
+    },
+    {
+      "id": "110546785",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street-view photo, I can see:\n- Power lines running along the street\n- A crosswalk/pedestrian crossing in the foreground\n- Houses on both sides of the street\n- The road continues straight ahead with a slight rise in the distance\n\nComparing this to the overhead map, I need to find which colored arrow matches this view. The street-view shows we're looking along a main road with a pedestrian crossing visible.\n\nLooking at the map:\n- The red arrow (A) points along the main road\n- The green arrow (B) points down a side street\n- The blue arrow (C) points across the intersection\n- The orange arrow (D) points up toward the building\n\nThe street-view photo shows a view straight down the main road with the pedestrian crossing stripes visible, which matches the perspective from the red arrow position (A) looking along the main road.\n\nThe answer is: A",
+      "correct": false
+    }
+  ]
+}
