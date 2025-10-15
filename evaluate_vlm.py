@@ -11,6 +11,8 @@ from tqdm import tqdm
 import re
 from datasets import load_dataset
 from tenacity import retry, stop_after_attempt, wait_exponential
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
 load_dotenv()
 
@@ -251,21 +253,28 @@ def normalize_letter(text: str, num_options: int) -> str:
     return ""
 
 
-def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | None = None, resume_from: str | None = None, out_path: str | None = None) -> Dict:
+def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | None = None, resume_from: str | None = None, out_path: str | None = None, workers: int = 1, pbar_disable: bool = False) -> Dict:
     ds = load_dataset(dataset_path, split="train") if os.path.isdir(dataset_path) else load_dataset(dataset_path)["train"]
 
     # The dataset we produce has relative paths inside repo; resolve to disk paths
     repo_root = Path(dataset_path) if os.path.isdir(dataset_path) else Path(".")
 
-    # Build provider
-    if provider == "openai":
-        runner = OpenAIProvider(model)
-    elif provider == "gemini":
-        runner = GeminiProvider(model)
-    elif provider == "claude":
-        runner = ClaudeProvider(model)
-    else:
+    # Validate provider early
+    if provider not in {"openai", "gemini", "claude"}:
         raise ValueError("provider must be one of: openai, gemini, claude")
+
+    # Thread-local provider (many SDK clients are not thread-safe)
+    _thread_local = threading.local()
+
+    def get_runner():
+        if not hasattr(_thread_local, "runner"):
+            if provider == "openai":
+                _thread_local.runner = OpenAIProvider(model)
+            elif provider == "gemini":
+                _thread_local.runner = GeminiProvider(model)
+            else:
+                _thread_local.runner = ClaudeProvider(model)
+        return getattr(_thread_local, "runner")
 
     # Precompute option counts for id and index to support accurate baselines when resuming
     id_to_num_opts: Dict[str, int] = {}
@@ -314,80 +323,84 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
     else:
         # No limit specified -> process all remaining
         additional_quota = None
-    # Prepare progress bar total for this run
-    remaining_this_run = 0
+
+    # Build list of indices to process this run
+    indices_to_process: List[int] = []
     for i, row in enumerate(ds):
         rid = str(row.get("id", i))
         if processed_ids and rid in processed_ids:
             continue
-        if limit is not None:
-            # we will cap by additional_quota below; count up to that
-            if remaining_this_run >= additional_quota:
-                break
-        remaining_this_run += 1
-
-    pbar = tqdm(total=remaining_this_run, desc="Evaluating", unit="ex")
-
-    for i, row in enumerate(ds):
-        rid = str(row.get("id", i))
-        if processed_ids and rid in processed_ids:
-            continue
-        if additional_quota is not None and added >= additional_quota:
+        if additional_quota is not None and len(indices_to_process) >= additional_quota:
             break
+        indices_to_process.append(i)
+
+    pbar = tqdm(total=len(indices_to_process), desc=f"Evaluating ({provider}:{model})", unit="ex", disable=pbar_disable)
+
+    def _process_one(idx: int) -> tuple[int, str, str, int, str]:
+        row = ds[idx]
+        rid_local = str(row.get("id", idx))
         # Resolve images to bytes + mime (handles PIL Image, dict with path, or str path)
         image_map_val = row.get("image_map") or (row.get("images") or [None, None])[0]
         image_sv_val = row.get("image_sv") or (row.get("images") or [None, None])[1]
         map_bytes, map_mime = to_image_bytes_and_mime(image_map_val, repo_root)
         sv_bytes, sv_mime = to_image_bytes_and_mime(image_sv_val, repo_root)
-
         prompt = build_prompt(row["question"], row["options"])
         try:
-            pred_raw = runner.infer(prompt, [(map_bytes, map_mime), (sv_bytes, sv_mime)])
+            pred_raw_local = get_runner().infer(prompt, [(map_bytes, map_mime), (sv_bytes, sv_mime)])
         except Exception as e:
-            logger.warning(f"Inference failed for idx={i}: {e}")
-            pred_raw = ""
-        num_opts = len(row["options"])
-        option_count_hist[num_opts] = option_count_hist.get(num_opts, 0) + 1
-        random_expectation_sum += (1.0 / num_opts) if num_opts > 0 else 0.0
-        pred = normalize_letter(pred_raw, num_opts)
-        gold = str(row["answer"]).strip().upper()
-        is_correct = pred == gold
-        cflag = bool(is_correct)
-        correct += int(cflag)
-        total += 1
-        if pred == "":
-            empty_preds += 1
-        results.append({
-            "id": rid,
-            "pred": pred,
-            "gold": gold,
-            "raw": pred_raw,
-            "correct": cflag,
-        })
-        added += 1
-        pbar.update(1)
+            logger.warning(f"Inference failed for idx={idx}: {e}")
+            pred_raw_local = ""
+        num_opts_local = len(row["options"])
+        gold_local = str(row["answer"]).strip().upper()
+        return idx, rid_local, pred_raw_local, num_opts_local, gold_local
 
-        # Incremental checkpointing
-        if out_path:
-            acc = correct / total if total else 0.0
-            rand_baseline = (random_expectation_sum / total) if total else 0.0
-            snapshot = {
-                "accuracy": acc,
-                "correct": correct,
-                "total": total,
-                "empty": empty_preds,
-                "random_baseline": rand_baseline,
-                "option_count_hist": option_count_hist,
-                "results": results,
-            }
-            outp = Path(out_path)
-            outp.parent.mkdir(parents=True, exist_ok=True)
-            outp.write_text(json.dumps(snapshot, indent=2))
+    # Parallel inference, serialize aggregation and snapshotting in main thread
+    if workers is None or workers < 1:
+        workers = 1
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        future_to_idx = {executor.submit(_process_one, idx): idx for idx in indices_to_process}
+        for fut in as_completed(future_to_idx):
+            idx, rid, pred_raw, num_opts, gold = fut.result()
+            option_count_hist[num_opts] = option_count_hist.get(num_opts, 0) + 1
+            random_expectation_sum += (1.0 / num_opts) if num_opts > 0 else 0.0
+            pred = normalize_letter(pred_raw, num_opts)
+            is_correct = pred == gold
+            cflag = bool(is_correct)
+            correct += int(cflag)
+            total += 1
+            if pred == "":
+                empty_preds += 1
+            results.append({
+                "id": rid,
+                "pred": pred,
+                "gold": gold,
+                "raw": pred_raw,
+                "correct": cflag,
+            })
+            added += 1
+            pbar.update(1)
+
+            # Incremental checkpointing
+            if out_path:
+                acc = correct / total if total else 0.0
+                rand_baseline = (random_expectation_sum / total) if total else 0.0
+                snapshot = {
+                    "accuracy": acc,
+                    "correct": correct,
+                    "total": total,
+                    "empty": empty_preds,
+                    "random_baseline": rand_baseline,
+                    "option_count_hist": option_count_hist,
+                    "results": results,
+                }
+                outp = Path(out_path)
+                outp.parent.mkdir(parents=True, exist_ok=True)
+                outp.write_text(json.dumps(snapshot, indent=2))
 
     acc = correct / total if total else 0.0
     rand_baseline = (random_expectation_sum / total) if total else 0.0
     logger.info(
-        f"Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
+        f"[{provider}:{model}] dataset={dataset_path} | Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
     )
     try:
         pbar.close()
@@ -454,7 +467,7 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
     acc = correct / total if total else 0.0
     rand_baseline = (random_expectation_sum / total) if total else 0.0
     logger.info(
-        f"Reparsed accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
+        f"[reparse] dataset={dataset_path} source={results_path} | Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
     )
     return {
         "accuracy": acc,
@@ -477,6 +490,11 @@ def main():
     parser.add_argument("--reparse-result", action="store_true", help="Re-parse answers from --out JSON without querying any model")
     parser.add_argument("--resume", action="store_true", help="Resume from the JSON at --out; append new rows after the last processed id")
     parser.add_argument("--self-test", action="store_true", help="Run built-in normalization tests and exit")
+    parser.add_argument("--workers", type=int, default=1, help="Number of parallel worker threads per evaluation")
+    # Multi-config support: --eval can be passed multiple times: provider,model,out
+    parser.add_argument("--eval", dest="evals", action="append", default=None, help="Provider,model,out triple, e.g., 'openai,gpt-4o,results/gpt-4o.json'. Can be provided multiple times.")
+    parser.add_argument("--eval-file", default=None, help="Path to a text file with one 'provider,model,out' per line")
+    parser.add_argument("--parallel-configs", type=int, default=1, help="Run up to N provider/model configs concurrently")
     args = parser.parse_args()
 
     if args.self_test:
@@ -519,19 +537,75 @@ def main():
             parser.error(f"Results file not found: {args.out}")
         metrics = reparse_results(args.dataset, args.out, args.limit)
     else:
-        if not args.provider or not args.model:
-            parser.error("--provider and --model are required unless --reparse-result is given")
-        resume_path = None
-        if args.resume:
+        # Build list of configs to run
+        configs: List[tuple[str, str, str, bool]] = []  # (provider, model, out, resume?)
+        if args.evals or args.eval_file:
+            triples: List[str] = []
+            if args.evals:
+                triples.extend(args.evals)
+            if args.eval_file:
+                text = Path(args.eval_file).read_text()
+                for line in text.splitlines():
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    triples.append(line)
+            for t in triples:
+                parts = [p.strip() for p in t.split(",")]
+                if len(parts) != 3:
+                    parser.error(f"Invalid --eval entry: {t!r}. Expected 'provider,model,out'.")
+                p, m, o = parts
+                res_flag = args.resume and Path(o).exists()
+                configs.append((p, m, o, res_flag))
+        else:
+            # Single-config mode via legacy flags
+            if not args.provider or not args.model:
+                parser.error("--provider and --model are required unless --reparse-result or --eval/--eval-file is given")
             if not args.out:
-                parser.error("--resume requires --out to read prior results from and write updates to")
-            resume_path = args.out if Path(args.out).exists() else None
-            if resume_path is None:
-                logger.info("No existing results at --out; starting fresh run")
-        metrics = evaluate_split(args.dataset, args.provider, args.model, args.limit, resume_from=resume_path, out_path=args.out)
-    if args.out:
-        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.out).write_text(json.dumps(metrics, indent=2))
+                parser.error("Single-config mode requires --out for output path")
+            res_flag = args.resume and Path(args.out).exists()
+            configs.append((args.provider, args.model, args.out, res_flag))
+
+        # Execute configs, optionally in parallel
+        results_per_config: Dict[str, Dict] = {}
+
+        def run_one_config(p: str, m: str, o: str, do_resume: bool) -> tuple[str, Dict]:
+            resume_path = o if do_resume else None
+            if resume_path is None and args.resume:
+                logger.info(f"No existing results at {o}; starting fresh run for {p}:{m}")
+            metrics_local = evaluate_split(args.dataset, p, m, args.limit, resume_from=resume_path, out_path=o, workers=args.workers, pbar_disable=(args.parallel_configs > 1))
+            # Ensure write final metrics to the specific out
+            Path(o).parent.mkdir(parents=True, exist_ok=True)
+            Path(o).write_text(json.dumps(metrics_local, indent=2))
+            return o, metrics_local
+
+        max_cfg_workers = args.parallel_configs if args.parallel_configs and args.parallel_configs > 1 else 1
+        if max_cfg_workers == 1 or len(configs) == 1:
+            for (p, m, o, do_resume) in configs:
+                out_key, met = run_one_config(p, m, o, do_resume)
+                results_per_config[out_key] = met
+        else:
+            with ThreadPoolExecutor(max_workers=max_cfg_workers) as pool:
+                futures = [pool.submit(run_one_config, p, m, o, do_resume) for (p, m, o, do_resume) in configs]
+                for fut in as_completed(futures):
+                    out_key, met = fut.result()
+                    results_per_config[out_key] = met
+
+        # In multi-config mode, when --out is provided alongside, write an index summary
+        if args.out:
+            summary = {
+                "configs": [
+                    {
+                        "provider": p,
+                        "model": m,
+                        "out": o,
+                        "metrics": results_per_config.get(o, {}),
+                    }
+                    for (p, m, o, _r) in configs
+                ]
+            }
+            Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+            Path(args.out).write_text(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":
