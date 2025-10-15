@@ -1,0 +1,714 @@
+{
+  "accuracy": 0.38,
+  "correct": 38,
+  "total": 100,
+  "empty": 0,
+  "random_baseline": 0.318333333333333,
+  "option_count_hist": {
+    "3": 73,
+    "4": 24,
+    "2": 3
+  },
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A (Red Arrow):** Points south, with a wide road and houses on both sides.\n   - **B (Green Arrow):** Points west, with houses on the left and a hill on the right.\n   - **C (Blue Arrow):** Points north, with houses on both sides and a curve in the road.\n\n2. **Street View Photo Analysis:**\n   - The road is straight with houses on both sides.\n   - There is a hill visible on the left side of the photo.\n\n3. **Comparison:**\n   - The presence of a hill on the left side of the street view photo matches the description of direction B (Green Arrow) on the map, which has a hill on the right when facing west.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110575924",
+      "pred": "D",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Street View Photo:**\n   - The road is sloping upwards.\n   - There is a stone wall on the right side.\n   - There are utility poles and wires visible.\n\n2. **Analyze the Map:**\n   - **Direction A:** Road is flat, with houses on both sides.\n   - **Direction B:** Road is flat, with houses on both sides.\n   - **Direction C:** Road is flat, with houses on both sides.\n   - **Direction D:** Road slopes upwards, with a stone wall on the right side.\n\n3. **Comparison:**\n   - The street view photo shows a sloping road with a stone wall on the right, matching the features of Direction D on the map.\n\nFinal answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows an intersection with three labeled directions: A (east), B (south), and C (west).\n\n2. **Analyze the Street View:**\n   - The street view shows a road with a slight curve to the left.\n   - There is a utility pole on the left side and houses on both sides.\n\n3. **Compare with Map:**\n   - Direction A (east) is a straight road with no visible curve.\n   - Direction B (south) has a slight curve to the left, matching the street view.\n   - Direction C (west) is a straight road with no visible curve.\n\n4. **Conclusion:**\n   - The street view photo matches the characteristics of direction B, which has a slight curve to the left.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **Direction A:** Faces a road with houses on both sides.\n   - **Direction B:** Faces a road with houses on the right and a construction site on the left.\n   - **Direction C:** Faces a road with houses on the left and a construction site on the right.\n\n2. **Street View Photo Analysis:**\n   - The photo shows a road with houses on both sides.\n   - There is a visible curve in the road.\n   - The sun is visible, indicating the direction might be towards the west.\n\n3. **Comparison:**\n   - The street view photo matches the description of **Direction A** on the map, where there are houses on both sides of the road.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110546785",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road with a crosswalk and a slight curve to the right.\n   - There are houses on the left and right sides.\n   - There is a noticeable hill or elevated area in the background.\n\n2. **Compare with the Map:**\n   - **Direction A:** The road is straight with houses on both sides, but no significant curve or hill.\n   - **Direction B:** The road curves slightly to the right, with houses on both sides, and a hill in the background.\n   - **Direction C:** The road is straight with houses on both sides, but no significant curve or hill.\n   - **Direction D:** The road is straight with houses on both sides, but no significant curve or hill.\n\n3. **Conclusion:**\n   - The street view matches best with Direction B, which has the slight curve to the right and a hill in the background.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2394655682",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a slight curve to the left.\n   - There are utility poles and wires visible.\n   - Houses are on both sides of the street.\n\n2. **Compare with the Map:**\n   - **Direction A:** The road is straight with houses on both sides.\n   - **Direction B:** The road curves slightly to the left with houses on both sides.\n   - **Direction C:** The road is straight with houses on both sides.\n\n3. **Match Features:**\n   - The slight left curve in the street view matches the road in direction B on the map.\n   - The presence of utility poles and houses on both sides also aligns with direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "7785944633",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows two labeled directions: A (red arrow) and B (green arrow).\n   - Direction A points southeast, and direction B points northwest.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a tall building on the left and a smaller building on the right.\n   - The road has multiple lanes and a sidewalk on the left.\n\n3. **Compare with the Map:**\n   - In direction A, the map shows a large building on the left side of the road, which matches the tall building in the photo.\n   - In direction B, the map shows a parking lot and smaller structures, which do not match the photo.\n\n4. **Conclusion:**\n   - The features in the street view photo (tall building on the left) match the features along direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "1226512565",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a road with multiple lanes.\n   - There is an overpass or elevated road on the right side.\n   - There are palm trees and a building on the left side.\n\n2. **Analyze the Map:**\n   - Direction A (red arrow) points towards a road that goes under an overpass.\n   - Direction B (green arrow) also points towards the overpass but at a different angle.\n   - Direction C (blue arrow) points away from the overpass.\n\n3. **Compare Features:**\n   - The overpass on the right in the photo matches the overpass seen in directions A and B on the map.\n   - The building and palm trees on the left in the photo match the features seen in direction A on the map.\n\n4. **Determine the Correct Direction:**\n   - The photo's perspective, with the overpass on the right and the building on the left, aligns with direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110538200",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a tree on the left and a house on the right.\n   - The road appears to be straight with no visible intersections ahead.\n\n2. **Analyze the Map:**\n   - **Direction A:** The road is straight with houses on both sides.\n   - **Direction B:** The road curves to the right with houses on the right.\n   - **Direction C:** The road is straight with houses on both sides.\n\n3. **Compare Features:**\n   - The tree on the left and the house on the right in the street view match the layout of Direction C, where the road is straight and there are houses on both sides.\n\n4. **Conclusion:**\n   - The street view photo was taken facing Direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "110597543",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street is straight with houses on both sides.\n   - There are utility poles and wires on the right side.\n   - The road is relatively wide with no visible intersections in the immediate view.\n\n2. **Analyze the Map:**\n   - **A (Red):** Leads north with houses on both sides.\n   - **B (Green):** Leads east with houses on both sides.\n   - **C (Blue):** Leads south with houses on both sides.\n   - **D (Orange):** Leads west with houses on both sides.\n\n3. **Compare Features:**\n   - The street view shows a straight road with utility poles on the right, which matches the direction of **B (Green)** on the map, leading east.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110575693",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - Direction A (red arrow) is a straight road with houses on both sides.\n   - Direction B (green arrow) is a road with a slight curve and more vegetation.\n   - Direction C (blue arrow) is a narrower road with houses and a visible white roof.\n\n2. **Analyze the Street View:**\n   - The street view shows a straight road with houses on both sides.\n   - There is a visible white house on the left and a mountain in the background.\n\n3. **Compare Features:**\n   - The straight road with houses on both sides matches Direction A.\n   - The white house on the left in the street view corresponds to the white roof visible in Direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "525391975",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road with a crosswalk, power lines, and buildings in the distance.\n   - There is a river or canal visible to the left side of the road.\n\n2. **Analyze the Map:**\n   - The map shows three labeled directions: A, B, and C.\n   - Direction A is aligned with a bridge over a river.\n   - Directions B and C are perpendicular to the river.\n\n3. **Match Features:**\n   - The street view shows a road with a river on the left, which matches the orientation of direction A on the map.\n   - The presence of a bridge in direction A aligns with the street view's perspective.\n\n4. **Conclusion:**\n   - The street view photo is taken facing direction A, as it matches the road and river alignment.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110619734",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three directions labeled A, B, and C.\n   - A is pointing north, B is pointing east, and C is pointing south.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a road with two lanes and a line of trees on the left.\n   - There are power lines on the right side of the road.\n\n3. **Compare with the Map:**\n   - Direction A (north) has a road with buildings on both sides and no significant tree line.\n   - Direction B (east) is a smaller road with buildings close to the street.\n   - Direction C (south) has a road with a line of trees on the left side, matching the photo.\n\n4. **Conclusion:**\n   - The street view photo matches the features seen in direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "5205421746",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A**: Faces a road with a building on the right.\n   - **B**: Faces a road with a building on the left.\n   - **C**: Faces a road with a building on the left and a large tree on the right.\n\n2. **Street View Photo Analysis:**\n   - The photo shows a road with a driveway on the left and a large tree on the right.\n   - There is a building visible behind the tree.\n\n3. **Comparison:**\n   - The description of direction **C** on the map matches the street view photo: a road with a building on the left and a large tree on the right.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110637872",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - **A**: Faces north, with a narrow street and buildings on both sides.\n   - **B**: Faces east, with a wider street and buildings on the right.\n   - **C**: Faces west, with a wider street and buildings on the left.\n\n2. **Street View Analysis**:\n   - The street is wide with buildings on the right side.\n   - There are trees and utility poles visible on the right.\n\n3. **Comparison**:\n   - The street view matches the description of direction **B** on the map, which has a wide street and buildings on the right.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street is straight with houses on both sides.\n   - There is a sidewalk and a street lamp on the left.\n   - Trash bins are visible on the right side.\n\n2. **Compare with the Map:**\n   - **Direction A:** The street is straight with houses on both sides.\n   - **Direction B:** The street is straight with houses on both sides.\n   - **Direction C:** The street curves and does not match the straight street in the photo.\n\n3. **Analyze the Details:**\n   - The presence of a street lamp and trash bins aligns with the features seen in directions A and B.\n   - Direction A has a sidewalk and street lamp on the left, matching the photo.\n\n4. **Conclusion:**\n   - The photo matches the features seen in direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows two labeled directions: A and B.\n   - Direction A is pointing southeast along a straight road.\n   - Direction B is pointing northeast along a different road.\n\n2. **Street View Analysis**:\n   - The street view shows a straight road with buildings on the right and open space on the left.\n   - The road has multiple lanes and a sidewalk on the right side.\n\n3. **Comparison**:\n   - Direction A on the map corresponds to a road with buildings on the right and open space on the left, matching the street view.\n   - Direction B would have a different layout, not matching the street view.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - There is a large parking lot on the right.\n   - A sports field with a track is visible on the left.\n   - Traffic lights and power lines are present.\n\n2. **Compare with the Map:**\n   - The parking lot corresponds to the area on the right of direction A on the map.\n   - The sports field with a track is located to the left of direction A.\n\n3. **Determine the Direction:**\n   - The photo is taken facing the direction where the parking lot is on the right and the sports field is on the left.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a narrow street with a \"Dead End\" sign.\n   - On the right, there is a large building with a flat roof.\n   - On the left, there are smaller residential houses.\n\n2. **Analyze the Map:**\n   - **Direction A:** Leads towards a large building with a flat roof.\n   - **Direction B:** Leads towards a street with smaller residential houses on both sides.\n   - **Direction C:** Leads towards a mix of residential houses and a green area.\n\n3. **Compare Features:**\n   - The large building on the right in the street view matches the large building in direction A on the map.\n   - The smaller houses on the left in the street view match the residential area in direction A.\n\n4. **Conclusion:**\n   - The street view photo is facing direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110575673",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - Look for distinctive features such as the number of lanes, road markings, buildings, and any visible landmarks like trees or poles.\n\n2. **Compare with the Map:**\n   - **Direction A:** This direction has a road with buildings on both sides and a visible intersection.\n   - **Direction B:** This direction also has buildings on both sides but is more residential.\n   - **Direction C:** This direction has a more open view with fewer buildings immediately visible.\n\n3. **Match Features:**\n   - The street view shows a road with a clear view of a pole and some buildings on the left side, which matches the layout seen in direction C on the map.\n\n4. **Final Decision:**\n   - Based on the comparison, the street view photo corresponds to direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110570600",
+      "pred": "C",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a tall building in the distance.\n   - There are crosswalks and a two-lane road.\n\n2. **Analyze the Map:**\n   - The map shows four directions labeled A, B, C, and D.\n   - Look for a tall building in the map that matches the one in the street view.\n\n3. **Match Features:**\n   - The tall building in the street view is located in the direction of arrow C on the map.\n   - The road layout and crosswalks in the street view align with the direction of arrow C.\n\n4. **Conclusion:**\n   - The street view photo was taken facing the direction of arrow C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110550647",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - The map shows an intersection with three labeled directions: A (east), B (south), and C (north).\n   - There are buildings on both sides of each road.\n\n2. **Street View Analysis:**\n   - The photo shows a road with a \"STOP\" marking, indicating the end of a street.\n   - There are buildings on both sides of the street.\n   - The road appears to be relatively narrow, with utility poles visible.\n\n3. **Comparison:**\n   - The street view shows a road with buildings on both sides, similar to the roads labeled B and C on the map.\n   - The presence of a \"STOP\" marking suggests the end of a road, which aligns with direction C on the map, as it leads into a smaller street.\n\n4. **Conclusion:**\n   - The street view photo is likely taken facing direction C, as it matches the characteristics of the road and surroundings.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "110612231",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three directions: A (north), B (southeast), and C (west).\n   - Each direction has distinct features: A is a straight road, B curves slightly, and C is a straight road with a slight curve.\n\n2. **Analyze the Street View:**\n   - The street view shows a road with a slight curve to the right.\n   - There are visible power lines and a tree on the right side.\n   - The road has a yellow center line and cars parked on the left.\n\n3. **Compare Features:**\n   - The road in the street view curves slightly to the right, similar to direction B on the map.\n   - The presence of power lines and a tree on the right side matches the features along direction B.\n\n4. **Conclusion:**\n   - The street view photo corresponds to direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "8591690612",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - **Direction A:** Faces east along a straight road.\n   - **Direction B:** Faces south along a curved road.\n   - **Direction C:** Faces northwest along a curved road.\n\n2. **Analyze the Street View:**\n   - The road is straight with a slight incline.\n   - There are houses on both sides.\n   - A utility pole is visible on the left side.\n\n3. **Compare with Map:**\n   - **Direction A** matches the straight road with houses on both sides.\n   - **Direction B** and **C** are on curved roads, which do not match the straight road in the photo.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110517640",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows two labeled directions: A and B.\n   - Direction A points eastward, and direction B points westward.\n\n2. **Street View Analysis**:\n   - The street view shows a road with buildings on both sides.\n   - There are multiple lanes and visible buildings on the right and left.\n\n3. **Comparison**:\n   - In the map, direction A (east) has buildings on both sides of the road, similar to the street view.\n   - Direction B (west) also has buildings on both sides, but the layout and spacing of the buildings in the street view match more closely with direction A.\n\n4. **Conclusion**:\n   - The street view photo is taken facing direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110619689",
+      "pred": "D",
+      "gold": "D",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis**:\n   - The map shows an intersection with four labeled directions: A, B, C, and D.\n   - Each direction has distinct buildings and road features.\n\n2. **Street View Analysis**:\n   - The street view shows a road with a building on the left and a building on the right.\n   - There are power lines and a crosswalk visible.\n\n3. **Comparison**:\n   - **Direction A**: The map shows a road with buildings on both sides, similar to the street view.\n   - **Direction B**: The map shows a road with buildings on both sides, but the layout doesn't match the street view.\n   - **Direction C**: The map shows a road with buildings on both sides, but the layout doesn't match the street view.\n   - **Direction D**: The map shows a road with buildings on both sides, similar to the street view.\n\n4. **Final Decision**:\n   - The street view matches the layout and features seen in Direction D on the map.\n\nFinal answer: \\boxed{D}",
+      "correct": true
+    },
+    {
+      "id": "110545067",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - Direction A (red arrow) points towards a narrow street with buildings on both sides.\n   - Direction B (green arrow) points towards a wider street with larger buildings.\n   - Direction C (blue arrow) points towards a main road with more open space.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a narrow street with buildings on both sides.\n   - The building on the left has a distinct facade with arches and a sign.\n   - The building on the right is more modern with large windows.\n\n3. **Compare with the Map:**\n   - The narrow street with buildings on both sides matches Direction A.\n   - The building on the left in the photo corresponds to the building on the left side of Direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three directions: A (east), B (west), and C (north).\n   - Direction A has a straight road with houses on the south side.\n   - Direction B has a straight road with houses on the north side.\n   - Direction C leads to a smaller road with greenery on the west side.\n\n2. **Street View Analysis**:\n   - The street view shows a straight road with a park or greenery on the right side.\n   - There are houses on the left side of the road.\n   - The road has multiple lanes and a bus stop visible on the right.\n\n3. **Comparison**:\n   - The street view matches direction B on the map, where the road has houses on the left (north) and greenery on the right (south).\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (north), B (east), and C (south).\n   - The intersection is at the center, with roads extending in these directions.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a road with a crosswalk and power lines.\n   - There is a hill or mountain visible in the background on the right side.\n   - The road appears to be straight with some trees and a sidewalk.\n\n3. **Compare with the Map:**\n   - Direction A (north) on the map aligns with a road that continues straight and has a similar layout to the street view.\n   - The presence of a hill or mountain on the right side in the photo suggests that the view is facing north, as the map shows open space to the east and south.\n\n4. **Conclusion:**\n   - The street view photo is most consistent with direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110624545",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - **A**: Faces north, with a parking lot and smaller buildings.\n   - **B**: Faces east, with a large building on the right and a crosswalk.\n   - **C**: Faces west, with a large building on the left and a crosswalk.\n\n2. **Analyze the Street View:**\n   - The photo shows a large building on the right side.\n   - There is a crosswalk visible in the foreground.\n   - The left side has a smaller building or structure.\n\n3. **Compare with Map:**\n   - The street view matches direction **B** on the map, as it shows a large building on the right and a crosswalk, consistent with the eastward view.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "358434668",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - **Direction A:** Faces a road with multiple lanes and a grassy area on the right.\n   - **Direction B:** Faces a road with multiple lanes and a grassy area on the left.\n   - **Direction C:** Faces a residential area with houses.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a road with multiple lanes.\n   - There is a grassy area on the right side.\n   - Houses and other structures are visible on the left side.\n\n3. **Comparison:**\n   - The street view matches the description of **Direction A** on the map, where the road has multiple lanes and a grassy area on the right.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110545952",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a wide road with a crosswalk.\n   - There are trees on the left side.\n   - A tall building is visible in the distance on the right.\n\n2. **Analyze the Map:**\n   - **Direction A:** Faces a sports field with no buildings directly in view.\n   - **Direction B:** Faces a parking lot and a building.\n   - **Direction C:** Faces a road lined with trees and a building in the distance.\n\n3. **Compare Features:**\n   - The street view's trees and the tall building match the features seen in Direction C on the map.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110637113",
+      "pred": "A",
+      "gold": "D",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a \"STOP\" marking.\n   - There are houses on both sides of the street.\n   - Power lines are visible above the street.\n\n2. **Analyze the Map:**\n   - The map shows four labeled directions: A, B, C, and D.\n   - Direction A has a road with a \"STOP\" marking and houses on both sides, matching the street view.\n\n3. **Compare Features:**\n   - Direction A on the map aligns with the features seen in the street view photo, such as the \"STOP\" marking and the layout of the houses.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110632100",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three directions from the intersection:\n     - **A**: East along a road with a building on the north side.\n     - **B**: South along a road with open land on the east side.\n     - **C**: North along a road with houses on both sides.\n\n2. **Analyze the Street View:**\n   - The street view shows a road with a building on the right and open land on the left.\n   - The road is straight with a slight incline.\n\n3. **Compare with Map:**\n   - The street view matches direction **A**:\n     - The building on the right (north side) and open land on the left (south side) match the map's layout for direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110539372",
+      "pred": "D",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a wide road with multiple lanes.\n   - There are traffic lights and a stone wall on the left side.\n   - There are trees and some buildings visible.\n\n2. **Analyze the Map:**\n   - The map shows an intersection with four labeled directions: A, B, C, and D.\n   - Direction A and D are along a wide road with multiple lanes.\n   - Direction C and B are along narrower roads.\n\n3. **Match Features:**\n   - The stone wall and trees on the left in the street view match the features seen in direction D on the map.\n   - The wide road with multiple lanes in the street view corresponds to the road in direction D.\n\n4. **Conclusion:**\n   - The street view photo is taken facing direction D.\n\nFinal answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "810809800",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a straight road with houses on both sides.\n   - There are power lines on the left side of the road.\n   - The road has a double yellow line in the center.\n\n2. **Analyze the Map:**\n   - Direction A (red arrow) is a straight road with houses on both sides.\n   - Direction B (green arrow) is a narrower road with houses on one side.\n   - Direction C (blue arrow) is a straight road with houses on both sides.\n\n3. **Compare Features:**\n   - Both directions A and C have roads with houses on both sides.\n   - The presence of power lines on the left in the street view photo matches the map for direction A, where the power lines are likely on the left side when facing outward.\n\n4. **Determine the Correct Direction:**\n   - The street view photo aligns with the features of direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110500838",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a road with houses on both sides.\n   - There is a white fence on the left side and a clear view of a mountain in the distance.\n\n2. **Analyze the Map:**\n   - The map shows three labeled directions: A, B, and C.\n   - Direction A (red) points north, B (green) points southeast, and C (blue) points west.\n\n3. **Compare Features:**\n   - The street view shows a clear view of a mountain, which suggests an open area in that direction.\n   - The white fence and houses match the layout seen in direction C on the map.\n\n4. **Determine the Direction:**\n   - Direction C on the map aligns with the features seen in the street view photo, such as the open view and the arrangement of houses.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110582277",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a large building on the left and several buildings on the right.\n   - There are power lines visible on the right side of the street.\n\n2. **Analyze the Map:**\n   - Direction A: A road with houses on both sides.\n   - Direction B: A road with a large building on the left and smaller buildings on the right.\n   - Direction C: A road with a large building on the right and smaller buildings on the left.\n   - Direction D: A road with a large building on the left and smaller buildings on the right.\n\n3. **Compare Features:**\n   - The street view matches the description of Direction B, where there is a large building on the left and smaller buildings on the right, along with power lines.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110593890",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a street with power lines on the left side and a mix of houses and a wall on the right.\n   - The road is straight with cars parked on both sides.\n\n2. **Compare with the Map:**\n   - **Direction A (Red):** This direction has houses on both sides and no visible power lines.\n   - **Direction B (Green):** This direction has houses on both sides and no visible power lines.\n   - **Direction C (Blue):** This direction has power lines on the left side and a mix of houses and a wall on the right, matching the street view photo.\n\n3. **Conclusion:**\n   - The street view photo matches the features seen in Direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "3728231686",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - **A**: Faces east, with a wide road and houses on the right.\n   - **B**: Faces north, with a park on the left and houses on the right.\n   - **C**: Faces northwest, with houses on both sides.\n\n2. **Street View Analysis**:\n   - The road is wide with houses on the right.\n   - There are power lines on the right side.\n   - The left side has a low wall and some open space.\n\n3. **Comparison**:\n   - The street view matches direction **A**: wide road, houses on the right, and open space on the left.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110599933",
+      "pred": "C",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three directions: A (red), B (green), and C (blue).\n   - Direction A is to the east, B is to the southeast, and C is to the northwest.\n\n2. **Street View Analysis**:\n   - The street view shows a road with a curve to the left and a visible horizon on the right.\n   - There are power lines and a sidewalk on the right side.\n\n3. **Comparison**:\n   - The road in the street view curves to the left, which matches the curve seen in direction C on the map.\n   - The presence of power lines and a sidewalk on the right side in the street view corresponds to the features along direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "8588554269",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A**: Faces a street with houses on both sides.\n   - **B**: Faces a street with houses on the right and trees on the left.\n   - **C**: Faces a street with houses on the left and an open area on the right.\n\n2. **Street View Photo Analysis:**\n   - The photo shows a street with houses on the right and an open area on the left.\n   - There is a clear view of the sky and distant landscape.\n\n3. **Comparison:**\n   - The street view matches the description of direction **C** on the map, where there are houses on the left and an open area on the right.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "682189618",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - A large building with a chimney on the right.\n   - A crosswalk in the foreground.\n   - Palm trees and a road extending straight ahead.\n\n2. **Compare with the Map:**\n   - The building with the chimney is visible on the left side of the map, near direction C.\n   - The road extending straight ahead matches the road layout in direction C.\n\n3. **Determine the Direction:**\n   - The photo is taken facing the building, which is consistent with direction C on the map.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "110545102",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Landmarks:**\n   - The street view shows a building with \"Zippy's\" on the right and a large building on the left.\n\n2. **Compare with Map:**\n   - On the map, the building with a unique shape and size is on the left when facing direction B.\n   - The building labeled \"Zippy's\" is on the right when facing direction B.\n\n3. **Determine Direction:**\n   - The street view photo matches the orientation of direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110635335",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a wide road with multiple lanes and traffic lights.\n   - There are trees and open space visible on the left side.\n\n2. **Compare with the Map:**\n   - **Direction A:** Faces a road with buildings on both sides.\n   - **Direction B:** Faces a road with buildings on the right and some open space on the left.\n   - **Direction C:** Faces a wide road with open space on the left side.\n\n3. **Match Features:**\n   - The wide road and open space on the left in the photo match the features seen in direction C on the map.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "110570593",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a wide road with multiple lanes.\n   - There is a white wall on the right side.\n   - Trees and greenery are visible on both sides.\n\n2. **Analyze the Map:**\n   - **Direction A:** Leads to a narrower road with buildings close by.\n   - **Direction B:** Leads to a wider road with more open space and greenery.\n   - **Direction C:** Leads to a road with buildings on both sides.\n\n3. **Compare Features:**\n   - The wide road and greenery in the street view match the features seen in Direction B on the map.\n   - The white wall on the right side in the street view corresponds to the open space seen on the right side of Direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "682301411",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A, B, and C.\n   - Direction A points slightly to the right of a straight road.\n   - Direction B points along a road with a curve to the left.\n   - Direction C points along a road with a curve to the right.\n\n2. **Analyze the Street View:**\n   - The street view shows a road curving to the left.\n   - There is an overpass on the left side of the image.\n\n3. **Compare with Map:**\n   - The road curving to the left in the street view matches the direction of B on the map.\n   - The overpass on the left in the street view corresponds to the overpass seen near direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110577736",
+      "pred": "B",
+      "gold": "D",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A (Red):** Faces a road with a parking lot on the right.\n   - **B (Green):** Faces a residential area with a house on the right.\n   - **C (Blue):** Faces a residential area with a house on the left.\n   - **D (Orange):** Faces a road with greenery on the left.\n\n2. **Street View Photo Analysis:**\n   - The photo shows a road with a house on the right and some greenery on the left.\n\n3. **Comparison:**\n   - The photo matches direction **B (Green)** on the map, where there is a house on the right side of the road.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110647381",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo step by step:\n\n1. **Map Analysis:**\n   - The map shows three labeled directions: A, B, and C.\n   - Direction A is pointing north-east.\n   - Direction B is pointing south-east.\n   - Direction C is pointing west.\n\n2. **Street View Analysis:**\n   - The street view shows a road with a crosswalk and a building on the left.\n   - There is a hill or elevated area in the background.\n\n3. **Comparison:**\n   - The street view shows a road extending straight ahead with a crosswalk, which matches the layout of direction A on the map.\n   - The building on the left in the street view corresponds to the building on the left side of direction A on the map.\n   - The hill in the background is consistent with the open area seen in the north-east direction on the map.\n\nBased on these observations, the street view photo was taken facing direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110545972",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - On the right side, there is a large building with a distinctive roof structure.\n   - On the left side, there are trees and a smaller building.\n\n2. **Compare with the Map:**\n   - **Direction A:** The map shows a large building with a unique roof structure on the right side, matching the street view.\n   - **Direction B:** The map shows a large building on the left side, which does not match the street view.\n   - **Direction C:** The map shows open space and parking on the right side, which does not match the street view.\n\n3. **Conclusion:**\n   - The features in the street view photo match those seen in Direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110540439",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (north), B (south), and C (west).\n   - The intersection is at the center, with roads extending in these directions.\n\n2. **Analyze the Street View:**\n   - The street view shows a straight road with houses on both sides.\n   - There are no visible intersections or turns in the immediate view, suggesting a straight path.\n\n3. **Compare with the Map:**\n   - Direction A (north) and B (south) are along the same straight road.\n   - Direction C (west) is a different road that curves and does not match the straight view in the photo.\n\n4. **Determine the Correct Direction:**\n   - Since the street view shows a straight road, it must be either A or B.\n   - The presence of houses and the layout suggest a more open view, which aligns with the north direction (A) on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "12503999438",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road with multiple lanes and a grassy median.\n   - There are tall buildings on the right side.\n   - Trees are visible, providing shade over the road.\n\n2. **Analyze the Map:**\n   - Direction A (red) points towards a road with a grassy median and buildings on the right.\n   - Direction B (green) points towards a road with a grassy median and buildings on the left.\n   - Direction C (blue) points towards a road with no visible grassy median and buildings on the left.\n\n3. **Compare Features:**\n   - The street view matches Direction A, where the grassy median and buildings are on the right side of the road.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110575497",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - A large multi-story parking structure on the right.\n   - A building with greenery on the left.\n   - Multiple lanes and a bike lane.\n\n2. **Compare with the Map:**\n   - **Direction A:** Has a parking lot and some trees, not matching the street view.\n   - **Direction B:** Shows a large building on the right and smaller buildings on the left, matching the street view.\n   - **Direction C:** Has a large building on the left, not matching the street view.\n   - **Direction D:** Has smaller buildings on both sides, not matching the street view.\n\n3. **Conclusion:**\n   - The street view photo matches the features seen in direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110634356",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a road with multiple lanes and a median with greenery.\n   - There are power lines and a large building on the right side.\n   - The road appears to be straight with a slight curve to the left.\n\n2. **Analyze the Map:**\n   - Direction A is a straight road with a large building on the right side.\n   - Direction B is a diagonal road with buildings on both sides.\n   - Direction C is a straight road with a median and buildings on the left.\n\n3. **Compare Features:**\n   - The photo's road with a median and a large building on the right matches Direction A on the map.\n   - The presence of power lines and the straight road further support this.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "540399293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three labeled directions: A (red), B (green), and C (blue).\n   - Direction A leads to a main road with multiple lanes.\n   - Directions B and C lead into residential areas with smaller roads.\n\n2. **Street View Analysis**:\n   - The street view shows a residential area with houses on both sides.\n   - There is a utility pole and a fence on the right side.\n   - The road appears to be a smaller residential street.\n\n3. **Comparison**:\n   - The street view does not show a large multi-lane road, so it is unlikely to be direction A.\n   - The presence of residential houses and a smaller road matches directions B and C.\n   - The utility pole and fence on the right side are consistent with the layout in direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "10024771033",
+      "pred": "C",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A**: Faces north, with buildings on both sides.\n   - **B**: Faces south, with buildings on both sides.\n   - **C**: Faces southwest, with a more open area on the left and buildings on the right.\n\n2. **Street View Analysis:**\n   - The photo shows a road with a building on the left and a more open area on the right.\n   - The road curves slightly to the right.\n\n3. **Comparison:**\n   - The street view matches direction **C** on the map, where there is a building on the left and an open area on the right.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110544054",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (north), B (southeast), and C (southwest).\n   - The intersection is a T-junction with A pointing north, B pointing southeast, and C pointing southwest.\n\n2. **Analyze the Street View:**\n   - The street view shows a road with a tree on the left and a house on the right.\n   - There are power lines and a mountain visible in the distance.\n\n3. **Compare with the Map:**\n   - Direction A (north) has a road with buildings on both sides and no visible large trees or open space.\n   - Direction B (southeast) has a road with a house on the right and open space on the left, matching the street view.\n   - Direction C (southwest) has buildings on both sides and does not match the street view.\n\n4. **Conclusion:**\n   - The street view photo matches the layout and features of direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110577115",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - **A**: Faces east along a road with buildings on the right and open space on the left.\n   - **B**: Faces south with buildings on both sides.\n   - **C**: Faces west with buildings on the left and open space on the right.\n\n2. **Street View Analysis**:\n   - The photo shows a road with open space (trees and grass) on the left and buildings on the right.\n\n3. **Comparison**:\n   - The street view matches the description of direction **A** on the map, where the road has open space on the left and buildings on the right.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110660634",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - On the left, there's a blue building with a store.\n   - On the right, there's a tall white building.\n\n2. **Compare with the Map:**\n   - **Direction A:** The map shows a tall building on the right side of the street, matching the tall white building in the photo.\n   - **Direction B:** The map shows a different layout with no tall building on the right.\n   - **Direction C:** The map shows a different layout with no tall building on the right.\n\n3. **Conclusion:**\n   - The features in the photo (tall white building on the right) match the layout in direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110575247",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three labeled directions: A (north), B (south), and C (east).\n   - The intersection has a crosswalk on the north-south road and a stop line on the east-west road.\n\n2. **Street View Analysis**:\n   - The photo shows a crosswalk directly ahead and a stop line on the road.\n   - There are visible power lines and a hedge on the right side.\n\n3. **Comparison**:\n   - The crosswalk in the street view matches the north-south road on the map.\n   - The stop line in the street view matches the east-west road on the map.\n   - The hedge and power lines are consistent with the features seen in the direction of B on the map.\n\n4. **Conclusion**:\n   - The street view photo is taken facing south, corresponding to direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110602210",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a slight curve to the right.\n   - There are houses on both sides of the street.\n   - A fire hydrant is visible on the right side of the road.\n\n2. **Analyze the Map:**\n   - **Direction A:** The road is straight with houses on both sides.\n   - **Direction B:** The road curves to the left with houses on both sides.\n   - **Direction C:** The road curves to the right with houses on both sides.\n\n3. **Match the Photo to the Map:**\n   - The street view photo shows a road curving to the right, which matches the description of Direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110607768",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three directions labeled A, B, and C.\n   - A is pointing east, B is pointing south, and C is pointing west.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a road curving to the left with a pink wall and a house on the left side.\n   - There is a hill or elevated area in the background.\n\n3. **Compare with the Map:**\n   - The pink wall and house match the structure seen on the map in the direction of C.\n   - The hill in the background suggests an open area, which aligns with the westward direction (C) on the map.\n\n4. **Conclusion:**\n   - The street view photo is taken facing the direction labeled C on the map.\n\nFinal answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "110632672",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **A (Red):** Faces east, with a road leading to a curve.\n   - **B (Green):** Faces south, with a straight road and buildings on both sides.\n   - **C (Blue):** Faces west, with a straight road and a large circular building nearby.\n\n2. **Street View Analysis:**\n   - The photo shows a straight road with buildings on both sides.\n   - There are palm trees and a clear sky, suggesting an open area.\n   - The road appears to be straight with no immediate curves.\n\n3. **Comparison:**\n   - The street view matches the description of direction **B (Green)**, which is a straight road with buildings on both sides.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110660683",
+      "pred": "C",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - **A**: Faces a large building with a parking lot on the right.\n   - **B**: Faces a street with buildings on both sides.\n   - **C**: Faces a street with a large building on the left.\n\n2. **Street View Analysis**:\n   - The photo shows a street with a building on the left and a tree on the right.\n   - The road is straight with a slight curve visible in the distance.\n\n3. **Comparison**:\n   - The street view matches direction **C** on the map, where the large building is on the left side.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "7618651229",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - On the left, there is a large building with multiple levels.\n   - On the right, there is a grassy area or hill.\n\n2. **Compare with the Map:**\n   - **Direction A:** To the east, there is a grassy area on the right and a large building on the left.\n   - **Direction B:** To the south, there is a building with solar panels on the left.\n   - **Direction C:** To the west, there is a parking lot and smaller buildings.\n   - **Direction D:** To the north, there are smaller buildings and a parking lot.\n\n3. **Match Features:**\n   - The street view shows a large building on the left and a grassy area on the right, which matches the features seen in direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110655493",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a road with a grassy hill on the left and a house on the right.\n   - The road is sloping upwards.\n\n2. **Analyze the Map:**\n   - **Direction A:** Road with houses on both sides.\n   - **Direction B:** Road with houses on the right and open space on the left.\n   - **Direction C:** Road with open space on the left and houses on the right.\n\n3. **Compare the Photo with the Map:**\n   - The street view photo matches the description of Direction C, where there is open space (grassy hill) on the left and houses on the right.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110542308",
+      "pred": "B",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a wide road with multiple lanes.\n   - There are tall buildings on the left side.\n   - There are palm trees and a green area on the right side.\n\n2. **Analyze the Map:**\n   - **Direction A:** Points towards a road with buildings on the right and a green area on the left.\n   - **Direction B:** Points towards a road with a green area on the right and buildings on the left.\n   - **Direction C:** Points towards the beach and does not match the photo.\n\n3. **Compare Features:**\n   - The photo's features (buildings on the left, green area on the right) match the description of Direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110652154",
+      "pred": "B",
+      "gold": "D",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road leading towards a mountain in the background.\n   - There are houses on both sides of the road.\n\n2. **Analyze the Map:**\n   - Look for a road on the map that aligns with the view in the photo, particularly one that leads towards a mountain or open area.\n   - Check the layout of the houses and the road direction.\n\n3. **Compare Directions:**\n   - Direction A (north) and Direction B (east) both have houses on either side, but Direction B leads towards an open area that could correspond to the mountain.\n   - Direction C (south) and Direction D (west) do not align with the mountain view.\n\n4. **Determine the Best Match:**\n   - Direction B is the most likely match as it leads towards an open area, which could be the mountain seen in the street view.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "3728226511",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows an overpass with a building on the left and a gas station on the right.\n\n2. **Analyze the Map:**\n   - The map shows an overpass running horizontally.\n   - Direction A and B are towards the overpass.\n   - Direction C is away from the overpass.\n\n3. **Match Features:**\n   - The building on the left in the photo corresponds to the building on the left side of direction B on the map.\n   - The gas station on the right in the photo matches the area on the right side of direction B.\n\n4. **Conclusion:**\n   - The photo is taken facing direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "8588554309",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three labeled directions: A (north), B (east), and C (west).\n   - The intersection is surrounded by residential buildings.\n\n2. **Street View Analysis**:\n   - The street view shows a straight road with houses on both sides.\n   - There are trees visible on the right side of the road.\n\n3. **Comparison**:\n   - Direction A (north) on the map shows a road with houses on both sides, similar to the street view.\n   - Direction B (east) and C (west) have different layouts with more open spaces or different building arrangements.\n\n4. **Conclusion**:\n   - The street view photo matches the layout and features of direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110563456",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a narrow road with power lines and a few visible buildings.\n   - There are trees and a fence on the right side.\n   - The road appears to be straight with some buildings visible in the distance.\n\n2. **Analyze the Map:**\n   - The map shows four possible directions: A, B, C, and D.\n   - Each direction has different arrangements of buildings and roads.\n\n3. **Compare Features:**\n   - **Direction A:** Leads to a wider road with more open space, not matching the narrow road in the street view.\n   - **Direction B:** Shows a narrow road with buildings on both sides, similar to the street view.\n   - **Direction C:** Also shows a narrow road but with different building arrangements.\n   - **Direction D:** Leads to a wider road, not matching the street view.\n\n4. **Conclusion:**\n   - The street view photo matches the features seen in Direction B, with a narrow road and buildings on both sides.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1164380313",
+      "pred": "D",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows a highway with four labeled directions: A (north), B (east), C (south), and D (west).\n   - The highway runs east-west, with directions B and D along the highway.\n\n2. **Street View Analysis**:\n   - The street view shows a wide highway with multiple lanes and a distant view of mountains or hills.\n   - There are no significant buildings or structures immediately visible, suggesting an open area.\n\n3. **Comparison**:\n   - The street view's open highway and distant landscape are consistent with a view along the highway.\n   - The presence of mountains or hills in the distance suggests a direction that aligns with the landscape features visible from the highway.\n\n4. **Conclusion**:\n   - The street view is likely facing west, as the open highway and distant landscape match the direction labeled D on the map.\n\nFinal answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "110645654",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a narrow street with a tree on the right side and a building on the left.\n   - There are power lines visible above.\n   - A gate is visible at the end of the street.\n\n2. **Analyze the Map:**\n   - **Direction A:** A narrow street with buildings on both sides.\n   - **Direction B:** A street with a tree on the right side and a building on the left.\n   - **Direction C:** A street with buildings on both sides.\n\n3. **Compare the Photo with the Map:**\n   - The street view photo matches the description of Direction B, with a tree on the right and a building on the left.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "3536195327",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - Direction A: North, with residential buildings on the right.\n   - Direction B: East, with a large building on the right.\n   - Direction C: West, with a large building on the left.\n\n2. **Analyze the Street View:**\n   - The photo shows a road with a large building on the right and a residential area on the left.\n   - There is a \"STOP\" marking on the road.\n\n3. **Compare with Map:**\n   - The street view matches Direction B, where the large building is on the right side.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a road with a crosswalk, a fence on the right, and buildings in the distance.\n   - There are trees on the left side of the road.\n\n2. **Compare with the Map:**\n   - **Direction A:** Leads to a road with trees on both sides and a parking lot on the right.\n   - **Direction B:** Leads to a road with a fence on the right and open space.\n   - **Direction C:** Leads to a road with a parking lot on the left and a building on the right.\n   - **Direction D:** Leads to a road with trees on the left and a parking lot on the right.\n\n3. **Match Features:**\n   - The photo's features (fence on the right, open space, and trees on the left) match best with **Direction B**.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - The map shows three labeled directions: A (east), B (south), and C (northwest).\n   - The intersection is surrounded by residential buildings.\n\n2. **Street View Analysis**:\n   - The street view shows a road with power lines on the right side.\n   - There are houses on both sides of the street.\n   - The road appears to be straight with a slight curve to the left in the distance.\n\n3. **Comparison**:\n   - Direction A (east) on the map has a straight road with houses on both sides, matching the street view.\n   - The power lines in the street view are consistent with the map's layout for direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110542795",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (east), B (south), and C (west).\n   - The intersection is surrounded by residential buildings.\n\n2. **Analyze the Street View:**\n   - The street view shows a road with houses on both sides.\n   - There is a sidewalk and a wall on the left side.\n   - The road appears to be straight with no visible intersections in the immediate view.\n\n3. **Compare with the Map:**\n   - Direction A (east) shows a straight road with houses on both sides, matching the street view.\n   - Direction B (south) and C (west) do not match as they show different configurations of buildings and roads.\n\n4. **Conclusion:**\n   - The street view photo is taken facing direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110513915",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis:**\n   - **Direction A:** Faces a road with a red-roofed building on the right.\n   - **Direction B:** Faces a parking lot and buildings.\n   - **Direction C:** Faces a road with a red-roofed building on the left.\n\n2. **Street View Analysis:**\n   - The photo shows a road with a red-roofed building on the right side.\n   - The road has multiple lanes and a barrier in the middle.\n\n3. **Comparison:**\n   - The street view matches the description of Direction A, where the red-roofed building is on the right side of the road.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110619682",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road with a crosswalk and buildings on both sides.\n   - There are utility poles and wires visible.\n\n2. **Compare with the Map:**\n   - **Direction A:** The road is straight with buildings on both sides and a crosswalk visible.\n   - **Direction B:** The road is straight with a large open area on one side.\n   - **Direction C:** The road curves slightly with buildings on one side.\n\n3. **Match Features:**\n   - The street view shows a straight road with buildings on both sides and a crosswalk, matching Direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "453703609",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Map Analysis**:\n   - **A**: Faces a road with trees and open space on the right.\n   - **B**: Faces a residential area with houses.\n   - **C**: Faces a road with open space on the left.\n\n2. **Street View Analysis**:\n   - The road has open space (likely a park or golf course) on the right.\n   - There are trees and a clear view of a hill or mountain in the distance.\n\n3. **Comparison**:\n   - The street view matches the description of direction **A** on the map, where the road has open space on the right.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110609040",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, let's analyze the map and the photo:\n\n1. **Map Analysis**:\n   - The map shows an intersection with four labeled directions: A, B, C, and D.\n   - Each direction has distinct features such as the number of lanes, building types, and vegetation.\n\n2. **Street View Analysis**:\n   - The street view shows a road with two lanes, one in each direction.\n   - There are houses on both sides of the street, with a noticeable hill or elevated area in the background.\n   - There is a tree on the right side of the image.\n\n3. **Comparison**:\n   - **Direction A**: This direction has a straight road with houses on both sides, similar to the street view. However, the map does not show a hill in the background.\n   - **Direction B**: This direction also has houses on both sides, but the map shows a more open area without a hill.\n   - **Direction C**: This direction has a road leading towards a hill or elevated area, matching the background in the street view.\n   - **Direction D**: This direction has a more urban setting with less vegetation, which does not match the street view.\n\nBased on the presence of the hill and the layout of the houses, the street view photo was likely taken facing:\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110621029",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a wide road with multiple lanes.\n   - There are tall buildings on the right side.\n   - There is an open area or construction site on the left.\n\n2. **Analyze the Map:**\n   - **Direction A:** Faces a road with buildings on the right and an open area on the left.\n   - **Direction B:** Faces a curved road with a building on the left.\n   - **Direction C:** Faces a bridge with water and construction on the left.\n\n3. **Compare Features:**\n   - The street view matches Direction A, where the road has buildings on the right and an open area on the left.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "525279235",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - **Direction A:** Faces a road with multiple lanes and a crosswalk.\n   - **Direction B:** Faces a residential area with houses.\n   - **Direction C:** Faces a road with multiple lanes and a crosswalk.\n\n2. **Analyze the Street View:**\n   - The photo shows a wide road with multiple lanes.\n   - There is a bus stop on the right side.\n   - The road appears to be open and surrounded by greenery.\n\n3. **Compare with Map:**\n   - **Direction A:** Matches the wide road with multiple lanes and a crosswalk.\n   - **Direction B:** Does not match as it faces residential houses.\n   - **Direction C:** Also matches a wide road with multiple lanes.\n\n4. **Final Decision:**\n   - The presence of a bus stop and the open road with greenery suggests a more open area, which aligns with Direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110658443",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (red), B (green), and C (blue).\n   - Direction A is eastward, B is westward, and C is northward.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a street with buildings on both sides.\n   - The road is straight with visible lanes and buildings on the right side.\n\n3. **Compare with the Map:**\n   - Direction A (red) on the map shows a straight road with buildings on the right side, matching the street view photo.\n   - Directions B and C do not match the layout seen in the photo.\n\n4. **Conclusion:**\n   - The street view photo corresponds to direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "110551700",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street curves slightly to the left.\n   - There are houses on both sides of the street.\n   - A utility pole is visible on the right side.\n\n2. **Analyze the Map:**\n   - **Direction A:** Straight road with houses on both sides.\n   - **Direction B:** Road curves slightly to the left with houses on both sides.\n   - **Direction C:** Straight road with houses on both sides.\n   - **Direction D:** Straight road with houses on both sides.\n\n3. **Match Features:**\n   - The slight left curve in the road and the presence of houses on both sides match best with Direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110648455",
+      "pred": "C",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The road has a double yellow line, indicating a two-way street.\n   - There is a grassy area with trees on the right.\n   - A building with a distinctive roof is visible on the left.\n\n2. **Compare with the Map:**\n   - **Direction A:** The road is straight with no visible grassy area or buildings.\n   - **Direction B:** The road curves, and there is a building on the right, not matching the street view.\n   - **Direction C:** The road is straight, with a grassy area on the right and a building on the left, matching the street view.\n   - **Direction D:** The road is straight, but the surroundings do not match the street view.\n\n3. **Conclusion:**\n   - The features in the street view photo match those seen in direction C on the map.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110635882",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - A tall building directly ahead.\n   - A road curving to the left.\n   - A smaller building to the right.\n\n2. **Analyze the Map:**\n   - **Direction A:** Points towards a large building with a parking lot.\n   - **Direction B:** Points towards a smaller building and a road that curves left.\n   - **Direction C:** Points towards a tennis court and a large building.\n\n3. **Match Features:**\n   - The tall building in the photo matches the building in direction B.\n   - The road curving left in the photo matches the road in direction B.\n\n4. **Conclusion:**\n   - The features in the photo align with direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "2309311992",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a road with a body of water on the left and buildings on the right.\n   - There are trees along the water and a crosswalk visible.\n\n2. **Analyze the Map:**\n   - Direction A: Road runs parallel to the water, with the water on the right.\n   - Direction B: Road runs parallel to the water, with the water on the left.\n   - Direction C: Road runs perpendicular to the water.\n\n3. **Match Features:**\n   - The photo shows the water on the left and buildings on the right, matching Direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110585086",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a \"STOP\" marking.\n   - There is a distinctive building on the right side with multiple levels and external staircases.\n   - There are power lines overhead.\n\n2. **Compare with the Map:**\n   - Look for a road with a similar layout and a building that matches the one in the photo.\n   - The building in the photo is on the right side, indicating the direction of the photo is towards the building.\n\n3. **Analyze the Map:**\n   - Direction A (red) has a building on the right side that matches the description.\n   - The road layout and surrounding features align with the street view.\n\n4. **Conclusion:**\n   - The street view photo is taken facing direction A.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110608557",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Analyze the Map:**\n   - The map shows three labeled directions: A (east), B (south), and C (northwest).\n   - The intersection is surrounded by residential buildings.\n\n2. **Analyze the Street View Photo:**\n   - The photo shows a road with a slight curve to the left.\n   - There are residential buildings on both sides.\n   - There is a visible tree on the right side of the road.\n\n3. **Compare the Map and Photo:**\n   - Direction A (east) on the map shows a straight road with buildings on both sides, matching the street view.\n   - Direction B (south) shows a curved road, but the curve is more pronounced than in the photo.\n   - Direction C (northwest) shows a road with a sharp turn, which does not match the photo.\n\n4. **Conclusion:**\n   - The street view photo matches the characteristics of direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110606149",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Map:**\n   - Direction A (red) is northward.\n   - Direction B (green) is eastward.\n   - Direction C (blue) is southward.\n\n2. **Analyze the Street View:**\n   - The road has multiple lanes and a median.\n   - There are palm trees and a parking lot visible on the right side.\n\n3. **Compare with the Map:**\n   - Direction A (north) has a parking lot on the right side, matching the street view.\n   - Directions B and C do not match the layout seen in the street view.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "110564996",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street has a double yellow line, indicating a two-way road.\n   - There are utility poles and wires on the right side.\n   - A white fence and a two-story house are visible on the right.\n\n2. **Compare with the Map:**\n   - **Direction A:** The road is narrow with houses on both sides, but no visible utility poles or fences.\n   - **Direction B:** The road is wider, with houses on the right and a visible fence and utility poles.\n   - **Direction C:** The road is narrow with houses on both sides, but no visible utility poles or fences.\n   - **Direction D:** The road is wider, but the layout of houses and fences does not match the photo.\n\n3. **Conclusion:**\n   - The features in the photo, such as the utility poles, fence, and house layout, match best with Direction B.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110637293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a bus stop on the left and residential buildings on the right.\n   - There are trees and a sign on the left side.\n\n2. **Analyze the Map:**\n   - **Direction A:** Faces a road with a parking lot and some buildings.\n   - **Direction B:** Faces a road with residential buildings on the right and a grassy area on the left.\n   - **Direction C:** Faces a road with residential buildings on both sides.\n\n3. **Match Features:**\n   - The street view shows residential buildings on the right and a bus stop with trees on the left, which matches the layout of Direction B on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "3222767118",
+      "pred": "A",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - A tall building on the right.\n   - A road with multiple lanes.\n   - Trees on the left side.\n\n2. **Compare with the Map:**\n   - **Direction A:** The map shows a road with a large building on the right and trees on the left, matching the photo.\n   - **Direction B:** The map shows a road with trees on both sides, which does not match the photo.\n   - **Direction C:** The map shows a road with buildings on both sides, which does not match the photo.\n\n3. **Conclusion:**\n   - The features in the photo align with Direction A on the map.\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "6132072526",
+      "pred": "A",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows an elevated highway on the left.\n   - There is a road with a crosswalk and a building on the right.\n\n2. **Compare with the Map:**\n   - The map shows three directions: A, B, and C.\n   - Direction A is parallel to the elevated highway.\n   - Directions B and C are at angles to the highway.\n\n3. **Match Features:**\n   - The elevated highway on the left in the photo matches the highway on the map.\n   - The road and building on the right in the photo align with direction A on the map.\n\n4. **Conclusion:**\n   - The photo is taken facing direction A, as it aligns with the highway and road layout.\n\nFinal answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "12507822811",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a multi-lane road with arrows indicating straight and left turns.\n   - There are tall buildings visible in the distance.\n   - There is a yield sign on the right side.\n\n2. **Compare with the Map:**\n   - **Direction A:** Faces a road with a large building on the right and a parking lot on the left.\n   - **Direction B:** Faces a road with a parking lot on the right and a building on the left.\n   - **Direction C:** Faces a road with a large building on the left and a parking lot on the right.\n\n3. **Match Features:**\n   - The photo shows tall buildings in the distance, which matches the view in direction C.\n   - The yield sign and road layout in the photo align with the features seen in direction C.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "110637500",
+      "pred": "D",
+      "gold": "A",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The street view shows a road with a crosswalk and a stop sign on the right.\n   - There are buildings on both sides of the road.\n   - The road appears to be straight with a slight incline in the distance.\n\n2. **Analyze the Map:**\n   - The map shows an intersection with four labeled directions: A, B, C, and D.\n   - Each direction has buildings on both sides.\n\n3. **Match Features:**\n   - The photo shows a crosswalk and a stop sign, which are visible on the map in the direction labeled D.\n   - The buildings and road layout in the photo match the orientation and features seen in direction D on the map.\n\n4. **Conclusion:**\n   - The street view photo was taken facing direction D.\n\nFinal answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Identify Key Features in the Photo:**\n   - The photo shows a large building on the left side.\n   - There is a body of water visible on the right side.\n\n2. **Compare with the Map:**\n   - **Direction A:** Faces towards a large building complex.\n   - **Direction B:** Faces towards the water.\n   - **Direction C:** Faces away from the water and towards more buildings.\n\n3. **Match Features:**\n   - The photo shows the water on the right and buildings on the left, which matches **Direction B** on the map.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "B",
+      "gold": "D",
+      "raw": "To determine the direction of the street view photo, follow these steps:\n\n1. **Identify Key Features in the Street View:**\n   - The street view shows a road with a sidewalk on the right and some trees and buildings.\n   - There are power lines visible above the road.\n\n2. **Analyze the Map:**\n   - Look for a road with similar features: a sidewalk, trees, and buildings on one side.\n   - Check the orientation of the roads and the presence of power lines.\n\n3. **Compare with Map Directions:**\n   - **Direction A (North):** This road has buildings on both sides and no visible power lines.\n   - **Direction B (East):** This road has a sidewalk and buildings on the right side, matching the street view.\n   - **Direction C (South):** This road has buildings on both sides and no visible power lines.\n   - **Direction D (West):** This road has a sidewalk and buildings on the left side, opposite to the street view.\n\n4. **Conclusion:**\n   - The street view photo matches the features seen in Direction B, with a sidewalk and buildings on the right side.\n\nFinal answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "110515915",
+      "pred": "B",
+      "gold": "B",
+      "raw": "To determine the direction of the street view photo:\n\n1. **Analyze the Street View Photo:**\n   - The photo shows a road with a building on the left and a grassy embankment on the right.\n   - There are power lines visible on the left side of the road.\n\n2. **Analyze the Map:**\n   - **Direction A (Red):** Points towards a residential area with buildings on both sides.\n   - **Direction B (Green):** Points towards a road with a building on the left and open space on the right.\n   - **Direction C (Blue):** Points towards a highway with no buildings directly adjacent.\n\n3. **Compare the Photo with the Map:**\n   - The street view photo matches the description of Direction B, where there is a building on the left and open space (grassy embankment) on the right.\n\nFinal answer: \\boxed{B}",
+      "correct": true
+    }
+  ]
+}

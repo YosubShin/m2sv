@@ -1,5 +1,33 @@
 ## Changelog
 
+### 2025-10-15-v1
+- **Prompt update**: Encourage step-by-step reasoning; require final line in LaTeX-style `\boxed{X}`.
+- **Parallel + multi-config evaluation in `evaluate_vlm.py`**:
+  - Per-example parallelism via `--workers` (threaded, thread-local provider clients).
+  - Batch multiple provider/model runs via repeatable `--eval` or `--eval-file`.
+  - Run configs concurrently with `--parallel-configs` (suppresses per-config progress bars when >1).
+  - Final logs include provider, model, and dataset.
+- Prompt used in `evaluate_vlm.py`:
+  ```
+  You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.
+  Rules:
+  - The camera location is the same for all options: the center of the intersection.
+  - Each letter corresponds to facing outward from that center along the arrow of that label.
+  - The small circles near labels are markers only; they are not camera locations.
+  - The map and photo may be captured years apart. Ignore transient objects (cars, people).
+  Think step by step to compare the street-view with the map (buildings, angles, lanes, landmarks).
+  On the final line, output only: Final answer: \boxed{X} where X is a single letter (A, B, C, ...).
+  ```
+- Metrics
+  | Model             | Accuracy |
+  |-------------------|----------|
+  | gemini-2.5-pro    | 51%      |
+  | gemini-2.5-flash  | 47%      |
+  | gpt-4o            | 38%      |
+  | claude-opus-4.1   | 36.7% (60 samples) |
+  | Random baseline   | 31.8%    |
+  | Human baseline    | 88%      |
+
 ### 2025-10-14-v2
 - Why we updated the prompt:
   - Models sometimes assumed the map and street-view were captured at the same time and relied on transient cues (cars, people), which can differ by years. We now explicitly instruct to ignore such transient objects.

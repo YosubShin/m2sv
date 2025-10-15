@@ -65,7 +65,8 @@ def build_prompt(question: str, options: List[str]) -> str:
         "- Each letter corresponds to facing outward from that center along the arrow of that label.\n"
         "- The small circles near labels are markers only; they are not camera locations.\n"
         "- The map and photo may be captured years apart. Ignore transient objects (cars, people).\n"
-        "Respond with just the single letter (A, B, C, ...), no words or punctuation."
+        "Think step by step to compare the street-view with the map (buildings, angles, lanes, landmarks).\n"
+        "On the final line, output only: Final answer: \\boxed{X} where X is a single letter (A, B, C, ...)."
     )
     return f"{instructions}\n\n{question}\n\nOptions:\n{opts}"
 
@@ -279,11 +280,13 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
     # Precompute option counts for id and index to support accurate baselines when resuming
     id_to_num_opts: Dict[str, int] = {}
     idx_to_num_opts: Dict[int, int] = {}
+    id_to_index: Dict[str, int] = {}
     for i, row in enumerate(ds):
         n = len(row.get("options", []))
         idx_to_num_opts[i] = n
         rid = str(row.get("id", i))
         id_to_num_opts[rid] = n
+        id_to_index[rid] = i
 
     # Resume state
     processed_ids = set()
@@ -397,6 +400,23 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
                 outp.parent.mkdir(parents=True, exist_ok=True)
                 outp.write_text(json.dumps(snapshot, indent=2))
 
+    # Deterministic ordering of results by dataset row index (fallback by id)
+    def _result_sort_key(r: Dict) -> tuple:
+        rid = str(r.get("id", ""))
+        idx = id_to_index.get(rid)
+        if idx is not None:
+            return (0, idx)
+        try:
+            return (1, int(rid))
+        except Exception:
+            return (2, rid)
+
+    try:
+        results.sort(key=_result_sort_key)
+    except Exception:
+        # If sorting fails for any reason, keep existing order
+        pass
+
     acc = correct / total if total else 0.0
     rand_baseline = (random_expectation_sum / total) if total else 0.0
     logger.info(
@@ -429,11 +449,13 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
     # Build id -> option count and index -> option count
     id_to_num_opts: Dict[str, int] = {}
     idx_to_num_opts: Dict[int, int] = {}
+    id_to_index: Dict[str, int] = {}
     for i, row in enumerate(ds):
         n = len(row.get("options", []))
         idx_to_num_opts[i] = n
         rid = str(row.get("id", i))
         id_to_num_opts[rid] = n
+        id_to_index[rid] = i
 
     data = json.loads(Path(results_path).read_text())
     results = data.get("results", data if isinstance(data, list) else [])
@@ -463,6 +485,22 @@ def reparse_results(dataset_path: str, results_path: str, limit: int | None = No
         nr["pred"] = pred
         nr["correct"] = is_correct
         new_results.append(nr)
+
+    # Deterministic ordering by dataset row index
+    def _result_sort_key(r: Dict) -> tuple:
+        rid = str(r.get("id", ""))
+        idx = id_to_index.get(rid)
+        if idx is not None:
+            return (0, idx)
+        try:
+            return (1, int(rid))
+        except Exception:
+            return (2, rid)
+
+    try:
+        new_results.sort(key=_result_sort_key)
+    except Exception:
+        pass
 
     acc = correct / total if total else 0.0
     rand_baseline = (random_expectation_sum / total) if total else 0.0
@@ -536,6 +574,9 @@ def main():
         if not Path(args.out).exists():
             parser.error(f"Results file not found: {args.out}")
         metrics = reparse_results(args.dataset, args.out, args.limit)
+        # Write updated metrics back to the same results file
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.out).write_text(json.dumps(metrics, indent=2))
     else:
         # Build list of configs to run
         configs: List[tuple[str, str, str, bool]] = []  # (provider, model, out, resume?)
@@ -567,7 +608,6 @@ def main():
             configs.append((args.provider, args.model, args.out, res_flag))
 
         # Execute configs, optionally in parallel
-        results_per_config: Dict[str, Dict] = {}
 
         def run_one_config(p: str, m: str, o: str, do_resume: bool) -> tuple[str, Dict]:
             resume_path = o if do_resume else None
@@ -582,30 +622,12 @@ def main():
         max_cfg_workers = args.parallel_configs if args.parallel_configs and args.parallel_configs > 1 else 1
         if max_cfg_workers == 1 or len(configs) == 1:
             for (p, m, o, do_resume) in configs:
-                out_key, met = run_one_config(p, m, o, do_resume)
-                results_per_config[out_key] = met
+                run_one_config(p, m, o, do_resume)
         else:
             with ThreadPoolExecutor(max_workers=max_cfg_workers) as pool:
                 futures = [pool.submit(run_one_config, p, m, o, do_resume) for (p, m, o, do_resume) in configs]
                 for fut in as_completed(futures):
-                    out_key, met = fut.result()
-                    results_per_config[out_key] = met
-
-        # In multi-config mode, when --out is provided alongside, write an index summary
-        if args.out:
-            summary = {
-                "configs": [
-                    {
-                        "provider": p,
-                        "model": m,
-                        "out": o,
-                        "metrics": results_per_config.get(o, {}),
-                    }
-                    for (p, m, o, _r) in configs
-                ]
-            }
-            Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-            Path(args.out).write_text(json.dumps(summary, indent=2))
+                    fut.result()
 
 
 if __name__ == "__main__":
