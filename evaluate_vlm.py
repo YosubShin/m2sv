@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import List, Dict
 from dotenv import load_dotenv
 import argparse
+from tqdm import tqdm
 import re
 from datasets import load_dataset
 from tenacity import retry, stop_after_attempt, wait_exponential
@@ -246,7 +247,7 @@ def normalize_letter(text: str, num_options: int) -> str:
     return ""
 
 
-def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | None = None, resume_from: str | None = None) -> Dict:
+def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | None = None, resume_from: str | None = None, out_path: str | None = None) -> Dict:
     ds = load_dataset(dataset_path, split="train") if os.path.isdir(dataset_path) else load_dataset(dataset_path)["train"]
 
     # The dataset we produce has relative paths inside repo; resolve to disk paths
@@ -261,6 +262,15 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         runner = ClaudeProvider(model)
     else:
         raise ValueError("provider must be one of: openai, gemini, claude")
+
+    # Precompute option counts for id and index to support accurate baselines when resuming
+    id_to_num_opts: Dict[str, int] = {}
+    idx_to_num_opts: Dict[int, int] = {}
+    for i, row in enumerate(ds):
+        n = len(row.get("options", []))
+        idx_to_num_opts[i] = n
+        rid = str(row.get("id", i))
+        id_to_num_opts[rid] = n
 
     # Resume state
     processed_ids = set()
@@ -281,6 +291,12 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
             results.extend(prev_results)
             correct = sum(1 for r in prev_results if r.get("correct") is True)
             total = len(prev_results)
+            # Initialize baseline and histogram from previous results
+            for i, r in enumerate(prev_results):
+                rid = str(r.get("id", i))
+                n = id_to_num_opts.get(rid, idx_to_num_opts.get(i, 26))
+                option_count_hist[n] = option_count_hist.get(n, 0) + 1
+                random_expectation_sum += (1.0 / n) if n and n > 0 else 0.0
             logger.info(f"Resuming from {resume_from}: already have {total} results, {correct} correct")
         except Exception as e:
             logger.warning(f"Failed to load resume file {resume_from}: {e}")
@@ -294,6 +310,20 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
     else:
         # No limit specified -> process all remaining
         additional_quota = None
+    # Prepare progress bar total for this run
+    remaining_this_run = 0
+    for i, row in enumerate(ds):
+        rid = str(row.get("id", i))
+        if processed_ids and rid in processed_ids:
+            continue
+        if limit is not None:
+            # we will cap by additional_quota below; count up to that
+            if remaining_this_run >= additional_quota:
+                break
+        remaining_this_run += 1
+
+    pbar = tqdm(total=remaining_this_run, desc="Evaluating", unit="ex")
+
     for i, row in enumerate(ds):
         rid = str(row.get("id", i))
         if processed_ids and rid in processed_ids:
@@ -331,12 +361,34 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
             "correct": cflag,
         })
         added += 1
+        pbar.update(1)
+
+        # Incremental checkpointing
+        if out_path:
+            acc = correct / total if total else 0.0
+            rand_baseline = (random_expectation_sum / total) if total else 0.0
+            snapshot = {
+                "accuracy": acc,
+                "correct": correct,
+                "total": total,
+                "empty": empty_preds,
+                "random_baseline": rand_baseline,
+                "option_count_hist": option_count_hist,
+                "results": results,
+            }
+            outp = Path(out_path)
+            outp.parent.mkdir(parents=True, exist_ok=True)
+            outp.write_text(json.dumps(snapshot, indent=2))
 
     acc = correct / total if total else 0.0
     rand_baseline = (random_expectation_sum / total) if total else 0.0
     logger.info(
         f"Accuracy: {acc:.3f} ({correct}/{total}) | empty preds: {empty_preds} | random baseline: {rand_baseline:.3f}"
     )
+    try:
+        pbar.close()
+    except Exception:
+        pass
     return {
         "accuracy": acc,
         "correct": correct,
@@ -472,7 +524,7 @@ def main():
             resume_path = args.out if Path(args.out).exists() else None
             if resume_path is None:
                 logger.info("No existing results at --out; starting fresh run")
-        metrics = evaluate_split(args.dataset, args.provider, args.model, args.limit, resume_from=resume_path)
+        metrics = evaluate_split(args.dataset, args.provider, args.model, args.limit, resume_from=resume_path, out_path=args.out)
     if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps(metrics, indent=2))
