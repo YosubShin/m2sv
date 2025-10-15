@@ -1,6 +1,6 @@
-## Changelog
+# Changelog
 
-### 2025-10-15-v1
+## 2025-10-15-v1
 - **Prompt update**: Encourage step-by-step reasoning; require final line in LaTeX-style `\boxed{X}`.
 - **Parallel + multi-config evaluation in `evaluate_vlm.py`**:
   - Per-example parallelism via `--workers` (threaded, thread-local provider clients).
@@ -28,7 +28,7 @@
   | Random baseline   | 31.8%    |
   | Human baseline    | 88%      |
 
-### 2025-10-14-v2
+## 2025-10-14-v2
 - Why we updated the prompt:
   - Models sometimes assumed the map and street-view were captured at the same time and relied on transient cues (cars, people), which can differ by years. We now explicitly instruct to ignore such transient objects.
   - Models sometimes inferred that the camera was located at the label circles instead of the intersection center. We now clarify the camera is fixed at the center and arrows indicate viewing directions; circles are markers only.
@@ -52,7 +52,7 @@
   | Random baseline   | 31.8%    |
   | Human baseline    | 88%      |
 
-### 2025-10-14-v1
+## 2025-10-14-v1
 - **Initial version**
 - **`create_dataset.py`**: Builds a two-image multiple-choice dataset from real intersections.
   - Fetches a Google Static Map centered at each intersection and overlays labeled arrows (A, B, C, ...).
@@ -78,3 +78,27 @@
   | gemini-2.5-flash  | 32%      |
   | Random baseline   | 31.8%    |
   | Human baseline    | 88%      |
+
+# Commands
+
+## Sequential eval
+```
+python evaluate_vlm.py yosubshin/m2sv --provider openai --model gpt-4o --limit 100 --out results/gpt-4o.json --resume --reparse-result
+python evaluate_vlm.py yosubshin/m2sv --provider gemini --model gemini-2.5-flash --limit 100 --out results/gemini-2-5-flash.json --resume --reparse-result
+python evaluate_vlm.py yosubshin/m2sv --provider gemini --model gemini-2.5-pro --limit 100 --out results/gemini-2-5-pro.json --resume --reparse-result
+python evaluate_vlm.py yosubshin/m2sv --provider claude --model claude-opus-4-1-20250805 --limit 100 --out results/claude-opus-4-1.json --resume --reparse-result
+```
+
+## Parallel eval
+```
+python evaluate_vlm.py yosubshin/m2sv \
+  --parallel-configs 4 --workers 4 \
+  --eval "openai,gpt-4o,results/gpt-4o.json" \
+  --eval "gemini,gemini-2.5-flash,results/gemini-2-5-flash.json" \
+  --eval "gemini,gemini-2.5-pro,results/gemini-2-5-pro.json"
+```
+
+## Human eval
+```
+streamlit run review_webapp.py
+```
