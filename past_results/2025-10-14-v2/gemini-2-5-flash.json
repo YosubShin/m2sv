@@ -1,0 +1,714 @@
+{
+  "accuracy": 0.41,
+  "correct": 41,
+  "total": 100,
+  "empty": 0,
+  "random_baseline": 0.31833333333333297,
+  "option_count_hist": {
+    "3": 73,
+    "4": 24,
+    "2": 3
+  },
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110575924",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110546785",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "2394655682",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "7785944633",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "1226512565",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110538200",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110597543",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110575693",
+      "pred": "C",
+      "gold": "C",
+      "raw": "To determine the correct direction, let's analyze the features in the street view photo and compare them to the map:\n\n1.  **Mountain and Uphill Road:** The street view photo clearly shows a road ascending gently uphill towards a prominent mountain range in the distance. This is a crucial geographical clue. On the map, looking at the general topography, the land appears to rise towards the northwest (direction C) and northeast (direction A). The southwest direction (B) seems to lead to flatter residential areas for a longer distance. Therefore, the photo is likely taken in direction A or C, facing the mountain.\n\n2.  **Houses and Landmarks:**\n    *   **Street View:**\n        *   On the *left* side of the road, there is a very distinctive white house with a prominent pointed gable roof. It is set back from the road behind a low stone wall.\n        *   On the *right* side of the road, there are utility poles and power lines, with dense foliage and trees obscuring the property behind them.\n\n3.  **Comparing Options:**\n\n    *   **Option A (Northeast):**\n        *   If facing northeast, the left side of the road (northwest side on the map) has a house with a gray roof and solar panels. This does not match the distinctive white house in the photo. The right side (southeast side on the map) has a house with a brown roof and a smaller yard, which doesn't seem to match the densely treed, obscured property on the right in the photo.\n\n    *   **Option B (Southwest):**\n        *   If facing southwest, the left side of the road (southeast side on the map) has a large house with a complex roof and a pool. This does not match the white house. The right side (northwest side on the map) has a gray-roofed house. Also, the photo shows an uphill road to a mountain, which is less likely to be in the southwest direction for this type of topography, compared to A or C.\n\n    *   **Option C (Northwest):**\n        *   If facing northwest (along arrow C):\n            *   **Left side of the road (southwest side on the map):** The map shows a house with a *dark gray* roof. This is a mismatch in color and possibly shape compared to the *white* house with the prominent gable in the street view. However, houses can be renovated or repainted over time.\n            *   **Right side of the road (northeast side on the map):** The map shows a house with a *very light/white* roof and a complex shape. This house has a large front yard area with considerable tree cover, which aligns well with the obscured property, trees, and power poles seen on the right side of the street view photo. The \"light-roofed\" house on the map also has a more complex roof shape which could correspond to the gable on the white house in the photo, but it's on the wrong side.\n\n    *   **Reconciling Discrepancies:**\n        The strongest geographical clue is the road going uphill towards the mountain. This points towards direction C (northwest) or A (northeast).\n        Between A and C, the properties on the right side of the road seem to match better with direction C, specifically the large, treed yard of the light-roofed house on the NE side.\n        The main discrepancy is the distinctive white house on the *left* in the street view versus the dark-roofed house on the *left* (SW side) in the map (if facing C). Given that the map and photo can be years apart, a house renovation (e.g., painting a dark roof white, or significant reconstruction) is a plausible explanation for the color/shape difference if we prioritize the geographical fit and the match of other features.\n\nConsidering the uphill road towards a mountain and the overall layout of the properties on the right side of the street, direction C provides the most consistent match, assuming the house on the left has undergone significant renovation or repainting since the satellite image was taken.\n\nThe final answer is $\\boxed{C}$",
+      "correct": true
+    },
+    {
+      "id": "525391975",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619734",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "5205421746",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637872",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110575673",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110570600",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110550647",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110612231",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "8591690612",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110517640",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110619689",
+      "pred": "B",
+      "gold": "D",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110545067",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110624545",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "358434668",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545952",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110637113",
+      "pred": "C",
+      "gold": "D",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110632100",
+      "pred": "C",
+      "gold": "B",
+      "raw": "The camera is located at the center of the intersection.\nThe street view photo shows a road going uphill. To the right, there are houses and a wall. To the left, there is a steep, tree-covered slope. Importantly, there is no large body of water visible in the photo.\n\nLet's compare this to the map:\n*   **Direction A:** If looking in direction A (east), the body of water would be to the right of the road. The photo does not show water on the right.\n*   **Direction B:** If looking in direction B (west), the body of water would be to the left of the road. The photo does not show water on the left.\n*   **Direction C:** If looking in direction C (north/northeast), the road goes uphill into a residential area. The body of water would be behind and to the south of the camera, out of the primary field of view. To the right of the road, there are houses and walls, which matches the photo. To the left of the road, there is a building (white building with solar panels) and then rising terrain which could be the tree-covered slope seen in the photo.\n\nThe most distinguishing feature is the absence of the large body of water in the street view photo. Directions A and B would both have the water prominently visible on one side of the road. Therefore, the photo must be looking in direction C, away from the water. The uphill nature of the road and the presence of houses on the right side also align with direction C.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110539372",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "810809800",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110500838",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110582277",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110593890",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "3728231686",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110599933",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "8588554269",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "682189618",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545102",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110635335",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110570593",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "682301411",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110577736",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110647381",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545972",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110540439",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "12503999438",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575497",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110634356",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "540399293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "10024771033",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110544054",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110577115",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110660634",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110575247",
+      "pred": "A",
+      "gold": "A",
+      "raw": "The camera is located at the center of the intersection. The \"STOP\" sign is painted on the road surface directly ahead of the camera. This indicates that the camera is looking down a road that would require traffic coming from that direction to stop at the intersection. On the map, arrow A points down the side street that forms a T-junction with the main North-South road (arrows B and C). Therefore, traffic coming from the direction of A would have a \"STOP\" sign. If the camera is at the center of the intersection and looking along the direction of A, the \"STOP\" sign for traffic approaching from A would be visible ahead on the road surface.\n\nLet's verify other features:\n*   If facing A (East):\n    *   Ahead (East): The road with the \"STOP\" sign, leading into a residential area. This matches the photo.\n    *   To the left (North, direction C): The main road going uphill, with a white fence visible on the left side of the photo and mountains in the distance. This matches the map (road C leads towards a large building/parking lot area which could have a fence, and the terrain often rises towards mountains in that direction in Hawaii).\n    *   To the right (South, direction B): The main road continuing, with a distinctive red-flowered bush on the corner of the intersection. This matches the map (road B continues into a residential area).\n\nThis interpretation consistently matches all features in both the map and the photo.\n\nThe final answer is $\\boxed{A}$",
+      "correct": true
+    },
+    {
+      "id": "110602210",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110607768",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110632672",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110660683",
+      "pred": "C",
+      "gold": "B",
+      "raw": "The camera is located at the center of the intersection. We need to match the street-view photo to one of the directions (A, B, or C) on the map.\n\n1.  **Analyze the road geometry in the street-view photo:**\n    *   The camera is facing down a main road that continues straight ahead.\n    *   There is a clear road branching off to the *left* of the main road.\n    *   There is a green street sign visible on the left side, at the corner of this branch road.\n\n2.  **Analyze the road geometry on the map:**\n    *   The roads for A and C appear to be part of a continuous main road, with the road for B branching off.\n    *   If the photo is looking in direction **A**: The branch road (B) would be to the *right* of the camera's perspective. This contradicts the photo.\n    *   If the photo is looking in direction **B**: The camera would be looking down the branch road. This would mean the main road (A/C) is perpendicular to the camera, which doesn't match the photo showing a road continuing straight ahead.\n    *   If the photo is looking in direction **C**: The branch road (B) would be to the *left* of the camera's perspective. This matches the geometry of the street-view photo.\n\n3.  **Confirm with surrounding buildings and terrain (assuming direction C):**\n    *   **Direction C on Map:** Points northwest.\n        *   Left side of the road (south): Residential houses.\n        *   Right side of the road (north): A large building complex, and the terrain appears to rise behind it.\n    *   **Street-view Photo:**\n        *   Left side: A two-story residential building with a light-colored exterior and dark roof. This is consistent with residential buildings on the left side of C.\n        *   Right side: A large tree is prominent, followed by a white building with a dark roof. Crucially, the land rises significantly behind these structures, forming a hill or ridge in the background. This strongly matches the terrain depicted on the map for direction C, where the land behind the large building rises. The large complex on the map might be partially obscured by trees or appear less imposing from street level, with the white building possibly being a part of it or a separate structure in front of it.\n\nGiven the consistent road geometry and the rising terrain on the right side, direction C is the best match.\n\nThe final answer is $\\boxed{C}$",
+      "correct": false
+    },
+    {
+      "id": "7618651229",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110655493",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110542308",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110652154",
+      "pred": "C",
+      "gold": "D",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "3728226511",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "8588554309",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110563456",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "1164380313",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110645654",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "3536195327",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110542795",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110513915",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110619682",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "453703609",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110609040",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110621029",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "525279235",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110658443",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110551700",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110648455",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110635882",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "2309311992",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110585086",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110608557",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110606149",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110564996",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110637293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "3222767118",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "6132072526",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "12507822811",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637500",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110515915",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    }
+  ]
+}

@@ -1,6 +1,30 @@
 ## Changelog
 
-### 2025-10-15-v1
+### 2025-10-14-v2
+- Why we updated the prompt:
+  - Models sometimes assumed the map and street-view were captured at the same time and relied on transient cues (cars, people), which can differ by years. We now explicitly instruct to ignore such transient objects.
+  - Models sometimes inferred that the camera was located at the label circles instead of the intersection center. We now clarify the camera is fixed at the center and arrows indicate viewing directions; circles are markers only.
+- The evaluation prompt used in `evaluate_vlm.py`:
+  ```
+  You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.
+  Rules:
+  - The camera location is the same for all options: the center of the intersection.
+  - Each letter corresponds to facing outward from that center along the arrow of that label.
+  - The small circles near labels are markers only; they are not camera locations.
+  - The map and photo may be captured years apart. Ignore transient objects (cars, people).
+  Respond with just the single letter (A, B, C, ...), no words or punctuation.
+  ```
+- Metrics
+  | Model             | Accuracy |
+  |-------------------|----------|
+  | gemini-2.5-pro    | 39%      |
+  | gpt-4o            | 47%      |
+  | gemini-2.5-flash  | 41%      |
+  | claude-opus-4.1   | 35%      |
+  | Random baseline   | 31.8%    |
+  | Human baseline    | 88%      |
+
+### 2025-10-14-v1
 - **Initial version**
 - **`create_dataset.py`**: Builds a two-image multiple-choice dataset from real intersections.
   - Fetches a Google Static Map centered at each intersection and overlays labeled arrows (A, B, C, ...).

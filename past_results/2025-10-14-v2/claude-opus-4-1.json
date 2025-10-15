@@ -1,0 +1,714 @@
+{
+  "accuracy": 0.35,
+  "correct": 35,
+  "total": 100,
+  "empty": 2,
+  "random_baseline": 0.31833333333333297,
+  "option_count_hist": {
+    "3": 73,
+    "4": 24,
+    "2": 3
+  },
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A residential street with houses on both sides\n- Hills/mountains visible in the background\n- The street appears to continue straight ahead with a slight curve\n- There are houses with driveways and landscaping on both sides\n\nLooking at the overhead map, I need to identify which direction from the intersection matches this view:\n\n- Direction A points south along the main road\n- Direction B points west along a side street\n- Direction C points north along the main road\n\nThe street view shows a road continuing ahead with houses on both sides and hills in the background. Based on the layout of houses visible in the overhead map and the way the street continues, this view appears to be looking north from the intersection (direction C), with the residential area and hills visible ahead.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110575924",
+      "pred": "D",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A straight road going uphill/away from the camera\n- Power lines running along the street\n- Houses on both sides of the road\n- The road appears to be on an incline going up\n\nComparing this to the overhead map:\n- The intersection shows 4 roads meeting\n- Arrow A points to the right (east)\n- Arrow B points down (south) \n- Arrow C points to the left (west)\n- Arrow D points up (north)\n\nThe street view shows a road continuing straight ahead on an upward slope with residential houses on both sides. Based on the layout of the houses and the direction of the road in the overhead view, this matches the view looking north along arrow D's direction.\n\nD",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A residential street going uphill\n- Power lines running along the street\n- Houses on both sides, with a notable white/light colored multi-story building on the left\n- The road appears to curve slightly as it goes up the hill\n\nComparing this to the overhead map:\n- Direction A (red arrow) points east along the main horizontal street\n- Direction B (green arrow) points south down a perpendicular street\n- Direction C (blue arrow) points west along the main horizontal street\n\nThe street view shows a road going uphill with residential houses on both sides. Looking at the overhead map, direction B points down a street that connects perpendicularly to the main road, which matches the configuration seen in the street view photo. The perspective and layout of houses visible in the street view aligns with looking south down the street from the intersection.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A residential street with houses on both sides\n- Palm trees and tropical vegetation\n- The sun appears to be low in the sky (either sunrise or sunset) directly ahead\n- A stone/rock wall on the right side of the road\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- Direction A points northeast\n- Direction B points southeast \n- Direction C points west/southwest\n\nThe key identifying feature is the distinctive stone/rock wall visible on the right side in the street view. Looking at the overhead map, this type of wall appears to be present along the road in the direction of arrow C, where there's a property boundary with what looks like a stone wall feature.\n\nAdditionally, the sun position in the photo (low on the horizon, directly ahead) suggests the camera is facing west, which aligns with direction C.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110546785",
+      "pred": "D",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A straight road extending into the distance\n- Power/utility lines running parallel to the road on the right side\n- Residential houses on both sides\n- A crosswalk/pedestrian crossing in the foreground\n- Mountains or hills visible in the background\n\nComparing this to the overhead map:\n- The intersection shows four roads meeting\n- Arrow D points toward what appears to be a longer, straight stretch of road\n- This matches the street view which shows a long straight road extending into the distance\n- The presence of houses on both sides and the overall residential character matches the overhead view along direction D\n\nThe answer is D.",
+      "correct": false
+    },
+    {
+      "id": "2394655682",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map, I can see a Y-shaped intersection with three roads meeting. The arrows show:\n- A points northeast (upper right)\n- B points south (bottom)\n- C points northwest (upper left)\n\nIn the street view photo, I can see:\n- A straight road ahead with houses on both sides\n- Power lines running along the street\n- The road appears to curve slightly to the left in the distance\n- Houses with hedges/walls along the street\n\nComparing the street layout and the curve of the road visible in the street view with the aerial map, this view corresponds to looking down the road in direction B (southward), which shows a straight road that curves slightly as it continues.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "7785944633",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view image:\n\nIn the street view, I can see:\n- A tall cylindrical high-rise building on the left side\n- Power lines running along the street\n- The road continues straight ahead\n- Some commercial/retail buildings on the right side\n\nFrom the aerial map, the arrow labeled \"A\" points southeast along the main road, while arrow \"B\" points northwest.\n\nThe tall cylindrical building visible in the street view on the left corresponds to the circular building visible in the aerial map. Given the position of this building relative to the camera direction, and the way the street extends ahead in the photo, this view is looking southeast along the main road, which corresponds to direction A.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "1226512565",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A highway overpass/bridge crossing above the road\n- Palm trees along the road\n- The road continues straight ahead under the overpass\n- There appears to be a building on the left side\n\nComparing this to the overhead map:\n- The map shows a major highway running horizontally across the image\n- There's an intersection below the highway with three labeled directions\n- Direction A points north (upward) toward the highway\n- Direction B points east (right) along the road parallel to the highway\n- Direction C points south (downward) away from the highway\n\nThe street view shows we're looking directly at and approaching the highway overpass, which matches the view that would be seen when facing direction A (northward toward the highway).\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110538200",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A residential street with houses on both sides\n- A single tree on the left side of the road\n- Two-story houses visible on the right\n- The road continues straight ahead\n\nExamining the map:\n- Direction A (red arrow) points northeast along a residential street\n- Direction B (green arrow) points east along another residential street  \n- Direction C (blue arrow) points southwest along a residential street\n\nThe key identifying feature is the single tree visible on the left side in the street view. Looking at the aerial map, there appears to be a tree or vegetation near the intersection that would be on the left side when facing in direction B (green arrow pointing east).\n\nThe housing pattern and street layout in the street view also matches what would be seen looking east along direction B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110597543",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A straight road ahead\n- Power/utility lines running along the street\n- On the left: a stone/rock wall and what appears to be a two-story building\n- On the right: single-story houses with yards\n- The road continues straight into the distance\n\nComparing this to the overhead map:\n- The intersection shows four roads meeting\n- Looking at option B (green arrow pointing southeast), this would show a view down a straight residential street\n- This matches the street view which shows houses on both sides and a straight road ahead\n- The stone wall visible on the left in the street view corresponds to what would be on the left when facing in direction B\n\nThe answer is B.",
+      "correct": false
+    },
+    {
+      "id": "110575693",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A road going uphill/away from the camera\n- Mountains/hills in the background\n- Power lines running along the road\n- Houses on both sides of the road\n- The road appears to be heading toward higher elevation\n\nLooking at the overhead map, I need to identify which arrow direction would show this uphill residential street view.\n\nArrow A points along what appears to be a main road running horizontally across the image.\nArrow B points downward toward a residential area.\nArrow C points to the left along what seems to be a perpendicular residential street.\n\nBased on the street view showing a road heading uphill toward mountains/hills in the background, and comparing the residential layout and road patterns, this corresponds to the view looking in direction B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "525391975",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view image:\n\nFrom the aerial map, I can see:\n- A river/canal running through the scene\n- A bridge crossing the river\n- Point A is on the right side (east) of the bridge\n- Point B is on the left side (west) of the bridge  \n- Point C is on the upper left (northwest) side\n\nIn the street view photo, I can see:\n- A street extending into the distance with high-rise buildings visible in the background\n- Power lines running along the street\n- The perspective shows we're looking along a main road away from the intersection\n\nComparing the two images, the street view is taken looking east along the main road that crosses the bridge, which corresponds to the direction of arrow A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110619734",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A road stretching ahead with power/telephone lines running along it\n- Trees on both sides of the road\n- The road appears to continue straight ahead\n- There's what appears to be a white van parked on the left side\n\nComparing this to the overhead map:\n- The intersection shows three roads meeting\n- Arrow A points northeast (upper right)\n- Arrow B points southeast (lower right) \n- Arrow C points southwest (lower left)\n\nThe street view shows a straight road continuing ahead with power lines, which matches the configuration of the road heading southwest (direction C) from the intersection. The road in that direction appears to be the main thoroughfare with a continuous straight path.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "5205421746",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A single-story house with a white/light colored exterior\n- Palm trees and tropical vegetation\n- A curved driveway entrance\n- The road curves to the right in the distance\n\nComparing this to the overhead map:\n- Direction A points toward a house across from the intersection\n- Direction B points down a street that curves to the right\n- Direction C points to the left side of the intersection\n\nThe street view shows we're looking down a road that curves to the right, with a house visible on the left side. This matches the view that would be seen when facing in direction B from the intersection center.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110637872",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A straight road with yellow center lines\n- Power/telephone lines on the left side\n- Trees on the right side\n- Buildings visible on both sides\n- The road appears to continue straight ahead\n\nExamining the map:\n- Direction A points northeast\n- Direction B points southeast \n- Direction C points west/northwest\n\nThe street view shows we're looking down a straight section of road with utility poles on the left and trees on the right. Based on the orientation of the buildings and infrastructure visible in both images, this view corresponds to looking in direction B (southeast).\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A straight residential street extending into the distance\n- Houses on both sides of the street\n- The street appears to continue straight ahead with no visible intersection in the immediate foreground\n- There's a utility pole on the left side\n\nComparing this to the overhead map:\n- The camera is at the center of a T-intersection\n- Arrow A (red) points north along the straight street\n- Arrow B (green) points south along the same straight street  \n- Arrow C (blue) points west along the perpendicular street\n\nThe street view shows a long straight residential street with no visible cross street in the immediate view, which matches looking along the north-south street rather than the east-west street. Given the perspective and the way the street extends into the distance, this appears to be looking south along the main street.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view image:\n\nFrom the aerial map, I can see:\n- Point A is marked with a black circle to the east/right\n- Point B is marked to the north/top left\n- There's a large building with solar panels visible in the upper right of the aerial view\n\nFrom the street view:\n- I can see a wide multi-lane road stretching ahead\n- There are buildings on the right side including what appears to be commercial/retail structures\n- The road continues straight with a slight curve\n- Mountains or hills are visible in the distance\n\nComparing the two images:\n- The street view shows the perspective looking east (toward point A)\n- The commercial buildings on the right in the street view correspond to the buildings visible on the south side of the road in the aerial view\n- The road configuration and building positions match when facing in the direction of point A\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A green vehicle (appears to be a van or small bus) in the foreground on the left\n- Power lines and utility poles\n- Mountains or hills in the background\n- A parking lot area to the right\n- The intersection appears to be a standard cross intersection\n\nComparing this to the overhead map, I need to identify which direction from the center of the intersection matches this view.\n\nFrom the street view, I can see we're looking toward what appears to be a parking lot area with mountains in the background. The road continues straight ahead under power lines.\n\nLooking at the overhead map:\n- Direction A points toward a large parking lot area (to the right/east)\n- Direction B points toward another parking lot area (to the bottom/south)\n- Direction C points toward buildings (to the left/west)\n- Direction D points toward what appears to be a stadium or athletic field (to the top/north)\n\nThe street view shows we're looking toward a parking lot with mountains in the distance, and there's a distinctive parking area visible on the right side of the image. This matches direction A, which points toward the large parking lot area on the eastern side of the intersection.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- Power/utility lines running along the street\n- Single-story residential houses on both sides\n- A narrow residential street\n- Houses with carports/awnings\n- The street appears to continue straight ahead\n\nComparing this to the overhead map:\n- Direction A points toward what appears to be a larger commercial/apartment building\n- Direction B points along a residential street with single-story houses on both sides\n- Direction C points toward another residential area but with different building configurations\n\nThe street view shows a typical residential street with single-story homes that matches the characteristics of the street extending from direction B on the map.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110575673",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see an intersection with three colored arrows:\n- Red arrow pointing northeast (labeled A)\n- Green arrow pointing southeast (labeled B) \n- Blue arrow pointing west (labeled C)\n\nIn the street view photo, I can see:\n- A road going uphill/away from the camera\n- Mountains visible in the background\n- Power lines along the street\n- Houses on both sides of the road\n- The road appears to be heading toward mountainous terrain\n\nComparing the topography and road direction, the street view is looking up the road that goes northeast from the intersection, which corresponds to the red arrow direction.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110570600",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk with white stripes in the foreground\n- Low-rise buildings (1-2 stories) on both sides of the street\n- A tall reddish/brown tower building visible in the distance down the street\n- The street continues straight ahead toward that tower\n\nComparing this to the overhead map:\n- The intersection shown has four directions (A, B, C, D)\n- Direction B (green arrow) points south\n- Direction A (red arrow) points east  \n- Direction C (blue arrow) points west\n- Direction D (orange arrow) points north\n\nThe key identifying feature is the tall tower building visible in the street view. Looking at the map, if we're looking south from the intersection (direction B), we would be looking toward more built-up areas where such a tall building would likely be located. The street view shows a straight road leading toward this tower, which matches the southern direction from this intersection.\n\nThe answer is: B",
+      "correct": true
+    },
+    {
+      "id": "110550647",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A T-intersection where the road continues straight ahead and to the left\n- Power lines running parallel to the main road\n- Residential buildings on both sides\n- A \"STOP\" marking visible on the pavement\n\nFrom the aerial map:\n- Point A is facing east along the main road\n- Point B is facing west along the main road  \n- Point C is facing north up the perpendicular street\n\nThe street view perspective shows we're looking west along the main road (with the perpendicular street joining from the left/south). This matches the view from position A facing in the direction of its arrow.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110612231",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A road with cars traveling on it\n- Power/utility lines running along the road\n- Trees and vegetation on the right side\n- Houses visible in the background\n- The road appears to curve slightly\n\nComparing this to the overhead map:\n- Direction A points north up a residential street\n- Direction B points east along what appears to be the main road\n- Direction C points west along the main road\n\nThe street view shows a main road with traffic, power lines, and a slight curve that matches the east-west road shown in the overhead map. The vegetation on the right side and the curve of the road indicate the camera is facing east (direction B).\n\nB",
+      "correct": false
+    },
+    {
+      "id": "8591690612",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial map, I can see:\n- Point A (red arrow) points east along the main road\n- Point B (green arrow) points west along the main road  \n- Point C (blue arrow) points north up a side street\n\nIn the street view photo, I can see:\n- A main road running straight ahead into the distance\n- Houses on both sides of the road\n- Hills/mountains visible in the background\n- The road appears to be heading downhill slightly\n- Power lines running along the street\n\nBased on the topography and layout, the street view is looking west (downhill) along the main road, which corresponds to the green arrow direction.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110517640",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the aerial view, I can see:\n- Point A is at the bottom (south) end of the marked path\n- Point B is at the top (north) end of the marked path\n- The path crosses a street running east-west\n\nIn the street view photo:\n- I can see tall residential/hotel buildings on both sides\n- There are power lines running along the street\n- The road continues straight ahead with buildings visible in the distance\n- The perspective shows we're looking along the length of the street\n\nBased on the orientation of the buildings and the street layout, the street view photo is taken looking from the intersection toward point A (southward direction).\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110619689",
+      "pred": "B",
+      "gold": "D",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk/pedestrian crossing in the foreground\n- Power lines and utility poles along the street\n- Buildings on both sides of the road\n- The road continues straight ahead into the distance\n\nComparing this to the overhead map:\n- The intersection shows four directions marked A, B, C, and D\n- The colored arrows converge at the center intersection\n\nBased on the street layout and the way the road extends straight ahead in the photo with buildings on both sides, and considering the crosswalk pattern visible in the foreground, this view corresponds to looking in direction B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110545067",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A pink/red and white building labeled \"BUILDING\" on the left\n- A white modern building on the right\n- The road continues straight ahead with overhead power lines\n- There appears to be a yellow traffic sign in the distance\n\nComparing this to the overhead map:\n- Direction A points northeast\n- Direction B points south\n- Direction C points northwest\n\nThe street view shows we're looking along a main road with buildings on both sides. Based on the building configurations and the road layout visible in both images, the camera is facing south along the main road, which corresponds to direction B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see:\n- A main road running horizontally (east-west)\n- A road coming from the north (labeled C)\n- The intersection has crosswalks and lane markings\n\nIn the street view photo, I can see:\n- A road stretching ahead with mountains/hills in the background\n- Palm trees and residential houses on both sides\n- The road continues straight with lane markings\n- There's a crosswalk visible in the foreground\n\nComparing the two images:\n- Direction A points east along the main road\n- Direction B points west along the main road  \n- Direction C points north up the connecting road\n\nThe street view shows a long straight road with mountains in the distance, which matches the westward view along the main road (direction B). The residential development pattern and the hill/mountain visible in the background align with looking west from this intersection.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A main road with white striped crosswalk markings\n- Power/utility lines running parallel to the road\n- Mountains/hills visible in the background on the right side\n- Buildings and structures along the road\n\nFrom the aerial map, I can see this is a T-intersection. The main road runs horizontally (east-west) with a road joining from the south.\n\nDirection A points north from the intersection\nDirection B points east along the main road\nDirection C points west along the main road\n\nThe street view shows we're looking along the main road with the crosswalk visible, power lines parallel to the road, and mountains in the background. Based on the orientation and features visible, this view is looking east along the main road.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110624545",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk/zebra crossing in the foreground\n- Power/utility lines overhead\n- A modern building structure on the left side\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- The intersection shown has three roads meeting\n- Arrow A points northeast along the main road\n- Arrow B points southeast \n- Arrow C points west/northwest\n\nThe street view shows we're looking straight down a road from the intersection, with a crosswalk immediately in front. The angle and orientation of the buildings and road layout matches looking in the direction of Arrow B - southeast from the intersection center.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "358434668",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A divided highway/major road with multiple lanes\n- Street lights along the road\n- Houses/buildings on the left side\n- Open areas and some development on the right side\n- The road continues straight ahead into the distance\n\nFrom the aerial map:\n- Direction A points northeast along the major highway\n- Direction B points southwest along the major highway  \n- Direction C points northwest into a parking lot area\n\nThe street view clearly shows traveling along the main highway (not turning into a parking lot), with residential buildings on the left side. Based on the orientation and layout of buildings visible in both images, this matches direction B - heading southwest along the main road.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110545952",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view image:\n\nFrom the aerial view, I can see:\n- Tennis courts to the north (top)\n- A running track to the northeast\n- Buildings with red roofs to the west (left)\n- The intersection has crosswalks and appears to be a major road\n\nFrom the street view:\n- There's a bus on the right side of the road\n- Trees line the left side\n- Tall buildings/skyscrapers are visible in the distance\n- The road continues straight ahead with traffic signals\n\nComparing the two images:\n- Direction A points northeast toward the running track area\n- Direction B points southwest \n- Direction C points northwest toward the tennis courts\n\nIn the street view, we're looking down a road with the bus traveling away from us. The tall buildings in the distance and the tree-lined configuration match the view looking northeast from the intersection (Direction A), where the road continues toward more developed areas.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110637113",
+      "pred": "B",
+      "gold": "D",
+      "raw": "Looking at the street view image, I can see:\n- Power/telephone lines running along the street\n- A white/light colored building with a distinctive curved or rounded architectural feature on the right side\n- Houses/buildings on both sides of the street\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- Direction A points toward the main road at the top\n- Direction B points down a residential street to the right\n- Direction C points down a residential street to the left\n- Direction D points up a residential street to the left\n\nThe street view shows a residential street with power lines and houses on both sides. Looking at the map, direction B (green arrow) points down a residential street that matches the view - it has houses on both sides and would have the white building with distinctive architecture on the right side as shown in the street view.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110632100",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A road continuing straight ahead with a slight uphill grade\n- Houses/buildings on the right side\n- Vegetation/undeveloped land on the left side\n- The road appears to continue into the distance\n\nFrom the aerial map:\n- Direction A points east along the main road\n- Direction B points west along the main road  \n- Direction C points north up the side street\n\nThe street view matches direction A - facing east along the main road, with residential development on the right (south) side and undeveloped/vegetated area on the left (north) side.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110539372",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the street view, I can see:\n- A multi-lane road ahead with lane markings\n- Power/utility lines running along the road\n- Trees/vegetation on both sides\n- Buildings visible on the right side\n- The road appears to continue straight ahead\n\nComparing to the aerial map:\n- Position A points northeast along the main multi-lane road\n- Position B points southeast \n- Position C points southwest along the main road\n- Position D points northwest\n\nThe street view shows we're looking along the main multi-lane road (not turning onto a side street). The vegetation patterns and building placement on the right side of the street view match what would be seen looking from the intersection center toward position A (northeast direction).\n\nA",
+      "correct": false
+    },
+    {
+      "id": "810809800",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A road stretching ahead with yellow center lines\n- Power lines running parallel to the road\n- Houses on both sides of the street\n- Mountains/hills visible in the background\n- The road appears to continue straight ahead\n\nLooking at the overhead map, I need to identify which arrow direction from the intersection center would show this view.\n\nArrow A points north (upward on the map)\nArrow B points southeast \nArrow C points west (leftward on the map)\n\nThe street view shows a straight road continuing ahead with houses on both sides and power lines. Based on the residential layout pattern in the overhead map and the way the houses are arranged along the streets, the view appears to be looking west along the horizontal street.\n\nThe answer is C.",
+      "correct": false
+    },
+    {
+      "id": "110500838",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see:\n- Point A (red arrow) points northeast\n- Point B (green arrow) points southeast along the main road\n- Point C (blue arrow) points west/northwest\n\nIn the street view photo, I can see:\n- A residential street with houses on both sides\n- A white fence on the left side\n- The road continues straight ahead\n- Mountains/hills visible in the background\n- The road appears to be the main thoroughfare running through the neighborhood\n\nComparing the street view with the aerial map, the photo shows a view looking southeast along the main road that runs through the neighborhood, with residential houses on both sides. This matches the direction of arrow B (green arrow).\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110582277",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A multi-story residential building on the left side\n- A road stretching ahead with bright sunlight\n- Power lines visible on the right side\n- The road appears to continue straight ahead into the distance\n\nComparing this to the overhead map, I need to identify which direction from the intersection center would show this view.\n\nLooking at the map:\n- Direction A points northeast\n- Direction B points southeast \n- Direction C points southwest\n- Direction D points northwest\n\nThe street view shows a road continuing straight with multi-story buildings on the left side. Based on the building configurations visible in the overhead map and the street layout, this view corresponds to looking northeast from the intersection, which is direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110593890",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the street\n- Houses on both sides of the road\n- A yellow center line on the road\n- Hills/mountains visible in the background\n- The road appears to continue straight ahead\n\nComparing this to the overhead map:\n- Direction A points to the right (east) along the main road\n- Direction B points downward (south) \n- Direction C points to the left (west) along the main road\n\nThe street view shows a road continuing straight with houses on both sides and hills in the background. Based on the orientation and the visible features (particularly the way the houses are arranged and the road layout), this view corresponds to looking west along the main road.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "3728231686",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the street\n- Houses on both sides of the road\n- The road continues straight ahead with a slight upward slope\n- There appears to be a larger building or structure in the distance on the left side\n\nComparing this to the overhead map:\n- Direction A (red arrow) points east along the main road\n- Direction B (green arrow) points west along the main road  \n- Direction C (blue arrow) points north up a side street\n\nThe street view shows a main road with power lines and houses on both sides, which matches the east-west running main road in the overhead map. The view is looking east (direction A), as evidenced by the road continuing into the distance with what appears to be higher ground or a bridge structure visible in the background.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110599933",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A road curving to the left\n- Power lines running along the road\n- A yellow warning sign on the right side\n- The road appears to be going downhill with a view toward what seems to be ocean/horizon in the distance\n- White edge lines and yellow center lines on the road\n\nComparing this to the overhead map:\n- Direction A (red arrow) points along a road that curves left\n- Direction B (green arrow) points along a different branch of the road\n- Direction C (blue arrow) points along another road segment\n\nThe street view shows a road curving left with a downhill grade toward what appears to be the ocean. This matches the characteristics of the road in direction A, which curves to the left and appears to head toward lower elevation based on the topography visible in the aerial view.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "8588554269",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A residential street going uphill/away from the camera\n- Houses on both sides of the street\n- The street appears to curve slightly to the right in the distance\n- There's a grassy area/vacant lot on the left side\n\nComparing this to the overhead map:\n- Point B is at the bottom (south) of the intersection\n- The green arrow from point B points north up the street\n- This street has houses on both sides and a grassy/vacant area visible on the left (west) side\n- The street configuration matches what's shown in the street view\n\nThe street view photo was taken facing in direction B.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "682189618",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the street view, I can see:\n- A large beige/tan multi-story parking structure on the right side\n- Palm trees along the street\n- Crosswalk markings in the foreground\n- The road continues straight ahead\n\nComparing to the aerial map:\n- Position A points southeast toward a white building\n- Position B points south toward a grassy area\n- Position C points west along a curved road with a brown building (parking structure visible)\n- Position D points north\n\nThe street view shows the camera facing west along the road, with the distinctive brown/tan parking structure on the right (north) side, which matches the view from direction C.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110545102",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the street view, I can see:\n- A crosswalk in the foreground\n- A large curved/rounded building on the left side\n- A building with \"ZIPPY'S\" signage on the right side\n- The road continues straight ahead\n\nComparing to the aerial map:\n- Point A is at the top (north) end of the intersection\n- Point B is at the bottom (south) end\n- Point C is on the left (west) side\n\nThe street view shows we're looking east along the main road, with the large curved building visible on the north side (left in the photo) and commercial buildings including Zippy's on the south side (right in the photo).\n\nFrom the center of the intersection looking east matches the view from position C looking outward along its arrow.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110635335",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A traffic signal intersection with multiple lanes\n- Power/utility lines running across the image\n- Trees on both sides of the road\n- The road continues straight ahead under the traffic signals\n\nComparing this to the overhead map:\n- Direction A points northeast along the main road\n- Direction B points southeast \n- Direction C points west/southwest along the main road\n\nThe street view shows we're looking along the main arterial road that runs diagonally through the intersection. The presence of the traffic signals, the width of the road, and the continuation of the road straight ahead matches direction A, which points northeast along the main thoroughfare.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110570593",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A road stretching ahead with white lane markings\n- Mountains/hills visible in the distance\n- Trees and vegetation on both sides\n- What appears to be an overpass or bridge structure in the distance\n- The road appears to be heading in a relatively straight direction\n\nComparing this to the overhead map:\n- Option A points northeast along what appears to be a main road\n- Option B points south/southeast \n- Option C points northwest along what appears to be the main thoroughfare\n\nGiven the straight nature of the road in the street view, the presence of what looks like a highway overpass in the distance, and the general layout, this appears to be taken looking northwest along the main road, which corresponds to direction C.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "682301411",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- Multiple highway overpasses/bridges overhead\n- A curved road ahead\n- The road appears to curve to the right\n- There are multiple levels of highway infrastructure visible\n\nComparing this to the overhead map:\n- Point A faces toward a highway on-ramp that curves right\n- Point B faces toward what appears to be a more straight section under the highways\n- Point C faces toward the main highway above\n\nThe street view shows a road curving to the right with multiple highway overpasses above, which matches the view from point A - facing toward the on-ramp that curves right and goes under the multiple highway levels.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110577736",
+      "pred": "C",
+      "gold": "D",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A T-intersection where the road continues straight ahead and to the right\n- Mountains/hills visible in the background\n- Houses on both sides of the street\n- The road appears to curve slightly to the left in the distance\n\nComparing with the aerial map:\n- Point C faces west along the residential street\n- From the intersection center looking toward C (west), there would be houses on both sides\n- The road does curve slightly left as it goes west\n- Mountains would be visible in that direction (west/northwest in Hawaii)\n\nThe view matches direction C.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110647381",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk with white stripes in the foreground\n- Hills/mountains with green vegetation in the background\n- Some buildings including what appears to be a gray/industrial building on the left\n- Power lines visible\n- The road continues straight ahead past the intersection\n\nComparing this to the overhead map:\n- Direction A points northeast toward an area with houses\n- Direction B points south/southeast \n- Direction C points west/northwest\n\nThe street view shows hills in the background and appears to be looking toward a more open/less densely developed area. Based on the orientation of the crosswalk stripes and the landscape features visible, this view corresponds to looking in direction B (south/southeast), which would show the hillside terrain visible in the background of the street view photo.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110545972",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A tree-lined street with mature trees creating shade\n- A distinctive building with white pyramid/triangular roof structures on the right side\n- The road continues straight ahead with trees on both sides\n\nComparing to the aerial map:\n- The distinctive white pyramid/triangular structures visible in the street view match the building complex visible at the bottom of the aerial map\n- Direction B points toward this building complex with the pyramidal roofs\n- The tree-lined nature of the street and the positioning of the buildings matches what would be seen looking in direction B\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110540439",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A straight road extending into the distance\n- Houses on both sides of the street\n- Mountains/hills visible in the background\n- The road appears to continue straight ahead with no immediate intersection visible\n\nLooking at the overhead map, I need to identify which arrow direction from the center of the intersection would show this view:\n- Arrow A points northeast along the main road\n- Arrow B points southwest along the main road  \n- Arrow C points northwest along the side street\n\nThe street view shows a long straight road with houses on both sides and mountains in the distance, which matches the main road running northeast-southwest. Given the mountain backdrop and the way the road extends straight ahead, this view is looking northeast along the main road.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "12503999438",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see:\n- Point A is to the right (east)\n- Point B is downward (south) \n- Point C is to the left (west)\n\nIn the street view photo, I can see:\n- A tennis court with green surface and fencing on the left side\n- High-rise apartment buildings in the distance\n- The road continues straight ahead\n\nComparing the aerial map, the tennis courts are clearly visible on the south side of the intersection (near point B). Since the street view shows the tennis courts on the left side while facing forward, this means the camera is facing east (toward point A).\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110575497",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A multi-story parking garage on the right side\n- Green bike lanes on the road\n- The road continues straight ahead with buildings visible in the distance\n- Power/tram lines overhead\n\nComparing this to the overhead map, the green bike lanes are visible as the green markings at the intersection. The large parking structure visible on the right side of the street view corresponds to the large building on the eastern side of the intersection in the overhead map.\n\nBased on the orientation of the parking garage (on the right side) and the direction the road is heading, the photo was taken facing north along the red arrow.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110634356",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the street view, I can see:\n- A wide road with multiple lanes\n- Power/utility lines running parallel to the road\n- Commercial/industrial buildings on both sides\n- An overpass/bridge structure visible in the distance\n- The road appears to be a major thoroughfare\n\nExamining the map:\n- Direction A points north along the main road\n- Direction B points southeast \n- Direction C points southwest\n\nThe street view shows a major road with an overpass in the distance. Looking at the map, direction A points north along the main road where there appears to be an overpass/bridge structure visible further up the road.\n\nThe commercial buildings, wide road layout, and overpass structure in the distance all align with looking north from the intersection along direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "540399293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A curved/bent road going away from the camera\n- Residential houses on both sides\n- Power lines running along the street\n- The road appears to curve to the left in the distance\n\nExamining the map options:\n- Option A (red arrow) points toward a major road/highway\n- Option B (green arrow) points along a curved residential street\n- Option C (blue arrow) points along another residential street\n\nThe street view matches Option B because:\n1. It shows a residential street that curves/bends to the left, matching the green arrow's path\n2. The houses and power line configuration align with what would be seen looking in direction B\n3. The road geometry (curving left) matches the map's street layout in that direction\n\nB",
+      "correct": false
+    },
+    {
+      "id": "10024771033",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A residential street curving to the right\n- Houses on the left side, including a prominent white/beige house with a garage\n- Hills/mountains visible in the background\n- The road appears to be going uphill\n\nComparing this to the overhead map:\n- Point A faces north (upward on the map)\n- Point B faces south (downward on the map) \n- Point C faces west (left on the map)\n\nThe street view shows the road curving to the right and going uphill, with houses on the left side. This matches the view looking south from the intersection (direction B), where the road curves to the viewer's right and there are houses on the left (east) side of the street.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "110544054",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the street\n- A curved/turning road ahead\n- Houses on both sides\n- Mountains/hills visible in the background\n\nComparing this to the overhead map:\n- Option A points north toward the curved road\n- Option B points southeast down a straight road\n- Option C points southwest down another straight road\n\nThe street view shows the road curving ahead, which matches the curved road that Option A points toward. The perspective and road layout in the street view align with looking north from the intersection toward the curved section of road.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110577115",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A road stretching ahead with buildings on both sides\n- Large trees with overhanging branches on the left side\n- A distinctive turquoise/green building complex on the right side\n- Power/utility lines running along the street\n\nComparing to the aerial map:\n- The turquoise buildings visible in the street view match the turquoise/green buildings shown on the aerial map\n- These buildings are located along the road marked with arrow B\n- The view is looking along that road with the turquoise buildings on the right side\n- The grassy area with trees on the left in the street view corresponds to the open green space visible on the left side when facing direction B\n\nThe answer is B.",
+      "correct": false
+    },
+    {
+      "id": "110660634",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A large high-rise apartment/condo building on the right side\n- Two-story residential buildings on the left side (one appears turquoise/light blue)\n- The road continues straight ahead with power lines running along it\n\nComparing this to the overhead map:\n- Direction A points toward where there appears to be a large building complex with solar panels\n- Direction B points toward smaller residential buildings\n- Direction C points along the main road\n\nThe distinctive high-rise building in the street view photo on the right side matches with the large building that would be visible when looking in direction A from the intersection. The smaller residential buildings on the left also align with this perspective.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110575247",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see an intersection with three labeled directions:\n- A points to the right (east)\n- B points downward (south) \n- C points upward (north)\n\nIn the street view photo, I can see:\n- A crosswalk in the foreground\n- Power lines running parallel to the road\n- Mountains/hills visible in the background\n- Residential houses on both sides\n- The road continues straight ahead\n\nComparing the features:\n- The road heading north (C) appears to curve and has residential areas that match the street view\n- The mountains visible in the background of the street view align with looking north from this intersection\n- The power line configuration and residential layout match the northward view\n\nThe answer is C.",
+      "correct": false
+    },
+    {
+      "id": "110602210",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A residential street with houses on both sides\n- Two-story houses with driveways\n- A yellow fire hydrant on the right side\n- The street continues straight ahead with a slight curve\n- Trees and vegetation visible\n\nLooking at the overhead map, I need to identify which direction from the intersection matches this view.\n\nFrom the intersection center:\n- Direction A goes toward a cul-de-sac on the right side of the map\n- Direction B goes toward a cul-de-sac on the left side of the map  \n- Direction C goes upward/north on the map\n\nThe street view shows a continuous street with houses on both sides, which matches the characteristics of the street going toward direction A - it has houses lining both sides and continues as a through street rather than immediately entering a cul-de-sac.\n\nThe answer is: A",
+      "correct": true
+    },
+    {
+      "id": "110607768",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A curved road going to the left\n- A street lamp on the left side\n- Mountains/hills in the background\n- Palm trees and vegetation\n- What appears to be a school or institutional building with a fence on the left side\n\nComparing this to the overhead map:\n- Point A faces east along the main road\n- Point B faces south into a residential area\n- Point C faces west along the main road\n\nThe street view shows a road curving to the left with mountains in the background. Based on the orientation and the curve of the road visible in the street view, along with the institutional-looking building on the left (which matches the larger building visible on the north side of the road in the overhead view), this view is looking west from the intersection.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110632672",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A wide street with palm trees on both sides\n- Houses with walls/fences along the street\n- The road appears to continue straight ahead with a slight upward slope\n- There's what appears to be a roundabout or circular feature visible in the distance\n\nComparing this to the overhead map:\n- Point A leads toward a roundabout/circular feature at the top of the map\n- Point B leads downward/southward on the map\n- Point C leads to the right/eastward on the map\n\nThe street view shows a road leading toward what appears to be the roundabout visible in the overhead map, with residential properties on both sides matching the layout shown when looking from the intersection toward point A.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110660683",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A two-story beige/yellow building on the left\n- Power lines running along the street\n- A car on the road\n- Houses/buildings on the right side going uphill\n- The road appears to continue straight ahead with a slight upward slope\n\nComparing this to the overhead map:\n- Direction A points southeast down a residential street\n- Direction B points west along what appears to be a main road\n- Direction C points north/northwest\n\nThe street view shows a residential street with houses on both sides and power lines, which matches the characteristics of the street in direction A. The two-story building on the left in the street view corresponds to the buildings visible along the street that direction A points down.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "7618651229",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A traffic light intersection\n- A large concrete wall/barrier on the left side\n- A hillside with vegetation on the right side\n- The road continues straight ahead under traffic signals\n\nComparing this to the overhead map:\n- Direction A points east along the main road\n- Direction B points south \n- Direction C points west along the main road\n- Direction D points north\n\nThe distinctive features in the street view (concrete barrier on left, vegetated hillside on right) match what would be seen looking west (direction C) from the intersection. The concrete structure visible in the aerial view would be on the left (north) side, and the undeveloped/vegetated area would be on the right (south) side when facing west.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110655493",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A steep uphill road with textured/patterned pavement\n- A hillside with vegetation on the left side\n- Houses visible on the right side\n- The road curves as it goes uphill\n\nComparing this to the overhead map:\n- Point A faces east along a road\n- Point B faces south along a curved road\n- Point C faces northwest toward what appears to be a wooded/undeveloped area\n\nThe street view shows a road going uphill with a hillside on the left and houses on the right. Looking at arrow C's direction, it points northwest toward an undeveloped green area (which would appear as the vegetated hillside on the left in the photo), while the residential area would be on the right side.\n\nThe answer is C.",
+      "correct": false
+    },
+    {
+      "id": "110542308",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see:\n- Point A is on the main road to the right\n- Point B is toward the beach/ocean (bottom of image)\n- Point C is on the main road to the left\n\nIn the street view photo, I can see:\n- High-rise hotels/buildings on both sides of the road\n- The road continues straight ahead\n- Palm trees line the street\n- This appears to be looking along the main coastal road\n\nComparing the two images:\n- The street view shows we're looking along the main road with tall buildings on both sides\n- This matches the direction toward point A, which follows the main road to the right in the aerial view\n- Point B would show the beach area\n- Point C would show the opposite direction along the road\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110652154",
+      "pred": "A",
+      "gold": "D",
+      "raw": "Looking at the street view image, I can see:\n- Mountains/hills in the background\n- Power lines running across the view\n- Houses on both sides of the street\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- Direction A points northeast\n- Direction B points southeast \n- Direction C points southwest\n- Direction D points northwest\n\nThe street view shows mountains in the background, which based on the topography visible in the aerial view and typical Hawaiian geography, would be looking toward the northeast direction from this intersection.\n\nThe answer is: A",
+      "correct": false
+    },
+    {
+      "id": "3728226511",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the aerial view, I can see:\n- A major highway/overpass running horizontally (east-west)\n- Three labeled directions: A (north), B (northeast), and C (south)\n\nIn the street view photo, I can see:\n- A highway overpass/bridge structure ahead\n- A gas station with blue canopy on the right side\n- The camera is positioned looking toward the overpass\n\nComparing the two images:\n- The gas station visible in the street view (on the right) corresponds to the gas station visible in the aerial view on the eastern side of the intersection\n- The street view is looking northward toward the highway overpass\n- This matches the direction of arrow A, which points north toward the highway\n\nThe answer is: **A**",
+      "correct": false
+    },
+    {
+      "id": "8588554309",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A straight road with yellow center lines\n- Houses on both sides of the street\n- The road appears to continue straight ahead\n- There's a slight uphill grade visible in the distance\n\nComparing this to the overhead map:\n- The intersection shows three roads meeting\n- Arrow A points north (upward)\n- Arrow B points east (right)\n- Arrow C points west (left)\n\nThe street view shows a continuous straight road rather than a T-intersection view. Looking at the map, direction B (pointing east) shows a long straight road that continues through the intersection, which matches what we see in the street view photo.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "110563456",
+      "pred": "",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the street\n- A street that appears to go uphill/downhill\n- Houses on both sides\n- The street continues into the distance\n\nComparing with the overhead map, I need to identify which direction from the intersection center matches this view.\n\nThe street view shows a road continuing straight ahead with utility poles and power lines visible. Looking at the map, the green arrow (pointing southeast) appears to align with a street that would have this characteristic view - a residential street with houses on both sides.\n\nThe answer is **B**",
+      "correct": false
+    },
+    {
+      "id": "1164380313",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A multi-lane highway/freeway\n- Green highway signs visible in the distance\n- Mountains visible in the background\n- The road appears to be heading east based on the mountain orientation\n\nFrom the aerial map:\n- This is a major highway intersection\n- Direction B points east along the highway\n- Direction D points west\n- Directions A and C point north and south perpendicular to the main highway\n\nThe street view clearly shows we're looking along the main highway (not perpendicular to it), and the presence of mountains and the road configuration indicates we're looking east, which corresponds to direction B.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "110645654",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- Power/telephone lines running across the image\n- Trees on both sides of the street\n- A gate or fence visible on the right side\n- Cars parked along the street\n- The road appears to continue straight ahead\n\nComparing this to the overhead map, I need to identify which direction from the intersection matches this view.\n\nFrom the intersection center:\n- Direction A points northeast\n- Direction B points south\n- Direction C points northwest\n\nThe street view shows a relatively straight road with development on both sides, power lines, and what appears to be a gate/fence structure on the right. Looking at the overhead map, direction B (pointing south) shows a road that continues with buildings and structures on both sides, which matches the street-level view.\n\nThe answer is: B",
+      "correct": true
+    },
+    {
+      "id": "3536195327",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view image:\n\nFrom the aerial map, I can see:\n- Point A is north (top of image)\n- Point B is east (right side)\n- Point C is west (left side)\n\nIn the street view image, I can see:\n- A road stretching ahead with a crosswalk\n- Power lines running parallel to the road\n- Commercial/industrial buildings on both sides\n- The road appears to continue straight ahead under the power lines\n\nComparing the aerial view with the street view:\n- The street view shows looking west along the main road\n- This matches the direction toward point C\n- The commercial buildings visible on both sides in the street view correspond to the warehouse/commercial structures seen along the main road in the aerial view\n\nC",
+      "correct": false
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk with white stripes directly in front\n- Trees on the left side\n- What appears to be a beach or sandy area on the right side\n- Buildings/high-rises visible in the distance on the left\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- The intersection shows four directions marked A, B, C, and D\n- Direction B (green arrow) points toward what appears to be a beach/sandy area\n- This matches the street view which shows the beach on the right side when facing direction B\n- The parking areas and buildings visible in the overhead map on the left side of direction B correspond to the trees and buildings seen on the left in the street view\n\nThe answer is B.",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- Power lines running along the street\n- A large hedge or vegetation on the right side\n- Houses visible on both sides of the street\n- The road continues straight ahead\n\nComparing this to the overhead map:\n- Option A points northeast along the main road\n- Option B points southwest along the main road  \n- Option C points northwest at the intersection\n\nThe street view shows a straight road with houses on both sides and power lines, which matches the main road running northeast-southwest. The large vegetation on the right side of the street view corresponds to what appears to be visible in the overhead map when facing in direction A (northeast).\n\nThe answer is: A",
+      "correct": false
+    },
+    {
+      "id": "110542795",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A straight road extending into the distance\n- Houses on both sides of the street\n- The road appears to curve slightly to the right in the distance\n- Modern suburban houses with driveways\n\nExamining the map:\n- Point C (black circle) is at the top left\n- Point B is at the bottom\n- The blue arrow from C points southeast along a street\n- The green arrow from B points northwest along the same street\n- The red arrow appears to go northeast\n\nThe street view perspective shows we're looking along the main street that runs between points B and C. Given the houses on both sides and the road configuration, this view is looking from the intersection toward point C (northwest direction).\n\nThis corresponds to the green arrow direction from point B.\n\n**B**",
+      "correct": true
+    },
+    {
+      "id": "110513915",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A divided highway/freeway with multiple lanes\n- A green freeway sign visible in the distance\n- Hills/mountains visible in the background on the right side\n- A red/orange barrier or wall on the right side of the road\n\nFrom the aerial map:\n- Arrow A points east along the main highway\n- Arrow B points south into a parking lot area\n- Arrow C points west along the main highway\n\nThe street view clearly shows we're looking along the main highway (not into a parking lot), and the presence of hills on the right side when looking at the freeway sign suggests we're looking east (Arrow A direction), which would place the hills to the north.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110619682",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A wide multi-lane road/highway running horizontally across the image\n- Industrial/commercial buildings on both sides\n- Power lines running parallel to the road\n- The perspective is looking along this major road\n\nFrom the aerial map:\n- Direction B points along what appears to be a major multi-lane road/highway at the bottom of the image\n- This road runs east-west and has multiple lanes visible\n- Directions A and C point along narrower streets that intersect with this main road\n\nThe street view clearly shows the camera facing along the major highway/arterial road, which corresponds to direction B on the map.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "453703609",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nFrom the aerial view, I can see:\n- Point A is on the main road going one direction\n- Point B is on a residential street/cul-de-sac below\n- Point C is on the main road going the opposite direction from A\n\nIn the street view photo, I can see:\n- A main road stretching ahead\n- Mountains visible in the distance\n- A golf course or large grass area on the right side\n- The road continues straight with no immediate turn-offs visible\n\nComparing the features:\n- The view shows the main road, not a residential street, so it's not B\n- The golf course is on the right side of the road\n- Looking at the aerial map, if facing from C's direction, the golf course would indeed be on the right side\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110609040",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A residential street with houses on both sides\n- Mountains/hills visible in the background\n- Power lines running along the street\n- The road continues straight ahead into the distance\n- Houses with driveways and lawns on both sides\n\nComparing this to the overhead map, I need to identify which direction from the intersection center would show this view.\n\nThe street view shows a road continuing straight with residential properties on both sides and mountains in the background. Looking at the map:\n- Direction A points east along the horizontal street\n- Direction B points south \n- Direction C points west along the horizontal street\n- Direction D points north\n\nThe street view image shows a long straight road with consistent residential development, which matches the east-west running street in the map. Given the mountain backdrop and the overall layout of the houses visible in the street view, this corresponds to looking west from the intersection.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110621029",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk with white stripes in the foreground\n- Tall residential towers/high-rises on the right side\n- The road curves to the left\n- There's greenery/trees on the right side near the buildings\n\nComparing this to the overhead map:\n- Direction A points toward the circular building with a pool\n- Direction B points toward what appears to be a construction/dirt area near water\n- Direction C points along the main road where there are tall buildings visible on the right side\n\nThe street view shows tall residential buildings on the right side and the road configuration matches what would be seen looking in direction C from the intersection.\n\nC",
+      "correct": true
+    },
+    {
+      "id": "525279235",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view image:\n\nThe street view shows:\n- A multi-lane road stretching ahead\n- Mountains/hills visible in the background\n- Trees and vegetation on both sides of the road\n- The road appears to continue straight ahead into the distance\n\nExamining the map:\n- Direction A points northeast along the main road\n- Direction B points south/southeast along a perpendicular road\n- Direction C points west/southwest along the main road\n\nThe street view shows the camera facing along the main road with hills/mountains in the background. Based on the topography and road layout, the view appears to be looking northeast along the main road, which corresponds to direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110658443",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A two-story turquoise/green building on the right side\n- Power lines running along the street\n- The road continues straight ahead with buildings on both sides\n- Mountains or hills visible in the distance\n\nComparing this to the overhead map:\n- Direction A points east along the main road\n- Direction B points west along the main road  \n- Direction C points north up a perpendicular street\n\nThe street view shows a long straight road with the characteristic two-story turquoise building that appears to match the buildings visible along the main east-west road in the aerial view. The perspective and building arrangement matches looking westward from the intersection (direction B).\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110551700",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A curved road going uphill\n- Houses on both sides of the street\n- Power lines running along the street\n- The road appears to curve to the right as it goes up the hill\n\nComparing this to the overhead map, I need to find which arrow direction from the intersection center would show this view.\n\nLooking at arrow B (pointing south/downward on the map), this would be looking along the street that curves as it heads south from the intersection. This matches the street view which shows a road curving uphill with residential houses on both sides.\n\nThe answer is: B",
+      "correct": true
+    },
+    {
+      "id": "110648455",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- A road stretching ahead with lane markings\n- Mountains/hills in the background\n- Trees on both sides of the road\n- What appears to be some white structures or poles on the left side\n\nComparing this to the overhead map:\n- Direction A points north along the main road\n- Direction B points southeast \n- Direction C points southwest\n- Direction D points west toward the parking lot area\n\nThe street view shows a road continuing straight ahead with natural terrain (mountains) in the background, which matches the view looking north along the main road from the intersection (Direction A).\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110635882",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the aerial map, I can see a roundabout intersection with three labeled directions (A, B, C) and various buildings around it.\n\nIn the street view photo, I can see:\n- A tall residential tower/high-rise building prominently in the view\n- A roundabout with brick/paved sections\n- The road curves to the right\n\nComparing the aerial view with the street view:\n- Direction A points toward the area with the tall building visible in the aerial map (northeast)\n- Direction B points southwest \n- Direction C points southeast toward what appears to be buildings with tennis courts\n\nThe tall residential tower visible in the street view photo matches the building that would be seen when looking in direction A from the center of the roundabout.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "2309311992",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view image:\n\nFrom the aerial map, I can see:\n- Point A is to the right (east)\n- Point B is to the left (west) \n- Point C is up (north), perpendicular to the main road\n\nIn the street view image, I can see:\n- A road running straight ahead with the ocean/water visible on the left side\n- Industrial/warehouse buildings on the right side\n- The road continues straight with lane markings\n\nSince the water is on the left side of the street view and the road runs parallel to the shoreline, the camera must be facing east (toward point A).\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110585086",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A multi-story yellow/green building on the right side\n- Power lines running along the street\n- The street continues straight ahead with buildings on both sides\n- There appears to be a \"STOP\" marking on the road\n\nComparing this to the overhead map, I need to identify which direction from the intersection center would show this view.\n\nThe yellow/green multi-story building visible in the street view appears to match with the larger building structure that would be visible when looking in direction B (green arrow pointing east/southeast).\n\nFrom the intersection center, looking in direction B would show the street extending ahead with buildings on both sides, matching the street view perspective.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "110608557",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Looking at the street view image, I can see:\n- A residential street with houses on both sides\n- Power/utility lines running along the street\n- The street continues uphill in the distance\n- There's a tree with distinctive foliage on the right side\n\nComparing with the overhead map:\n- Direction A points east along the main road\n- Direction B points west along the main road  \n- Direction C points north up a side street\n\nThe street view shows a road that continues straight ahead with houses on both sides and utility lines, which matches the characteristics of the main east-west road. The uphill grade and the way the houses are positioned indicates this is looking east (direction A).\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110606149",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A divided road/highway with multiple lanes\n- Palm trees on both sides\n- Parking areas visible on both left and right sides\n- The road continues straight ahead into the distance\n\nExamining the map:\n- Direction A points northeast toward a building/structure\n- Direction B points east along what appears to be a smaller road\n- Direction C points southwest along a major divided highway with parking areas on both sides\n\nThe street view matches direction C because:\n- It shows a major divided highway/road\n- There are large parking areas visible on both sides (matching the parking lots shown southwest of the intersection)\n- The road configuration and width matches the southwest direction\n\nC",
+      "correct": true
+    },
+    {
+      "id": "110564996",
+      "pred": "",
+      "gold": "B",
+      "raw": "Looking at the street view image, I can see:\n- Power/telephone lines running parallel to the road\n- A two-story house with a white fence/wall on the right side\n- Single-story houses on the left side\n- The road continues straight ahead into the distance\n\nComparing this to the overhead map:\n- The intersection shows four directions (A, B, C, D)\n- Direction B points toward a two-story house that matches what's visible on the right in the street view\n- The road layout and house configurations along direction B match the street view perspective\n\nThe street view photo was taken facing direction **B**.",
+      "correct": false
+    },
+    {
+      "id": "110637293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A residential street with houses on both sides\n- White/light-colored houses on the left\n- Brown/tan colored houses on the right\n- Trees lining the street\n- The road continues straight ahead\n\nComparing to the aerial map:\n- Direction A points toward a roundabout/circular intersection\n- Direction B points down a residential street with white houses on the left (west) side and brown/tan houses on the right (east) side\n- Direction C points toward brown townhouse-style buildings\n\nThe street view matches direction B, which shows the residential street with the correct arrangement of white houses on the left and brown houses on the right.\n\nB",
+      "correct": false
+    },
+    {
+      "id": "3222767118",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nIn the street view, I can see:\n- A tall beige/tan colored high-rise building on the right side\n- A large tree with spreading branches on the left side\n- The road continues straight ahead with buildings visible in the distance\n\nComparing to the aerial map:\n- Direction A points southeast toward a large building with solar panels\n- Direction B points southwest \n- Direction C points northwest toward a circular/rounded building structure and a tall beige building\n\nThe tall beige building visible on the right in the street view matches the building that would be on the right when facing direction C (northwest). The large tree on the left also corresponds to the green area visible on the left side when facing direction C.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "6132072526",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A highway overpass/elevated roadway on the left side\n- A crosswalk with white stripes in the foreground\n- Commercial buildings on the right side\n- The road continues straight ahead under the overpass\n\nComparing this to the overhead map:\n- The map shows a major highway running east-west (the elevated structure)\n- There's an intersection below with a parking lot area to the south\n- Arrow A points east along the highway\n- Arrow B points southwest toward the parking lot area  \n- Arrow C points west along the highway\n\nThe street view shows we're looking from the intersection toward the west, with the highway overpass on our left (north side) and commercial buildings/parking on our right (south side). This matches the direction of arrow C, which points west along the road that runs parallel to and under the highway.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "12507822811",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A red SUV/car in the foreground on the left\n- High-rise buildings in the distance\n- Palm trees along the street\n- A yield sign on the right side\n- The road curves slightly to the right\n\nComparing this to the overhead map, the street view is looking toward the direction where there are parking lots and what appears to be more developed areas with larger buildings. The angle and curve of the road in the street view matches the direction of arrow A, which points toward the upper left where there appear to be commercial/developed areas.\n\nA",
+      "correct": true
+    },
+    {
+      "id": "110637500",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Looking at the street view image, I can see:\n- A crosswalk with white stripes in the foreground\n- The road continues uphill/straight ahead\n- Mountains/hills visible in the background\n- Houses on both sides of the street\n- Power lines running along the street\n\nComparing this to the overhead map:\n- The intersection has a crosswalk across the main road\n- Direction B points along the main road that continues straight (green arrow)\n- This matches the uphill continuation seen in the street view\n- The perspective shows we're looking along the main thoroughfare\n\nThe answer is B.",
+      "correct": false
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view image:\n\nIn the aerial view, I can see:\n- Point A is facing southeast\n- Point B is facing southwest (toward the water/harbor area)\n- Point C is facing north\n\nIn the street view photo, I can see:\n- The ocean/water is visible on the left side\n- There are tall modern buildings/hotels on the left\n- The road continues straight ahead\n- This appears to be a waterfront road\n\nBased on the orientation, the street view is looking southwest along the waterfront road, with the water/harbor visible on the left side. This matches the direction of arrow B, which points southwest toward the water.\n\nB",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "A",
+      "gold": "D",
+      "raw": "Looking at the street view image, I can see:\n- Power/telephone lines running parallel to the street\n- A white van (Penske truck) on the road\n- Houses on both sides of the street\n- The road continues straight ahead into the distance\n\nComparing this to the overhead map:\n- The intersection shown has four directions marked A, B, C, and D\n- Direction A (red arrow) points northeast\n- Direction B (green arrow) points southeast  \n- Direction C (blue arrow) points southwest\n- Direction D (orange arrow) points northwest\n\nThe street view shows a straight road with power lines running parallel to it. Looking at the map, the main through street runs northeast-southwest (between points A and C). The power lines visible in the street view would be along this main road.\n\nGiven the perspective in the street view showing the road continuing straight ahead with houses on both sides and power lines overhead, this matches the view looking northeast along the main street, which corresponds to direction A.\n\nA",
+      "correct": false
+    },
+    {
+      "id": "110515915",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Looking at the aerial map and street view photo:\n\nThe street view shows:\n- A residential street with houses on the left side\n- A grassy slope/embankment with a retaining wall on the right side\n- Power lines running along the street\n- The road continuing straight ahead\n\nComparing to the map:\n- Direction A points northeast along a residential street\n- Direction B points south along the main road\n- Direction C points northwest\n\nThe key identifying feature is the grassy slope/embankment with retaining wall on the right side of the street view. Looking at the aerial map, this configuration matches direction B - heading south along the main road, where there appears to be an open grassy area on the right (west) side and buildings on the left (east) side.\n\nB",
+      "correct": true
+    }
+  ]
+}

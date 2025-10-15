@@ -57,9 +57,13 @@ def to_image_bytes_and_mime(value, repo_root: Path) -> tuple[bytes, str]:
 def build_prompt(question: str, options: List[str]) -> str:
     opts = "\n".join(f"{chr(ord('A') + i)}" for i, _ in enumerate(options))
     instructions = (
-        "You will be given two images: a labeled overhead map and a street-view photo.\n"
-        "Choose which labeled direction on the map corresponds to the direction in which the street view photo was taken.\n"
-        "Answer with a single letter only (A, B, C, ...)."
+        "You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.\n"
+        "Rules:\n"
+        "- The camera location is the same for all options: the center of the intersection.\n"
+        "- Each letter corresponds to facing outward from that center along the arrow of that label.\n"
+        "- The small circles near labels are markers only; they are not camera locations.\n"
+        "- The map and photo may be captured years apart. Ignore transient objects (cars, people).\n"
+        "Respond with just the single letter (A, B, C, ...), no words or punctuation."
     )
     return f"{instructions}\n\n{question}\n\nOptions:\n{opts}"
 

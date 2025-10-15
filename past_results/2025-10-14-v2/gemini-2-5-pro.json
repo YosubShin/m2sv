@@ -1,0 +1,714 @@
+{
+  "accuracy": 0.39,
+  "correct": 39,
+  "total": 100,
+  "empty": 0,
+  "random_baseline": 0.31833333333333297,
+  "option_count_hist": {
+    "3": 73,
+    "4": 24,
+    "2": 3
+  },
+  "results": [
+    {
+      "id": "110632122",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110575924",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110601537",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110572700",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110546785",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "2394655682",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "7785944633",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "1226512565",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110538200",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110597543",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110575693",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "525391975",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110619734",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "5205421746",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110637872",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110601564",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "10754902880",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545084",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110554639",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575673",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110570600",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110550647",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110612231",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "8591690612",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110517640",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110619689",
+      "pred": "A",
+      "gold": "D",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545067",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110543045",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110575719",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110624545",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "358434668",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110545952",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110637113",
+      "pred": "B",
+      "gold": "D",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110632100",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110539372",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "810809800",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110500838",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110582277",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110593890",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "3728231686",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110599933",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "8588554269",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "682189618",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545102",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110635335",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110570593",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "682301411",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110577736",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110647381",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110545972",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110540439",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "12503999438",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110575497",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110634356",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "540399293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "10024771033",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110544054",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110577115",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110660634",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110575247",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110602210",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110607768",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110632672",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110660683",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "7618651229",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110655493",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110542308",
+      "pred": "C",
+      "gold": "A",
+      "raw": "1.  **Analyze the Street-View Image:** The photo shows a wide, multi-lane road lined with palm trees and tall, white hotel buildings on the left. The road curves distinctly to the right. The architecture is typical of a modern beach resort area. The crosswalk at the bottom indicates the photo was taken from an intersection.\n\n2.  **Analyze the Overhead Map:** The map shows an intersection on a coastline, with a beach to the west and a large park to the southeast. The camera's location is the center of this intersection.\n    *   **Direction A** points northeast, inland, up a smaller street (Kapahulu Ave). This doesn't match the wide coastal boulevard in the photo.\n    *   **Direction B** points southeast along the main coastal road (Kalakaua Ave). Looking this way, there are buildings on the left and a large park on the right. The road on the map curves to the *left*.\n    *   **Direction C** points northwest along the main coastal road (Kalakaua Ave). Looking this way, the beach is on the left, and a long row of tall hotels is on the right. The road on the map curves to the *right*.\n\n3.  **Compare and Reconcile:**\n    *   The photo shows the road curving to the right. This matches the road geometry of **Direction C**.\n    *   The prominent buildings in the photo (such as the Alohilani Resort and others) are located along the stretch of Kalakaua Ave seen in **Direction C**. The buildings seen in Direction B look different.\n    *   There is a major contradiction: In the photo, the buildings are on the *left*, but on the map for Direction C, they are on the *right*.\n\n4.  **Resolve the Contradiction:** Let's assume the key features are the identity of the location (the specific buildings) and the physical geometry of the road (the right curve). Both of these strongly point to **Direction C**. The discrepancy in the left/right placement of the buildings is best explained by the provided street-view image having been horizontally flipped. An original, non-flipped photo taken in Direction C would show the road curving to the right and the buildings on the right, perfectly matching the map. Since flipping an image doesn't change the direction it was originally facing, the direction is C.\n\nC",
+      "correct": false
+    },
+    {
+      "id": "110652154",
+      "pred": "A",
+      "gold": "D",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "3728226511",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "8588554309",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110563456",
+      "pred": "D",
+      "gold": "C",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "1164380313",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110645654",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "3536195327",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "12998714141",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "2394655666",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110542795",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110513915",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110619682",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "453703609",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110609040",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110621029",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "525279235",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true
+    },
+    {
+      "id": "110658443",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "110551700",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false
+    },
+    {
+      "id": "110648455",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110635882",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "2309311992",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110585086",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110608557",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110606149",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "110564996",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110637293",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false
+    },
+    {
+      "id": "3222767118",
+      "pred": "A",
+      "gold": "B",
+      "raw": "A",
+      "correct": false
+    },
+    {
+      "id": "6132072526",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "12507822811",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true
+    },
+    {
+      "id": "110637500",
+      "pred": "D",
+      "gold": "A",
+      "raw": "D",
+      "correct": false
+    },
+    {
+      "id": "110620871",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    },
+    {
+      "id": "110539497",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true
+    },
+    {
+      "id": "110515915",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true
+    }
+  ]
+}
