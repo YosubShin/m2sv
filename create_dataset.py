@@ -28,7 +28,7 @@ logger = logging.getLogger("create_dataset")
 
 # ---------- CONFIG ----------
 CITY_NAME = "Honolulu, Hawaii, USA"
-N_SAMPLES = 5  # number of intersections to test
+N_SAMPLES = 100  # number of intersections to test (dev split)
 API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 IMAGE_SIZE = "640x640"
 FOV = 120.0
