@@ -139,3 +139,13 @@ Optional overrides at render time:
 
 Notes:
 - Blueprints separate curation (freeze) from rendering (API calls), enabling reproducible splits and cheaper iteration.
+
+3) Merge train and validation splits into a single HF dataset. Use `merge_jsonl_splits.py` to combine two JSONL files into one dataset with `train` and `validation` splits and optionally push to the Hub:
+
+```
+python merge_jsonl_splits.py \
+  /Users/yosub/co/map-to-street-view/data/hf/m2sv-train-1k/train.jsonl \
+  /Users/yosub/co/map-to-street-view/data/hf/m2sv-validation/train.jsonl \
+  --out-dir /Users/yosub/co/map-to-street-view/data/hf/m2sv \
+  --repo yosubshin/m2sv
+```
