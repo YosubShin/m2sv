@@ -102,3 +102,58 @@ python evaluate_vlm.py yosubshin/m2sv \
 ```
 streamlit run review_webapp.py
 ```
+
+## Freeze-and-render dataset workflow
+
+1) Freeze a reproducible blueprint (metadata only, no images yet). This records coordinates, azimuth options, gold label, and the Street View pano id/distance so the dataset can be recreated consistently.
+
+```
+python freeze_blueprint.py \
+  --out data/blueprints/train-1k.jsonl \
+  --total-samples 1000 \
+  --per-place-cap 60 \
+  --seed 42 \
+  --candidate-multiplier 10 \
+  --resume
+```
+
+Options:
+- `--places-file` (txt or json list) or multiple `--place` args to control geographic diversity; otherwise a default global list is used.
+- `--max-sv-distance-m` (default 10m) and `--metadata-radius-m` (default 15m) control Street View eligibility.
+- `--dedupe-radius-m` (default 20m) avoids clustering.
+ - `--candidate-multiplier` caps the number of candidate nodes checked per city to N× the target for that city (default 10×). This prevents spending excessive time in cities with poor Street View coverage.
+ - `--resume` resumes from an existing output JSONL file, appending results incrementally per city and skipping places that already have their target count.
+
+Logging and metrics enhancements in `freeze_blueprint.py`:
+- Per city, the script logs: checked, accepted, acceptance rate, elapsed seconds, nodes/sec, and a breakdown of filtering reasons with rates (e.g., `no_metadata`, `metadata_incomplete`, `too_far`, `pano_invalid`, `edges_access_error`, `no_azimuths`, `not_enough_azimuths`, `dedupe_blocked`).
+
+2) Render a dataset from a blueprint (fetch images, overlay arrows, emit HF JSONL):
+
+```
+python render_from_blueprint.py data/blueprints/train-1k.jsonl m2sv-train-1k --output-root data/hf
+```
+
+Optional overrides at render time:
+- `--override-map-zoom`, `--override-map-type`, `--override-map-size`
+- `--override-sv-fov`, `--override-sv-pitch`
+
+Notes:
+- Dev split remains in `create_dataset.py` with Honolulu and `N_SAMPLES=100`.
+- Blueprints separate curation (freeze) from rendering (API calls), enabling reproducible splits and cheaper iteration.
+
+### Freeze an existing dev dataset (for reproducibility later)
+
+If you've already created the dev dataset with `create_dataset.py`, freeze its metadata now so you can re-render it later exactly:
+
+```
+# From HF JSONL
+python freeze_existing_dataset.py --source-jsonl data/hf/<dev-name>/train.jsonl --out data/blueprints/dev.jsonl --place "Honolulu, Hawaii, USA"
+
+# Or from the filtered intersections JSON
+python freeze_existing_dataset.py --source-json data/intersection_dataset_filtered.json --out data/blueprints/dev.jsonl --place "Honolulu, Hawaii, USA"
+```
+
+Then render it in the future with:
+```
+python render_from_blueprint.py data/blueprints/dev.jsonl m2sv-dev --output-root data/hf
+```
