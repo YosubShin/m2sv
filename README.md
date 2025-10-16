@@ -138,22 +138,4 @@ Optional overrides at render time:
 - `--override-sv-fov`, `--override-sv-pitch`
 
 Notes:
-- Dev split remains in `create_dataset.py` with Honolulu and `N_SAMPLES=100`.
 - Blueprints separate curation (freeze) from rendering (API calls), enabling reproducible splits and cheaper iteration.
-
-### Freeze an existing dev dataset (for reproducibility later)
-
-If you've already created the dev dataset with `create_dataset.py`, freeze its metadata now so you can re-render it later exactly:
-
-```
-# From HF JSONL
-python freeze_existing_dataset.py --source-jsonl data/hf/<dev-name>/train.jsonl --out data/blueprints/dev.jsonl --place "Honolulu, Hawaii, USA"
-
-# Or from the filtered intersections JSON
-python freeze_existing_dataset.py --source-json data/intersection_dataset_filtered.json --out data/blueprints/dev.jsonl --place "Honolulu, Hawaii, USA"
-```
-
-Then render it in the future with:
-```
-python render_from_blueprint.py data/blueprints/dev.jsonl m2sv-dev --output-root data/hf
-```
