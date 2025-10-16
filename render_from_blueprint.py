@@ -196,23 +196,14 @@ def main():
         except Exception:
             shutil.copyfile(sv_cache_path, sv_dst)
 
-        instructions = (
-            "You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.\n"
-            "Rules:\n"
-            "- The camera location is the same for all options: the center of the intersection.\n"
-            "- Each letter corresponds to facing outward from that center along the arrow of that label.\n"
-            "- The small circles near labels are markers only; they are not camera locations.\n"
-            "- The map and photo may be captured years apart. Ignore transient objects (cars, people).\n"
-            "Think step by step to compare the street-view with the map (buildings, angles, lanes, landmarks).\n"
-            "On the final line, output only: Final answer: \\boxed{X} where X is a single letter (A, B, C, ...)."
-        )
         question = "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?"
-        
+        opts = "\n".join(labels)
+
         vlm_rows.append({
             "id": row["intersection_id"],
             "image_map": str(overlay_path.relative_to(dataset_dir)),
             "image_sv": str(sv_dst.relative_to(dataset_dir)),
-            "question": f"{instructions}\n\n{question}",
+            "question": f"{question}\n\nOptions:\n{opts}",
             "options": labels,
             "answer": row["answer"],
             "meta": {
@@ -269,5 +260,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

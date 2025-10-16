@@ -57,7 +57,6 @@ def to_image_bytes_and_mime(value, repo_root: Path) -> tuple[bytes, str]:
 
 
 def build_prompt(question: str, options: List[str]) -> str:
-    opts = "\n".join(f"{chr(ord('A') + i)}" for i, _ in enumerate(options))
     instructions = (
         "You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.\n"
         "Rules:\n"
@@ -68,7 +67,7 @@ def build_prompt(question: str, options: List[str]) -> str:
         "Think step by step to compare the street-view with the map (buildings, angles, lanes, landmarks).\n"
         "On the final line, output only: Final answer: \\boxed{X} where X is a single letter (A, B, C, ...)."
     )
-    return f"{instructions}\n\n{question}\n\nOptions:\n{opts}"
+    return f"{instructions}\n\n{question}"
 
 
 # -------- Providers --------
