@@ -244,17 +244,76 @@ def freeze_place(
             "no_azimuths": 0,
             "not_enough_azimuths": 0,
             "dedupe_blocked": 0,
+            "id_duplicate": 0,
         },
         "elapsed_sec": 0.0,
     }
 
     t0 = time.time()
 
+    # Build fast exact-id dedupe set from existing frozen samples
+    seen_by_id = set()
+    for s in global_samples:
+        try:
+            pl = s.get("place")
+            nid = s.get("intersection_id")
+            if isinstance(pl, str) and isinstance(nid, str):
+                seen_by_id.add((pl, nid))
+        except Exception:
+            continue
+
+    # Build a simple grid index for spatial dedupe to avoid O(N) scans
+    # Use degree steps approximated from dedupe_radius_m at the place's latitude
+    try:
+        lat0 = float(nodes["y"].mean())  # type: ignore[name-defined]
+    except Exception:
+        lat0 = 0.0
+    lat_step_deg = dedupe_radius_m / 111320.0 if dedupe_radius_m > 0 else 1.0
+    lon_step_deg = dedupe_radius_m / (111320.0 * max(0.1, math.cos(math.radians(lat0)))) if dedupe_radius_m > 0 else 1.0
+
+    def bucket_key(lat: float, lon: float):
+        return (int(math.floor(lat / lat_step_deg)), int(math.floor(lon / lon_step_deg)))
+
+    grid_index: Dict[tuple, List[tuple]] = {}
+
+    def grid_add(lat: float, lon: float) -> None:
+        key = bucket_key(lat, lon)
+        grid_index.setdefault(key, []).append((lat, lon))
+
+    def grid_too_close(lat: float, lon: float, radius_m: float) -> bool:
+        if radius_m <= 0:
+            return False
+        bx, by = bucket_key(lat, lon)
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                pts = grid_index.get((bx + dx, by + dy))
+                if not pts:
+                    continue
+                for (la, lo) in pts:
+                    if haversine_distance_m(lat, lon, la, lo) < radius_m:
+                        return True
+        return False
+
+    # Seed grid with existing global samples for spatial dedupe
+    if dedupe_radius_m > 0:
+        for s in global_samples:
+            try:
+                la = float(s.get("lat"))
+                lo = float(s.get("lng"))
+                grid_add(la, lo)
+            except Exception:
+                continue
+
     for node_id, node_data in tqdm(candidate_nodes.iterrows(), total=len(candidate_nodes), disable=True):
         if len(out) >= target_count:
             break
         stats["checked"] = int(stats["checked"]) + 1
         lat, lon = node_data["y"], node_data["x"]
+
+        # Fast exact-id dedupe per place to skip already-seen node ids
+        if (place, str(node_id)) in seen_by_id:
+            stats["reasons"]["id_duplicate"] = int(stats["reasons"]["id_duplicate"]) + 1
+            continue
 
         # Check Street View availability now (metadata only) for reproducibility
         meta = get_streetview_metadata(lat, lon, radius_m=metadata_radius_m) if API_KEY else None
@@ -340,8 +399,8 @@ def freeze_place(
                 stats["reasons"]["not_enough_azimuths"] = int(stats["reasons"]["not_enough_azimuths"]) + 1
             continue
 
-        # Dedupe near duplicates globally to avoid clustering
-        if dedupe_radius_m > 0 and (dedupe_too_close(global_samples, lat, lon, dedupe_radius_m) or dedupe_too_close(out, lat, lon, dedupe_radius_m)):
+        # Dedupe near duplicates globally to avoid clustering (grid-indexed)
+        if dedupe_radius_m > 0 and grid_too_close(lat, lon, dedupe_radius_m):
             stats["reasons"]["dedupe_blocked"] = int(stats["reasons"]["dedupe_blocked"]) + 1
             continue
 
@@ -373,6 +432,10 @@ def freeze_place(
             },
         })
         stats["accepted"] = int(stats["accepted"]) + 1
+        # Update dedupe structures
+        seen_by_id.add((place, str(node_id)))
+        if dedupe_radius_m > 0:
+            grid_add(lat, lon)
 
     stats["elapsed_sec"] = round(time.time() - t0, 3)
     checked = int(stats["checked"]) if stats["checked"] else 1
