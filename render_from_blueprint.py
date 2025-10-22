@@ -10,6 +10,9 @@ from PIL import Image
 from dotenv import load_dotenv
 from datasets import Dataset as HFDataset, Features, Value, Sequence, Image as HFImage
 from tqdm import tqdm
+import concurrent.futures
+import threading
+from requests.adapters import HTTPAdapter
 
 
 load_dotenv()
@@ -125,6 +128,100 @@ def overlay_arrows_on_map(base_map_path: Path, azimuths, labels, out_path: Path)
     return out_path
 
 
+_download_locks: Dict[str, threading.Lock] = {}
+_download_locks_guard = threading.Lock()
+_SESSION = None  # Will be initialized in main()
+
+
+def _get_lock_for_path(path: Path) -> threading.Lock:
+    key = str(path.resolve())
+    with _download_locks_guard:
+        lock = _download_locks.get(key)
+        if lock is None:
+            lock = threading.Lock()
+            _download_locks[key] = lock
+        return lock
+
+
+def init_requests_session(pool_size: int):
+    global _SESSION
+    session = requests.Session()
+    adapter = HTTPAdapter(pool_connections=pool_size, pool_maxsize=pool_size)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    _SESSION = session
+
+
+def download_if_missing(url: str, dest_path: Path, timeout: int = 20):
+    if dest_path.exists():
+        return
+    lock = _get_lock_for_path(dest_path)
+    with lock:
+        if dest_path.exists():
+            return
+        r = _SESSION.get(url, timeout=timeout)
+        r.raise_for_status()
+        tmp_path = dest_path.with_suffix(dest_path.suffix + ".tmp")
+        tmp_path.write_bytes(r.content)
+        os.replace(tmp_path, dest_path)
+
+
+def _process_row(idx: int, row: Dict, dataset_dir: Path, images_dir: Path, overrides: Dict):
+    lat = row["lat"]
+    lon = row["lng"]
+    azimuths = row["azimuths"]
+    labels = row["labels"]
+    pano_id = row["sv_pano_id"]
+
+    params = row.get("params", {})
+    map_zoom = overrides.get("map_zoom", params.get("map_zoom", 19))
+    map_type = overrides.get("map_type", params.get("map_type", "satellite"))
+    map_size = overrides.get("map_size", params.get("map_size", "640x640"))
+    sv_fov = overrides.get("sv_fov", params.get("sv_fov", 120.0))
+    sv_pitch = overrides.get("sv_pitch", params.get("sv_pitch", 0.0))
+
+    # Cached fetches
+    map_cache_path, sv_cache_path = cache_paths(Path.cwd(), lat, lon, row["answer_heading"], map_size, sv_fov, sv_pitch)
+    if not map_cache_path.exists():
+        url = static_map_url(lat, lon, zoom=map_zoom, size=map_size, maptype=map_type)
+        download_if_missing(url, map_cache_path)
+
+    # Overlay labeled arrows
+    overlay_path = images_dir / f"map_{row['intersection_id']}.jpg"
+    overlay_arrows_on_map(map_cache_path, azimuths, labels, overlay_path)
+
+    # Fetch SV for the gold label heading (cached)
+    if not sv_cache_path.exists():
+        url = streetview_url_from_pano(pano_id, row["answer_heading"], map_size, sv_fov, sv_pitch)
+        download_if_missing(url, sv_cache_path)
+    sv_dst = images_dir / f"sv_{row['intersection_id']}.jpg"
+    try:
+        Image.open(sv_cache_path).convert("RGB").save(sv_dst, format="JPEG", quality=92)
+    except Exception:
+        shutil.copyfile(sv_cache_path, sv_dst)
+
+    question = "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?"
+    opts = "\n".join(labels)
+
+    result = {
+        "id": row["intersection_id"],
+        "image_map": str(overlay_path.relative_to(dataset_dir)),
+        "image_sv": str(sv_dst.relative_to(dataset_dir)),
+        "question": f"{question}\n\nOptions:\n{opts}",
+        "options": labels,
+        "answer": row["answer"],
+        "meta": {
+            "lat": lat,
+            "lng": lon,
+            "pano_id": pano_id,
+            "distance_m": row.get("sv_distance_m"),
+            "azimuths": azimuths,
+            "labels": labels,
+        },
+    }
+    return idx, result
+
+
 def main():
     import argparse
 
@@ -140,6 +237,7 @@ def main():
     parser.add_argument("--hf-repo", default=None, help="Hugging Face dataset repo id (e.g. username/dataset-name)")
     parser.add_argument("--hf-token", default=None, help="Hugging Face access token (or set HF_TOKEN env)")
     parser.add_argument("--hf-private", action="store_true", help="Create/update the HF repo as private")
+    parser.add_argument("--workers", type=int, default=16, help="Number of parallel workers for downloading and rendering")
 
     args = parser.parse_args()
 
@@ -157,64 +255,30 @@ def main():
                 continue
             rows.append(json.loads(line))
 
-    vlm_rows = []
-    for row in tqdm(rows, total=len(rows), desc="Rendering"):
-        lat = row["lat"]
-        lon = row["lng"]
-        azimuths = row["azimuths"]
-        labels = row["labels"]
-        pano_id = row["sv_pano_id"]
+    overrides = {
+        "map_zoom": args.override_map_zoom if args.override_map_zoom is not None else None,
+        "map_type": args.override_map_type if args.override_map_type is not None else None,
+        "map_size": args.override_map_size if args.override_map_size is not None else None,
+        "sv_fov": args.override_sv_fov if args.override_sv_fov is not None else None,
+        "sv_pitch": args.override_sv_pitch if args.override_sv_pitch is not None else None,
+    }
 
-        params = row.get("params", {})
-        map_zoom = args.override_map_zoom if args.override_map_zoom is not None else params.get("map_zoom", 19)
-        map_type = args.override_map_type if args.override_map_type is not None else params.get("map_type", "satellite")
-        map_size = args.override_map_size if args.override_map_size is not None else params.get("map_size", "640x640")
-        sv_fov = args.override_sv_fov if args.override_sv_fov is not None else params.get("sv_fov", 120.0)
-        sv_pitch = args.override_sv_pitch if args.override_sv_pitch is not None else params.get("sv_pitch", 0.0)
+    # Remove None to simplify override logic in workers
+    overrides = {k: v for k, v in overrides.items() if v is not None}
 
-        # Fetch static map (cached)
-        map_cache_path, sv_cache_path = cache_paths(Path.cwd(), lat, lon, row["answer_heading"], map_size, sv_fov, sv_pitch)
-        if not map_cache_path.exists():
-            url = static_map_url(lat, lon, zoom=map_zoom, size=map_size, maptype=map_type)
-            r = requests.get(url, timeout=20)
-            r.raise_for_status()
-            map_cache_path.write_bytes(r.content)
+    init_requests_session(max(4, args.workers))
 
-        # Overlay labeled arrows
-        overlay_path = images_dir / f"map_{row['intersection_id']}.jpg"
-        overlay_arrows_on_map(map_cache_path, azimuths, labels, overlay_path)
+    results_buffer = [None] * len(rows)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
+        futures = [
+            executor.submit(_process_row, i, row, dataset_dir, images_dir, overrides)
+            for i, row in enumerate(rows)
+        ]
+        for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Rendering"):
+            idx, result = f.result()
+            results_buffer[idx] = result
 
-        # Fetch SV for the gold label heading (cached)
-        if not sv_cache_path.exists():
-            url = streetview_url_from_pano(pano_id, row["answer_heading"], map_size, sv_fov, sv_pitch)
-            r = requests.get(url, timeout=20)
-            r.raise_for_status()
-            sv_cache_path.write_bytes(r.content)
-        sv_dst = images_dir / f"sv_{row['intersection_id']}.jpg"
-        try:
-            Image.open(sv_cache_path).convert("RGB").save(sv_dst, format="JPEG", quality=92)
-        except Exception:
-            shutil.copyfile(sv_cache_path, sv_dst)
-
-        question = "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?"
-        opts = "\n".join(labels)
-
-        vlm_rows.append({
-            "id": row["intersection_id"],
-            "image_map": str(overlay_path.relative_to(dataset_dir)),
-            "image_sv": str(sv_dst.relative_to(dataset_dir)),
-            "question": f"{question}\n\nOptions:\n{opts}",
-            "options": labels,
-            "answer": row["answer"],
-            "meta": {
-                "lat": lat,
-                "lng": lon,
-                "pano_id": pano_id,
-                "distance_m": row.get("sv_distance_m"),
-                "azimuths": azimuths,
-                "labels": labels,
-            },
-        })
+    vlm_rows = [r for r in results_buffer if r is not None]
 
     dataset_dir.mkdir(parents=True, exist_ok=True)
     jsonl_path = dataset_dir / "train.jsonl"
