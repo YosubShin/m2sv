@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Merge filtered traces into an existing dataset JSONL by id, adding a 'trace' field,
-and emit a new dataset directory mirroring the original schema.
+and emit a new dataset directory mirroring the original schema. Optionally, split
+into train/validation (e.g. 9:1) and upload to Hugging Face as a split dataset.
 
 Input A (dataset JSONL): rows produced by render_from_blueprint.py, containing keys:
   - id (str)
@@ -29,6 +30,7 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import random
 from pathlib import Path
 from typing import Any, Dict
 
@@ -54,6 +56,8 @@ def parse_args():
     parser.add_argument("--traces", required=True, type=Path, help="Path to traces JSONL from filter_correct_traces.py")
     parser.add_argument("--out-dataset-name", required=True, help="Name of new dataset directory to create under output root")
     parser.add_argument("--output-root", default="data/hf", help="Output root directory")
+    parser.add_argument("--split", default=None, help="Train:validation ratio, e.g. '9:1'. If omitted, no validation split is created.")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for shuffling prior to split")
     parser.add_argument("--hf-repo", default=None, help="Hugging Face dataset repo id (e.g. username/dataset-name)")
     parser.add_argument("--hf-token", default=None, help="Hugging Face access token (or set HF_TOKEN env)")
     parser.add_argument("--hf-private", action="store_true", help="Create/update the HF repo as private")
@@ -111,15 +115,49 @@ def main() -> None:
             out_rows.append(new_row)
             kept += 1
 
+    # Determine split
+    train_rows = list(out_rows)
+    val_rows = []
+    if args.split:
+        try:
+            parts = [p.strip() for p in str(args.split).split(":")]
+            if len(parts) != 2:
+                raise ValueError
+            tr_part = float(parts[0])
+            va_part = float(parts[1])
+            if tr_part < 0 or va_part < 0 or (tr_part + va_part) <= 0:
+                raise ValueError
+            val_ratio = va_part / (tr_part + va_part)
+        except Exception:
+            raise SystemExit("--split must be in the form 'train:validation', e.g. '9:1'")
+
+        if val_ratio > 0.0 and len(train_rows) > 0:
+            rng = random.Random(args.seed)
+            rng.shuffle(train_rows)
+            if len(train_rows) >= 2:
+                n_val = int(len(train_rows) * val_ratio)
+                n_val = max(1, min(n_val, len(train_rows) - 1))
+            else:
+                n_val = 0
+            val_rows = train_rows[:n_val]
+            train_rows = train_rows[n_val:]
+
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_jsonl = out_dir / "train.jsonl"
-    write_jsonl(out_jsonl, out_rows)
-    print(f"Merged traces for {kept} rows -> {out_jsonl}")
+    train_jsonl = out_dir / "train.jsonl"
+    write_jsonl(train_jsonl, train_rows)
+    if val_rows:
+        val_jsonl = out_dir / "validation.jsonl"
+        write_jsonl(val_jsonl, val_rows)
+    print(
+        f"Merged traces for {kept} rows -> train={len(train_rows)}"
+        + (f", validation={len(val_rows)}" if val_rows else "")
+        + f" in {out_dir}"
+    )
 
     # Optional HF push
     if args.hf_repo and kept > 0:
         try:
-            from datasets import Dataset as HFDataset, Features, Value, Sequence, Image as HFImage
+            from datasets import Dataset as HFDataset, DatasetDict, Features, Value, Sequence, Image as HFImage
         except Exception as e:
             raise SystemExit(f"Install 'datasets' to push to HF (pip install datasets): {e}")
 
@@ -132,20 +170,27 @@ def main() -> None:
             "answer": Value("string"),
             "trace": Value("string"),
         })
-        cols = {"id": [], "image_map": [], "image_sv": [], "question": [], "options": [], "answer": [], "trace": []}
-        for r in out_rows:
-            cols["id"].append(r["id"])
-            cols["image_map"].append(str((out_dir / r["image_map"]).resolve()))
-            cols["image_sv"].append(str((out_dir / r["image_sv"]).resolve()))
-            cols["question"].append(r["question"])
-            cols["options"].append(r["options"])
-            cols["answer"].append(r["answer"])
-            cols["trace"].append(r["trace"])
+        def rows_to_cols(rows):
+            cols = {"id": [], "image_map": [], "image_sv": [], "question": [], "options": [], "answer": [], "trace": []}
+            for r in rows:
+                cols["id"].append(r["id"])
+                cols["image_map"].append(str((out_dir / r["image_map"]).resolve()))
+                cols["image_sv"].append(str((out_dir / r["image_sv"]).resolve()))
+                cols["question"].append(r["question"])
+                cols["options"].append(r["options"])
+                cols["answer"].append(r["answer"])
+                cols["trace"].append(r["trace"])
+            return cols
 
-        ds = HFDataset.from_dict(cols, features=features)
         print(f"Pushing typed dataset to {args.hf_repo} (private={args.hf_private})")
         token = args.hf_token
-        ds.push_to_hub(args.hf_repo, token=token if token else None, private=args.hf_private)
+        ds_train = HFDataset.from_dict(rows_to_cols(train_rows), features=features)
+        if val_rows:
+            ds_val = HFDataset.from_dict(rows_to_cols(val_rows), features=features)
+            dsd = DatasetDict({"train": ds_train, "validation": ds_val})
+            dsd.push_to_hub(args.hf_repo, token=token if token else None, private=args.hf_private)
+        else:
+            ds_train.push_to_hub(args.hf_repo, token=token if token else None, private=args.hf_private)
         print("HF Datasets push completed. Dataset preview should render images.")
 
 
