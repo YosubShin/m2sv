@@ -179,10 +179,14 @@ def normalize_letter(text: str, num_options: int) -> str:
         if ch:
             return ch
 
-    # 2) \boxed{X}
-    m = re.search(r"\\boxed\{\s*([A-Za-z])\s*\}", t, flags=re.IGNORECASE)
-    if m:
-        ch = is_valid_letter(m.group(1))
+    # 2) LaTeX boxed letter (allow optional math delimiters like $...$, \(...\), \[...\])
+    # Prefer the LAST valid match to avoid earlier instructional placeholders like \boxed{X}
+    boxed_pattern = r"(?:\\\(|\\\[|\$)?\s*(?:\\boxed|\\fbox)\s*\{\s*([A-Za-z])\s*\}\s*(?:\\\)|\\\]|\$)?"
+    boxed_candidates: list[str] = []
+    for m in re.finditer(boxed_pattern, t, flags=re.IGNORECASE):
+        boxed_candidates.append(m.group(1))
+    for raw in reversed(boxed_candidates):
+        ch = is_valid_letter(raw)
         if ch:
             return ch
 
@@ -194,9 +198,12 @@ def normalize_letter(text: str, num_options: int) -> str:
             return ch
 
     # 3) Prefer explicit conclusion phrases anywhere in text (prefer the last such mention)
+    # Accept variations with markdown styling around the letter and various punctuation
+    styled_letter = r"[\s`*_~\(\[\{]*([A-Za-z])[\s`*_~\)\]\}]*"
     explicit_answer_patterns = [
-        r"(?:\bthe\s+answer\b|\banswer\b)\s*(?:is\s*[:=]?|[:=])\s*([A-Za-z])\b",
-        r"\bfinal\s*(?:answer)?\s*(?:is\s*[:=]?|[:=])\s*([A-Za-z])\b",
+        rf"(?:\bthe\s+answer\b|\banswer\b)\s*(?:is\s*[:=]?|[:=])\s*{styled_letter}\b",
+        rf"\bfinal\s*(?:answer)?\s*(?:is\s*[:=]?|[:=])\s*{styled_letter}\b",
+        rf"\bfinal\s*answer\s*[:=]\s*{styled_letter}\b",
     ]
     explicit_candidates: list[str] = []
     for pat in explicit_answer_patterns:
@@ -550,9 +557,14 @@ def main():
             ("Point C is the corner house... Therefore, the direction is A.\n\nA", 3, "A"),
             ("The green line (B) ... The answer is: B", 3, "B"),
             ("\\boxed{ C }", 4, "C"),
+            ("* steps...\n\nFinal answer: \\boxed{B}", 4, "B"),
+            ("Some bullets...\nFinal answer: $ \\boxed{ d } $", 5, "D"),
+            ("Reasoning...\nFinal answer: \\fbox{ a }", 3, "A"),
+            ("The final line must be in the format \"Final answer: \\boxed{X}\".\nFinal answer: \\boxed{B}", 4, "B"),
             ("Eliminate B; choose C.", 3, "C"),
             ("Eliminate C; choose B.", 3, "B"),
             ("We should not pick C. Final answer: A", 3, "A"),
+            ("\n\n*   **Final Answer:** The final answer is **A**.", 4, "A"),
         ]
         failures = []
         for text, n, expected in cases:
