@@ -43,6 +43,29 @@ def read_jsonl(path: Path):
             yield json.loads(line)
 
 
+def read_json_or_jsonl(path: Path):
+    """Yield dict rows from either a .jsonl (one JSON per line) or .json (list) file."""
+    suffix = path.suffix.lower()
+    if suffix == ".jsonl":
+        yield from read_jsonl(path)
+        return
+    if suffix == ".json":
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            for item in data:
+                if isinstance(item, dict):
+                    yield item
+            return
+        if isinstance(data, dict) and isinstance(data.get("results"), list):
+            for item in data["results"]:
+                if isinstance(item, dict):
+                    yield item
+            return
+        raise SystemExit("Traces .json must be a list of objects or an object with a 'results' list (each item with 'id' and 'raw').")
+    raise SystemExit("Unsupported traces file extension. Use .jsonl or .json")
+
+
 def write_jsonl(path: Path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -53,7 +76,7 @@ def write_jsonl(path: Path, rows):
 def parse_args():
     parser = argparse.ArgumentParser(description="Merge traces into dataset by id and add 'trace' field")
     parser.add_argument("--base-dataset", required=True, type=Path, help="Path to original dataset dir (containing train.jsonl and images/")
-    parser.add_argument("--traces", required=True, type=Path, help="Path to traces JSONL from filter_correct_traces.py")
+    parser.add_argument("--traces", required=True, type=Path, help="Path to traces (.jsonl, .json list, or {\"results\": [...]}) from filter_correct_traces.py")
     parser.add_argument("--out-dataset-name", required=True, help="Name of new dataset directory to create under output root")
     parser.add_argument("--output-root", default="data/hf", help="Output root directory")
     parser.add_argument("--split", default=None, help="Train:validation ratio, e.g. '9:1'. If omitted, no validation split is created.")
@@ -76,7 +99,7 @@ def main() -> None:
         raise SystemExit(f"Base images dir not found: {base_images}")
 
     traces_by_id: Dict[str, Dict[str, Any]] = {}
-    for r in read_jsonl(args.traces):
+    for r in read_json_or_jsonl(args.traces):
         _id = r.get("id")
         raw = r.get("raw")
         if isinstance(_id, str) and isinstance(raw, str):
