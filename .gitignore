@@ -2,3 +2,5 @@ data
 .env
 cache
 results
+__pycache__
+.DS_Store

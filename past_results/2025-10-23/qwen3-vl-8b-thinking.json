@@ -1,0 +1,1505 @@
+{
+  "accuracy": 0.352112676056338,
+  "correct": 75,
+  "total": 213,
+  "empty": 0,
+  "random_baseline": 0.314553990610329,
+  "option_count_hist": {
+    "3": 150,
+    "4": 58,
+    "2": 5
+  },
+  "results": [
+    {
+      "id": "282171709",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "261214458",
+      "pred": "C",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "4908106630",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "2304129206",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "61348747",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "9937412361",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "7856602092",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "5867979085",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "15864054",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "152792809",
+      "pred": "A",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "442534796",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "152159805",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "8559113110",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "5751882269",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "259061539",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "41518609",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "4939086805",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "5709115809",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "176084786",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "26679063",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "319124767",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "248745281",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2948839124",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "390270677",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "61467723",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "3646213019",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "1099022823",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "12657770469",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "2142569337",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "42881195",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "289617292",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "298808373",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "152362755",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "12108413126",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "34843156",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "46434224",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "72027653",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "4349762966",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "1692384574",
+      "pred": "C",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "310948572",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "9870154195",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "9707010177",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "253996528",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1672645449",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2183206172",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "99249356",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "261293468",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "1633530934",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2074178066",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "1716637231",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "4602990159",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "5031056569",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "3139425631",
+      "pred": "D",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "1600316357",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "471185593",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "32123605",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "61345688",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "32345338",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "6051479435",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "25953000",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "6367373395",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "61366400",
+      "pred": "B",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "176089129",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "11394133156",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "483493958",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "41316217",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "2262418977",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "3579864397",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "4411771771",
+      "pred": "B",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "123008054",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "309889372",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "368092",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1088437014",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "122815471",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "472737020",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "5214574336",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "1530451435",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "122608699",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "269425656",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "29604314",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "9959433699",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "29800676",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "302684485",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "2228791592",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2362943944",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "5394976794",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "9962869113",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "314500686",
+      "pred": "B",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2014381488",
+      "pred": "C",
+      "gold": "A",
+      "raw": "To determine which labeled direction corresponds to the street-view photo, we analyze the alignment of the camera's perspective (center of the intersection) with the map\u2019s arrows and the street-view\u2019s features. \n\n1. **Map Orientation**: The map is north-up (north at the top). The arrows (A, B, C) indicate directions from the intersection center outward. \n2. **Street-View Features**: The photo shows a narrow road with a green fence on the left, vegetation/fences on the right, and a slight upward slope toward the background. This matches a road with distinct fences and vegetation on both sides.\n3. **Arrow Analysis**:\n   - **A (Red)**: Points upper-right (north-east). The area contains buildings with red roofs but lacks the narrow, fenced road described in the street view.\n   - **B (Green)**: Points lower-right (south-east). This area has green-roofed buildings but does not align with the narrow road\u2019s fence layout in the street view.\n   - **C (Blue)**: Points upper-left (north-west). This direction matches the street view\u2019s road characteristics: the map shows a road with a green fence on the left and vegetation on the right, consistent with the street view\u2019s narrow, fenced pathway.\n\nThe street view\u2019s road direction (narrow, fenced, with vegetation) aligns with the **blue arrow (C)** on the map, confirming it corresponds to the camera\u2019s outward-facing direction.\n\nFinal answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "2242552246",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "300112357",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "2296170442",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "8144697111",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "152112256",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "61340537",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "53231627",
+      "pred": "D",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "150894997",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "53084208",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "73772949",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "2129835338",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "151427623",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "913486836",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "259134184",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "151825762",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "26965683",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "2374574",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "42854984",
+      "pred": "D",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "2844590522",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "3464379100",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "364174373",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "130234985",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "3846542597",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "1937110596",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "1403228505",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "90113869",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "3869572577",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "4818913633",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "122387942",
+      "pred": "A",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "99015617",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "42964934",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "6383901698",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "5753325802",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "259262303",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "99092916",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "123423022",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "30431658",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "34173652",
+      "pred": "C",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "34168105",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "261119335",
+      "pred": "A",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "41748494",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "1129084921",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1126253135",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "46301761",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "4604526193",
+      "pred": "D",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "122610180",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "262459097",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "5455550979",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "1342426861",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "1957490897",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "316385337",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "27364372",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1692859507",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "81570925",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1582418459",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "8777247322",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "2373582668",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "152695524",
+      "pred": "D",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": true
+    },
+    {
+      "id": "25188963",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "290248154",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "7155323643",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "2270549376",
+      "pred": "D",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "53204787",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "53088805",
+      "pred": "D",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "662751510",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "1838695735",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "42525371",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "1849767181",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "2228979340",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "42812659",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "152762919",
+      "pred": "A",
+      "gold": "C",
+      "raw": "To determine which labeled direction on the map corresponds to the street-view photo, we analyze the orientation and landmarks in both images:\n\n1. **Map Orientation**: The map is north-up. Thus:\n   - **A** (red arrow) = East (right side of the map).\n   - **B** (green arrow) = South (bottom of the map).\n   - **C** (blue arrow) = West (left side of the map).\n   - **D** (orange arrow) = North (top of the map).\n\n2. **Street-View Analysis**:\n   - The photo is taken from the intersection\u2019s center, facing along one of the four cardinal directions.\n   - The road in the street view is east-west (as indicated by the crosswalk, which is perpendicular to the road). \n   - **Landmark Matching**:\n     - The **right side of the road** (south side, when facing east) has a large tree.\n     - The **left side of the road** (north side, when facing east) has a house with a white garage door.\n   - In the map, **direction A (East)** corresponds to the east-west road. The south side of this road (right side in the street view) has a large tree, matching the street-view\u2019s right-side landmark. The north side (left side in the street view) has a house with a white garage door, also aligning with the street-view\u2019s left-side feature.\n\n3. **Eliminating Other Directions**:\n   - **B (South)**: Would face south along the north-south road. The street view\u2019s right side (west) does not match the map\u2019s south side features.\n   - **C (West)**: Would face west along the east-west road. The street view\u2019s left side (south) would not match the map\u2019s west side landmarks (e.g., the large white parking lot).\n   - **D (North)**: Would face north along the north-south road. The street view\u2019s right side (east) does not align with the map\u2019s north side features.\n\nThus, the street view corresponds to direction **A** (East).\n\nFinal answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "6353492503",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "418865002",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "2278921370",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "61410457",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "4600400807",
+      "pred": "C",
+      "gold": "D",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "9520306484",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "2083925005",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "7548293575",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "91611265",
+      "pred": "D",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "176071802",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "99098869",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "261211637",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "1854525425",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "5421414194",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "911856817",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "912830575",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "9912682904",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "9406802173",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "317417804",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "41862488",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "6046794804",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "61388169",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "364855514",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "61339683",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "4333836143",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "24972586",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "255398786",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "176067457",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "261130307",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "98982395",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1127796707",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "343305156",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "152794442",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "285913144",
+      "pred": "A",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "3776331899",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "33386563",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "1753204685",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "61340993",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "10041499911",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "152461793",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1780485143",
+      "pred": "B",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "176101045",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "2390619236",
+      "pred": "D",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{D}",
+      "correct": false
+    },
+    {
+      "id": "27151020",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    },
+    {
+      "id": "15378827",
+      "pred": "C",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "46248181",
+      "pred": "C",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": false
+    },
+    {
+      "id": "150741197",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "4359407726",
+      "pred": "A",
+      "gold": "A",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": true
+    },
+    {
+      "id": "3830519959",
+      "pred": "B",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": false
+    },
+    {
+      "id": "1372446438",
+      "pred": "B",
+      "gold": "B",
+      "raw": "Final answer: \\boxed{B}",
+      "correct": true
+    },
+    {
+      "id": "9489046808",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "3893042397",
+      "pred": "A",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{A}",
+      "correct": false
+    },
+    {
+      "id": "25885195",
+      "pred": "C",
+      "gold": "C",
+      "raw": "Final answer: \\boxed{C}",
+      "correct": true
+    }
+  ]
+}
