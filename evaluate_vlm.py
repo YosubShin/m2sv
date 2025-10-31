@@ -718,7 +718,6 @@ def evaluate_split_openai_batch(
                                 "content": content,
                             }
                         ],
-                        "temperature": 0,
                     },
                 })
 
