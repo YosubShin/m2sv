@@ -756,8 +756,11 @@ def evaluate_split_openai_batch(
                 request_file_handle.write(json.dumps(entry))
                 request_file_handle.write("\n")
 
+        upload_size = requests_path.stat().st_size if requests_path and requests_path.exists() else None
+        if upload_size is not None:
+            logger.info(f"[batch] Uploading request file {requests_path} ({upload_size / 1024:.1f} KiB)")
         with requests_path.open("rb") as fh:
-            input_file = client.files.create(file=fh, purpose="batch")
+            input_file = client.files.create(file=fh, purpose="batch", timeout=300)
         input_file_id = input_file.id
 
         batch = client.batches.create(
