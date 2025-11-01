@@ -12,19 +12,19 @@
   - Persist and surface batch error outputs alongside metrics when jobs fail.
   - Log the exact upload size for each batch submission to ease debugging when providers throttle or reject payloads.
 - Metrics:
-  | Model                     | Accuracy | Notes |
-  |---------------------------|----------|-------|
-  | gpt-5                     | 57.2%        | N=1000 |
-  | gemini-2.5-pro            | 47.2%        | N=1000 |
-  | qwen3-vl-8b-instruct      | 35.5%        | N=1000 |
-  | qwen3-vl-8b-thinking      | 34.4%        | N=1000 |
-  | qwen3-vl-30b-a3b-instruct | 33.9%        | N=1000 |
-  | qwen3-vl-30b-a3b-thinking | 36.1%        | N=1000 |
-  | qwen3-vl-32b-thinking     | 40.7%        | N=1000 |
-  | qwen3-vl-235b-a22b-instruct | 38.1%      | N=1000 |
-  | qwen3-vl-235b-a22b-thinking | 42.7%      | N=1000 |
-  | Random baseline           | 31.4%        | N=1000 |
-  | Human baseline            | 88%        | human validation set (N=100) |
+  | Model                         | Accuracy | N    | Margin of Error (±%) | 95% Confidence Interval |
+  |--------------------------------|-----------|------|----------------------|--------------------------|
+  | gpt-5                          | 57.2%     | 1000 | ±3.1%                | [54.1%, 60.3%]          |
+  | gemini-2.5-pro                 | 47.2%     | 1000 | ±3.1%                | [44.1%, 50.3%]          |
+  | qwen3-vl-8b-instruct           | 35.5%     | 1000 | ±3.0%                | [32.5%, 38.5%]          |
+  | qwen3-vl-8b-thinking           | 34.4%     | 1000 | ±2.9%                | [31.5%, 37.3%]          |
+  | qwen3-vl-30b-a3b-instruct      | 33.9%     | 1000 | ±2.9%                | [31.0%, 36.8%]          |
+  | qwen3-vl-30b-a3b-thinking      | 36.1%     | 1000 | ±3.0%                | [33.1%, 39.1%]          |
+  | qwen3-vl-32b-thinking          | 40.7%     | 1000 | ±3.1%                | [37.6%, 43.8%]          |
+  | qwen3-vl-235b-a22b-instruct    | 38.1%     | 1000 | ±3.0%                | [35.1%, 41.1%]          |
+  | qwen3-vl-235b-a22b-thinking    | 42.7%     | 1000 | ±3.1%                | [39.6%, 45.8%]          |
+  | Random baseline                | 31.4%     | 1000 | ±2.9%                | [28.5%, 34.3%]          |
+  | Human baseline                 | 88.0%     | 100  | ±6.4%                | [81.6%, 94.4%]          |
 
   - For qwen3-vl, we used Alibaba cloud's API to evaluate the models.
   - Everything other than human baseline uses the same validation set (N=1000).
