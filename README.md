@@ -1,5 +1,35 @@
 # Changelog
 
+## 2025-10-30-v1
+- **Dataset pipeline refresh**:
+  - Split curation into blueprint generation and rendering; released datasets now ship blueprints only to respect Google Maps licensing.
+  - Scaled evaluation data from 1k to 11k examples and added an SFT split populated with Gemini 2.5 Pro reasoning traces.
+- **Batch evaluation upgrades**:
+  - Added OpenAI Batch API integration with resumable checkpoints, error capture, and upload-size logging.
+  - Added Qwen-compatible batch flow with test-endpoint mode, automatic request trimming under size caps, and provider-specific payload patches.
+  - Introduced CLI flags for test-mode, max JSONL size guardrails, and batch temperature overrides.
+- **Diagnostics & resiliency**:
+  - Persist and surface batch error outputs alongside metrics when jobs fail.
+  - Log the exact upload size for each batch submission to ease debugging when providers throttle or reject payloads.
+- Metrics:
+  | Model                     | Accuracy | Notes |
+  |---------------------------|----------|-------|
+  | gpt-5                     | 57.2%        | N=1000 |
+  | gemini-2.5-pro            | 47.2%        | N=1000 |
+  | qwen3-vl-8b-instruct      | 35.5%        | N=1000 |
+  | qwen3-vl-8b-thinking      | 34.4%        | N=1000 |
+  | qwen3-vl-30b-a3b-instruct | 33.9%        | N=1000 |
+  | qwen3-vl-30b-a3b-thinking | 36.1%        | N=1000 |
+  | qwen3-vl-32b-thinking     | 40.7%        | N=1000 |
+  | qwen3-vl-235b-a22b-instruct | 38.1%      | N=1000 |
+  | qwen3-vl-235b-a22b-thinking | 42.7%      | N=1000 |
+  | Random baseline           | 31.4%        | N=1000 |
+  | Human baseline            | 88%        | human validation set (N=100) |
+
+  - For qwen3-vl, we used Alibaba cloud's API to evaluate the models.
+  - Everything other than human baseline uses the same validation set (N=1000).
+  - Human baseline uses smaller validation set (N=100) from Honolulu, HI.
+
 ## 2025-10-15-v1
 - **Prompt update**: Encourage step-by-step reasoning; require final line in LaTeX-style `\boxed{X}`.
 - **Parallel + multi-config evaluation in `evaluate_vlm.py`**:

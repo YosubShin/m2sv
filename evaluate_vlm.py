@@ -519,7 +519,7 @@ def evaluate_split_openai_batch(
     timeout = float(timeout_val) if timeout_val is not None else None
     completion_window = batch_options.get("completion_window", "24h")
     metadata = batch_options.get("metadata")
-    delete_remote_files = batch_options.get("delete_remote_files", True)
+    delete_remote_files = batch_options.get("delete_remote_files", False)
     keep_files = bool(batch_options.get("keep_files", False))
     requests_path_cfg = batch_options.get("requests_path")
     results_path_cfg = batch_options.get("results_path")
