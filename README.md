@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-10-31-v1
+- **20k blueprint + clean splits**:
+  - Added `blueprints/20k/train-val-20k.jsonl` (20k curated blueprints) plus deduped splits: `train.jsonl` (10k) and `validation.jsonl` (10k).
+  - Introduced `create_validation_split.py` to regenerate validation sets without contaminating rows already used for training.
+  - Validation size now 10k (previously 1k), shrinking the 95% margin of error from ~±3% to ~±1% for future eval reports.
+
 ## 2025-10-30-v1
 - **Dataset pipeline refresh**:
   - Split curation into blueprint generation and rendering; released datasets now ship blueprints only to respect Google Maps licensing.
@@ -139,11 +145,11 @@ streamlit run review_webapp.py
 
 ```
 python freeze_blueprint.py \
-  --out data/blueprints/train-1k.jsonl \
-  --total-samples 1000 \
-  --per-place-cap 60 \
+  --out blueprints/20k/train-val-20k.jsonl \
+  --total-samples 20000 \
+  --per-place-cap 1000 \
   --seed 42 \
-  --candidate-multiplier 10 \
+  --candidate-multiplier 5 \
   --resume
 ```
 
@@ -160,7 +166,7 @@ Logging and metrics enhancements in `freeze_blueprint.py`:
 2) Render a dataset from a blueprint (fetch images, overlay arrows, emit HF JSONL):
 
 ```
-python render_from_blueprint.py data/blueprints/train-1k.jsonl m2sv-train-1k --output-root data/hf
+python render_from_blueprint.py blueprints/20k/train.jsonl m2sv-20k-train --output-root data/hf
 ```
 
 Optional overrides at render time:
@@ -174,8 +180,8 @@ Notes:
 
 ```
 python merge_jsonl_splits.py \
-  /Users/yosub/co/map-to-street-view/data/hf/m2sv-train-1k/train.jsonl \
-  /Users/yosub/co/map-to-street-view/data/hf/m2sv-validation/train.jsonl \
-  --out-dir /Users/yosub/co/map-to-street-view/data/hf/m2sv \
-  --repo yosubshin/m2sv
+  /Users/yosub/co/map-to-street-view/data/hf/m2sv-11k-train/train.jsonl \
+  /Users/yosub/co/map-to-street-view/data/hf/m2sv-validation-10k/train.jsonl \
+  --out-dir /Users/yosub/co/map-to-street-view/data/hf/m2sv-20k \
+  --repo yosubshin/m2sv-20k
 ```
