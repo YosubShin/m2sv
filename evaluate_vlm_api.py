@@ -10,11 +10,11 @@ from typing import List, Dict, Any
 from dotenv import load_dotenv
 import argparse
 from tqdm import tqdm
-import re
 from datasets import load_dataset
 from tenacity import retry, stop_after_attempt, wait_exponential
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
+from m2sv_eval_utils import format_prompt, normalize_letter
 
 load_dotenv()
 
@@ -56,20 +56,6 @@ def to_image_bytes_and_mime(value, repo_root: Path) -> tuple[bytes, str]:
         value.save(buf, format="PNG")
         return buf.getvalue(), "image/png"
     raise TypeError(f"Unsupported image value type: {type(value)}")
-
-
-def build_prompt(question: str, options: List[str]) -> str:
-    instructions = (
-        "You will be given two images: (1) a north-up overhead map with arrows labeled A, B, C, ... and (2) a street-view photo.\n"
-        "Rules:\n"
-        "- The camera location is the same for all options: the center of the intersection.\n"
-        "- Each letter corresponds to facing outward from that center along the arrow of that label.\n"
-        "- The small circles near labels are markers only; they are not camera locations.\n"
-        "- The map and photo may be captured years apart. Ignore transient objects (cars, people).\n"
-        "Think step by step to compare the street-view with the map (buildings, angles, lanes, landmarks).\n"
-        "On the final line, output only: Final answer: \\boxed{X} where X is a single letter (A, B, C, ...)."
-    )
-    return f"{instructions}\n\n{question}"
 
 
 # -------- Providers --------
@@ -148,148 +134,6 @@ class GeminiProvider:
             parts.append({"mime_type": mime, "data": data})
         resp = self.model.generate_content(parts)
         return resp.text.strip()
-
-
-class ClaudeProvider:
-    def __init__(self, model: str, api_key: str | None = None):
-        import anthropic
-        self.client = anthropic.Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
-        self.model = model
-
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10), reraise=True)
-    def infer(self, prompt: str, images: List[tuple[bytes, str]]) -> str:
-        # Anthropic Messages API expects content blocks of type "image" with base64 source
-        content_blocks: List[Dict] = []
-        for data, mime in images:
-            content_blocks.append({
-                "type": "image",
-                "source": {
-                    "type": "base64",
-                    "media_type": mime,
-                    "data": encode_b64(data),
-                },
-            })
-        # Add the instruction text as a content block
-        content_blocks.append({"type": "text", "text": prompt})
-        msg = self.client.messages.create(
-            model=self.model,
-            max_tokens=1024,
-            temperature=0,
-            messages=[{"role": "user", "content": content_blocks}],
-        )
-        return msg.content[0].text.strip()
-
-
-def normalize_letter(text: str, num_options: int) -> str:
-    """Return a single option letter if confidently present.
-
-    Priority:
-    1) Exact single-letter response (ignoring surrounding whitespace).
-    2) Letter inside \boxed{X} (case-insensitive).
-    3) Explicit conclusion phrases like "answer is X" or "final answer: X" (also supports "is:").
-    4) Last non-empty line is effectively just a styled single letter (e.g., **B**, (C), `A`, "C.").
-    5) As a weaker fallback, accept phrases like "choose X", "option X", "arrow X" unless preceded by elimination/negation context.
-    Otherwise returns empty string to avoid false positives from prose.
-    """
-    if text is None:
-        return ""
-    t = text.strip()
-    if not t:
-        return ""
-
-    def is_valid_letter(ch: str) -> str:
-        if not ch:
-            return ""
-        ch_u = ch.upper()
-        idx = ord(ch_u) - ord("A")
-        return ch_u if 0 <= idx < num_options else ""
-
-    # 1) Exact single letter
-    m = re.fullmatch(r"\s*([A-Za-z])\s*", t)
-    if m:
-        ch = is_valid_letter(m.group(1))
-        if ch:
-            return ch
-
-    # 2) LaTeX boxed letter (allow optional math delimiters like $...$, \(...\), \[...\])
-    # Prefer the LAST valid match to avoid earlier instructional placeholders like \boxed{X}
-    boxed_pattern = r"(?:\\\(|\\\[|\$)?\s*(?:\\boxed|\\fbox)\s*\{\s*([A-Za-z])\s*\}\s*(?:\\\)|\\\]|\$)?"
-    boxed_candidates: list[str] = []
-    for m in re.finditer(boxed_pattern, t, flags=re.IGNORECASE):
-        boxed_candidates.append(m.group(1))
-    for raw in reversed(boxed_candidates):
-        ch = is_valid_letter(raw)
-        if ch:
-            return ch
-
-    # 2b) Repeated-letter outputs like "C. C" or "B B" as the entire response
-    m = re.fullmatch(r"\s*([A-Za-z])\s*[\.-:;,]?\s*\1\s*\.?\s*", t)
-    if m:
-        ch = is_valid_letter(m.group(1))
-        if ch:
-            return ch
-
-    # 3) Prefer explicit conclusion phrases anywhere in text (prefer the last such mention)
-    # Accept variations with markdown styling around the letter and various punctuation
-    styled_letter = r"[\s`*_~\(\[\{]*([A-Za-z])[\s`*_~\)\]\}]*"
-    explicit_answer_patterns = [
-        rf"(?:\bthe\s+answer\b|\banswer\b)\s*(?:is\s*[:=]?|[:=])\s*{styled_letter}\b",
-        rf"\bfinal\s*(?:answer)?\s*(?:is\s*[:=]?|[:=])\s*{styled_letter}\b",
-        rf"\bfinal\s*answer\s*[:=]\s*{styled_letter}\b",
-    ]
-    explicit_candidates: list[str] = []
-    for pat in explicit_answer_patterns:
-        for m in re.finditer(pat, t, flags=re.IGNORECASE):
-            explicit_candidates.append(m.group(1))
-    for raw in reversed(explicit_candidates):
-        ch = is_valid_letter(raw)
-        if ch:
-            return ch
-
-    # 4) Last non-empty line: accept if it's effectively just a single styled letter
-    lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
-    if lines:
-        last = lines[-1]
-        # If the last line itself contains an explicit phrase, re-use explicit logic on it for precision
-        for pat in explicit_answer_patterns:
-            m2 = re.search(pat, last, flags=re.IGNORECASE)
-            if m2:
-                ch = is_valid_letter(m2.group(1))
-                if ch:
-                    return ch
-        # Repeated-letter on last line like "C. C"
-        mrep = re.fullmatch(r"\s*([A-Za-z])\s*[\.-:;,]?\s*\1\s*\.?\s*", last)
-        if mrep:
-            ch = is_valid_letter(mrep.group(1))
-            if ch:
-                return ch
-        # Strip typical wrappers and styling around a lone letter
-        stripped = re.sub(r"[\s\*`_~\-–—\(\)\[\]\{\}\"'.:;,!]+", "", last)
-        # If what's left is a single letter, accept it
-        if re.fullmatch(r"[A-Za-z]", stripped):
-            ch = is_valid_letter(stripped)
-            if ch:
-                return ch
-
-    # 5) Weaker fallback: ambiguous phrases choose/option/arrow X, but avoid elimination contexts
-    ambiguous_patterns = [
-        r"\bchoose\s*([A-Za-z])\b",
-        r"\b(?:option|choice|arrow)\s*([A-Za-z])\b",
-    ]
-    last_ch = ""
-    for pat in ambiguous_patterns:
-        for m in re.finditer(pat, t, flags=re.IGNORECASE):
-            start = m.start()
-            context = t[max(0, start-50):start].lower()
-            if any(neg in context for neg in ["eliminate", "eliminates", "eliminated", "eliminating", "not ", "isn't", "is not", "avoid", "eliminates option", "eliminate option"]):
-                continue
-            ch = is_valid_letter(m.group(1))
-            if ch:
-                last_ch = ch
-    if last_ch:
-        return last_ch
-
-    return ""
 
 
 def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | None = None, resume_from: str | None = None, out_path: str | None = None, workers: int = 1, pbar_disable: bool = False, use_openai_batch: bool = False, openai_batch_options: Dict[str, Any] | None = None) -> Dict:
@@ -406,7 +250,7 @@ def evaluate_split(dataset_path: str, provider: str, model: str, limit: int | No
         image_sv_val = row.get("image_sv") or (row.get("images") or [None, None])[1]
         map_bytes, map_mime = to_image_bytes_and_mime(image_map_val, repo_root)
         sv_bytes, sv_mime = to_image_bytes_and_mime(image_sv_val, repo_root)
-        prompt = build_prompt(row["question"], row["options"])
+        prompt = format_prompt(row["question"], row["options"])
         try:
             pred_raw_local = get_runner().infer(prompt, [(map_bytes, map_mime), (sv_bytes, sv_mime)])
         except Exception as e:
@@ -698,7 +542,7 @@ def evaluate_split_openai_batch(
                 image_sv_val = row.get("image_sv") or (row.get("images") or [None, None])[1]
                 map_bytes, map_mime = to_image_bytes_and_mime(image_map_val, repo_root)
                 sv_bytes, sv_mime = to_image_bytes_and_mime(image_sv_val, repo_root)
-                prompt = build_prompt(row["question"], row["options"])
+                prompt = format_prompt(row["question"], row["options"])
                 content: List[Dict[str, Any]] = [{"type": "text", "text": prompt}]
                 for data, mime in [(map_bytes, map_mime), (sv_bytes, sv_mime)]:
                     b64 = encode_b64(data)

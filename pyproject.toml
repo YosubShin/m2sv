@@ -1,0 +1,49 @@
+[project]
+name = "map-to-street-view"
+version = "0.1.0"
+description = "Map to Street View"
+readme = "README.md"
+requires-python = ">=3.10"
+
+# Core dependencies shared by both Mac (CPU/MPS) and HPC (CUDA)
+dependencies = [
+    "transformers==4.57.1",
+    "huggingface_hub>=0.23.0",
+]
+
+[project.optional-dependencies]
+# HPC group adds distributed / CUDA-related tools,
+# but leaves torch/torchvision/torchaudio to be installed manually
+hpc = [
+    "deepspeed==0.17.1",
+    "torchcodec==0.2",
+    "accelerate==1.7.0",
+    "torch==2.8.0",
+    "torchvision==0.23.0",
+    "torchaudio==2.8.0",
+    "vllm>=0.11.0",
+    "pandas",
+    "datasets>=2.19.0",
+    "Pillow>=9.5.0",
+    "tqdm",
+]
+
+[tool.uv]
+package = false
+no-build-isolation-package = ["flash-attn"]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu128", extra = "hpc" },
+]
+torchvision = [
+  { index = "pytorch-cu128", extra = "hpc" },
+]
+torchaudio = [
+  { index = "pytorch-cu128", extra = "hpc" },
+]

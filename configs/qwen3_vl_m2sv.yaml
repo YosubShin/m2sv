@@ -1,0 +1,25 @@
+# Evaluation config for Qwen3-VL on the M2SV dataset
+
+model:
+  model_name: "Qwen/Qwen3-VL-8B-Instruct"
+
+dataset:
+  name: "yosubshin/m2sv-20k"
+  split: "validation"
+
+generation:
+  max_new_tokens: 4096
+  temperature: 0.0
+  repetition_penalty: 1.1
+  limit:
+
+output:
+  save_predictions: true
+
+inference:
+  batch_size: 32
+  vllm:
+    tensor_parallel_size: 1
+    gpu_memory_utilization: 0.95
+    max_model_len: 16384
+    max_num_seqs: 32
