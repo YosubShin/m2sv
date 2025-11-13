@@ -28,9 +28,12 @@ def normalize_letter(text: str, num_options: int) -> str:
     """Return a single option letter if confidently present in the text."""
     if text is None:
         return ""
-    t = text.strip()
-    if not t:
+    t_raw = text.strip()
+    if not t_raw:
         return ""
+
+    # Unwrap simple \text{A} wrappers (common when model emits LaTeX).
+    t = re.sub(r"\\text\s*\{\s*([A-Za-z])\s*\}", r"\1", t_raw, flags=re.IGNORECASE)
 
     def is_valid_letter(ch: str) -> str:
         if not ch:
@@ -140,4 +143,3 @@ def normalize_letter(text: str, num_options: int) -> str:
         return last_candidate
 
     return ""
-
