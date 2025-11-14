@@ -12,4 +12,4 @@ if [[ ! -f "${CONFIG_PATH}" ]]; then
 fi
 
 echo "Launching evaluation with config: ${CONFIG_PATH}"
-uv run python evaluate.py --config "${CONFIG_PATH}" "$@"
+uv run python evaluate.py --config "${CONFIG_PATH}" --output-dir "${OUTPUT_DIR}" "$@"

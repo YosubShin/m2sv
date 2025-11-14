@@ -9,6 +9,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import ast
+import csv
 import gc
 import json
 import os
@@ -17,6 +19,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 import math
 import io
+from pathlib import Path
 
 import pandas as pd
 import torch
@@ -120,9 +123,8 @@ def load_config(path: str) -> EvalConfig:
             (
                 inference_cfg.get("batch_size")
                 if inference_cfg.get("batch_size") is not None
-                else generation_cfg.get("batch_size", 1)
+                else generation_cfg.get("batch_size", os.environ.get("BATCH_SIZE", 1))
             )
-            or 1
         ),
         limit=generation_cfg.get("limit"),
         output_dir=output_cfg.get("dir", os.environ.get("KOA_RESULTS_DIR", "./eval/results/qwen3_vl_m2sv")),
@@ -287,6 +289,42 @@ def _collect_images(item: Dict[str, Any], max_pixels: int) -> List[Image.Image]:
     return images
 
 
+def _count_options_field(value: Any) -> int:
+    if value is None:
+        return 0
+    if isinstance(value, (list, tuple)):
+        return len(value)
+    if isinstance(value, str):
+        try:
+            parsed = ast.literal_eval(value)
+            if isinstance(parsed, (list, tuple)):
+                return len(parsed)
+        except Exception:
+            cleaned = [tok.strip() for tok in value.strip("[]()") .split(",") if tok.strip()]
+            return len(cleaned)
+    return 0
+
+
+def _load_existing_predictions(path: Path) -> tuple[list[dict[str, Any]], set[str]]:
+    if not path.exists():
+        return [], set()
+    existing: list[dict[str, Any]] = []
+    processed_ids: set[str] = set()
+    with path.open("r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            record = dict(row)
+            # Normalize the id and correct flag
+            rec_id = str(record.get("id", ""))
+            if rec_id:
+                processed_ids.add(rec_id)
+            correct_raw = record.get("correct")
+            if isinstance(correct_raw, str):
+                record["correct"] = correct_raw.strip().lower() in {"true", "1", "yes"}
+            existing.append(record)
+    return existing, processed_ids
+
+
 def _format_prompt_with_images(
     processor: AutoProcessor, prompt: str, image_count: int
 ) -> str:
@@ -391,18 +429,18 @@ def _flush_vllm_batch(
     llm,
     sampling_params,
     batch_inputs: List[Any],
-    batch_meta: List[tuple[int, Dict[str, Any]]],
-    results: List[Dict[str, Any]],
-) -> int:
+    batch_meta: List[tuple[int, Dict[str, Any], str]],
+) -> tuple[int, List[Dict[str, Any]]]:
+    produced: List[Dict[str, Any]] = []
     if not batch_inputs:
-        return 0
+        return 0, produced
     try:
         outputs = llm.generate(batch_inputs, sampling_params=sampling_params)
     except Exception as exc:
-        for idx, item in batch_meta:
-            results.append(
+        for idx, item, sample_id in batch_meta:
+            produced.append(
                 {
-                    "id": item.get("id", idx),
+                    "id": sample_id,
                     "question": item.get("question"),
                     "options": item.get("options"),
                     "ground_truth": item.get("answer"),
@@ -411,16 +449,16 @@ def _flush_vllm_batch(
                     "correct": False,
                 }
             )
-        return len(batch_meta)
+        return len(batch_meta), produced
 
     if len(outputs) != len(batch_meta):
         mismatch_msg = (
             f"vLLM returned {len(outputs)} outputs for {len(batch_meta)} inputs."
         )
-        for idx, item in batch_meta:
-            results.append(
+        for _, item, sample_id in batch_meta:
+            produced.append(
                 {
-                    "id": item.get("id", idx),
+                    "id": sample_id,
                     "question": item.get("question"),
                     "options": item.get("options"),
                     "ground_truth": item.get("answer"),
@@ -429,18 +467,18 @@ def _flush_vllm_batch(
                     "correct": False,
                 }
             )
-        return len(batch_meta)
+        return len(batch_meta), produced
 
-    for (idx, item), output in zip(batch_meta, outputs):
+    for (_, item, sample_id), output in zip(batch_meta, outputs):
         response_text = (
             output.outputs[0].text.strip() if output and output.outputs else ""
         )
         prediction = normalize_letter(response_text, len(item["options"]))
         ground_truth = item["answer"]
         is_correct = prediction == ground_truth
-        results.append(
+        produced.append(
             {
-                "id": item.get("id", idx),
+                "id": sample_id,
                 "question": item.get("question"),
                 "options": item.get("options"),
                 "ground_truth": ground_truth,
@@ -449,7 +487,7 @@ def _flush_vllm_batch(
                 "correct": is_correct,
             }
         )
-    return 0
+    return 0, produced
 
 
 def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
@@ -457,6 +495,20 @@ def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
     print(f"  Model: {cfg.model_name}")
     print(f"  Dataset: {cfg.dataset_name} ({cfg.dataset_split})")
     print(f"  Output dir: {cfg.output_dir}")
+
+    output_dir = Path(cfg.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    predictions_path = output_dir / "predictions.csv"
+    existing_results, processed_ids = _load_existing_predictions(predictions_path)
+    header_written = predictions_path.exists() and predictions_path.stat().st_size > 0
+    csv_fieldnames: Optional[List[str]] = (
+        list(existing_results[0].keys()) if existing_results else None
+    )
+    if existing_results:
+        print(
+            f"[resume] Loaded {len(existing_results)} existing predictions from {predictions_path}. "
+            "Will skip those IDs."
+        )
 
     print("\n[1/4] Loading dataset...")
     dataset: Dataset = load_dataset(cfg.dataset_name, split=cfg.dataset_split)
@@ -469,22 +521,25 @@ def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
     sampling_params = _build_sampling_params(cfg)
 
     print("\n[3/4] Running evaluation with vLLM...")
-    results: List[Dict[str, Any]] = []
+    new_results: List[Dict[str, Any]] = []
     errors = 0
     batch_inputs: List[Any] = []
-    batch_meta: List[tuple[int, Dict[str, Any]]] = []
+    batch_meta: List[tuple[int, Dict[str, Any], str]] = []
     batch_size = max(1, cfg.batch_size)
 
     for idx, item in enumerate(tqdm(dataset, desc="Evaluating", total=total)):
+        sample_id = str(item.get("id", idx))
+        if sample_id in processed_ids:
+            continue
         try:
             llm_input = _prepare_llm_request(processor, cfg, item)
             batch_inputs.append(llm_input)
-            batch_meta.append((idx, item))
+            batch_meta.append((idx, item, sample_id))
         except Exception as exc:
             errors += 1
-            results.append(
+            new_results.append(
                 {
-                    "id": item.get("id", idx),
+                    "id": sample_id,
                     "question": item.get("question"),
                     "options": item.get("options"),
                     "ground_truth": item.get("answer"),
@@ -493,18 +548,47 @@ def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
                     "correct": False,
                 }
             )
-        if len(batch_inputs) >= batch_size:
-            errors += _flush_vllm_batch(
-                llm, sampling_params, batch_inputs, batch_meta, results
+            csv_fieldnames, header_written = _append_predictions(
+                [new_results[-1]], predictions_path, csv_fieldnames, header_written
             )
+            processed_ids.add(sample_id)
+        if len(batch_inputs) >= batch_size:
+            err_count, produced = _flush_vllm_batch(
+                llm, sampling_params, batch_inputs, batch_meta
+            )
+            errors += err_count
+            new_results.extend(produced)
+            if produced:
+                csv_fieldnames, header_written = _append_predictions(
+                    produced, predictions_path, csv_fieldnames, header_written
+                )
+            processed_ids.update(meta_id for _, _, meta_id in batch_meta)
             batch_inputs = []
             batch_meta = []
 
     # Flush any remaining samples
-    errors += _flush_vllm_batch(llm, sampling_params, batch_inputs, batch_meta, results)
+    err_count, produced = _flush_vllm_batch(llm, sampling_params, batch_inputs, batch_meta)
+    errors += err_count
+    new_results.extend(produced)
+    if produced:
+        csv_fieldnames, header_written = _append_predictions(
+            produced, predictions_path, csv_fieldnames, header_written
+        )
+    processed_ids.update(meta_id for _, _, meta_id in batch_meta)
 
-    correct = sum(1 for r in results if r.get("correct"))
+    all_results = existing_results + new_results
+
+    correct = sum(1 for r in all_results if r.get("correct"))
+    empty_predictions = sum(
+        1 for r in all_results if not (str(r.get("prediction", "")).strip())
+    )
+    random_expectation = 0.0
+    for r in all_results:
+        num_opts = _count_options_field(r.get("options"))
+        if num_opts > 0:
+            random_expectation += 1.0 / num_opts
     accuracy = correct / total if total else 0.0
+    random_baseline = random_expectation / total if total else 0.0
     summary = {
         "model": cfg.model_name,
         "dataset": cfg.dataset_name,
@@ -513,6 +597,8 @@ def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
         "correct": correct,
         "incorrect": total - correct,
         "accuracy": float(accuracy),
+        "random_baseline": float(random_baseline),
+        "empty_predictions": empty_predictions,
         "timestamp": datetime.utcnow().isoformat(),
         "config": {
             "vllm_model_path": resolved_model,
@@ -535,9 +621,11 @@ def evaluate_vllm(cfg: EvalConfig) -> Dict[str, Any]:
         if key != "config":
             print(f"{key.title().replace('_', ' ')}: {value}")
     print("=" * 80)
+    print(f"Random guess baseline: {random_baseline:.2%}")
+    print(f"Empty predictions: {empty_predictions}")
 
     if cfg.save_predictions:
-        _save_outputs(results, summary, cfg.output_dir)
+        _save_outputs(all_results, summary, cfg.output_dir)
 
     return summary
 
@@ -639,6 +727,27 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--seed", type=int, help="Sampling seed passed to vLLM.")
     return parser.parse_args()
+
+
+def _append_predictions(
+    rows: List[Dict[str, Any]],
+    path: Path,
+    csv_fieldnames: Optional[List[str]],
+    header_written: bool,
+) -> tuple[Optional[List[str]], bool]:
+    if not rows:
+        return csv_fieldnames, header_written
+    if csv_fieldnames is None:
+        csv_fieldnames = list(rows[0].keys())
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=csv_fieldnames)
+        if not header_written:
+            writer.writeheader()
+            header_written = True
+        for row in rows:
+            writer.writerow({key: row.get(key, "") for key in csv_fieldnames})
+    return csv_fieldnames, header_written
 
 
 def main() -> None:

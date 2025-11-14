@@ -90,4 +90,13 @@ echo
 
 source "scripts/setup_env.sh"
 
+# Specify the output root for the resume
+# export RESUME_JOB_DIR="/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251113_084845_qwen3-vl-30b-a3b-instruct_11k-full"
+if [[ -n "${RESUME_JOB_DIR:-}" ]]; then
+    OUTPUT_DIR="${RESUME_JOB_DIR}/results"
+else
+    OUTPUT_DIR="${JOB_DIR}/results"
+fi
+export OUTPUT_DIR
+
 srun bash scripts/run_eval.sh
