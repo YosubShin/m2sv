@@ -1,7 +1,17 @@
 # Evaluation config for Qwen3-VL on the M2SV dataset
 
 model:
-  model_name: "Qwen/Qwen3-VL-8B-Instruct"
+  # model_name: "Qwen/Qwen2.5-VL-3B-Instruct"
+  model_name: "Qwen/Qwen2.5-VL-7B-Instruct"
+  # model_name: "Qwen/Qwen3-VL-8B-Instruct"
+  # model_name: "Qwen/Qwen3-VL-30B-A3B-Instruct"
+  # model_name: "Qwen/Qwen3-VL-32B-Instruct"
+  # model_name: "/home/yosubs/koa_scratch/Qwen3-VL/qwen-vl-finetune/output/11k/qwen3-vl-8b-instruct-lora/merged"
+  # model_name: "/home/yosubs/koa_scratch/Qwen3-VL/qwen-vl-finetune/output/11k-full/qwen3-vl-30b-a3b-instruct-lora/merged"
+  # model_name: "/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/Qwen3-VL/jobs/20251113_224419/results/qwen3-vl-32b-instruct-lora/checkpoint-500/merged"
+  # model_name: "/home/yosubs/koa_scratch/Qwen3-VL/qwen-vl-finetune/output/11k-full/qwen3-vl-8b-instruct/checkpoint-600"
+  # model_name: "rayruiyang/VST-7B-RL"
+  # model_name: "MLL-Lab/MindCube-Qwen2.5VL-Plain-CGMap-FFR-Out-SFT"
 
 dataset:
   name: "yosubshin/m2sv-20k"
@@ -17,9 +27,8 @@ output:
   save_predictions: true
 
 inference:
-  batch_size: 32
   vllm:
     tensor_parallel_size: 1
     gpu_memory_utilization: 0.95
-    max_model_len: 16384
+    max_model_len: 8192
     max_num_seqs: 32

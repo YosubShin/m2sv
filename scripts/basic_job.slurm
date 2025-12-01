@@ -63,21 +63,22 @@ echo "Detected GPU: ${GPU_NAME} with ${GPU_MEM} MB VRAM"
 BATCH_SIZE=4
 
 # Adjust batch size and other configs based on VRAM capacity
-if (( GPU_MEM < 20000 )); then
+if (( GPU_MEM < 30000 )); then
     echo "⚠️ GPU has <20GB VRAM — too small for Qwen3-VL-8B vLLM."
     exit 1
-elif (( GPU_MEM < 30000 )); then
-    BATCH_SIZE=2
 elif (( GPU_MEM < 50000 )); then
-    BATCH_SIZE=8
+    BATCH_SIZE=16
 elif (( GPU_MEM < 90000 )); then
     BATCH_SIZE=32
 else
     BATCH_SIZE=64
 fi
 
-export BATCH_SIZE
+# For 3B model, we can double the batch size
+# BATCH_SIZE=$((BATCH_SIZE * 2))
+
 echo "Using batch size: ${BATCH_SIZE}"
+export BATCH_SIZE
 
 echo "==== Python Environment ====="
 if command -v python >/dev/null 2>&1; then
