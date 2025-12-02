@@ -64,6 +64,38 @@
   | Random baseline   | 31.8%    |
   | Human baseline    | 88%      |
 
+## GRPO training pipeline
+
+- New RL script: `scripts/grpo_train.py` wires the TRL `GRPOTrainer` to the M2SV
+  dataset (`yosubshin/m2sv-20k`) with two-image inputs (`image_map` and
+  `image_sv`) and wandb logging enabled by default. The script now defaults to
+  `Qwen/Qwen3-VL-4B-Instruct`, sets `padding_side="left"`, and uses
+  Qwen3-recommended sampling settings (temperature 0.7, top_p 0.8,
+  repetition_penalty 1.05). `max_prompt_length` is unset to keep the full
+  chat template intact. Optional TRL/vLLM rollouts can be enabled with
+  `--use-vllm-rollout` to accelerate sampling; `vllm_gpu_memory_utilization`
+  and `vllm_max_model_len` are exposed for tuning.
+- The script is fully CLI-driven via `transformers.HfArgumentParser`, so all
+  fields in `ScriptArguments` can be overridden with `--flag value` pairs.
+- Usage example (swap `--model_name` for other qwen3-vl sizes as needed or add
+  `--use_vllm_rollout` for vLLM-backed sampling):
+
+  ```bash
+  WANDB_PROJECT=m2sv-grpo \
+  python scripts/grpo_train.py \
+    --model_name Qwen/Qwen3-VL-4B-Instruct \
+    --output_dir outputs/grpo-qwen3vl-m2sv \
+    --dataset_split train \
+    --wandb_run_name qwen3vl-grpo
+  ```
+
+  When running under Slurm, wrap the same flags, e.g.:
+
+  ```bash
+  srun --nodes=1 --gres=gpu:1 \
+    python scripts/grpo_train.py --model_name Qwen/Qwen3-VL-4B-Instruct
+  ```
+
 ## 2025-10-14-v2
 - Why we updated the prompt:
   - Models sometimes assumed the map and street-view were captured at the same time and relied on transient cues (cars, people), which can differ by years. We now explicitly instruct to ignore such transient objects.
