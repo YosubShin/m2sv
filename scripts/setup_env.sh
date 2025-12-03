@@ -40,65 +40,33 @@ if [[ -z "${RUN_METADATA_DIR}" && -n "${KOA_ML_RESULTS_ROOT:-}" && -n "${SLURM_J
   RUN_METADATA_DIR="${KOA_ML_RESULTS_ROOT}/${SLURM_JOB_ID}/run_metadata"
 fi
 
-KOA_PROJECT_ROOT="${KOA_PROJECT_ROOT:-${PROJECT_ROOT}}"
+log "Using container-provided CUDA toolchain; no custom setup required"
 
-# Install local CUDA Toolkit (configurable via CUDA_MINOR_VERSION).
-CUDA_MINOR_VERSION="${CUDA_MINOR_VERSION:-12.8}"
+# Prefer python3, fall back to python; continue even if neither is available
+python_bin=""
+if command -v python3 >/dev/null 2>&1; then
+  python_bin="$(command -v python3)"
+elif command -v python >/dev/null 2>&1; then
+  python_bin="$(command -v python)"
+fi
 
-case "${CUDA_MINOR_VERSION}" in
-  12.4)
-    CUDA_FULL_VERSION="${CUDA_FULL_VERSION:-12.4.1}"
-    CUDA_INSTALLER_TAG="${CUDA_INSTALLER_TAG:-550.54.15}"
-    ;;
-  12.8)
-    CUDA_FULL_VERSION="${CUDA_FULL_VERSION:-12.8.0}"
-    CUDA_INSTALLER_TAG="${CUDA_INSTALLER_TAG:-570.86.10}"
-    ;;
-  *)
-    if [[ -z "${CUDA_FULL_VERSION:-}" || -z "${CUDA_INSTALLER_TAG:-}" ]]; then
-      log "Unsupported CUDA_MINOR_VERSION='${CUDA_MINOR_VERSION}'. Set CUDA_FULL_VERSION and CUDA_INSTALLER_TAG to override."
-      exit 1
-    fi
-    ;;
-esac
+if [[ -n "${python_bin}" ]]; then
+  log "Found python interpreter at ${python_bin}"
+else
+  log "No system python found; relying on uv-managed interpreter"
+fi
 
-CUDA_INSTALL_ROOT="${KOA_PROJECT_ROOT}/cuda-${CUDA_MINOR_VERSION}"
-CUDA_INSTALLER_FILE="${CUDA_INSTALLER_FILE:-cuda_${CUDA_FULL_VERSION}_${CUDA_INSTALLER_TAG}_linux.run}"
-CUDA_INSTALLER_PATH="${KOA_PROJECT_ROOT}/${CUDA_INSTALLER_FILE}"
-CUDA_DOWNLOAD_URL="https://developer.download.nvidia.com/compute/cuda/${CUDA_FULL_VERSION}/local_installers/${CUDA_INSTALLER_FILE}"
-
-if [[ ! -x "${CUDA_INSTALL_ROOT}/bin/nvcc" ]]; then
-  log "Ensuring CUDA Toolkit ${CUDA_MINOR_VERSION} exists at ${CUDA_INSTALL_ROOT}"
-  mkdir -p "${CUDA_INSTALL_ROOT}"
-
-  if [[ ! -f "${CUDA_INSTALLER_PATH}" ]]; then
-    log "Downloading CUDA Toolkit installer from ${CUDA_DOWNLOAD_URL}"
-    curl -fL "${CUDA_DOWNLOAD_URL}" -o "${CUDA_INSTALLER_PATH}"
+# Determine which extras to install (always include hpc; allow callers to add more)
+UV_SYNC_EXTRAS="${UV_SYNC_EXTRAS:-hpc}"
+IFS=',' read -r -a _extras <<< "${UV_SYNC_EXTRAS}"
+UV_SYNC_EXTRA_ARGS=()
+for _extra in "${_extras[@]}"; do
+  _trimmed="$(echo "${_extra}" | xargs)"
+  if [[ -n "${_trimmed}" ]]; then
+    UV_SYNC_EXTRA_ARGS+=(--extra "${_trimmed}")
   fi
-
-  chmod +x "${CUDA_INSTALLER_PATH}"
-  "${CUDA_INSTALLER_PATH}" --silent --toolkit --toolkitpath="${CUDA_INSTALL_ROOT}"
-  rm -f "${CUDA_INSTALLER_PATH}"
-else
-  log "Found existing CUDA Toolkit at ${CUDA_INSTALL_ROOT}; skipping install"
-fi
-
-export CUDA_HOME="${CUDA_INSTALL_ROOT}"
-export CUDA_PATH="${CUDA_INSTALL_ROOT}"
-export PATH="${CUDA_INSTALL_ROOT}/bin:${PATH}"
-if [[ -n "${LD_LIBRARY_PATH:-}" ]]; then
-  export LD_LIBRARY_PATH="${CUDA_INSTALL_ROOT}/lib64:${LD_LIBRARY_PATH}"
-else
-  export LD_LIBRARY_PATH="${CUDA_INSTALL_ROOT}/lib64"
-fi
-
-# Prefer python3, fall back to python
-python_bin="$(command -v python3 || command -v python)"
-
-if [[ -z "${python_bin}" ]]; then
-  log "No python interpreter found" >&2
-  exit 1
-fi
+done
+log "uv sync extras: ${UV_SYNC_EXTRAS}"
 
 # Determine whether we need to rebuild or refresh the shared environment
 recreate=0
@@ -129,7 +97,7 @@ if [[ "${recreate}" -eq 1 ]]; then
 
   # (Re)create the uv-managed environment and install dependencies from this repo snapshot
   uv venv --clear "${SHARED_ENV_DIR}"
-  uv sync --extra hpc
+  uv sync "${UV_SYNC_EXTRA_ARGS[@]}"
 
   if [[ -n "${ENV_HASH_SOURCE}" ]]; then
     mkdir -p "${ENV_CACHE_DIR}"

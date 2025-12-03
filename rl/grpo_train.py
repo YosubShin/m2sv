@@ -9,8 +9,15 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, List, Sequence
+
+# Ensure repository root is on sys.path when run from subdirectories.
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import torch
 from datasets import load_dataset
@@ -33,7 +40,8 @@ class ScriptArguments:
     max_train_samples: int | None = None
 
     beta: float = 0.1
-    num_generations: int = 4
+    num_generations: int = 8
+    generation_batch_size: int = 8
     learning_rate: float = 5e-6
     weight_decay: float = 0.01
     warmup_ratio: float = 0.1
@@ -71,12 +79,12 @@ class DataKeys:
     options: str = "options"
 
 
-def build_prompt(processor: Any, question: str, options: Sequence[str]) -> str:
-    """Format the multimodal prompt with two image placeholders."""
+def build_messages(question: str, options: Sequence[str]) -> list[dict[str, Any]]:
+    """Format the multimodal prompt as chat messages with two image placeholders."""
 
     option_lines = "\n".join(options)
     prompt_text = format_prompt(f"{question}\n\nOptions:\n{option_lines}", list(options))
-    messages = [
+    return [
         {
             "role": "user",
             "content": [
@@ -86,9 +94,6 @@ def build_prompt(processor: Any, question: str, options: Sequence[str]) -> str:
             ],
         }
     ]
-    return processor.apply_chat_template(
-        messages, tokenize=False, add_generation_prompt=True
-    )
 
 
 def preprocess_dataset(processor: Any, args: ScriptArguments, keys: DataKeys):
@@ -99,7 +104,7 @@ def preprocess_dataset(processor: Any, args: ScriptArguments, keys: DataKeys):
         dataset = dataset.select(range(args.max_train_samples))
 
     def _map_row(example: dict[str, Any]):
-        prompt = build_prompt(processor, example["question"], example["options"])
+        prompt = build_messages(example["question"], example["options"])
         return {
             keys.prompt: prompt,
             keys.images: [example["image_map"], example["image_sv"]],
@@ -116,27 +121,47 @@ def preprocess_dataset(processor: Any, args: ScriptArguments, keys: DataKeys):
 
 
 def compute_rewards(
-    samples: List[List[str]] | List[str],
+    *,
+    prompts: list[Any] | None = None,
+    completions: List[List[str]] | List[str] | None = None,
+    completions_ids: Any | None = None,  # unused, accepted for signature compatibility
+    trainer_state: Any | None = None,  # unused, accepted for signature compatibility
     answers: Sequence[str] | None = None,
     options: Sequence[Sequence[str]] | None = None,
-    **_: Any,
-):
-    """Return GRPO rewards by matching boxed-letter predictions to the key."""
+    **kwargs: Any,
+) -> List[float]:
+    """Return GRPO rewards (list of floats), matching TRL's reward_fn contract."""
 
-    answers = answers or []
-    options = options or [[] for _ in answers]
+    _ = prompts, completions_ids, trainer_state  # silence unused warnings
+
+    # TRL may pass completions via keyword arguments; fall back to those if needed.
+    completions = completions or kwargs.get("completions") or kwargs.get("outputs") or []
+    answers = list(answers or kwargs.get("answers") or [])
+    options = list(options or kwargs.get("options") or [[] for _ in answers])
+
+    # Ensure answers/options list lengths match the number of samples
+    if not answers and completions:
+        answers = [""] * (len(completions) if not isinstance(completions[0], list) else len(completions))
+    if not options and answers:
+        options = [[] for _ in answers]
 
     def score(sample: str, gold: str, opts: Sequence[str]) -> float:
         pred = normalize_letter(sample, num_options=len(opts))
         return 1.0 if pred == (gold or "").strip().upper() else 0.0
 
-    rewards: List[List[float]] = []
-    if samples and isinstance(samples[0], list):
-        for completions, gold, opts in zip(samples, answers, options):
-            rewards.append([score(c, gold, opts) for c in completions])
+    rewards: List[float] = []
+    if completions and isinstance(completions[0], list):
+        # Nested completions: one list per prompt; answers/options should align per prompt.
+        for comps, gold, opts in zip(completions, answers, options):
+            rewards.extend(score(c, gold, opts) for c in comps)
     else:
-        flat = [score(s, g, o) for s, g, o in zip(samples, answers, options)]
-        rewards = [flat]
+        rewards.extend(
+            score(c, a, o)
+            for c, a, o in zip(completions, answers, options if options else [[]] * len(completions))
+        )
+
+    if not rewards:
+        rewards = [0.0 for _ in range(len(completions) if completions else 1)]
     return rewards
 
 
@@ -178,6 +203,7 @@ def main():
         output_dir=args.output_dir,
         beta=args.beta,
         num_generations=args.num_generations,
+        generation_batch_size=max(args.generation_batch_size, args.num_generations),
         learning_rate=args.learning_rate,
         weight_decay=args.weight_decay,
         warmup_ratio=args.warmup_ratio,
@@ -218,8 +244,7 @@ def main():
 
     trainer = GRPOTrainer(
         model=model,
-        ref_model=None,
-        reward_fn=compute_rewards,
+        reward_funcs=compute_rewards,
         args=training_args,
         train_dataset=train_dataset,
         processing_class=processor,

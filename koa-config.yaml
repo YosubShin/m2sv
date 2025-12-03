@@ -2,10 +2,6 @@ project: map-to-street-view
 
 default_backend: koa
 
-cuda_minor_version: 12.8
-
-default_partition: kill-shared
-
 env_watch:
   - scripts/setup_env.sh
   - requirements.txt
@@ -25,3 +21,4 @@ snapshot_excludes:
   - results
   - sft
   - .venv
+  - deps
