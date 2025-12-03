@@ -40,16 +40,16 @@ class ScriptArguments:
     max_train_samples: int | None = None
 
     beta: float = 0.1
-    num_generations: int = 8
-    generation_batch_size: int = 8
-    learning_rate: float = 5e-6
+    num_generations: int = 16
+    generation_batch_size: int = 16
+    learning_rate: float = 1e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.1
     gradient_accumulation_steps: int = 1
     per_device_train_batch_size: int = 1
     num_train_epochs: float = 1.0
     max_prompt_length: int | None = None
-    max_completion_length: int = 64
+    max_completion_length: int = 4096
     lr_scheduler_type: str = "cosine"
 
     logging_steps: int = 1
@@ -146,7 +146,23 @@ def compute_rewards(
         options = [[] for _ in answers]
 
     def score(sample: str, gold: str, opts: Sequence[str]) -> float:
-        pred = normalize_letter(sample, num_options=len(opts))
+        def _to_text(s: Any) -> str:
+            if isinstance(s, str):
+                return s
+            if isinstance(s, dict):
+                content = s.get("content")
+                if isinstance(content, list):
+                    parts: list[str] = []
+                    for c in content:
+                        if isinstance(c, dict) and c.get("type") == "text" and isinstance(c.get("text"), str):
+                            parts.append(c["text"])
+                    if parts:
+                        return "\n".join(parts)
+                if isinstance(content, str):
+                    return content
+            return str(s)
+
+        pred = normalize_letter(_to_text(sample), num_options=len(opts))
         return 1.0 if pred == (gold or "").strip().upper() else 0.0
 
     rewards: List[float] = []
