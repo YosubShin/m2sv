@@ -32,6 +32,7 @@ grpo = [
     "wandb>=0.17.0",
     "triton",
     "flash-attn==2.7.4.post1",
+    "setuptools",
 ]
 
 [[tool.uv.index]]
