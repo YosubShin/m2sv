@@ -145,6 +145,17 @@ def compute_rewards(
     if not options and answers:
         options = [[] for _ in answers]
 
+    # Debug: print the first batch at the start of training to inspect completions/targets.
+    if kwargs.get("trainer_state", None) and getattr(kwargs["trainer_state"], "global_step", 0) < 1:
+        first_comps = completions[0] if completions else []
+        print(
+            "[debug] completions sample:",
+            first_comps[:2] if isinstance(first_comps, list) else first_comps,
+            file=sys.stderr,
+        )
+        print("[debug] answers sample:", answers[:2], file=sys.stderr)
+        print("[debug] options sample:", options[:2], file=sys.stderr)
+
     def score(sample: str, gold: str, opts: Sequence[str]) -> float:
         def _to_text(s: Any) -> str:
             if isinstance(s, str):
