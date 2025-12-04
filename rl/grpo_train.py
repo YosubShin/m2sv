@@ -12,7 +12,7 @@ import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, List, Sequence
+from typing import Any, List, Sequence, Dict
 
 # Ensure repository root is on sys.path when run from subdirectories.
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +27,7 @@ from trl import GRPOConfig, GRPOTrainer
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
+_DEBUG_REWARDS_LOGGED = False
 
 
 @dataclass
@@ -123,11 +124,9 @@ def preprocess_dataset(processor: Any, args: ScriptArguments, keys: DataKeys):
 def compute_rewards(
     *,
     prompts: list[Any] | None = None,
-    completions: List[List[str]] | List[str] | None = None,
+    completions: List[List[Dict[str, Any]]] | None = None,
     completions_ids: Any | None = None,  # unused, accepted for signature compatibility
     trainer_state: Any | None = None,  # unused, accepted for signature compatibility
-    answers: Sequence[str] | None = None,
-    options: Sequence[Sequence[str]] | None = None,
     **kwargs: Any,
 ) -> List[float]:
     """Return GRPO rewards (list of floats), matching TRL's reward_fn contract."""
@@ -135,26 +134,15 @@ def compute_rewards(
     _ = prompts, completions_ids, trainer_state  # silence unused warnings
 
     # TRL may pass completions via keyword arguments; fall back to those if needed.
-    completions = completions or kwargs.get("completions") or kwargs.get("outputs") or []
-    answers = list(answers or kwargs.get("answers") or [])
-    options = list(options or kwargs.get("options") or [[] for _ in answers])
+    completions = completions
+    answers = list(kwargs.get("answer"))
+    options = list(kwargs.get("options"))
 
     # Ensure answers/options list lengths match the number of samples
     if not answers and completions:
         answers = [""] * (len(completions) if not isinstance(completions[0], list) else len(completions))
     if not options and answers:
         options = [[] for _ in answers]
-
-    # Debug: print the first batch at the start of training to inspect completions/targets.
-    if kwargs.get("trainer_state", None) and getattr(kwargs["trainer_state"], "global_step", 0) < 1:
-        first_comps = completions[0] if completions else []
-        print(
-            "[debug] completions sample:",
-            first_comps[:2] if isinstance(first_comps, list) else first_comps,
-            file=sys.stderr,
-        )
-        print("[debug] answers sample:", answers[:2], file=sys.stderr)
-        print("[debug] options sample:", options[:2], file=sys.stderr)
 
     def score(sample: str, gold: str, opts: Sequence[str]) -> float:
         def _to_text(s: Any) -> str:
@@ -189,6 +177,19 @@ def compute_rewards(
 
     if not rewards:
         rewards = [0.0 for _ in range(len(completions) if completions else 1)]
+
+    # Debug: log the first batch at the start of training to inspect completions/targets.
+    global _DEBUG_REWARDS_LOGGED
+    if not _DEBUG_REWARDS_LOGGED:
+        logger.info(
+            "[debug] completions sample=%s | answers=%s | options=%s | reward=%s",
+            completions[0],
+            answers[0],
+            options[0],
+            rewards[0],
+        )
+        _DEBUG_REWARDS_LOGGED = True
+
     return rewards
 
 
