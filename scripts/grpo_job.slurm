@@ -5,6 +5,7 @@
 #SBATCH --mem=60G
 #SBATCH --gres=gpu:1
 #SBATCH --constraint="hopper"
+#SBATCH --gres=gpu:nvidia_h200_nvl:1
 
 set -euo pipefail
 

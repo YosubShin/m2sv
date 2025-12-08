@@ -40,17 +40,17 @@ class ScriptArguments:
     output_dir: str = "outputs/grpo-qwen3vl-m2sv"
     max_train_samples: int | None = None
 
-    beta: float = 0.1
-    num_generations: int = 16
+    beta: float = 0.03
+    num_generations: int = 8
     generation_batch_size: int = 16
     learning_rate: float = 1e-5
     weight_decay: float = 0.01
-    warmup_ratio: float = 0.1
+    warmup_ratio: float = 0.02
     gradient_accumulation_steps: int = 1
-    per_device_train_batch_size: int = 1
+    per_device_train_batch_size: int = 4
     num_train_epochs: float = 1.0
     max_prompt_length: int | None = None
-    max_completion_length: int = 4096
+    max_completion_length: int = 2048
     lr_scheduler_type: str = "cosine"
 
     logging_steps: int = 1
