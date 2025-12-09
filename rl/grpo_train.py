@@ -61,7 +61,8 @@ class ScriptArguments:
     report_to: str = "wandb"
     wandb_project: str = "m2sv-grpo"
     wandb_run_name: str | None = None
-    log_completions: bool = True
+    # Disable TRL's built-in completions table; we log a custom table with answers/options/images instead.
+    log_completions: bool = False
     num_completions_to_print: int = 2
 
     use_vllm_rollout: bool = False
@@ -86,8 +87,7 @@ class DataKeys:
 def build_messages(question: str, options: Sequence[str]) -> list[dict[str, Any]]:
     """Format the multimodal prompt as chat messages with two image placeholders."""
 
-    option_lines = "\n".join(options)
-    prompt_text = format_prompt(f"{question}\n\nOptions:\n{option_lines}", list(options))
+    prompt_text = format_prompt(question, list(options))
     return [
         {
             "role": "user",
@@ -192,6 +192,119 @@ def compute_rewards(
             rewards[0],
         )
         _DEBUG_REWARDS_LOGGED = True
+
+    # Log a custom wandb table with ground-truth answer, options, id, and images.
+    if wandb.run is not None and completions:
+        try:
+            # Avoid duplicate logs from non-zero ranks in distributed runs.
+            if os.environ.get("RANK", "0") != "0":
+                return rewards
+
+            def _to_wandb_images(imgs: Any) -> list[Any]:
+                if not isinstance(imgs, list):
+                    return []
+                wb_imgs = []
+                for img in imgs:
+                    try:
+                        wb_imgs.append(wandb.Image(img))
+                    except Exception:
+                        continue
+                return wb_imgs
+
+            def _to_text(obj: Any) -> str:
+                # Convert nested chat/message structures to a readable string for tables.
+                if isinstance(obj, str):
+                    return obj
+                if isinstance(obj, list):
+                    return "\n".join(_to_text(x) for x in obj)
+                if isinstance(obj, dict):
+                    # Handle {"role": "...", "content": ...}
+                    role = obj.get("role")
+                    content = obj.get("content")
+                    if isinstance(content, list):
+                        parts = []
+                        for c in content:
+                            if isinstance(c, dict) and c.get("type") == "text":
+                                if c.get("text"):
+                                    parts.append(str(c["text"]))
+                        content_text = "\n".join(parts)
+                    else:
+                        content_text = str(content)
+                    if role:
+                        return f"{role}: {content_text}"
+                    return content_text
+                return str(obj)
+
+            table_rows: list[list[Any]] = []
+            ids = list(kwargs.get("id", [""] * len(completions)))
+            images = list(kwargs.get("images", [[]] * len(completions)))
+            step = getattr(trainer_state, "global_step", None) if trainer_state is not None else None
+
+            reward_idx = 0
+            for prompt, comps, gold, opts, sample_id, sample_images in zip(
+                prompts or [], completions, answers, options, ids, images
+            ):
+                comps_list = comps if isinstance(comps, list) else [comps]
+                wb_images = _to_wandb_images(sample_images)
+                prompt_text = _to_text(prompt)
+                group_rewards = rewards[reward_idx : reward_idx + len(comps_list)]
+                if group_rewards:
+                    mean_reward = float(sum(group_rewards) / len(group_rewards))
+                    # Match GRPO scaling: normalize by group std when available.
+                    mean_sq = sum(r * r for r in group_rewards) / len(group_rewards)
+                    std_reward = float(max(mean_sq - mean_reward * mean_reward, 0.0) ** 0.5)
+                else:
+                    mean_reward, std_reward = None, None
+                for comp in comps_list:
+                    reward_val = rewards[reward_idx] if reward_idx < len(rewards) else None
+                    adv_val = (
+                        (reward_val - mean_reward) / (std_reward + 1e-4)
+                        if reward_val is not None and mean_reward is not None
+                        else None
+                    )
+                    reward_idx += 1
+                    table_rows.append(
+                        [
+                            step if step is not None else "",
+                            prompt_text,
+                            _to_text(comp),
+                            gold,
+                            opts,
+                            sample_id,
+                            reward_val,
+                            adv_val,
+                            wb_images,
+                        ]
+                    )
+
+            # Keep logging lightweight: cap to a reasonable number of rows per call.
+            max_rows = 64
+            if len(table_rows) > max_rows:
+                table_rows = table_rows[:max_rows]
+
+            if table_rows:
+                wandb.log(
+                    {
+                        "completions_with_gt": wandb.Table(
+                            columns=[
+                                "step",
+                                "prompt",
+                                "completion",
+                                "answer",
+                                "options",
+                                "id",
+                                "reward",
+                                "advantage",
+                                "images",
+                            ],
+                            data=table_rows,
+                        )
+                    },
+                    commit=False,
+                )
+        except Exception:
+            # Do not break training if logging fails.
+            logger.exception("Failed to log custom completions table to wandb")
 
     return rewards
 
