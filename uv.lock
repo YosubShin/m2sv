@@ -1607,7 +1607,7 @@ requires-dist = [
     { name = "tqdm", marker = "extra == 'hpc'" },
     { name = "transformers", specifier = "==4.57.1" },
     { name = "triton", marker = "extra == 'grpo'" },
-    { name = "trl", marker = "extra == 'grpo'", git = "https://github.com/huggingface/trl.git?rev=d250e4b94402e5a8eb8703e87704cfe417b33fd2" },
+    { name = "trl", marker = "extra == 'grpo'", url = "https://github.com/huggingface/trl/archive/d250e4b94402e5a8eb8703e87704cfe417b33fd2.zip" },
     { name = "vllm", marker = "extra == 'grpo'", specifier = ">=0.11.0" },
     { name = "wandb", marker = "extra == 'grpo'", specifier = ">=0.17.0" },
 ]
@@ -4631,12 +4631,64 @@ wheels = [
 [[package]]
 name = "trl"
 version = "0.26.0.dev0"
-source = { git = "https://github.com/huggingface/trl.git?rev=d250e4b94402e5a8eb8703e87704cfe417b33fd2#d250e4b94402e5a8eb8703e87704cfe417b33fd2" }
+source = { url = "https://github.com/huggingface/trl/archive/d250e4b94402e5a8eb8703e87704cfe417b33fd2.zip" }
 dependencies = [
     { name = "accelerate" },
     { name = "datasets" },
     { name = "transformers" },
 ]
+sdist = { hash = "sha256:f2335cb14059f0f71a8e175752fcac54ab85860bac7315aabf2920d4a9f7e939" }
+
+[package.metadata]
+requires-dist = [
+    { name = "accelerate", specifier = ">=1.4.0" },
+    { name = "bitsandbytes", marker = "extra == 'dev'" },
+    { name = "bitsandbytes", marker = "extra == 'quantization'" },
+    { name = "datasets", specifier = ">=3.0.0" },
+    { name = "deepspeed", marker = "extra == 'deepspeed'", specifier = ">=0.14.4" },
+    { name = "deepspeed", marker = "extra == 'dev'", specifier = ">=0.14.4" },
+    { name = "fastapi", marker = "extra == 'vllm'" },
+    { name = "hf-doc-builder", marker = "extra == 'dev'" },
+    { name = "hf-doc-builder", marker = "extra == 'quality'" },
+    { name = "joblib", marker = "extra == 'bco'" },
+    { name = "joblib", marker = "extra == 'dev'" },
+    { name = "kernels", marker = "extra == 'dev'" },
+    { name = "kernels", marker = "extra == 'kernels'" },
+    { name = "liger-kernel", marker = "extra == 'dev'", specifier = ">=0.6.4" },
+    { name = "liger-kernel", marker = "extra == 'liger'", specifier = ">=0.6.4" },
+    { name = "llm-blender", marker = "extra == 'dev'", specifier = ">=0.0.2" },
+    { name = "llm-blender", marker = "extra == 'judges'", specifier = ">=0.0.2" },
+    { name = "math-verify", marker = "extra == 'math-verify'", specifier = ">=0.5.2" },
+    { name = "num2words", marker = "extra == 'dev'", specifier = "==0.5.14" },
+    { name = "num2words", marker = "extra == 'vlm'", specifier = "==0.5.14" },
+    { name = "openai", marker = "extra == 'dev'", specifier = ">=1.23.2" },
+    { name = "openai", marker = "extra == 'judges'", specifier = ">=1.23.2" },
+    { name = "peft", marker = "extra == 'dev'", specifier = ">=0.8.0" },
+    { name = "peft", marker = "extra == 'peft'", specifier = ">=0.8.0" },
+    { name = "pillow", marker = "extra == 'dev'" },
+    { name = "pillow", marker = "extra == 'vlm'" },
+    { name = "pre-commit", marker = "extra == 'dev'" },
+    { name = "pre-commit", marker = "extra == 'quality'" },
+    { name = "pydantic", marker = "extra == 'vllm'" },
+    { name = "pytest", marker = "extra == 'dev'" },
+    { name = "pytest", marker = "extra == 'test'" },
+    { name = "pytest-cov", marker = "extra == 'dev'" },
+    { name = "pytest-cov", marker = "extra == 'test'" },
+    { name = "pytest-rerunfailures", marker = "extra == 'dev'", specifier = "==15.1" },
+    { name = "pytest-rerunfailures", marker = "extra == 'test'", specifier = "==15.1" },
+    { name = "pytest-xdist", marker = "extra == 'dev'" },
+    { name = "pytest-xdist", marker = "extra == 'test'" },
+    { name = "requests", marker = "extra == 'vllm'" },
+    { name = "scikit-learn", marker = "extra == 'bco'" },
+    { name = "scikit-learn", marker = "extra == 'dev'" },
+    { name = "scikit-learn", marker = "extra == 'scikit'" },
+    { name = "torchvision", marker = "extra == 'dev'" },
+    { name = "torchvision", marker = "extra == 'vlm'" },
+    { name = "transformers", specifier = ">=4.56.1" },
+    { name = "uvicorn", marker = "extra == 'vllm'" },
+    { name = "vllm", marker = "extra == 'vllm'", specifier = ">=0.10.2,<0.12.0" },
+]
+provides-extras = ["bco", "deepspeed", "judges", "kernels", "liger", "peft", "quality", "quantization", "scikit", "test", "vllm", "vlm", "math-verify", "dev"]
 
 [[package]]
 name = "typer"
