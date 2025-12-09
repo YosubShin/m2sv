@@ -24,6 +24,7 @@ from datasets import load_dataset
 from m2sv_eval_utils import format_prompt, normalize_letter
 from transformers import AutoModelForVision2Seq, AutoProcessor, HfArgumentParser
 from trl import GRPOConfig, GRPOTrainer
+import wandb
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -195,6 +196,39 @@ def compute_rewards(
     return rewards
 
 
+def make_logged_reward_fn(base_reward_fn, num_generations: int):
+    """Wrap reward_fn to log advantage stats without modifying TRL internals."""
+
+    def wrapped_reward_fn(*args, **kwargs):
+        rewards = base_reward_fn(*args, **kwargs)  # shape: [B*G]
+        rewards_tensor = torch.as_tensor(rewards, dtype=torch.float32)
+        if rewards_tensor.numel() == 0:
+            return rewards
+
+        assert rewards_tensor.numel() % num_generations == 0, "Rewards must align with num_generations"
+        batch_size = rewards_tensor.numel() // num_generations
+        rewards_grouped = rewards_tensor.view(batch_size, num_generations)
+
+        group_mean = rewards_grouped.mean(dim=-1, keepdim=True)
+        group_std = rewards_grouped.std(dim=-1, keepdim=True)
+        advantages = (rewards_grouped - group_mean) / (group_std + 1e-4)
+
+        adv_std = advantages.std().item()
+        adv_abs_mean = advantages.abs().mean().item()
+
+        if wandb.run is not None:
+            wandb.log(
+                {
+                    "train/advantage_std": adv_std,
+                    "train/advantage_abs_mean": adv_abs_mean,
+                }
+            )
+
+        return rewards  # TRL still gets the raw rewards
+
+    return wrapped_reward_fn
+
+
 def main():
     parser = HfArgumentParser(ScriptArguments)
     args = parser.parse_args_into_dataclasses()[0]
@@ -274,9 +308,10 @@ def main():
 
     training_args = GRPOConfig(**config_kwargs)
 
+    reward_fn = make_logged_reward_fn(compute_rewards, args.num_generations)
     trainer = GRPOTrainer(
         model=model,
-        reward_funcs=compute_rewards,
+        reward_funcs=reward_fn,
         args=training_args,
         train_dataset=train_dataset,
         processing_class=processor,
