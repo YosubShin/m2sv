@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, List, Sequence, Dict
 
+import json
 # Ensure repository root is on sys.path when run from subdirectories.
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -184,13 +185,63 @@ def compute_rewards(
     # Debug: log the first batch at the start of training to inspect completions/targets.
     global _DEBUG_REWARDS_LOGGED
     if not _DEBUG_REWARDS_LOGGED:
-        logger.info(
-            "[debug] completions sample=%s | answers=%s | options=%s | reward=%s",
-            completions[0],
-            answers[0],
-            options[0],
-            rewards[0],
-        )
+        def _to_text_debug(obj: Any) -> str:
+            if isinstance(obj, str):
+                return obj
+            if isinstance(obj, list):
+                return "\n".join(_to_text_debug(x) for x in obj)
+            if isinstance(obj, dict):
+                role = obj.get("role")
+                content = obj.get("content")
+                if isinstance(content, list):
+                    parts = []
+                    for c in content:
+                        if isinstance(c, dict) and c.get("type") == "text" and c.get("text"):
+                            parts.append(str(c["text"]))
+                    content = "\n".join(parts)
+                if role:
+                    return f"{role}: {content}"
+                return str(content)
+            return str(obj)
+
+        debug_entries: list[dict[str, Any]] = []
+        reward_idx = 0
+        if completions and isinstance(completions[0], list):
+            for comps, gold, opts in zip(completions, answers, options):
+                for comp in comps:
+                    reward_val = rewards[reward_idx] if reward_idx < len(rewards) else None
+                    reward_idx += 1
+                    debug_entries.append(
+                        {
+                            "completion": _to_text_debug(comp),
+                            "answer": gold,
+                            "options": opts,
+                            "reward": reward_val,
+                        }
+                    )
+        else:
+            for comp, gold, opts in zip(
+                completions or [], answers, options if options else [[]] * len(completions or [])
+            ):
+                reward_val = rewards[reward_idx] if reward_idx < len(rewards) else None
+                reward_idx += 1
+                debug_entries.append(
+                    {
+                        "completion": _to_text_debug(comp),
+                        "answer": gold,
+                        "options": opts,
+                        "reward": reward_val,
+                    }
+                )
+
+        debug_path = REPO_ROOT / "debug_rewards_batch.json"
+        try:
+            with debug_path.open("w", encoding="utf-8") as f:
+                json.dump(debug_entries, f, ensure_ascii=True, indent=2)
+            logger.info("[debug] wrote first-batch rewards log to %s", debug_path)
+        except Exception:
+            logger.exception("Failed to write debug rewards batch log")
+
         _DEBUG_REWARDS_LOGGED = True
 
     # Log a custom wandb table with ground-truth answer, options, id, and images.

@@ -1,11 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=m2sv-grpo
-#SBATCH --time=08:00:00
+#SBATCH --time=00:30:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=60G
 #SBATCH --gres=gpu:1
-#SBATCH --constraint="hopper"
-#SBATCH --gres=gpu:nvidia_h200_nvl:1
+
+
+# # SBATCH --constraint="hopper"
+# # SBATCH --gres=gpu:nvidia_h200_nvl:1
 
 set -euo pipefail
 
@@ -16,7 +18,7 @@ JOB_DIR="${KOA_RUN_DIR:-${RESULTS_ROOT}/${SLURM_JOB_ID}}"
 SHARED_CACHE_ROOT="${KOA_REMOTE_ROOT:-${HOME}/koa-remote}/cache"
 CACHE_ROOT="${KOA_CACHE_ROOT:-${SHARED_CACHE_ROOT}}"
 REPO_DIR="${JOB_DIR}/repo"
-RESULTS_DIR="${JOB_DIR}/results"
+RESULTS_DIR="${RESULTS_DIR:-${JOB_DIR}/results}"
 mkdir -p "${REPO_DIR}" "${RESULTS_DIR}" "${CACHE_ROOT}"
 
 export XDG_CACHE_HOME="${CACHE_ROOT}"
