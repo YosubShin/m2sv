@@ -34,19 +34,19 @@ _DEBUG_REWARDS_LOGGED = False
 class ScriptArguments:
     """Command-line arguments for GRPO training."""
 
-    model_name: str = "Qwen/Qwen3-VL-4B-Instruct"
+    model_name: str = "yosubshin/qwen3-vl-4b-instruct-m2sv-sft"
     dataset_name: str = "yosubshin/m2sv-20k"
     dataset_split: str = "train"
     output_dir: str = "outputs/grpo-qwen3vl-m2sv"
     max_train_samples: int | None = None
 
     beta: float = 0.03
-    num_generations: int = 8
-    generation_batch_size: int = 16
+    num_generations: int = 16
+    generation_batch_size: int = 32
     learning_rate: float = 1e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.02
-    gradient_accumulation_steps: int = 1
+    gradient_accumulation_steps: int = 4
     per_device_train_batch_size: int = 4
     num_train_epochs: float = 1.0
     max_prompt_length: int | None = None
