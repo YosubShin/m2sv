@@ -60,6 +60,8 @@ class ScriptArguments:
     report_to: str = "wandb"
     wandb_project: str = "m2sv-grpo"
     wandb_run_name: str | None = None
+    log_completions: bool = True
+    num_completions_to_print: int = 2
 
     use_vllm_rollout: bool = False
     vllm_gpu_memory_utilization: float = 0.9
@@ -248,11 +250,13 @@ def main():
         seed=args.seed,
         report_to=args.report_to,
         run_name=args.wandb_run_name,
+        log_completions=args.log_completions,
+        num_completions_to_print=args.num_completions_to_print,
     )
+    config_fields = getattr(GRPOConfig, "__dataclass_fields__", {})
 
     # Align with TRL's optional vLLM integration for faster rollouts when available.
     if args.use_vllm_rollout:
-        config_fields = getattr(GRPOConfig, "__dataclass_fields__", {})
         if "use_vllm" in config_fields:
             config_kwargs["use_vllm"] = True
         if "vllm_kwargs" in config_fields:
