@@ -34,6 +34,7 @@ grpo = [
     "triton",
     "flash-attn==2.7.4.post1",
     "setuptools",
+    "rich>=13.7.0",
 ]
 
 [[tool.uv.index]]

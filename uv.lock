@@ -1568,6 +1568,7 @@ dependencies = [
 [package.optional-dependencies]
 grpo = [
     { name = "flash-attn" },
+    { name = "rich" },
     { name = "setuptools" },
     { name = "torch" },
     { name = "torchaudio" },
@@ -1597,6 +1598,7 @@ requires-dist = [
     { name = "huggingface-hub", specifier = ">=0.23.0" },
     { name = "pandas", marker = "extra == 'hpc'" },
     { name = "pillow", marker = "extra == 'hpc'", specifier = ">=9.5.0" },
+    { name = "rich", marker = "extra == 'grpo'", specifier = ">=13.7.0" },
     { name = "setuptools", marker = "extra == 'grpo'" },
     { name = "torch", marker = "extra == 'grpo'", specifier = "==2.8.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "map-to-street-view", extra = "grpo" } },
     { name = "torchaudio", marker = "extra == 'grpo'", specifier = "==2.8.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "map-to-street-view", extra = "grpo" } },
