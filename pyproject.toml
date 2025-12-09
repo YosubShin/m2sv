@@ -32,7 +32,7 @@ grpo = [
     "trl @ https://github.com/huggingface/trl/archive/d250e4b94402e5a8eb8703e87704cfe417b33fd2.zip",
     "wandb>=0.17.0",
     "triton",
-    "flash-attn==2.7.4.post1",
+    "flash-attn>=2.8.3",
     "setuptools",
     "rich>=13.7.0",
 ]
