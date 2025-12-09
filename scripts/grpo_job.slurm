@@ -81,7 +81,7 @@ else
 fi
 echo
 
-CONTAINER_IMAGE="${CONTAINER_IMAGE:-docker://nvcr.io/nvidia/cuda:12.4.1-devel-ubuntu22.04}"
+CONTAINER_IMAGE="${CONTAINER_IMAGE:-docker://nvcr.io/nvidia/cuda:12.8.1-devel-ubuntu22.04}"
 declare -a CONTAINER_BINDS
 if [[ -n "${KOA_REMOTE_ROOT:-}" && -d "${KOA_REMOTE_ROOT}" ]]; then
   CONTAINER_BINDS+=("${KOA_REMOTE_ROOT}:${KOA_REMOTE_ROOT}")

@@ -132,7 +132,7 @@ CONTAINER_CMD+=("${CONTAINER_IMAGE}")
 "${CONTAINER_CMD[@]}" bash -c '
 set -euo pipefail
 export PATH="$HOME/.local/bin:$PATH"
-export UV_SYNC_EXTRAS="${UV_SYNC_EXTRAS:-hpc,eval}"
+export UV_SYNC_EXTRAS="${UV_SYNC_EXTRAS:-hpc,grpo}"
 source "$REPO_DIR/scripts/setup_env.sh"
 cd "$REPO_DIR"
 
