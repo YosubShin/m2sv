@@ -12,7 +12,7 @@ model:
   # model_name: "/home/yosubs/koa_scratch/Qwen3-VL/qwen-vl-finetune/output/11k-full/qwen3-vl-8b-instruct/checkpoint-600"
   # model_name: "rayruiyang/VST-7B-RL"
   # model_name: "MLL-Lab/MindCube-Qwen2.5VL-Plain-CGMap-FFR-Out-SFT"
-  model_name: "/home/yosubs/koa_scratch/koa-cli/projects/map-to-street-view/jobs/20251208_104113_8x_effective_batch_size_4x_distinct_problems_2x_rollout_and_use_sft_checkpoint_to_start/results/grpo/checkpoint-500"
+  # model_name: "/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251208_235926_run_for_8_hrs_with_more_logging/results/grpo/checkpoint-500"
 
 dataset:
   name: "yosubshin/m2sv-20k"

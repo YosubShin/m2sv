@@ -99,7 +99,7 @@ def load_config(path: str) -> EvalConfig:
     with open(path, "r") as f:
         raw = yaml.safe_load(f)
 
-    model_cfg = raw.get("model", {})
+    model_cfg = raw.get("model", {}) or {}
     dataset_cfg = raw.get("dataset", {})
     generation_cfg = raw.get("generation", {}) or {}
     output_cfg = raw.get("output", {}) or {}
@@ -112,8 +112,14 @@ def load_config(path: str) -> EvalConfig:
         vllm_cfg = inference_cfg_raw
         inference_cfg = inference_cfg_raw
 
+    model_name = model_cfg.get("model_name") or os.environ.get("MODEL_NAME")
+    if not model_name:
+        raise ValueError(
+            "Model name must be provided via config.model.model_name or MODEL_NAME environment variable."
+        )
+
     cfg = EvalConfig(
-        model_name=model_cfg["model_name"],
+        model_name=model_name,
         dataset_name=dataset_cfg.get("name", "yosubshin/m2sv"),
         dataset_split=dataset_cfg.get("split", "train"),
         generation_max_new_tokens=generation_cfg.get("max_new_tokens", 128),
