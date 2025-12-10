@@ -411,7 +411,7 @@ def main():
         trust_remote_code=args.trust_remote_code,
         attn_implementation=args.attn_implementation,
         torch_dtype=torch.bfloat16,
-        device_map="auto",
+        device_map=None,
     )
     model.config.use_cache = False
     if args.gradient_checkpointing:
