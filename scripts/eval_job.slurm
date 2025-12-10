@@ -101,6 +101,8 @@ if [[ -z "${BATCH_SIZE:-}" ]]; then
   fi
 fi
 
+# Double the batch size for 4B model.
+BATCH_SIZE=$((BATCH_SIZE * 2))
 echo "Using batch size: ${BATCH_SIZE}"
 export BATCH_SIZE
 echo
