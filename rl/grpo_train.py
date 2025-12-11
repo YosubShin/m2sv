@@ -44,12 +44,12 @@ class ScriptArguments:
 
     beta: float = 0.03
     num_generations: int = 16
-    generation_batch_size: int = 32
+    generation_batch_size: int = 64
     learning_rate: float = 1e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.02
     gradient_accumulation_steps: int = 4
-    per_device_train_batch_size: int = 4
+    per_device_train_batch_size: int = 8
     num_train_epochs: float = 1.0
     max_prompt_length: int | None = None
     max_completion_length: int = 2048
@@ -57,7 +57,7 @@ class ScriptArguments:
 
     logging_steps: int = 1
     save_steps: int = 250
-    save_total_limit: int = 3
+    save_total_limit: int = 5
     seed: int = 42
     report_to: str = "wandb"
     wandb_project: str = "m2sv-grpo"
@@ -66,7 +66,7 @@ class ScriptArguments:
     log_completions: bool = False
     num_completions_to_print: int = 2
 
-    use_vllm_rollout: bool = False
+    use_vllm_rollout: bool = True
     vllm_gpu_memory_utilization: float = 0.9
     vllm_max_model_len: int | None = None
     vllm_dtype: str | None = None
@@ -420,11 +420,9 @@ def main():
     train_dataset = preprocess_dataset(processor, args, keys)
 
     generation_kwargs = {
-        "do_sample": True,
         "top_p": 0.8,
         "temperature": 0.7,
         "repetition_penalty": 1.05,
-        "max_new_tokens": args.max_completion_length,
     }
 
     config_kwargs = dict(

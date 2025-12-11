@@ -29,7 +29,7 @@ grpo = [
     "torchvision==0.23.0",
     "torchaudio==2.8.0",
     "vllm>=0.11.0",
-    "trl @ https://github.com/huggingface/trl/archive/d250e4b94402e5a8eb8703e87704cfe417b33fd2.zip",
+    "trl[vllm] @ https://github.com/huggingface/trl/archive/d250e4b94402e5a8eb8703e87704cfe417b33fd2.zip",
     "wandb>=0.17.0",
     "triton",
     "flash-attn>=2.8.3",
