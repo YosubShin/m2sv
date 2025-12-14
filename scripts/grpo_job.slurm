@@ -110,23 +110,35 @@ mkdir -p "${GRPO_OUTPUT_DIR}"
 LOG_DIR="${LOG_DIR:-${RESULTS_DIR}/logs}"
 mkdir -p "${LOG_DIR}"
 
-export VLLM_MODEL_NAME="${VLLM_MODEL_NAME:-yosubshin/qwen3-vl-4b-instruct-m2sv-sft}"
+# export GRPO_RESUME_FROM_CHECKPOINT="${GRPO_RESUME_FROM_CHECKPOINT:-/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251212_090720_GRPO_for_longer/results/grpo/checkpoint-450}"
+export VLLM_MODEL_NAME="${GRPO_RESUME_FROM_CHECKPOINT:-yosubshin/qwen3-vl-4b-instruct-m2sv-sft}"
 
 export CUDA_VISIBLE_DEVICES=0
+
+cleanup_vllm() {
+  if [[ -n "${VLLM_PID:-}" ]]; then
+    if kill -0 "${VLLM_PID}" 2>/dev/null; then
+      kill "${VLLM_PID}" 2>/dev/null || true
+      wait "${VLLM_PID}" 2>/dev/null || true
+    fi
+  fi
+}
 
 stdbuf -oL -eL \
 uv run trl vllm-serve \
   --model "${VLLM_MODEL_NAME}" \
   --tensor-parallel-size 1 \
   --dtype bfloat16 \
+  --gpu-memory-utilization 0.95 \
   --max-model-len 8192 \
   > "${LOG_DIR}/vllm.log" 2>&1 &
 
 VLLM_PID=$!
 echo "vLLM started with PID ${VLLM_PID}"
+trap cleanup_vllm EXIT
 
-READY_TIMEOUT="${VLLM_WAIT_READY_SECS:-600}"
-POLL_INTERVAL="${VLLM_READY_POLL_SECS:-10}"
+READY_TIMEOUT="${VLLM_WAIT_READY_SECS:-1200}"
+POLL_INTERVAL="${VLLM_READY_POLL_SECS:-30}"
 echo "Waiting up to ${READY_TIMEOUT}s for vLLM to report ready (poll every ${POLL_INTERVAL}s)..."
 START_WAIT=$(date +%s)
 while true; do
@@ -145,7 +157,7 @@ while true; do
     top -b -n 1 | head -20 || true
     df -h /tmp || true
     echo "Stopping job after vLLM readiness timeout"
-    kill "${VLLM_PID}" || true
+    cleanup_vllm
     exit 1
   fi
   sleep "${POLL_INTERVAL}"
@@ -171,6 +183,9 @@ fi
 if [[ -n "${GRPO_WANDB_RUN_NAME:-}" ]]; then
   CMD+=("--wandb_run_name" "${GRPO_WANDB_RUN_NAME}")
 fi
+if [[ -n "${GRPO_RESUME_FROM_CHECKPOINT:-}" ]]; then
+  CMD+=("--resume_from_checkpoint" "${GRPO_RESUME_FROM_CHECKPOINT}")
+fi
 
 CMD+=("$@")
 
@@ -178,9 +193,10 @@ printf "Running GRPO training command:"
 printf " %q" "${CMD[@]}"
 printf "\n"
 
+export WANDB_START_METHOD="thread"
 export CUDA_VISIBLE_DEVICES="${TRAIN_CUDA_VISIBLE_DEVICES}"
 "${CMD[@]}"
 
 echo "Training finished — stopping vLLM"
-kill "${VLLM_PID}" || true
+cleanup_vllm
 ' bash "$@"

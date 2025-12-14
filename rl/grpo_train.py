@@ -48,16 +48,16 @@ class ScriptArguments:
     learning_rate: float = 1e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.02
-    gradient_accumulation_steps: int = 4
-    per_device_train_batch_size: int = 8
+    gradient_accumulation_steps: int = 16
+    per_device_train_batch_size: int = 16
     num_train_epochs: float = 1.0
     max_prompt_length: int | None = None
     max_completion_length: int = 2048
     lr_scheduler_type: str = "cosine"
 
     logging_steps: int = 1
-    save_steps: int = 250
-    save_total_limit: int = 5
+    save_steps: int = 50
+    save_total_limit: int = 10
     seed: int = 42
     report_to: str = "wandb"
     wandb_project: str = "m2sv-grpo"
@@ -65,9 +65,10 @@ class ScriptArguments:
     # Disable TRL's built-in completions table; we log a custom table with answers/options/images instead.
     log_completions: bool = False
     num_completions_to_print: int = 2
+    resume_from_checkpoint: str | None = None
 
     use_vllm_rollout: bool = True
-    vllm_gpu_memory_utilization: float = 0.9
+    vllm_gpu_memory_utilization: float = 0.95
     vllm_max_model_len: int | None = None
     vllm_dtype: str | None = None
     vllm_trust_remote_code: bool | None = None
@@ -250,6 +251,10 @@ def compute_rewards(
             # Avoid duplicate logs from non-zero ranks in distributed runs.
             if os.environ.get("RANK", "0") != "0":
                 return rewards
+            step = getattr(trainer_state, "global_step", None) if trainer_state is not None else None
+            # Only log every 50 steps starting at step 0.
+            if step is not None and step % 50 != 0:
+                return rewards
 
             def _to_wandb_images(imgs: Any) -> list[Any]:
                 if not isinstance(imgs, list):
@@ -289,7 +294,17 @@ def compute_rewards(
             table_rows: list[list[Any]] = []
             ids = list(kwargs.get("id", [""] * len(completions)))
             images = list(kwargs.get("images", [[]] * len(completions)))
-            step = getattr(trainer_state, "global_step", None) if trainer_state is not None else None
+
+            # Compute advantages per group using the same normalization as TRL.
+            group_size = len(completions[0]) if completions and isinstance(completions[0], list) else 1
+            adv_list: list[float | None] = [None] * len(rewards)
+            if group_size > 0 and len(rewards) % group_size == 0 and len(rewards) > 0:
+                rewards_tensor = torch.as_tensor(rewards, dtype=torch.float32)
+                rewards_grouped = rewards_tensor.view(-1, group_size)
+                centered = rewards_grouped - rewards_grouped.mean(dim=1, keepdim=True)
+                std = rewards_grouped.std(dim=1, keepdim=True) + 1e-4
+                advantages = (centered / std).reshape(-1).tolist()
+                adv_list = [float(a) for a in advantages]
 
             reward_idx = 0
             for prompt, comps, gold, opts, sample_id, sample_images in zip(
@@ -298,21 +313,9 @@ def compute_rewards(
                 comps_list = comps if isinstance(comps, list) else [comps]
                 wb_images = _to_wandb_images(sample_images)
                 prompt_text = _to_text(prompt)
-                group_rewards = rewards[reward_idx : reward_idx + len(comps_list)]
-                if group_rewards:
-                    mean_reward = float(sum(group_rewards) / len(group_rewards))
-                    # Match GRPO scaling: normalize by group std when available.
-                    mean_sq = sum(r * r for r in group_rewards) / len(group_rewards)
-                    std_reward = float(max(mean_sq - mean_reward * mean_reward, 0.0) ** 0.5)
-                else:
-                    mean_reward, std_reward = None, None
                 for comp in comps_list:
                     reward_val = rewards[reward_idx] if reward_idx < len(rewards) else None
-                    adv_val = (
-                        (reward_val - mean_reward) / (std_reward + 1e-4)
-                        if reward_val is not None and mean_reward is not None
-                        else None
-                    )
+                    adv_val = adv_list[reward_idx] if reward_idx < len(adv_list) else None
                     reward_idx += 1
                     table_rows.append(
                         [
@@ -480,7 +483,7 @@ def main():
     )
 
     logger.info("Starting GRPO training...")
-    trainer.train()
+    trainer.train(resume_from_checkpoint=args.resume_from_checkpoint)
 
     logger.info("Saving model and processor to %s", args.output_dir)
     trainer.model.save_pretrained(args.output_dir)
