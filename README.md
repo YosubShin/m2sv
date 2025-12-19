@@ -171,6 +171,70 @@ python evaluate_vlm.py yosubshin/m2sv \
 streamlit run review_webapp.py
 ```
 
+# RL (GRPO) training commands
+
+## 4B model
+
+### Train
+```
+koa submit scripts/grpo_job.slurm \
+  --desc "qwen3-vl-4b-instruct" \
+  --env MODEL_NAME=/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/Qwen3-VL/jobs/20251112_223605_qwen3-vl-4b-instruct_lr_5e-6/results/qwen3-vl-4b-instruct/checkpoint-600
+```
+
+### Eval
+```
+koa submit scripts/eval_job.slurm \
+  --desc "eval qwen3-vl-4b-instruct" \
+  --env MODEL_NAME=/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251213_105127_resume_from_0_75epoch/results/grpo
+```
+
+### Resume (non-LoRA, 4B)
+```
+koa submit scripts/grpo_job.slurm \
+  --desc "resume qwen3-vl-4b-instruct" \
+  --env MODEL_NAME=Qwen/Qwen3-VL-4B-Instruct \
+  --env GRPO_RESUME_FROM_CHECKPOINT=/path/to/grpo/checkpoint-XXXX
+```
+
+## 8B model (LoRA)
+
+### Train
+```
+koa submit scripts/grpo_job.slurm \
+  --desc "qwen3-vl-8b-instruct-lora" \
+  --env GRPO_USE_LORA=TRUE \
+  --env GRPO_LEARNING_RATE=2e-5 \
+  --env MODEL_NAME=/home/yosubs/koa_scratch/Qwen3-VL/qwen-vl-finetune/output/11k/qwen3-vl-8b-instruct-lora/merged
+```
+
+### Eval
+```
+koa submit scripts/eval_job.slurm \
+  --desc "eval qwen3-vl-8b-instruct-lora checkpoint-350" \
+  --env MODEL_NAME=/home/yosubs/koa_scratch/koa-cli/projects/map-to-street-view/jobs/20251214_154058_qwen3-vl-8b-instruct-lora/results/grpo/checkpoint-350/merged
+```
+
+### Resume (LoRA, 8B)
+```
+koa submit scripts/grpo_job.slurm \
+  --desc "resume qwen3-vl-8b-instruct-lora" \
+  --env GRPO_USE_LORA=TRUE \
+  --env MODEL_NAME=Qwen/Qwen3-VL-8B-Instruct \  # base model, not merged
+  --env GRPO_RESUME_FROM_CHECKPOINT=/path/to/grpo/checkpoint-XXXX  # LoRA + optimizer state
+```
+
+Example with separate models for serving vs. training/resume:
+```
+koa submit scripts/grpo_job.slurm \
+  --desc "resume qwen3-vl-8b-instruct-lora" \
+  --env GRPO_USE_LORA=TRUE \
+  --env GRPO_LEARNING_RATE=2e-5 \
+  --env VLLM_MODEL_NAME=/home/yosubs/koa_scratch/koa-cli/projects/map-to-street-view/jobs/20251214_154058_qwen3-vl-8b-instruct-lora/results/grpo/checkpoint-350/merged \
+  --env GRPO_MODEL_NAME=/home/yosubs/koa_scratch/koa-cli/projects/map-to-street-view/jobs/20251214_154058_qwen3-vl-8b-instruct-lora/results/grpo/checkpoint-350 \
+  --env GRPO_RESUME_FROM_CHECKPOINT=/home/yosubs/koa_scratch/koa-cli/projects/map-to-street-view/jobs/20251214_154058_qwen3-vl-8b-instruct-lora/results/grpo/checkpoint-350
+```
+
 ## Freeze-and-render dataset workflow
 
 1) Freeze a reproducible blueprint (metadata only, no images yet). This records coordinates, azimuth options, gold label, and the Street View pano id/distance so the dataset can be recreated consistently.

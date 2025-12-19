@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=m2sv-grpo
-#SBATCH --time=08:00:00
+#SBATCH --time=24:00:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=60G
 
@@ -104,14 +104,20 @@ export PYTHONUNBUFFERED=1
 source "$REPO_DIR/scripts/setup_env.sh"
 cd "$REPO_DIR"
 
+MODEL_NAME_DEFAULT="yosubshin/qwen3-vl-4b-instruct-m2sv-sft"
+export MODEL_NAME="${MODEL_NAME:-${MODEL_NAME_DEFAULT}}"
+
+# Allow resume to be set separately; if unset, let trainer start fresh.
+# export GRPO_RESUME_FROM_CHECKPOINT="${GRPO_RESUME_FROM_CHECKPOINT:-}"
+
+export GRPO_MODEL_NAME="${GRPO_MODEL_NAME:-${MODEL_NAME}}"
+export VLLM_MODEL_NAME="${VLLM_MODEL_NAME:-${MODEL_NAME}}"
+
 export WANDB_PROJECT="${WANDB_PROJECT:-m2sv-grpo}"
 GRPO_OUTPUT_DIR="${GRPO_OUTPUT_DIR:-${RESULTS_DIR}/grpo}"
 mkdir -p "${GRPO_OUTPUT_DIR}"
 LOG_DIR="${LOG_DIR:-${RESULTS_DIR}/logs}"
 mkdir -p "${LOG_DIR}"
-
-# export GRPO_RESUME_FROM_CHECKPOINT="${GRPO_RESUME_FROM_CHECKPOINT:-/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251212_090720_GRPO_for_longer/results/grpo/checkpoint-450}"
-export VLLM_MODEL_NAME="${GRPO_RESUME_FROM_CHECKPOINT:-yosubshin/qwen3-vl-4b-instruct-m2sv-sft}"
 
 export CUDA_VISIBLE_DEVICES=0
 
@@ -137,7 +143,7 @@ VLLM_PID=$!
 echo "vLLM started with PID ${VLLM_PID}"
 trap cleanup_vllm EXIT
 
-READY_TIMEOUT="${VLLM_WAIT_READY_SECS:-1200}"
+READY_TIMEOUT="${VLLM_WAIT_READY_SECS:-1800}"
 POLL_INTERVAL="${VLLM_READY_POLL_SECS:-30}"
 echo "Waiting up to ${READY_TIMEOUT}s for vLLM to report ready (poll every ${POLL_INTERVAL}s)..."
 START_WAIT=$(date +%s)
@@ -185,6 +191,24 @@ if [[ -n "${GRPO_WANDB_RUN_NAME:-}" ]]; then
 fi
 if [[ -n "${GRPO_RESUME_FROM_CHECKPOINT:-}" ]]; then
   CMD+=("--resume_from_checkpoint" "${GRPO_RESUME_FROM_CHECKPOINT}")
+fi
+if [[ -n "${GRPO_LEARNING_RATE:-}" ]]; then
+  CMD+=("--learning_rate" "${GRPO_LEARNING_RATE}")
+fi
+if [[ "${GRPO_USE_LORA:-}" =~ ^(1|true|TRUE|yes|Yes)$ ]]; then
+  CMD+=("--use_lora")
+fi
+if [[ -n "${GRPO_LORA_RANK:-}" ]]; then
+  CMD+=("--lora_rank" "${GRPO_LORA_RANK}")
+fi
+if [[ -n "${GRPO_LORA_ALPHA:-}" ]]; then
+  CMD+=("--lora_alpha" "${GRPO_LORA_ALPHA}")
+fi
+if [[ -n "${GRPO_LORA_DROPOUT:-}" ]]; then
+  CMD+=("--lora_dropout" "${GRPO_LORA_DROPOUT}")
+fi
+if [[ -n "${GRPO_LORA_TARGET_MODULES:-}" ]]; then
+  CMD+=("--lora_target_modules" "${GRPO_LORA_TARGET_MODULES}")
 fi
 
 CMD+=("$@")

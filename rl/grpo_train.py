@@ -25,6 +25,7 @@ from datasets import load_dataset
 from m2sv_eval_utils import format_prompt, normalize_letter
 from transformers import AutoModelForVision2Seq, AutoProcessor, HfArgumentParser
 from trl import GRPOConfig, GRPOTrainer
+from peft import LoraConfig, TaskType, get_peft_model
 import wandb
 
 logger = logging.getLogger(__name__)
@@ -66,6 +67,12 @@ class ScriptArguments:
     log_completions: bool = False
     num_completions_to_print: int = 2
     resume_from_checkpoint: str | None = None
+
+    use_lora: bool = False
+    lora_rank: int = 16
+    lora_alpha: int = 32
+    lora_dropout: float = 0.05
+    lora_target_modules: str | None = None  # comma-separated; defaults to common Qwen attention/MLP proj layers
 
     use_vllm_rollout: bool = True
     vllm_gpu_memory_utilization: float = 0.95
@@ -419,6 +426,32 @@ def main():
     model.config.use_cache = False
     if args.gradient_checkpointing:
         model.gradient_checkpointing_enable()
+
+    if args.use_lora:
+        default_targets = [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj",
+        ]
+        target_modules = (
+            [m.strip() for m in args.lora_target_modules.split(",") if m.strip()]
+            if args.lora_target_modules
+            else default_targets
+        )
+        lora_config = LoraConfig(
+            r=args.lora_rank,
+            lora_alpha=args.lora_alpha,
+            lora_dropout=args.lora_dropout,
+            target_modules=target_modules,
+            task_type=TaskType.CAUSAL_LM,
+            bias="none",
+        )
+        model = get_peft_model(model, lora_config)
+        model.print_trainable_parameters()
 
     train_dataset = preprocess_dataset(processor, args, keys)
 
