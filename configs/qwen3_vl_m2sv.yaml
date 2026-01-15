@@ -13,6 +13,7 @@ model:
   # model_name: "rayruiyang/VST-7B-RL"
   # model_name: "MLL-Lab/MindCube-Qwen2.5VL-Plain-CGMap-FFR-Out-SFT"
   # model_name: "/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20251208_235926_run_for_8_hrs_with_more_logging/results/grpo/checkpoint-500"
+  model_name: "/mnt/lustre/koa/scratch/yosubs/koa-cli/projects/map-to-street-view/jobs/20260114_162731_sft_qwen3-vl-8b-instruct-lora_x_0_2_m2sv-sft-11k_0_2_molmo2-multiimageqa_0_6_molmo2-synmultiimageqa_x_1_epochs/repo/sft/qwen-vl-finetune/output/qwen3-vl-8b-instruct-lora/merged"
 
 dataset:
   name: "yosubshin/m2sv-20k"
