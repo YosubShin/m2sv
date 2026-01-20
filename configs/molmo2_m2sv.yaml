@@ -1,0 +1,23 @@
+# Evaluation config for Molmo2 on the M2SV dataset
+
+model:
+  model_name: "allenai/Molmo2-4B"
+  processor_name: "allenai/Molmo2-4B"
+
+dataset:
+  name: "yosubshin/m2sv-20k"
+  split: "validation"
+
+generation:
+  max_new_tokens: 4096
+  temperature: 0.0
+  repetition_penalty: 1.1
+  limit: 10
+
+output:
+  save_predictions: true
+
+inference:
+  batch_size: 1
+  torch_dtype: "auto"  # auto, float16, bfloat16, float32
+  device_map: "auto"

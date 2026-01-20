@@ -16,17 +16,20 @@ env_watch:
 snapshot_excludes:
   - blueprints
   - cache
-  - data
+  - ./data
   - past_results
   - results
-  - sft
+  - sft/1k
+  - sft/11k
+  - sft/11k-7k-in-progress
   - .venv
   - deps
+  - publications
 
 backends:
   - cluster_name: koa
-    default_gres: gpu:nvidia_h200_nvl:2
+    default_gres: gpu:nvidia_h200_nvl:1
   - cluster_name: delta
     # default_partition: gpuA100x4-preempt
     default_partition: gpuH200x8
-    default_gres: gpu:2
+    default_gres: gpu:1

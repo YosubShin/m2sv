@@ -22,6 +22,8 @@ hpc = [
     "datasets>=2.19.0",
     "Pillow>=9.5.0",
     "tqdm",
+    "decord2",
+    "molmo_utils",
 ]
 
 grpo = [
@@ -47,6 +49,7 @@ explicit = true
 [tool.uv]
 package = false
 no-build-isolation-package = ["flash-attn"]
+required-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
 
 
 [tool.uv.sources]
