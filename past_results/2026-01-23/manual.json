@@ -1,0 +1,1607 @@
+{
+  "accuracy": 0.95,
+  "correct": 190,
+  "total": 200,
+  "results": [
+    {
+      "id": "282171709",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 22.481038093566895
+    },
+    {
+      "id": "261214458",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 18.193769931793213
+    },
+    {
+      "id": "4908106630",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 53.76778602600098
+    },
+    {
+      "id": "2304129206",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 23.53592610359192
+    },
+    {
+      "id": "61348747",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 10.758501052856445
+    },
+    {
+      "id": "9937412361",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 9.230931997299194
+    },
+    {
+      "id": "7856602092",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 37.91830110549927
+    },
+    {
+      "id": "5867979085",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.72920799255371
+    },
+    {
+      "id": "15864054",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 13.43069314956665
+    },
+    {
+      "id": "152792809",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 20.631955862045288
+    },
+    {
+      "id": "442534796",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 39.3544762134552
+    },
+    {
+      "id": "152159805",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 25.04817771911621
+    },
+    {
+      "id": "8559113110",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false,
+      "elapsed_seconds": 34.755945920944214
+    },
+    {
+      "id": "5751882269",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 65.72311186790466
+    },
+    {
+      "id": "259061539",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 33.76824498176575
+    },
+    {
+      "id": "41518609",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 71.60710406303406
+    },
+    {
+      "id": "4939086805",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 43.28510904312134
+    },
+    {
+      "id": "5709115809",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.821107864379883
+    },
+    {
+      "id": "176084786",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 26.377279043197632
+    },
+    {
+      "id": "26679063",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 19.714863777160645
+    },
+    {
+      "id": "319124767",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 84.29414796829224
+    },
+    {
+      "id": "248745281",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 34.97222590446472
+    },
+    {
+      "id": "2948839124",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 22.10865616798401
+    },
+    {
+      "id": "390270677",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 53.04029178619385
+    },
+    {
+      "id": "61467723",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 19.106329917907715
+    },
+    {
+      "id": "3646213019",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 28.53572392463684
+    },
+    {
+      "id": "1099022823",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 37.98934602737427
+    },
+    {
+      "id": "12657770469",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false,
+      "elapsed_seconds": 55.97166323661804
+    },
+    {
+      "id": "2142569337",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 17.040339946746826
+    },
+    {
+      "id": "42881195",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 20.87268829345703
+    },
+    {
+      "id": "289617292",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 68.23031210899353
+    },
+    {
+      "id": "298808373",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 22.090793132781982
+    },
+    {
+      "id": "152362755",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 100.47130227088928
+    },
+    {
+      "id": "12108413126",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 33.558391094207764
+    },
+    {
+      "id": "34843156",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false,
+      "elapsed_seconds": 87.51511693000793
+    },
+    {
+      "id": "46434224",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 72.43046879768372
+    },
+    {
+      "id": "72027653",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 26.519842863082886
+    },
+    {
+      "id": "4349762966",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 36.993232011795044
+    },
+    {
+      "id": "1692384574",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 66.76515293121338
+    },
+    {
+      "id": "310948572",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 31.928006172180176
+    },
+    {
+      "id": "9870154195",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 52.98213219642639
+    },
+    {
+      "id": "9707010177",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 21.850370168685913
+    },
+    {
+      "id": "253996528",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.17060422897339
+    },
+    {
+      "id": "1672645449",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 32.72282385826111
+    },
+    {
+      "id": "2183206172",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.774824142456055
+    },
+    {
+      "id": "99249356",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 27.179893016815186
+    },
+    {
+      "id": "261293468",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 24.030991077423096
+    },
+    {
+      "id": "1633530934",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 42.85720205307007
+    },
+    {
+      "id": "2074178066",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 29.53578805923462
+    },
+    {
+      "id": "1716637231",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 37.430827140808105
+    },
+    {
+      "id": "4602990159",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 41.16046714782715
+    },
+    {
+      "id": "5031056569",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 30.69762396812439
+    },
+    {
+      "id": "3139425631",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 24.16993999481201
+    },
+    {
+      "id": "1600316357",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 46.37718677520752
+    },
+    {
+      "id": "471185593",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 85.85010480880737
+    },
+    {
+      "id": "32123605",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 17.103168964385986
+    },
+    {
+      "id": "61345688",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 29.822798013687134
+    },
+    {
+      "id": "32345338",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 31.250113010406494
+    },
+    {
+      "id": "6051479435",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 31.644618034362793
+    },
+    {
+      "id": "25953000",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 40.979629039764404
+    },
+    {
+      "id": "6367373395",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 47.502233266830444
+    },
+    {
+      "id": "61366400",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 25.028303861618042
+    },
+    {
+      "id": "176089129",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 54.89899396896362
+    },
+    {
+      "id": "11394133156",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 43.757792949676514
+    },
+    {
+      "id": "483493958",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 29.124047994613647
+    },
+    {
+      "id": "41316217",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 12.279962301254272
+    },
+    {
+      "id": "2262418977",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 65.80011487007141
+    },
+    {
+      "id": "3579864397",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 25.23215675354004
+    },
+    {
+      "id": "4411771771",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 57.67148804664612
+    },
+    {
+      "id": "123008054",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 17.677603006362915
+    },
+    {
+      "id": "309889372",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 26.06801676750183
+    },
+    {
+      "id": "368092",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 49.52676200866699
+    },
+    {
+      "id": "1088437014",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 22.32863211631775
+    },
+    {
+      "id": "122815471",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 15.875030040740967
+    },
+    {
+      "id": "472737020",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 114.90852308273315
+    },
+    {
+      "id": "5214574336",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 37.23538780212402
+    },
+    {
+      "id": "1530451435",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 62.85202193260193
+    },
+    {
+      "id": "122608699",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 30.12885808944702
+    },
+    {
+      "id": "269425656",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 19.32695198059082
+    },
+    {
+      "id": "29604314",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 24.923714876174927
+    },
+    {
+      "id": "9959433699",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 29.697014093399048
+    },
+    {
+      "id": "29800676",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 25.196426153182983
+    },
+    {
+      "id": "302684485",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 38.80113983154297
+    },
+    {
+      "id": "2228791592",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 16.98721408843994
+    },
+    {
+      "id": "2362943944",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 54.54832673072815
+    },
+    {
+      "id": "5394976794",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 53.93486785888672
+    },
+    {
+      "id": "9962869113",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 21.666085958480835
+    },
+    {
+      "id": "314500686",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 54.18145298957825
+    },
+    {
+      "id": "2014381488",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 35.079550981521606
+    },
+    {
+      "id": "2242552246",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 52.91166591644287
+    },
+    {
+      "id": "300112357",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 18.613173007965088
+    },
+    {
+      "id": "2296170442",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 42.25962519645691
+    },
+    {
+      "id": "8144697111",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 16.385829210281372
+    },
+    {
+      "id": "152112256",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 48.2045419216156
+    },
+    {
+      "id": "61340537",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 26.273576974868774
+    },
+    {
+      "id": "53231627",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.77300715446472
+    },
+    {
+      "id": "150894997",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 48.60873794555664
+    },
+    {
+      "id": "53084208",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 39.73337984085083
+    },
+    {
+      "id": "73772949",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 16.645572900772095
+    },
+    {
+      "id": "2129835338",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 24.97337007522583
+    },
+    {
+      "id": "151427623",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 19.19145393371582
+    },
+    {
+      "id": "913486836",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 25.474101066589355
+    },
+    {
+      "id": "259134184",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 27.20440101623535
+    },
+    {
+      "id": "151825762",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 68.00093603134155
+    },
+    {
+      "id": "26965683",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 20.24164915084839
+    },
+    {
+      "id": "2374574",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.551501035690308
+    },
+    {
+      "id": "42854984",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 57.905766010284424
+    },
+    {
+      "id": "2844590522",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 56.730249881744385
+    },
+    {
+      "id": "3464379100",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 22.67599391937256
+    },
+    {
+      "id": "364174373",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 32.89272093772888
+    },
+    {
+      "id": "130234985",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 17.676904916763306
+    },
+    {
+      "id": "3846542597",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 33.23527002334595
+    },
+    {
+      "id": "1937110596",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 29.45421576499939
+    },
+    {
+      "id": "1403228505",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 15.44469404220581
+    },
+    {
+      "id": "90113869",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 20.588396072387695
+    },
+    {
+      "id": "3869572577",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 27.09917688369751
+    },
+    {
+      "id": "4818913633",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 17.20940089225769
+    },
+    {
+      "id": "122387942",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 16.69398021697998
+    },
+    {
+      "id": "99015617",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 23.976486921310425
+    },
+    {
+      "id": "42964934",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 65.54943513870239
+    },
+    {
+      "id": "6383901698",
+      "pred": "C",
+      "gold": "B",
+      "raw": "C",
+      "correct": false,
+      "elapsed_seconds": 16.808581113815308
+    },
+    {
+      "id": "5753325802",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 47.036190032958984
+    },
+    {
+      "id": "259262303",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 32.22814106941223
+    },
+    {
+      "id": "99092916",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 10.350256204605103
+    },
+    {
+      "id": "123423022",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 25.109353065490723
+    },
+    {
+      "id": "30431658",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 33.79407000541687
+    },
+    {
+      "id": "34173652",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 74.30940198898315
+    },
+    {
+      "id": "34168105",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 23.696031093597412
+    },
+    {
+      "id": "261119335",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 29.98141598701477
+    },
+    {
+      "id": "41748494",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 17.53207516670227
+    },
+    {
+      "id": "1129084921",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 13.457603216171265
+    },
+    {
+      "id": "1126253135",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 22.6556658744812
+    },
+    {
+      "id": "46301761",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 20.1928391456604
+    },
+    {
+      "id": "4604526193",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 46.58466696739197
+    },
+    {
+      "id": "122610180",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 28.82741689682007
+    },
+    {
+      "id": "262459097",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 21.904781103134155
+    },
+    {
+      "id": "5455550979",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 30.592905044555664
+    },
+    {
+      "id": "1342426861",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 22.330307960510254
+    },
+    {
+      "id": "1957490897",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 20.162713050842285
+    },
+    {
+      "id": "316385337",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 11.52427625656128
+    },
+    {
+      "id": "27364372",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 27.519997119903564
+    },
+    {
+      "id": "1692859507",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 19.667046070098877
+    },
+    {
+      "id": "81570925",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 29.22040605545044
+    },
+    {
+      "id": "1582418459",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 17.794699907302856
+    },
+    {
+      "id": "8777247322",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 11.940349102020264
+    },
+    {
+      "id": "2373582668",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 15.840553998947144
+    },
+    {
+      "id": "152695524",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 23.565811157226562
+    },
+    {
+      "id": "25188963",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 18.615633249282837
+    },
+    {
+      "id": "290248154",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 17.156081914901733
+    },
+    {
+      "id": "7155323643",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 38.30212688446045
+    },
+    {
+      "id": "2270549376",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 37.406980991363525
+    },
+    {
+      "id": "53204787",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 42.73491311073303
+    },
+    {
+      "id": "53088805",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 48.74828290939331
+    },
+    {
+      "id": "662751510",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 22.21778631210327
+    },
+    {
+      "id": "1838695735",
+      "pred": "A",
+      "gold": "C",
+      "raw": "A",
+      "correct": false,
+      "elapsed_seconds": 12.168184041976929
+    },
+    {
+      "id": "42525371",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 24.680052757263184
+    },
+    {
+      "id": "1849767181",
+      "pred": "D",
+      "gold": "B",
+      "raw": "D",
+      "correct": false,
+      "elapsed_seconds": 37.52196979522705
+    },
+    {
+      "id": "2228979340",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 23.03575301170349
+    },
+    {
+      "id": "42812659",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 16.654160022735596
+    },
+    {
+      "id": "152762919",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 79.7170832157135
+    },
+    {
+      "id": "6353492503",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 20.200297117233276
+    },
+    {
+      "id": "418865002",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 61.64279818534851
+    },
+    {
+      "id": "2278921370",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 19.781306982040405
+    },
+    {
+      "id": "61410457",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 21.01772403717041
+    },
+    {
+      "id": "4600400807",
+      "pred": "D",
+      "gold": "D",
+      "raw": "D",
+      "correct": true,
+      "elapsed_seconds": 13.116743803024292
+    },
+    {
+      "id": "9520306484",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 18.755377054214478
+    },
+    {
+      "id": "2083925005",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false,
+      "elapsed_seconds": 28.50965714454651
+    },
+    {
+      "id": "7548293575",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 40.62513828277588
+    },
+    {
+      "id": "91611265",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 25.40475606918335
+    },
+    {
+      "id": "176071802",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 35.7979371547699
+    },
+    {
+      "id": "99098869",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 64.87586832046509
+    },
+    {
+      "id": "261211637",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 15.450196981430054
+    },
+    {
+      "id": "1854525425",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 17.88708519935608
+    },
+    {
+      "id": "5421414194",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 20.275335788726807
+    },
+    {
+      "id": "911856817",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 18.684128999710083
+    },
+    {
+      "id": "912830575",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 12.143994808197021
+    },
+    {
+      "id": "9912682904",
+      "pred": "B",
+      "gold": "C",
+      "raw": "B",
+      "correct": false,
+      "elapsed_seconds": 35.06132698059082
+    },
+    {
+      "id": "9406802173",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 18.155075788497925
+    },
+    {
+      "id": "317417804",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 27.319159030914307
+    },
+    {
+      "id": "41862488",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 13.16203784942627
+    },
+    {
+      "id": "6046794804",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 31.751610040664673
+    },
+    {
+      "id": "61388169",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 54.50946521759033
+    },
+    {
+      "id": "364855514",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 27.757431983947754
+    },
+    {
+      "id": "61339683",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 28.630836248397827
+    },
+    {
+      "id": "4333836143",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 20.584622859954834
+    },
+    {
+      "id": "24972586",
+      "pred": "C",
+      "gold": "A",
+      "raw": "C",
+      "correct": false,
+      "elapsed_seconds": 10.292901754379272
+    },
+    {
+      "id": "255398786",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 44.63694787025452
+    },
+    {
+      "id": "176067457",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 21.801728010177612
+    },
+    {
+      "id": "261130307",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 26.15445613861084
+    },
+    {
+      "id": "98982395",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 16.15757703781128
+    },
+    {
+      "id": "1127796707",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 17.674283027648926
+    },
+    {
+      "id": "343305156",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 24.518930912017822
+    },
+    {
+      "id": "152794442",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 42.736576080322266
+    },
+    {
+      "id": "285913144",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 20.98883819580078
+    },
+    {
+      "id": "3776331899",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 48.0770628452301
+    },
+    {
+      "id": "33386563",
+      "pred": "B",
+      "gold": "B",
+      "raw": "B",
+      "correct": true,
+      "elapsed_seconds": 168.28168296813965
+    },
+    {
+      "id": "1753204685",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 21.16754412651062
+    },
+    {
+      "id": "61340993",
+      "pred": "A",
+      "gold": "A",
+      "raw": "A",
+      "correct": true,
+      "elapsed_seconds": 21.617209911346436
+    },
+    {
+      "id": "10041499911",
+      "pred": "C",
+      "gold": "C",
+      "raw": "C",
+      "correct": true,
+      "elapsed_seconds": 22.83450698852539
+    },
+    {
+      "id": "152461793",
+      "pred": "B",
+      "gold": "A",
+      "raw": "B",
+      "correct": false,
+      "elapsed_seconds": 44.49288010597229
+    }
+  ]
+}
