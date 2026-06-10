@@ -6,3 +6,15 @@ __pycache__
 .DS_Store
 deps
 wandb
+
+# LaTeX
+publications/**/*.aux
+publications/**/*.log
+publications/**/*.out
+publications/**/*.pdf
+publications/**/*.toc
+publications/**/*.bbl
+publications/**/*.blg
+publications/**/*.fls
+publications/**/*.fdb_latexmk
+publications/**/*.synctex.gz
