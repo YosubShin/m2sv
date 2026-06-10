@@ -121,18 +121,26 @@ class QwenProvider:
 
 class GeminiProvider:
     def __init__(self, model: str, api_key: str | None = None):
-        import google.generativeai as genai
-        genai.configure(api_key=api_key or os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY"))
-        self.genai = genai
-        self.model = genai.GenerativeModel(model)
+        from google import genai
+        self.client = genai.Client(vertexai=True, api_key=api_key or os.getenv("VERTEX_AI_EXPRESS_API_KEY"))
+        self.model = model
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10), reraise=True)
     def infer(self, prompt: str, images: List[tuple[bytes, str]]) -> str:
-        # Pass raw parts as {mime_type, data} which works across genai versions
-        parts = [prompt]
-        for data, mime in images:
-            parts.append({"mime_type": mime, "data": data})
-        resp = self.model.generate_content(parts)
+        # Build explicit Content/Part objects to satisfy google-genai pydantic validation.
+        try:
+            from google.genai import types
+            parts = [types.Part.from_text(prompt)]
+            for data, mime in images:
+                parts.append(types.Part.from_bytes(data=data, mime_type=mime))
+            contents = [types.Content(role="user", parts=parts)]
+        except Exception:
+            # Fallback to inline_data schema for older SDKs.
+            parts = [{"text": prompt}]
+            for data, mime in images:
+                parts.append({"inline_data": {"mime_type": mime, "data": data}})
+            contents = [{"role": "user", "parts": parts}]
+        resp = self.client.models.generate_content(model=self.model, contents=contents)
         return resp.text.strip()
 
 
