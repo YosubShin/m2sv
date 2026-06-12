@@ -1,0 +1,5757 @@
+{
+  "problems": [
+    {
+      "id": "282171709",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/282171709_map.jpg",
+      "image_sv": "img/282171709_sv.jpg",
+      "meta": {
+        "lat": -1.2733908,
+        "lng": 36.8423167,
+        "pano_id": "EnZWTSDN21CHjVLpSLJzZA",
+        "distance_m": 3.345,
+        "azimuths": [
+          30,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "261214458",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/261214458_map.jpg",
+      "image_sv": "img/261214458_sv.jpg",
+      "meta": {
+        "lat": 41.8015228,
+        "lng": -87.6502001,
+        "pano_id": "wb2QWtsfG2_VKgAoIZrXHQ",
+        "distance_m": 1.068,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "4908106630",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/4908106630_map.jpg",
+      "image_sv": "img/4908106630_sv.jpg",
+      "meta": {
+        "lat": -23.4740865,
+        "lng": -46.5990294,
+        "pano_id": "rknEXIdiToKDyNV1mMLtQA",
+        "distance_m": 4.133,
+        "azimuths": [
+          90,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2304129206",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/2304129206_map.jpg",
+      "image_sv": "img/2304129206_sv.jpg",
+      "meta": {
+        "lat": 24.5945672,
+        "lng": 46.6166934,
+        "pano_id": "CAoSFkNJSE0wb2dLRUlDQWdJQzVfWld2R0E.",
+        "distance_m": 3.109,
+        "azimuths": [
+          60,
+          150,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61348747",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/61348747_map.jpg",
+      "image_sv": "img/61348747_sv.jpg",
+      "meta": {
+        "lat": 42.28935,
+        "lng": -71.055773,
+        "pano_id": "cV03T0vHgSMZ319sqSFWng",
+        "distance_m": 3.302,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9937412361",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/9937412361_map.jpg",
+      "image_sv": "img/9937412361_sv.jpg",
+      "meta": {
+        "lat": 24.9838323,
+        "lng": 55.1402734,
+        "pano_id": "FXev3KwKS6vfZncu_BpI_Q",
+        "distance_m": 1.338,
+        "azimuths": [
+          0,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "7856602092",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/7856602092_map.jpg",
+      "image_sv": "img/7856602092_sv.jpg",
+      "meta": {
+        "lat": 52.3528673,
+        "lng": 5.0088203,
+        "pano_id": "Kmx0rz52R_M0qF0sVa9aZw",
+        "distance_m": 2.459,
+        "azimuths": [
+          30,
+          210,
+          300,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "5867979085",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/5867979085_map.jpg",
+      "image_sv": "img/5867979085_sv.jpg",
+      "meta": {
+        "lat": 25.7650428,
+        "lng": -80.2301766,
+        "pano_id": "RED-vquyZNyW44lhqUlIsA",
+        "distance_m": 1.599,
+        "azimuths": [
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "15864054",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/15864054_map.jpg",
+      "image_sv": "img/15864054_sv.jpg",
+      "meta": {
+        "lat": 48.8335606,
+        "lng": 2.3703526,
+        "pano_id": "nE4vru-m_Sd3QzoGSkukYA",
+        "distance_m": 2.154,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152792809",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/152792809_map.jpg",
+      "image_sv": "img/152792809_sv.jpg",
+      "meta": {
+        "lat": 29.74172,
+        "lng": -95.304291,
+        "pano_id": "S89yVeljpDn3HcBS-KfbIQ",
+        "distance_m": 1.864,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "442534796",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/442534796_map.jpg",
+      "image_sv": "img/442534796_sv.jpg",
+      "meta": {
+        "lat": 52.3904421,
+        "lng": 4.8030466,
+        "pano_id": "9MhlOeydXuKhRYIKy4zWPQ",
+        "distance_m": 3.18,
+        "azimuths": [
+          90,
+          180,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152159805",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/152159805_map.jpg",
+      "image_sv": "img/152159805_sv.jpg",
+      "meta": {
+        "lat": 29.7889302,
+        "lng": -95.3540412,
+        "pano_id": "pu6rCL90YSvwGdN4S2Bi5w",
+        "distance_m": 1.648,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "8559113110",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/8559113110_map.jpg",
+      "image_sv": "img/8559113110_sv.jpg",
+      "meta": {
+        "lat": -1.2541673,
+        "lng": 36.8802203,
+        "pano_id": "Df2lA6L3GvlvhlOXQ9Vhhg",
+        "distance_m": 4.369,
+        "azimuths": [
+          90,
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5751882269",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/5751882269_map.jpg",
+      "image_sv": "img/5751882269_sv.jpg",
+      "meta": {
+        "lat": 4.7086368,
+        "lng": -74.1222289,
+        "pano_id": "nJLe3Qgn3hbAEkA-WPR3cA",
+        "distance_m": 3.887,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "259061539",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/259061539_map.jpg",
+      "image_sv": "img/259061539_sv.jpg",
+      "meta": {
+        "lat": 41.9270174,
+        "lng": 12.493378,
+        "pano_id": "35NTKcYyCr-1PGWx5YS_KQ",
+        "distance_m": 1.844,
+        "azimuths": [
+          180,
+          210,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "41518609",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/41518609_map.jpg",
+      "image_sv": "img/41518609_sv.jpg",
+      "meta": {
+        "lat": 33.4513416,
+        "lng": -112.12604,
+        "pano_id": "_kSdk1IlgzeJvMEGksxYpA",
+        "distance_m": 0.761,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "4939086805",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/4939086805_map.jpg",
+      "image_sv": "img/4939086805_sv.jpg",
+      "meta": {
+        "lat": 25.2815548,
+        "lng": 55.3628135,
+        "pano_id": "wYqcxOdT0gad_Mdnm17mnQ",
+        "distance_m": 4.37,
+        "azimuths": [
+          30,
+          180,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5709115809",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/5709115809_map.jpg",
+      "image_sv": "img/5709115809_sv.jpg",
+      "meta": {
+        "lat": 52.5541521,
+        "lng": 13.5217277,
+        "pano_id": "9ZhW62cZGKsomMHnJ8pKBA",
+        "distance_m": 0.938,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "176084786",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/176084786_map.jpg",
+      "image_sv": "img/176084786_sv.jpg",
+      "meta": {
+        "lat": 39.7292285,
+        "lng": -104.9327317,
+        "pano_id": "CfrffKQO3m1kIq8xM06tew",
+        "distance_m": 1.322,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "26679063",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/26679063_map.jpg",
+      "image_sv": "img/26679063_sv.jpg",
+      "meta": {
+        "lat": -37.6881887,
+        "lng": 144.7498149,
+        "pano_id": "mXYaIX3UAIKQ4vRqlLIq3w",
+        "distance_m": 2.195,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "319124767",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/319124767_map.jpg",
+      "image_sv": "img/319124767_sv.jpg",
+      "meta": {
+        "lat": 4.5819081,
+        "lng": -74.1265743,
+        "pano_id": "2gNM7RTKO-BiTUrs8YbJXw",
+        "distance_m": 3.485,
+        "azimuths": [
+          60,
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "248745281",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/248745281_map.jpg",
+      "image_sv": "img/248745281_sv.jpg",
+      "meta": {
+        "lat": -33.7842653,
+        "lng": 151.2485352,
+        "pano_id": "H_qiJE0TFENVNTN3Xab-_A",
+        "distance_m": 2.655,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "2948839124",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/2948839124_map.jpg",
+      "image_sv": "img/2948839124_sv.jpg",
+      "meta": {
+        "lat": 1.3117369,
+        "lng": 103.8587181,
+        "pano_id": "-rdurW1LTOxn8FjowhsOMg",
+        "distance_m": 2.409,
+        "azimuths": [
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "390270677",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/390270677_map.jpg",
+      "image_sv": "img/390270677_sv.jpg",
+      "meta": {
+        "lat": -37.7434096,
+        "lng": 145.2070893,
+        "pano_id": "SeVEVRDvjWk1YDVma76S5Q",
+        "distance_m": 2.36,
+        "azimuths": [
+          0,
+          180,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61467723",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/61467723_map.jpg",
+      "image_sv": "img/61467723_sv.jpg",
+      "meta": {
+        "lat": 42.3188341,
+        "lng": -71.106629,
+        "pano_id": "ivGWSgS5wExXatolwmoEEw",
+        "distance_m": 1.93,
+        "azimuths": [
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "3646213019",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB",
+      "options": [
+        "A",
+        "B"
+      ],
+      "answer": "B",
+      "image_map": "img/3646213019_map.jpg",
+      "image_sv": "img/3646213019_sv.jpg",
+      "meta": {
+        "lat": 24.9444759,
+        "lng": 55.0828918,
+        "pano_id": "LOD3s_plTlM7hnDjKhP2rQ",
+        "distance_m": 3.778,
+        "azimuths": [
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "1099022823",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1099022823_map.jpg",
+      "image_sv": "img/1099022823_sv.jpg",
+      "meta": {
+        "lat": -23.6068396,
+        "lng": -46.5022315,
+        "pano_id": "YBThrun0wCatX2RPgNx1pA",
+        "distance_m": 4.507,
+        "azimuths": [
+          120,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "12657770469",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/12657770469_map.jpg",
+      "image_sv": "img/12657770469_sv.jpg",
+      "meta": {
+        "lat": 6.4339176,
+        "lng": 3.9766782,
+        "pano_id": "ID9WGNJ8Zw9wYybAa1Uvqw",
+        "distance_m": 1.879,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2142569337",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/2142569337_map.jpg",
+      "image_sv": "img/2142569337_sv.jpg",
+      "meta": {
+        "lat": 25.2581859,
+        "lng": 55.2979184,
+        "pano_id": "CQM3d_0OUjUlvwrBhJ3ejw",
+        "distance_m": 0.45,
+        "azimuths": [
+          120,
+          300,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "42881195",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/42881195_map.jpg",
+      "image_sv": "img/42881195_sv.jpg",
+      "meta": {
+        "lat": 40.7221467,
+        "lng": -73.9022664,
+        "pano_id": "59m09lfrYfvke85a8OGmuw",
+        "distance_m": 0.622,
+        "azimuths": [
+          60,
+          180,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "289617292",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/289617292_map.jpg",
+      "image_sv": "img/289617292_sv.jpg",
+      "meta": {
+        "lat": -37.693702,
+        "lng": 145.526732,
+        "pano_id": "qV8GAVXLUzjpuSXrTWH3aw",
+        "distance_m": 4.991,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "298808373",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/298808373_map.jpg",
+      "image_sv": "img/298808373_sv.jpg",
+      "meta": {
+        "lat": -23.5355005,
+        "lng": -46.7239838,
+        "pano_id": "sCcLywZpgGjdzOquqkJU0A",
+        "distance_m": 0.351,
+        "azimuths": [
+          30,
+          90,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152362755",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/152362755_map.jpg",
+      "image_sv": "img/152362755_sv.jpg",
+      "meta": {
+        "lat": 29.7137026,
+        "lng": -95.3818931,
+        "pano_id": "4quUnsFFV1P4BdoHtppANw",
+        "distance_m": 2.781,
+        "azimuths": [
+          30,
+          120,
+          180,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "12108413126",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/12108413126_map.jpg",
+      "image_sv": "img/12108413126_sv.jpg",
+      "meta": {
+        "lat": 35.7307574,
+        "lng": 139.3165285,
+        "pano_id": "2lhrrV3BFCHK2VroG_z89g",
+        "distance_m": 3.09,
+        "azimuths": [
+          60,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "34843156",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/34843156_map.jpg",
+      "image_sv": "img/34843156_sv.jpg",
+      "meta": {
+        "lat": 48.8728718,
+        "lng": 2.3159826,
+        "pano_id": "4M3-61g2LVQLOXRGXqhcZw",
+        "distance_m": 1.037,
+        "azimuths": [
+          60,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "46434224",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/46434224_map.jpg",
+      "image_sv": "img/46434224_sv.jpg",
+      "meta": {
+        "lat": 52.3816165,
+        "lng": 4.883664,
+        "pano_id": "_84SQthUD4O8QZsStt-UIw",
+        "distance_m": 2.12,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "72027653",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/72027653_map.jpg",
+      "image_sv": "img/72027653_sv.jpg",
+      "meta": {
+        "lat": 34.0444248,
+        "lng": -118.2592984,
+        "pano_id": "8CFNx7rFQzsUMjh-cEwswA",
+        "distance_m": 2.151,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "4349762966",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/4349762966_map.jpg",
+      "image_sv": "img/4349762966_sv.jpg",
+      "meta": {
+        "lat": 6.6067265,
+        "lng": 3.3184068,
+        "pano_id": "LEs4xDKJxCLmkKD8oCqNbg",
+        "distance_m": 2.719,
+        "azimuths": [
+          60,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1692384574",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/1692384574_map.jpg",
+      "image_sv": "img/1692384574_sv.jpg",
+      "meta": {
+        "lat": 13.8148587,
+        "lng": 100.6043291,
+        "pano_id": "Q5fUGzCgpun36XbUGq2mGA",
+        "distance_m": 1.654,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "310948572",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/310948572_map.jpg",
+      "image_sv": "img/310948572_sv.jpg",
+      "meta": {
+        "lat": 24.9925462,
+        "lng": 55.1053241,
+        "pano_id": "IK7Me2z0Kv9_Gorot2TBpg",
+        "distance_m": 0.854,
+        "azimuths": [
+          90,
+          210,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9870154195",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/9870154195_map.jpg",
+      "image_sv": "img/9870154195_sv.jpg",
+      "meta": {
+        "lat": 28.6053312,
+        "lng": 76.9898405,
+        "pano_id": "tGfxcDsRBrszzGLbS5aDug",
+        "distance_m": 4.886,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9707010177",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/9707010177_map.jpg",
+      "image_sv": "img/9707010177_sv.jpg",
+      "meta": {
+        "lat": 41.8346025,
+        "lng": 12.5829724,
+        "pano_id": "xEGWcKDU3r8i-NjYXSOH1A",
+        "distance_m": 4.075,
+        "azimuths": [
+          60,
+          90,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "253996528",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/253996528_map.jpg",
+      "image_sv": "img/253996528_sv.jpg",
+      "meta": {
+        "lat": -33.7717288,
+        "lng": 150.8774436,
+        "pano_id": "Tgvr74nY0YH9um3CJLlluw",
+        "distance_m": 2.479,
+        "azimuths": [
+          0,
+          90,
+          180
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1672645449",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/1672645449_map.jpg",
+      "image_sv": "img/1672645449_sv.jpg",
+      "meta": {
+        "lat": -23.5017062,
+        "lng": -46.377885,
+        "pano_id": "aS45iK70HUo_ZWVSR5kFbQ",
+        "distance_m": 1.181,
+        "azimuths": [
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2183206172",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2183206172_map.jpg",
+      "image_sv": "img/2183206172_sv.jpg",
+      "meta": {
+        "lat": 35.7151128,
+        "lng": 139.7472767,
+        "pano_id": "UNl0Qf0f3EiqyYTflULEZQ",
+        "distance_m": 1.371,
+        "azimuths": [
+          30,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "99249356",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/99249356_map.jpg",
+      "image_sv": "img/99249356_sv.jpg",
+      "meta": {
+        "lat": 25.7392394,
+        "lng": -80.2419095,
+        "pano_id": "D_tk74znrWpDt11deROxiw",
+        "distance_m": 4.435,
+        "azimuths": [
+          60,
+          240,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "261293468",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/261293468_map.jpg",
+      "image_sv": "img/261293468_sv.jpg",
+      "meta": {
+        "lat": 41.950222,
+        "lng": -87.8366001,
+        "pano_id": "k_698fnw6UKkbAKrnWZm8Q",
+        "distance_m": 2.727,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1633530934",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/1633530934_map.jpg",
+      "image_sv": "img/1633530934_sv.jpg",
+      "meta": {
+        "lat": 35.7951292,
+        "lng": 139.8212964,
+        "pano_id": "7CVxwL9GVjysHZtfELGf2A",
+        "distance_m": 0.3,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "2074178066",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/2074178066_map.jpg",
+      "image_sv": "img/2074178066_sv.jpg",
+      "meta": {
+        "lat": 35.6409089,
+        "lng": 139.5877148,
+        "pano_id": "6J4nc7O9bWnCmXIb0XzP-A",
+        "distance_m": 0.338,
+        "azimuths": [
+          0,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1716637231",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/1716637231_map.jpg",
+      "image_sv": "img/1716637231_sv.jpg",
+      "meta": {
+        "lat": -23.4740538,
+        "lng": -46.5743671,
+        "pano_id": "PbgZuY9SKGUgGxHPvKGFyw",
+        "distance_m": 4.462,
+        "azimuths": [
+          60,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "4602990159",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/4602990159_map.jpg",
+      "image_sv": "img/4602990159_sv.jpg",
+      "meta": {
+        "lat": 37.5593507,
+        "lng": 126.8103873,
+        "pano_id": "xmZtl3xvI0vmF61aI1Mmaw",
+        "distance_m": 3.854,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5031056569",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/5031056569_map.jpg",
+      "image_sv": "img/5031056569_sv.jpg",
+      "meta": {
+        "lat": -1.2502172,
+        "lng": 36.9150958,
+        "pano_id": "Txm1li4X1zag6-zPQrB-dw",
+        "distance_m": 3.132,
+        "azimuths": [
+          60,
+          180,
+          210,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "3139425631",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/3139425631_map.jpg",
+      "image_sv": "img/3139425631_sv.jpg",
+      "meta": {
+        "lat": 34.1784716,
+        "lng": -118.409433,
+        "pano_id": "AEXTpxz-usNDgNkKebnNYA",
+        "distance_m": 0.714,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1600316357",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/1600316357_map.jpg",
+      "image_sv": "img/1600316357_sv.jpg",
+      "meta": {
+        "lat": -23.5732943,
+        "lng": -46.7637573,
+        "pano_id": "Mr8RlkJkEGgTnyUZHovrXw",
+        "distance_m": 3.322,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "471185593",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/471185593_map.jpg",
+      "image_sv": "img/471185593_sv.jpg",
+      "meta": {
+        "lat": -34.6256937,
+        "lng": -58.5162173,
+        "pano_id": "2IR8rq5GyOcLu4YJThnmNA",
+        "distance_m": 0.992,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "32123605",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/32123605_map.jpg",
+      "image_sv": "img/32123605_sv.jpg",
+      "meta": {
+        "lat": -37.9206985,
+        "lng": 145.190482,
+        "pano_id": "1gQwmGUi8H7wcl3w-6O8kA",
+        "distance_m": 0.98,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61345688",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/61345688_map.jpg",
+      "image_sv": "img/61345688_sv.jpg",
+      "meta": {
+        "lat": 42.3792979,
+        "lng": -71.0353602,
+        "pano_id": "AAbtsCbPH5eXXWwvwT9NmA",
+        "distance_m": 4.014,
+        "azimuths": [
+          60,
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "32345338",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/32345338_map.jpg",
+      "image_sv": "img/32345338_sv.jpg",
+      "meta": {
+        "lat": 52.4688299,
+        "lng": 13.5904756,
+        "pano_id": "ICuwIHy_lb_vrqwc8xk1Tw",
+        "distance_m": 2.045,
+        "azimuths": [
+          120,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "6051479435",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/6051479435_map.jpg",
+      "image_sv": "img/6051479435_sv.jpg",
+      "meta": {
+        "lat": 4.6509187,
+        "lng": -74.1683506,
+        "pano_id": "WxIEhF-rop3I2fsO7EOzRw",
+        "distance_m": 0.794,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "25953000",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/25953000_map.jpg",
+      "image_sv": "img/25953000_sv.jpg",
+      "meta": {
+        "lat": -36.9130806,
+        "lng": 174.9282712,
+        "pano_id": "UyUp62AC6-jrPw5o6JGFzg",
+        "distance_m": 1.234,
+        "azimuths": [
+          60,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "6367373395",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB",
+      "options": [
+        "A",
+        "B"
+      ],
+      "answer": "A",
+      "image_map": "img/6367373395_map.jpg",
+      "image_sv": "img/6367373395_sv.jpg",
+      "meta": {
+        "lat": -1.2959624,
+        "lng": 36.8864532,
+        "pano_id": "wecdk9IFxqaNMPN5jZf6ug",
+        "distance_m": 2.455,
+        "azimuths": [
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "61366400",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/61366400_map.jpg",
+      "image_sv": "img/61366400_sv.jpg",
+      "meta": {
+        "lat": 42.3384701,
+        "lng": -71.1550973,
+        "pano_id": "Dro5DiNa4U9tU-8hr8tujA",
+        "distance_m": 0.178,
+        "azimuths": [
+          60,
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "176089129",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/176089129_map.jpg",
+      "image_sv": "img/176089129_sv.jpg",
+      "meta": {
+        "lat": 39.7291163,
+        "lng": -104.9450973,
+        "pano_id": "og0nwFO8tVCL2_merfPk_A",
+        "distance_m": 0.24,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "11394133156",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/11394133156_map.jpg",
+      "image_sv": "img/11394133156_sv.jpg",
+      "meta": {
+        "lat": 52.4543776,
+        "lng": 13.3190945,
+        "pano_id": "D3wK5QaGtNCkQG-QkZLDlw",
+        "distance_m": 2.832,
+        "azimuths": [
+          180,
+          240,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "483493958",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/483493958_map.jpg",
+      "image_sv": "img/483493958_sv.jpg",
+      "meta": {
+        "lat": 52.5405361,
+        "lng": 13.5888599,
+        "pano_id": "Ywm5TXfMIPmzHc6dkEgxZg",
+        "distance_m": 1.156,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "41316217",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/41316217_map.jpg",
+      "image_sv": "img/41316217_sv.jpg",
+      "meta": {
+        "lat": 51.5924159,
+        "lng": -0.0630443,
+        "pano_id": "-7XaaVXBdLEXRAYTl6HRbw",
+        "distance_m": 1.133,
+        "azimuths": [
+          30,
+          210,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2262418977",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/2262418977_map.jpg",
+      "image_sv": "img/2262418977_sv.jpg",
+      "meta": {
+        "lat": 41.0957333,
+        "lng": 28.7994585,
+        "pano_id": "BrG3HyPJYIlM5VM8nG1r3Q",
+        "distance_m": 1.948,
+        "azimuths": [
+          30,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "3579864397",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/3579864397_map.jpg",
+      "image_sv": "img/3579864397_sv.jpg",
+      "meta": {
+        "lat": 51.5324352,
+        "lng": 0.0655729,
+        "pano_id": "ppy6UVZvNtyoU0h0ooNzfQ",
+        "distance_m": 2.482,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "4411771771",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/4411771771_map.jpg",
+      "image_sv": "img/4411771771_sv.jpg",
+      "meta": {
+        "lat": 6.4943272,
+        "lng": 3.189349,
+        "pano_id": "8vCrOstpf3SyxkDBHmnfug",
+        "distance_m": 1.513,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "123008054",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/123008054_map.jpg",
+      "image_sv": "img/123008054_sv.jpg",
+      "meta": {
+        "lat": 34.2184167,
+        "lng": -118.6278034,
+        "pano_id": "VwJRBJhei-rx78AT7kd_ww",
+        "distance_m": 2.156,
+        "azimuths": [
+          0,
+          90,
+          180
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "309889372",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/309889372_map.jpg",
+      "image_sv": "img/309889372_sv.jpg",
+      "meta": {
+        "lat": 40.3734238,
+        "lng": -3.6272695,
+        "pano_id": "5qenFBOwFVOnnmAlTTRYCA",
+        "distance_m": 2.137,
+        "azimuths": [
+          120,
+          300,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "368092",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/368092_map.jpg",
+      "image_sv": "img/368092_sv.jpg",
+      "meta": {
+        "lat": 48.8389062,
+        "lng": 2.3761486,
+        "pano_id": "ehOjuVvul_MgH3hIGtufUw",
+        "distance_m": 0.402,
+        "azimuths": [
+          60,
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1088437014",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1088437014_map.jpg",
+      "image_sv": "img/1088437014_sv.jpg",
+      "meta": {
+        "lat": 48.8461743,
+        "lng": 2.4110268,
+        "pano_id": "0beLycRX_Cv5TUrcXa7ImQ",
+        "distance_m": 1.059,
+        "azimuths": [
+          0,
+          120,
+          180
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "122815471",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/122815471_map.jpg",
+      "image_sv": "img/122815471_sv.jpg",
+      "meta": {
+        "lat": 34.1761614,
+        "lng": -118.3897543,
+        "pano_id": "gIEgj9tYxgIRqBRfiuSUQQ",
+        "distance_m": 1.558,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "472737020",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/472737020_map.jpg",
+      "image_sv": "img/472737020_sv.jpg",
+      "meta": {
+        "lat": -34.6606878,
+        "lng": -58.4389189,
+        "pano_id": "63arE84MywGoNUHgbUxeNg",
+        "distance_m": 2.021,
+        "azimuths": [
+          30,
+          150,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5214574336",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/5214574336_map.jpg",
+      "image_sv": "img/5214574336_sv.jpg",
+      "meta": {
+        "lat": 33.6891743,
+        "lng": -111.9859837,
+        "pano_id": "n4XJMXz8EDczGwrNs48XiA",
+        "distance_m": 3.666,
+        "azimuths": [
+          30,
+          210,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1530451435",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/1530451435_map.jpg",
+      "image_sv": "img/1530451435_sv.jpg",
+      "meta": {
+        "lat": 35.7122723,
+        "lng": 139.3640019,
+        "pano_id": "3vHVT1TRQXCiDiFzl24dcQ",
+        "distance_m": 3.632,
+        "azimuths": [
+          120,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "122608699",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/122608699_map.jpg",
+      "image_sv": "img/122608699_sv.jpg",
+      "meta": {
+        "lat": 34.052781,
+        "lng": -118.1977348,
+        "pano_id": "gBHUfTZbG4jaUQucFkOksw",
+        "distance_m": 0.415,
+        "azimuths": [
+          0,
+          120,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "269425656",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/269425656_map.jpg",
+      "image_sv": "img/269425656_sv.jpg",
+      "meta": {
+        "lat": 4.6314079,
+        "lng": -74.0939231,
+        "pano_id": "NfyDm119065ZqcGu63fJuQ",
+        "distance_m": 2.327,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "29604314",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/29604314_map.jpg",
+      "image_sv": "img/29604314_sv.jpg",
+      "meta": {
+        "lat": -33.7844292,
+        "lng": 151.2405527,
+        "pano_id": "J6W_31USvB7b5RODM40fSg",
+        "distance_m": 2.364,
+        "azimuths": [
+          60,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9959433699",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/9959433699_map.jpg",
+      "image_sv": "img/9959433699_sv.jpg",
+      "meta": {
+        "lat": 25.0799929,
+        "lng": 55.1217386,
+        "pano_id": "J_VlnkEo30Em35Bdv6Z30A",
+        "distance_m": 3.532,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "29800676",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/29800676_map.jpg",
+      "image_sv": "img/29800676_sv.jpg",
+      "meta": {
+        "lat": -33.6840061,
+        "lng": 150.8494875,
+        "pano_id": "xFurLk04Yh4yCC5EKyvmtQ",
+        "distance_m": 2.821,
+        "azimuths": [
+          0,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "302684485",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/302684485_map.jpg",
+      "image_sv": "img/302684485_sv.jpg",
+      "meta": {
+        "lat": 40.3924127,
+        "lng": -3.7357547,
+        "pano_id": "JFJJdWF874-Slwm-Dgo3Dg",
+        "distance_m": 2.916,
+        "azimuths": [
+          150,
+          240,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2228791592",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2228791592_map.jpg",
+      "image_sv": "img/2228791592_sv.jpg",
+      "meta": {
+        "lat": 28.7948412,
+        "lng": 77.0293955,
+        "pano_id": "LWQlRa2tldROhCJu2taFrA",
+        "distance_m": 0.315,
+        "azimuths": [
+          90,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2362943944",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/2362943944_map.jpg",
+      "image_sv": "img/2362943944_sv.jpg",
+      "meta": {
+        "lat": 41.9234602,
+        "lng": 12.3674405,
+        "pano_id": "fAaeJ6kxLS-Tp_9qsSLUuA",
+        "distance_m": 1.661,
+        "azimuths": [
+          60,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "5394976794",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/5394976794_map.jpg",
+      "image_sv": "img/5394976794_sv.jpg",
+      "meta": {
+        "lat": 6.5877932,
+        "lng": 3.9815346,
+        "pano_id": "nIjl7RJKpWCikLphVQas9Q",
+        "distance_m": 0.599,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9962869113",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/9962869113_map.jpg",
+      "image_sv": "img/9962869113_sv.jpg",
+      "meta": {
+        "lat": 33.7215394,
+        "lng": -112.1065311,
+        "pano_id": "TgZgh9SDIrhNUwuZ7xnRfA",
+        "distance_m": 1.486,
+        "azimuths": [
+          0,
+          30,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "314500686",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/314500686_map.jpg",
+      "image_sv": "img/314500686_sv.jpg",
+      "meta": {
+        "lat": 4.5520565,
+        "lng": -74.1010286,
+        "pano_id": "xkH26WwvzPvJoEbUVrTEZA",
+        "distance_m": 1.49,
+        "azimuths": [
+          60,
+          150,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "2014381488",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2014381488_map.jpg",
+      "image_sv": "img/2014381488_sv.jpg",
+      "meta": {
+        "lat": 41.8929525,
+        "lng": 12.5296268,
+        "pano_id": "ojyMnD16P1b37sAyA26RPg",
+        "distance_m": 1.683,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2242552246",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2242552246_map.jpg",
+      "image_sv": "img/2242552246_sv.jpg",
+      "meta": {
+        "lat": 40.8812265,
+        "lng": 29.2243776,
+        "pano_id": "W35BblLSx_eKbaXXDGJ4KQ",
+        "distance_m": 4.619,
+        "azimuths": [
+          60,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "300112357",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/300112357_map.jpg",
+      "image_sv": "img/300112357_sv.jpg",
+      "meta": {
+        "lat": 41.8954833,
+        "lng": 12.3856844,
+        "pano_id": "j8xv855BHwe-eJ7AQiQuwA",
+        "distance_m": 1.743,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2296170442",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/2296170442_map.jpg",
+      "image_sv": "img/2296170442_sv.jpg",
+      "meta": {
+        "lat": 52.3715341,
+        "lng": 4.8706103,
+        "pano_id": "TskFtFszEdqVcSnmAEvk1w",
+        "distance_m": 1.453,
+        "azimuths": [
+          30,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "8144697111",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/8144697111_map.jpg",
+      "image_sv": "img/8144697111_sv.jpg",
+      "meta": {
+        "lat": 25.7568553,
+        "lng": -80.2426479,
+        "pano_id": "cEXfYLOHKISBZW5yn2JP4Q",
+        "distance_m": 0.091,
+        "azimuths": [
+          150,
+          210,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152112256",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/152112256_map.jpg",
+      "image_sv": "img/152112256_sv.jpg",
+      "meta": {
+        "lat": 29.6569287,
+        "lng": -95.460066,
+        "pano_id": "dtbHCpIKTNLAg7NVhJ25wQ",
+        "distance_m": 4.57,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "61340537",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/61340537_map.jpg",
+      "image_sv": "img/61340537_sv.jpg",
+      "meta": {
+        "lat": 42.3582252,
+        "lng": -71.142736,
+        "pano_id": "25jKySFdPM8NOICWR48fvw",
+        "distance_m": 0.783,
+        "azimuths": [
+          30,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "53231627",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/53231627_map.jpg",
+      "image_sv": "img/53231627_sv.jpg",
+      "meta": {
+        "lat": 47.6266858,
+        "lng": -122.3011281,
+        "pano_id": "Xkf4bLCFibre3fExmcXGRQ",
+        "distance_m": 0.661,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "150894997",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/150894997_map.jpg",
+      "image_sv": "img/150894997_sv.jpg",
+      "meta": {
+        "lat": 52.4503002,
+        "lng": 13.2608126,
+        "pano_id": "ky_YFKTrivlDZD7zWkrzTQ",
+        "distance_m": 1.83,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "53084208",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/53084208_map.jpg",
+      "image_sv": "img/53084208_sv.jpg",
+      "meta": {
+        "lat": 47.6092658,
+        "lng": -122.2894054,
+        "pano_id": "VTGl0KHy5T2_8LYbdENETA",
+        "distance_m": 0.367,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "73772949",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/73772949_map.jpg",
+      "image_sv": "img/73772949_sv.jpg",
+      "meta": {
+        "lat": 51.5882109,
+        "lng": -0.2832046,
+        "pano_id": "BpvCpE0IB-cLmAtgvN66Og",
+        "distance_m": 2.432,
+        "azimuths": [
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2129835338",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2129835338_map.jpg",
+      "image_sv": "img/2129835338_sv.jpg",
+      "meta": {
+        "lat": 25.1212764,
+        "lng": 55.182476,
+        "pano_id": "cxluihIZYsQAf58JTV62Ww",
+        "distance_m": 1.302,
+        "azimuths": [
+          120,
+          150,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "151427623",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/151427623_map.jpg",
+      "image_sv": "img/151427623_sv.jpg",
+      "meta": {
+        "lat": 29.7351097,
+        "lng": -95.3711485,
+        "pano_id": "zdIlRcZfr6bAxoRHypL_FA",
+        "distance_m": 4.303,
+        "azimuths": [
+          30,
+          210,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "913486836",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/913486836_map.jpg",
+      "image_sv": "img/913486836_sv.jpg",
+      "meta": {
+        "lat": 28.7340053,
+        "lng": 77.1545039,
+        "pano_id": "i0-ern_17GMnuiCZKgzpaw",
+        "distance_m": 1.207,
+        "azimuths": [
+          60,
+          210,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "259134184",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/259134184_map.jpg",
+      "image_sv": "img/259134184_sv.jpg",
+      "meta": {
+        "lat": 39.7333761,
+        "lng": -104.9338559,
+        "pano_id": "Oc_XetwVA8_hmqedPUNEyA",
+        "distance_m": 2.356,
+        "azimuths": [
+          0,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "151825762",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/151825762_map.jpg",
+      "image_sv": "img/151825762_sv.jpg",
+      "meta": {
+        "lat": 29.7891945,
+        "lng": -95.6511593,
+        "pano_id": "8-uI4-ekM7QbKJI2DFnUVQ",
+        "distance_m": 3.293,
+        "azimuths": [
+          90,
+          150,
+          210,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "26965683",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/26965683_map.jpg",
+      "image_sv": "img/26965683_sv.jpg",
+      "meta": {
+        "lat": 52.4119736,
+        "lng": 13.5361365,
+        "pano_id": "kNm2-ufH4LXyV-kfE4I9Lw",
+        "distance_m": 1.893,
+        "azimuths": [
+          30,
+          120,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2374574",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2374574_map.jpg",
+      "image_sv": "img/2374574_sv.jpg",
+      "meta": {
+        "lat": 51.5520143,
+        "lng": -0.2186763,
+        "pano_id": "fI_QvNLXI4s27EbA34NJ9g",
+        "distance_m": 2.465,
+        "azimuths": [
+          0,
+          120,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "42854984",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/42854984_map.jpg",
+      "image_sv": "img/42854984_sv.jpg",
+      "meta": {
+        "lat": 40.775828,
+        "lng": -73.773301,
+        "pano_id": "SPHjZ0B016XMYg9MRbajAw",
+        "distance_m": 3.067,
+        "azimuths": [
+          60,
+          180,
+          240,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "2844590522",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/2844590522_map.jpg",
+      "image_sv": "img/2844590522_sv.jpg",
+      "meta": {
+        "lat": 6.4442893,
+        "lng": 3.2536403,
+        "pano_id": "jFi-VQ5eWSOwmhOZTyjGLA",
+        "distance_m": 2.894,
+        "azimuths": [
+          90,
+          180,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "3464379100",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/3464379100_map.jpg",
+      "image_sv": "img/3464379100_sv.jpg",
+      "meta": {
+        "lat": 40.4725822,
+        "lng": -3.6790206,
+        "pano_id": "klPHWN3ywaQRKD6jLissKA",
+        "distance_m": 2.499,
+        "azimuths": [
+          30,
+          210,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "364174373",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/364174373_map.jpg",
+      "image_sv": "img/364174373_sv.jpg",
+      "meta": {
+        "lat": 41.7863669,
+        "lng": 12.3546849,
+        "pano_id": "AlVBCq2X3hOHV40kod9wew",
+        "distance_m": 2.626,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "130234985",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/130234985_map.jpg",
+      "image_sv": "img/130234985_sv.jpg",
+      "meta": {
+        "lat": 51.5532308,
+        "lng": 0.0240184,
+        "pano_id": "k_JkMpgpEpWyn7tdPeAA6g",
+        "distance_m": 0.772,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "3846542597",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/3846542597_map.jpg",
+      "image_sv": "img/3846542597_sv.jpg",
+      "meta": {
+        "lat": 37.5631402,
+        "lng": 127.0005546,
+        "pano_id": "oG-wIK6P-WgvDMsuI7wKrA",
+        "distance_m": 2.63,
+        "azimuths": [
+          90,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1937110596",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/1937110596_map.jpg",
+      "image_sv": "img/1937110596_sv.jpg",
+      "meta": {
+        "lat": 41.7886427,
+        "lng": 12.352404,
+        "pano_id": "p7HRQb79Jg0J-qVnmTUQUw",
+        "distance_m": 3.225,
+        "azimuths": [
+          90,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1403228505",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1403228505_map.jpg",
+      "image_sv": "img/1403228505_sv.jpg",
+      "meta": {
+        "lat": -1.2731083,
+        "lng": 36.9181777,
+        "pano_id": "L1UiCtY6ixgIKFc6-aeFCA",
+        "distance_m": 1.882,
+        "azimuths": [
+          30,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "90113869",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/90113869_map.jpg",
+      "image_sv": "img/90113869_sv.jpg",
+      "meta": {
+        "lat": 51.4804671,
+        "lng": 0.0319827,
+        "pano_id": "raGqqkXQtcEd10ZXPE2QmQ",
+        "distance_m": 1.728,
+        "azimuths": [
+          90,
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "3869572577",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/3869572577_map.jpg",
+      "image_sv": "img/3869572577_sv.jpg",
+      "meta": {
+        "lat": 13.8448794,
+        "lng": 100.6334462,
+        "pano_id": "bcbESLV86McOZJLK1y5Xtw",
+        "distance_m": 3.563,
+        "azimuths": [
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "4818913633",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/4818913633_map.jpg",
+      "image_sv": "img/4818913633_sv.jpg",
+      "meta": {
+        "lat": -23.4935116,
+        "lng": -46.7361963,
+        "pano_id": "baryqCYMOSeQcf5_501yCw",
+        "distance_m": 4.104,
+        "azimuths": [
+          60,
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "122387942",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/122387942_map.jpg",
+      "image_sv": "img/122387942_sv.jpg",
+      "meta": {
+        "lat": 33.9750377,
+        "lng": -118.3893788,
+        "pano_id": "v5FwGZhWZ1hZDi8Ms2MHAQ",
+        "distance_m": 1.734,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "99015617",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/99015617_map.jpg",
+      "image_sv": "img/99015617_sv.jpg",
+      "meta": {
+        "lat": 25.7765016,
+        "lng": -80.1769339,
+        "pano_id": "tvjLOcxsS59e0MmSLnV1jw",
+        "distance_m": 2.709,
+        "azimuths": [
+          30,
+          210,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "42964934",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/42964934_map.jpg",
+      "image_sv": "img/42964934_sv.jpg",
+      "meta": {
+        "lat": 40.614303,
+        "lng": -74.097636,
+        "pano_id": "EQtTNHw6-bVQo8YyPeuLHQ",
+        "distance_m": 0.737,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "6383901698",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/6383901698_map.jpg",
+      "image_sv": "img/6383901698_sv.jpg",
+      "meta": {
+        "lat": 24.8020926,
+        "lng": 46.7925374,
+        "pano_id": "CAoSHENJQUJJaENIYW04ckc2VWxTVVdqUkxRRFdwTWw.",
+        "distance_m": 2.027,
+        "azimuths": [
+          60,
+          150,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5753325802",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/5753325802_map.jpg",
+      "image_sv": "img/5753325802_sv.jpg",
+      "meta": {
+        "lat": 42.2800348,
+        "lng": -71.0655093,
+        "pano_id": "JOBmoVG_nMd55IbNKrZREQ",
+        "distance_m": 0.19,
+        "azimuths": [
+          60,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "259262303",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/259262303_map.jpg",
+      "image_sv": "img/259262303_sv.jpg",
+      "meta": {
+        "lat": 48.8276138,
+        "lng": 2.3796421,
+        "pano_id": "MkMHs23-QUlGDhOk_oxWLw",
+        "distance_m": 3.612,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "99092916",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/99092916_map.jpg",
+      "image_sv": "img/99092916_sv.jpg",
+      "meta": {
+        "lat": 25.7809187,
+        "lng": -80.2521409,
+        "pano_id": "S4BMa9TNqbGIAEyyhkOoUA",
+        "distance_m": 0.587,
+        "azimuths": [
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "123423022",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/123423022_map.jpg",
+      "image_sv": "img/123423022_sv.jpg",
+      "meta": {
+        "lat": 34.2021801,
+        "lng": -118.4836725,
+        "pano_id": "hqxfOOyZxkbCD3VwAwQi5g",
+        "distance_m": 2.62,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "30431658",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/30431658_map.jpg",
+      "image_sv": "img/30431658_sv.jpg",
+      "meta": {
+        "lat": 52.5721095,
+        "lng": 13.4084164,
+        "pano_id": "Vna-LsM-_E414pm115XsHw",
+        "distance_m": 0.826,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "34173652",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/34173652_map.jpg",
+      "image_sv": "img/34173652_sv.jpg",
+      "meta": {
+        "lat": 45.038494,
+        "lng": -93.306656,
+        "pano_id": "r3lPoif-izUxabNUsD2dAQ",
+        "distance_m": 0.979,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "34168105",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/34168105_map.jpg",
+      "image_sv": "img/34168105_sv.jpg",
+      "meta": {
+        "lat": 45.0275631,
+        "lng": -93.2850525,
+        "pano_id": "Aiwaojis5Oz5DiYcCou4rQ",
+        "distance_m": 3.718,
+        "azimuths": [
+          60,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "261119335",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/261119335_map.jpg",
+      "image_sv": "img/261119335_sv.jpg",
+      "meta": {
+        "lat": 41.720302,
+        "lng": -87.5983533,
+        "pano_id": "djBCf7Kf6Y2bZCy92KHibA",
+        "distance_m": 0.538,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "41748494",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/41748494_map.jpg",
+      "image_sv": "img/41748494_sv.jpg",
+      "meta": {
+        "lat": 33.4639553,
+        "lng": -112.1172012,
+        "pano_id": "IjqoEYJ97ttmcv2u0glHpw",
+        "distance_m": 0.988,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1129084921",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1129084921_map.jpg",
+      "image_sv": "img/1129084921_sv.jpg",
+      "meta": {
+        "lat": 33.5104468,
+        "lng": -112.0911162,
+        "pano_id": "DEWJy8jxsN6yF3bFaf6d6A",
+        "distance_m": 1.556,
+        "azimuths": [
+          0,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1126253135",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/1126253135_map.jpg",
+      "image_sv": "img/1126253135_sv.jpg",
+      "meta": {
+        "lat": 40.9808987,
+        "lng": 28.7273624,
+        "pano_id": "VCyCS1jO5IwJWj5Gv1V-Tg",
+        "distance_m": 2.154,
+        "azimuths": [
+          30,
+          120,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "46301761",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/46301761_map.jpg",
+      "image_sv": "img/46301761_sv.jpg",
+      "meta": {
+        "lat": 52.3524644,
+        "lng": 4.944945,
+        "pano_id": "h6wnomZ8U9AlBqntNg0itA",
+        "distance_m": 1.782,
+        "azimuths": [
+          30,
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "4604526193",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/4604526193_map.jpg",
+      "image_sv": "img/4604526193_sv.jpg",
+      "meta": {
+        "lat": -34.651395,
+        "lng": -58.3938448,
+        "pano_id": "-ey7g1HqRI4kGp2GorPZ4g",
+        "distance_m": 4.091,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "122610180",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/122610180_map.jpg",
+      "image_sv": "img/122610180_sv.jpg",
+      "meta": {
+        "lat": 34.260856,
+        "lng": -118.579834,
+        "pano_id": "rVExNlS27TkedFpZhs2d6A",
+        "distance_m": 0.407,
+        "azimuths": [
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "262459097",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/262459097_map.jpg",
+      "image_sv": "img/262459097_sv.jpg",
+      "meta": {
+        "lat": 41.9118256,
+        "lng": 12.5225815,
+        "pano_id": "IXxg4Pn8Up3QQ2LE6lXGMA",
+        "distance_m": 0.518,
+        "azimuths": [
+          90,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5455550979",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/5455550979_map.jpg",
+      "image_sv": "img/5455550979_sv.jpg",
+      "meta": {
+        "lat": 4.6110982,
+        "lng": -74.0798238,
+        "pano_id": "4OWdnrcHxkvee6MN6dE6BQ",
+        "distance_m": 4.663,
+        "azimuths": [
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1342426861",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/1342426861_map.jpg",
+      "image_sv": "img/1342426861_sv.jpg",
+      "meta": {
+        "lat": 4.5694854,
+        "lng": -74.1568317,
+        "pano_id": "JOrVldUDUlja5R0Uecjtsw",
+        "distance_m": 1.333,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1957490897",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB",
+      "options": [
+        "A",
+        "B"
+      ],
+      "answer": "A",
+      "image_map": "img/1957490897_map.jpg",
+      "image_sv": "img/1957490897_sv.jpg",
+      "meta": {
+        "lat": 40.4206842,
+        "lng": -3.6796997,
+        "pano_id": "x2naZwF76HzJtsz3Ay6D0g",
+        "distance_m": 1.62,
+        "azimuths": [
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "316385337",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB",
+      "options": [
+        "A",
+        "B"
+      ],
+      "answer": "A",
+      "image_map": "img/316385337_map.jpg",
+      "image_sv": "img/316385337_sv.jpg",
+      "meta": {
+        "lat": -37.0058033,
+        "lng": 174.8559051,
+        "pano_id": "WfYeNk16RAjao5aAg5u44Q",
+        "distance_m": 3.456,
+        "azimuths": [
+          60,
+          240
+        ],
+        "labels": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "27364372",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/27364372_map.jpg",
+      "image_sv": "img/27364372_sv.jpg",
+      "meta": {
+        "lat": 51.5773491,
+        "lng": -0.0832934,
+        "pano_id": "gwmfCPlb27uhz7-AyYcTMQ",
+        "distance_m": 0.596,
+        "azimuths": [
+          30,
+          120,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1692859507",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/1692859507_map.jpg",
+      "image_sv": "img/1692859507_sv.jpg",
+      "meta": {
+        "lat": 13.7888325,
+        "lng": 100.5625551,
+        "pano_id": "HmAwvkDnRCKTfRxF9dDOmA",
+        "distance_m": 0.675,
+        "azimuths": [
+          90,
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "81570925",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/81570925_map.jpg",
+      "image_sv": "img/81570925_sv.jpg",
+      "meta": {
+        "lat": 40.4579412,
+        "lng": -3.6968195,
+        "pano_id": "sCMlWhfqPDiey63Xu4KhTA",
+        "distance_m": 0.156,
+        "azimuths": [
+          30,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1582418459",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/1582418459_map.jpg",
+      "image_sv": "img/1582418459_sv.jpg",
+      "meta": {
+        "lat": 40.9240384,
+        "lng": 29.1629945,
+        "pano_id": "at4lBWSQyPrgRztR7FEc6Q",
+        "distance_m": 1.951,
+        "azimuths": [
+          60,
+          120,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "8777247322",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/8777247322_map.jpg",
+      "image_sv": "img/8777247322_sv.jpg",
+      "meta": {
+        "lat": -23.5013973,
+        "lng": -46.3915457,
+        "pano_id": "8W8S2gAOSO7FBRBh9tWPFg",
+        "distance_m": 2.079,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2373582668",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/2373582668_map.jpg",
+      "image_sv": "img/2373582668_sv.jpg",
+      "meta": {
+        "lat": 41.0394648,
+        "lng": 28.6461942,
+        "pano_id": "HNU5DkQUQyQZ_E_SOSC9eQ",
+        "distance_m": 1.428,
+        "azimuths": [
+          120,
+          150,
+          270,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "152695524",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/152695524_map.jpg",
+      "image_sv": "img/152695524_sv.jpg",
+      "meta": {
+        "lat": 29.752397,
+        "lng": -95.364689,
+        "pano_id": "_i4GDMPxUa8oHRLXhLgakA",
+        "distance_m": 0.169,
+        "azimuths": [
+          30,
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "25188963",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/25188963_map.jpg",
+      "image_sv": "img/25188963_sv.jpg",
+      "meta": {
+        "lat": 48.8564779,
+        "lng": 2.3346093,
+        "pano_id": "JCyL4fjfCNBmwZM8rvnO3g",
+        "distance_m": 3.894,
+        "azimuths": [
+          30,
+          90,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "290248154",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/290248154_map.jpg",
+      "image_sv": "img/290248154_sv.jpg",
+      "meta": {
+        "lat": 34.1657846,
+        "lng": -118.609042,
+        "pano_id": "g5fSFMAV-s8NCffGDKiWUg",
+        "distance_m": 3.979,
+        "azimuths": [
+          0,
+          120,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "7155323643",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/7155323643_map.jpg",
+      "image_sv": "img/7155323643_sv.jpg",
+      "meta": {
+        "lat": -1.3014934,
+        "lng": 36.8850715,
+        "pano_id": "nOlI4J6aKRsO2V3L6HqCVg",
+        "distance_m": 3.594,
+        "azimuths": [
+          30,
+          120,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2270549376",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/2270549376_map.jpg",
+      "image_sv": "img/2270549376_sv.jpg",
+      "meta": {
+        "lat": 41.0244459,
+        "lng": 28.6587272,
+        "pano_id": "ONnwBdx99BoJMwUYsKJFMQ",
+        "distance_m": 4.125,
+        "azimuths": [
+          0,
+          180,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "53204787",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/53204787_map.jpg",
+      "image_sv": "img/53204787_sv.jpg",
+      "meta": {
+        "lat": 47.7122403,
+        "lng": -122.3313941,
+        "pano_id": "5HseFnD5TwRxk3SRAEOB9A",
+        "distance_m": 4.452,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "53088805",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/53088805_map.jpg",
+      "image_sv": "img/53088805_sv.jpg",
+      "meta": {
+        "lat": 47.5549817,
+        "lng": -122.3923396,
+        "pano_id": "g_KGoca4Q1UHHuohXSu0jQ",
+        "distance_m": 0.786,
+        "azimuths": [
+          0,
+          60,
+          180,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "662751510",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/662751510_map.jpg",
+      "image_sv": "img/662751510_sv.jpg",
+      "meta": {
+        "lat": -36.3975246,
+        "lng": 174.6616527,
+        "pano_id": "ydj2w5bBrpzLJF86RDQlUw",
+        "distance_m": 1.167,
+        "azimuths": [
+          120,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1838695735",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1838695735_map.jpg",
+      "image_sv": "img/1838695735_sv.jpg",
+      "meta": {
+        "lat": 40.4002523,
+        "lng": -3.6478007,
+        "pano_id": "n7CmLOxjRjLEcOrdqCzEzw",
+        "distance_m": 0.524,
+        "azimuths": [
+          60,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "42525371",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/42525371_map.jpg",
+      "image_sv": "img/42525371_sv.jpg",
+      "meta": {
+        "lat": 40.6005385,
+        "lng": -73.9840177,
+        "pano_id": "KV1zWpxh2vzwYl_1tzY9PQ",
+        "distance_m": 0.818,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1849767181",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/1849767181_map.jpg",
+      "image_sv": "img/1849767181_sv.jpg",
+      "meta": {
+        "lat": -33.6893215,
+        "lng": 150.9057702,
+        "pano_id": "CAoSF0NJSE0wb2dLRUlDQWdJQzRfSVRYMUFF",
+        "distance_m": 2.25,
+        "azimuths": [
+          60,
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "2228979340",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2228979340_map.jpg",
+      "image_sv": "img/2228979340_sv.jpg",
+      "meta": {
+        "lat": 28.6990005,
+        "lng": 77.3077373,
+        "pano_id": "MWutVBaL-UFG9gPTOMUJ5Q",
+        "distance_m": 2.958,
+        "azimuths": [
+          30,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "42812659",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/42812659_map.jpg",
+      "image_sv": "img/42812659_sv.jpg",
+      "meta": {
+        "lat": 40.768704,
+        "lng": -73.81237,
+        "pano_id": "jaPN5XoNlbZbBuSZCy9riw",
+        "distance_m": 2.137,
+        "azimuths": [
+          0,
+          90,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152762919",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/152762919_map.jpg",
+      "image_sv": "img/152762919_sv.jpg",
+      "meta": {
+        "lat": 29.6917718,
+        "lng": -95.5860617,
+        "pano_id": "HSSXI5zzrr-6Xy4RYeCHfA",
+        "distance_m": 1.488,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "6353492503",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/6353492503_map.jpg",
+      "image_sv": "img/6353492503_sv.jpg",
+      "meta": {
+        "lat": -1.2809341,
+        "lng": 36.790023,
+        "pano_id": "cb1-lBnGgFXvFMjAQx2GiQ",
+        "distance_m": 4.521,
+        "azimuths": [
+          60,
+          150,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "418865002",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/418865002_map.jpg",
+      "image_sv": "img/418865002_sv.jpg",
+      "meta": {
+        "lat": 48.8467977,
+        "lng": 2.4151858,
+        "pano_id": "wJdWfYErqEbgJyGAlZqHJw",
+        "distance_m": 1.364,
+        "azimuths": [
+          120,
+          180,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2278921370",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2278921370_map.jpg",
+      "image_sv": "img/2278921370_sv.jpg",
+      "meta": {
+        "lat": -37.8968833,
+        "lng": 144.7007244,
+        "pano_id": "2PoxdTZ29zcQqbGnGt1XLw",
+        "distance_m": 1.914,
+        "azimuths": [
+          30,
+          180,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61410457",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/61410457_map.jpg",
+      "image_sv": "img/61410457_sv.jpg",
+      "meta": {
+        "lat": 42.288751,
+        "lng": -71.157748,
+        "pano_id": "eowTNlzPJqsPg38J0KwE2Q",
+        "distance_m": 1.437,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "4600400807",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "image_map": "img/4600400807_map.jpg",
+      "image_sv": "img/4600400807_sv.jpg",
+      "meta": {
+        "lat": 37.5357364,
+        "lng": 126.8657187,
+        "pano_id": "uYlBHLf6gy8GlfzmIM1zRQ",
+        "distance_m": 2.598,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "9520306484",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/9520306484_map.jpg",
+      "image_sv": "img/9520306484_sv.jpg",
+      "meta": {
+        "lat": 4.6330027,
+        "lng": -74.1982827,
+        "pano_id": "6AqyYkRTAiQy2oJFd4a0sQ",
+        "distance_m": 4.937,
+        "azimuths": [
+          60,
+          90,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "2083925005",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/2083925005_map.jpg",
+      "image_sv": "img/2083925005_sv.jpg",
+      "meta": {
+        "lat": -1.3184577,
+        "lng": 36.8985701,
+        "pano_id": "A6sTPAzW_CIWZCqHSiLQyQ",
+        "distance_m": 1.06,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "7548293575",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/7548293575_map.jpg",
+      "image_sv": "img/7548293575_sv.jpg",
+      "meta": {
+        "lat": -1.2687696,
+        "lng": 36.6988832,
+        "pano_id": "WL6T_clj5-p5wN2DEdgR4w",
+        "distance_m": 1.482,
+        "azimuths": [
+          90,
+          210,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "91611265",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/91611265_map.jpg",
+      "image_sv": "img/91611265_sv.jpg",
+      "meta": {
+        "lat": 40.4646283,
+        "lng": -3.7033373,
+        "pano_id": "i9Oh5RgFIuVgZgU3ouOmpA",
+        "distance_m": 3.098,
+        "azimuths": [
+          0,
+          120,
+          180,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "176071802",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/176071802_map.jpg",
+      "image_sv": "img/176071802_sv.jpg",
+      "meta": {
+        "lat": 39.7021999,
+        "lng": -105.0423777,
+        "pano_id": "TD-HZXQ9zOBOqFqYv0dylQ",
+        "distance_m": 0.668,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "99098869",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/99098869_map.jpg",
+      "image_sv": "img/99098869_sv.jpg",
+      "meta": {
+        "lat": 25.7918845,
+        "lng": -80.2252648,
+        "pano_id": "4NZfQYa1dVFFLp8nqgWKvA",
+        "distance_m": 1.219,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "261211637",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/261211637_map.jpg",
+      "image_sv": "img/261211637_sv.jpg",
+      "meta": {
+        "lat": 41.7181558,
+        "lng": -87.6518127,
+        "pano_id": "F_HHuh7mrVlO8iAOwyhxnw",
+        "distance_m": 3.437,
+        "azimuths": [
+          30,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1854525425",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1854525425_map.jpg",
+      "image_sv": "img/1854525425_sv.jpg",
+      "meta": {
+        "lat": -33.8471432,
+        "lng": 150.9897366,
+        "pano_id": "O9zIsWlWsCtJHHimPT5fyQ",
+        "distance_m": 0.722,
+        "azimuths": [
+          30,
+          90,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "5421414194",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/5421414194_map.jpg",
+      "image_sv": "img/5421414194_sv.jpg",
+      "meta": {
+        "lat": -23.6213781,
+        "lng": -46.473957,
+        "pano_id": "gdZniD7YCRDEIWi1qUBaVw",
+        "distance_m": 3.757,
+        "azimuths": [
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "911856817",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/911856817_map.jpg",
+      "image_sv": "img/911856817_sv.jpg",
+      "meta": {
+        "lat": 41.9582254,
+        "lng": 12.546496,
+        "pano_id": "mVJppvDmlETDxhEK9tAwWw",
+        "distance_m": 2.406,
+        "azimuths": [
+          30,
+          180,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "912830575",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/912830575_map.jpg",
+      "image_sv": "img/912830575_sv.jpg",
+      "meta": {
+        "lat": 41.0443874,
+        "lng": 28.8705287,
+        "pano_id": "5a2s61bs5m7dpUSnz73XNQ",
+        "distance_m": 2.597,
+        "azimuths": [
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9912682904",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/9912682904_map.jpg",
+      "image_sv": "img/9912682904_sv.jpg",
+      "meta": {
+        "lat": 25.145395,
+        "lng": 55.1968415,
+        "pano_id": "vLdec9uxzF97UNFPvQdEzQ",
+        "distance_m": 3.716,
+        "azimuths": [
+          120,
+          270,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "9406802173",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/9406802173_map.jpg",
+      "image_sv": "img/9406802173_sv.jpg",
+      "meta": {
+        "lat": 6.4545906,
+        "lng": 3.6046556,
+        "pano_id": "UcyOFTC3MJYQru-nEuX2Og",
+        "distance_m": 4.579,
+        "azimuths": [
+          150,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "317417804",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/317417804_map.jpg",
+      "image_sv": "img/317417804_sv.jpg",
+      "meta": {
+        "lat": 40.392062,
+        "lng": -3.6686643,
+        "pano_id": "pHdqv19j5fUKXWM0VnpiHA",
+        "distance_m": 1.353,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "41862488",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/41862488_map.jpg",
+      "image_sv": "img/41862488_sv.jpg",
+      "meta": {
+        "lat": 33.6003155,
+        "lng": -112.1555449,
+        "pano_id": "QR6wt6oWKUEUzTAwe8yFTw",
+        "distance_m": 0.335,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "6046794804",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/6046794804_map.jpg",
+      "image_sv": "img/6046794804_sv.jpg",
+      "meta": {
+        "lat": 48.8572501,
+        "lng": 2.2906977,
+        "pano_id": "eHkeQnBMPEm-_rxDRC0D-A",
+        "distance_m": 2.548,
+        "azimuths": [
+          0,
+          90,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61388169",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/61388169_map.jpg",
+      "image_sv": "img/61388169_sv.jpg",
+      "meta": {
+        "lat": 42.3126171,
+        "lng": -71.1226583,
+        "pano_id": "EG-0BfVwQ0KM3nwXC17EzQ",
+        "distance_m": 2.445,
+        "azimuths": [
+          30,
+          180,
+          270,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "364855514",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/364855514_map.jpg",
+      "image_sv": "img/364855514_sv.jpg",
+      "meta": {
+        "lat": 41.8989344,
+        "lng": 12.4830822,
+        "pano_id": "t2r-edn6fI-qnd7ienzHMg",
+        "distance_m": 1.753,
+        "azimuths": [
+          90,
+          180,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61339683",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "image_map": "img/61339683_map.jpg",
+      "image_sv": "img/61339683_sv.jpg",
+      "meta": {
+        "lat": 42.3170628,
+        "lng": -71.06521,
+        "pano_id": "pnU1vShyrsmPYdd0pdGNxg",
+        "distance_m": 1.624,
+        "azimuths": [
+          60,
+          120,
+          240,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "4333836143",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/4333836143_map.jpg",
+      "image_sv": "img/4333836143_sv.jpg",
+      "meta": {
+        "lat": 1.3120884,
+        "lng": 103.8483481,
+        "pano_id": "NjOMek4B3yJMwmPbRG6Mig",
+        "distance_m": 3.568,
+        "azimuths": [
+          60,
+          240,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "24972586",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/24972586_map.jpg",
+      "image_sv": "img/24972586_sv.jpg",
+      "meta": {
+        "lat": 51.6254188,
+        "lng": -0.0550055,
+        "pano_id": "nGm98LH_uRsJAzPbfFbTDw",
+        "distance_m": 2.889,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "255398786",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/255398786_map.jpg",
+      "image_sv": "img/255398786_sv.jpg",
+      "meta": {
+        "lat": 41.9181886,
+        "lng": 12.4969778,
+        "pano_id": "hqGsA5SspytCk_ANTn0ByA",
+        "distance_m": 1.909,
+        "azimuths": [
+          30,
+          150,
+          210,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "176067457",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/176067457_map.jpg",
+      "image_sv": "img/176067457_sv.jpg",
+      "meta": {
+        "lat": 39.7814793,
+        "lng": -104.7541622,
+        "pano_id": "o4O9bm9vqcQXO8b6E5kgwQ",
+        "distance_m": 3.881,
+        "azimuths": [
+          30,
+          120,
+          300
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "261130307",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/261130307_map.jpg",
+      "image_sv": "img/261130307_sv.jpg",
+      "meta": {
+        "lat": 41.8446807,
+        "lng": -87.6576549,
+        "pano_id": "lrsy3BKxOm-iVL7dfnwmpg",
+        "distance_m": 0.167,
+        "azimuths": [
+          60,
+          150,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "98982395",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/98982395_map.jpg",
+      "image_sv": "img/98982395_sv.jpg",
+      "meta": {
+        "lat": 40.4563443,
+        "lng": -3.6865673,
+        "pano_id": "TdSV7-JSv2m3R7jIxYchLw",
+        "distance_m": 3.96,
+        "azimuths": [
+          30,
+          210,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "1127796707",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1127796707_map.jpg",
+      "image_sv": "img/1127796707_sv.jpg",
+      "meta": {
+        "lat": 41.8089797,
+        "lng": 12.48275,
+        "pano_id": "FBzL_MCjQBwwRoig99-YnQ",
+        "distance_m": 3.411,
+        "azimuths": [
+          60,
+          120,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "343305156",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/343305156_map.jpg",
+      "image_sv": "img/343305156_sv.jpg",
+      "meta": {
+        "lat": -36.8506029,
+        "lng": 174.5235546,
+        "pano_id": "pmSr-R3wOPJLbrp_OD5xPA",
+        "distance_m": 2.677,
+        "azimuths": [
+          0,
+          120,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152794442",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "image_map": "img/152794442_map.jpg",
+      "image_sv": "img/152794442_sv.jpg",
+      "meta": {
+        "lat": 29.6382146,
+        "lng": -95.3558323,
+        "pano_id": "XRLtTvgd8jsAiJ59sI4OVA",
+        "distance_m": 0.607,
+        "azimuths": [
+          90,
+          180,
+          270,
+          360
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "285913144",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "image_map": "img/285913144_map.jpg",
+      "image_sv": "img/285913144_sv.jpg",
+      "meta": {
+        "lat": 40.4695151,
+        "lng": -3.6629761,
+        "pano_id": "rDGQFEM15cPmmv48uUAm6w",
+        "distance_m": 3.265,
+        "azimuths": [
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "3776331899",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/3776331899_map.jpg",
+      "image_sv": "img/3776331899_sv.jpg",
+      "meta": {
+        "lat": -1.2659589,
+        "lng": 36.9745055,
+        "pano_id": "W7DMtXke6YO4Yj8M6IrSnA",
+        "distance_m": 2.26,
+        "azimuths": [
+          120,
+          210,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "33386563",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC\nD",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "image_map": "img/33386563_map.jpg",
+      "image_sv": "img/33386563_sv.jpg",
+      "meta": {
+        "lat": 44.903286,
+        "lng": -93.29084,
+        "pano_id": "q-u8YeoKBdd-zknLuNKPsw",
+        "distance_m": 3.503,
+        "azimuths": [
+          0,
+          90,
+          180,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    {
+      "id": "1753204685",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/1753204685_map.jpg",
+      "image_sv": "img/1753204685_sv.jpg",
+      "meta": {
+        "lat": 39.7843001,
+        "lng": -104.8905647,
+        "pano_id": "yaapidr4QAo44rlR9XdY2A",
+        "distance_m": 2.861,
+        "azimuths": [
+          30,
+          120,
+          270
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "61340993",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/61340993_map.jpg",
+      "image_sv": "img/61340993_sv.jpg",
+      "meta": {
+        "lat": 42.3133148,
+        "lng": -71.1206442,
+        "pano_id": "HIw4S2uONKigkDk54EUFGg",
+        "distance_m": 2.184,
+        "azimuths": [
+          60,
+          120,
+          240
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "10041499911",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "C",
+      "image_map": "img/10041499911_map.jpg",
+      "image_sv": "img/10041499911_sv.jpg",
+      "meta": {
+        "lat": 25.243909,
+        "lng": 55.3004355,
+        "pano_id": "t03LgOrF1AEDjKE8xNHlBA",
+        "distance_m": 1.925,
+        "azimuths": [
+          30,
+          150,
+          210
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "id": "152461793",
+      "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "image_map": "img/152461793_map.jpg",
+      "image_sv": "img/152461793_sv.jpg",
+      "meta": {
+        "lat": 29.8164859,
+        "lng": -95.4089679,
+        "pano_id": "cMYg8gbhNE5Jd8EtFokE4Q",
+        "distance_m": 2.572,
+        "azimuths": [
+          90,
+          180,
+          330
+        ],
+        "labels": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    }
+  ]
+}

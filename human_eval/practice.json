@@ -1,0 +1,13 @@
+{
+  "id": "practice",
+  "question": "Which labeled direction on the map corresponds to the direction in which the street view photo was taken?\n\nOptions:\nA\nB\nC",
+  "options": [
+    "A",
+    "B",
+    "C"
+  ],
+  "answer": "B",
+  "image_map": "img/practice_map.jpg",
+  "image_sv": "img/practice_sv.jpg",
+  "explanation": "Find the map arrow that points the same way the camera is looking down the street in the photo. Here the camera faces toward arrow B, so B is the correct answer."
+}

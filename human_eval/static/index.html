@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M2SV Human Evaluation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Welcome / consent / email entry -->
+  <div id="welcome" class="overlay">
+    <div class="card">
+      <h1>Map &rarr; Street View — Human Evaluation</h1>
+      <p>You'll see an <b>overhead map</b> with labeled directions (A, B, C…) and a
+         <b>Street View photo</b>. Pick the labeled direction the photo was taken toward.</p>
+      <ul class="legend">
+        <li><kbd>1</kbd>–<kbd>4</kbd> select option A–D</li>
+        <li><kbd>Enter</kbd> submit &amp; next</li>
+      </ul>
+
+      <!-- ====================================================================
+           CONSENT / DISCLOSURE  —  DRAFT
+           PI: Igor Molybog (molybog@hawaii.edu).
+           TODO before going live: fill the IRB protocol number once UH ORC
+           assigns it, and have the PI/ORC approve the wording.
+      ===================================================================== -->
+      <div class="consent" id="consent-box">
+        <h2>Consent to participate in research</h2>
+        <p>You are invited to take part in a research study conducted by
+           <b>Igor Molybog</b> (<b>molybog@hawaii.edu</b>, principal investigator) and
+           <b>Yosub Shin</b> (<b>yosubs@hawaii.edu</b>, student investigator) at the
+           University of Hawaiʻi at Mānoa. Please read this before you begin.</p>
+        <ul>
+          <li><b>Purpose.</b> To measure how people perform on a visual matching
+              task — identifying which labeled direction on a map a street-view
+              photo was taken toward — so we can compare human performance with AI models.</li>
+          <li><b>What you'll do.</b> Answer up to 200 short multiple-choice
+              problems, one per screen (a few seconds to a few minutes each). There
+              are 200 problems total; you won't be told whether you're right.</li>
+          <li><b>Voluntary.</b> Participation is entirely voluntary. You may stop at
+              any time by closing the tab, with no penalty; your partial responses
+              are kept. You can resume later with the same email.</li>
+          <li><b>Data collected.</b> Your answers, the time you spend on each
+              problem, and your email address.</li>
+          <li><b>How your data is used.</b> Results are reported only in aggregate /
+              de-identified form in research publications. Your email is used
+              <i>only</i> to save your progress and prevent duplicate entries — it is
+              kept confidential and is never published or shared.</li>
+          <li><b>Risks &amp; benefits.</b> No anticipated risks beyond everyday
+              computer use, and no direct benefit to you. There is no compensation.</li>
+          <li><b>Questions.</b> About the study: contact Yosub Shin
+              (yosubs@hawaii.edu) or Igor Molybog (molybog@hawaii.edu).
+              About your rights as a research participant: contact the UH Human
+              Studies Program at <b>uhirb@hawaii.edu</b> or <b>(808) 956-5007</b>.</li>
+        </ul>
+        <p class="muted">IRB protocol: [to be added once assigned]</p>
+      </div>
+
+      <form id="email-form">
+        <label id="consent-check"><input type="checkbox" id="agree" />
+          I am 18 years or older and I agree to participate.</label>
+        <div class="email-row">
+          <input id="email" type="email" placeholder="your@email.com" autocomplete="email" required />
+          <button type="submit" id="start-btn" disabled>Start</button>
+        </div>
+      </form>
+      <p id="welcome-err" class="err"></p>
+    </div>
+  </div>
+
+  <!-- Finished -->
+  <div id="done-screen" class="overlay hidden">
+    <div class="card">
+      <h1>All done — thank you! 🎉</h1>
+      <p id="done-summary" class="muted"></p>
+    </div>
+  </div>
+
+  <!-- Main eval screen -->
+  <div id="app" class="hidden">
+    <header id="topbar">
+      <div class="stat"><span id="progress-text">0 / 200</span>
+        <div class="bar"><div id="progress-fill"></div></div>
+      </div>
+      <div class="stat timer">⏱ <span id="timer">0.0s</span></div>
+      <div class="stat score" id="score-box">
+        <span id="score-you">You: 0/0</span> ·
+        <span id="score-ai" class="muted" title="The AI's score and reasoning unlock after 10 answers">AI: 🔒</span>
+      </div>
+      <div class="stat muted">avg <span id="avg">–</span> · total <span id="total-time">0s</span></div>
+      <div class="stat hints muted">
+        <kbd>1</kbd>–<kbd>4</kbd> pick · <kbd>Enter</kbd> next
+      </div>
+    </header>
+
+    <main id="stage">
+      <div id="mode-badge" class="hidden">PRACTICE</div>
+      <div id="ai-panel" class="hidden"></div>
+      <div class="imgwrap">
+        <img id="img-map" alt="Overhead map" />
+        <span class="imglabel">Map (overhead)</span>
+      </div>
+      <div class="imgwrap">
+        <img id="img-sv" alt="Street View" />
+        <span class="imglabel">Street View</span>
+      </div>
+    </main>
+
+    <footer id="controls">
+      <div id="feedback" class="hidden"></div>
+      <div id="options"></div>
+      <button id="next-btn" disabled>Submit &amp; Next ⏎</button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -18,3 +18,9 @@ publications/**/*.blg
 publications/**/*.fls
 publications/**/*.fdb_latexmk
 publications/**/*.synctex.gz
+# human_eval webapp
+human_eval/static/img/
+human_eval/eval.db
+human_eval/eval.db-*
+human_eval/export/
+human_eval/__pycache__/
