@@ -106,9 +106,15 @@
       </div>
     </main>
 
+    <div id="note-row" class="hidden">
+      <textarea id="note" rows="2" maxlength="2000"
+        placeholder="Optional — note your reasoning for the researchers. Esc to close · ⌘/Ctrl+Enter to submit."></textarea>
+    </div>
+
     <footer id="controls">
       <div id="feedback" class="hidden"></div>
       <div id="options"></div>
+      <button type="button" id="note-toggle" class="linkbtn">＋ note <span class="muted">(n)</span></button>
       <button id="next-btn" disabled>Submit &amp; Next ⏎</button>
     </footer>
   </div>

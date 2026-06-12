@@ -163,6 +163,8 @@ function resetForNewProblem() {
   $("ai-panel").classList.add("hidden");
   $("stage").classList.remove("with-ai");
   state.aiRevealAvailable = false;
+  $("note").value = "";
+  setNoteOpen(false);
 }
 
 async function loadNext() {
@@ -220,6 +222,14 @@ function showFeedback(correct, correctLetter, extraHtml, aiReveal) {
   $("next-btn").innerHTML = state.isPractice ? "Start the real task →" : "Next ⏎";
 }
 
+// Optional reasoning note (collapsed by default; opened with the link or `n`).
+function setNoteOpen(open) {
+  $("note-row").classList.toggle("hidden", !open);
+  $("note-toggle").classList.toggle("active", open);
+  if (open) $("note").focus();
+  else $("note").blur();
+}
+
 // Toggle the AI reasoning overlay (opt-in; dismissible).
 function toggleAiPanel() {
   if (!state.aiRevealAvailable) return;
@@ -258,7 +268,9 @@ async function submit() {
     hidden_ms: Math.round(currentHiddenMs()),
     served_at: state.servedAt,
     revision: REVISION,
+    note: $("note").value.trim() || null,
   };
+  setNoteOpen(false);
   $("next-btn").disabled = true;
   let res;
   try {
@@ -310,15 +322,30 @@ function startRealTask() {
 // ---- Keyboard --------------------------------------------------------------
 document.addEventListener("keydown", (e) => {
   if ($("app").classList.contains("hidden")) return;
+
+  // While typing in the note, let the textarea own the keys.
+  if (e.target === $("note")) {
+    if (e.key === "Escape") { e.preventDefault(); setNoteOpen(false); }
+    else if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); advance(); }
+    return;  // plain Enter / digits type normally into the note
+  }
+
   if (e.key === "Enter") { e.preventDefault(); advance(); return; }
   if ((e.key === "r" || e.key === "R") && state.phase === "feedback") { toggleAiPanel(); return; }
   if (state.phase !== "answer") return;
+  if (e.key === "n" || e.key === "N") {
+    e.preventDefault();
+    setNoteOpen($("note-row").classList.contains("hidden"));
+    return;
+  }
   const n = parseInt(e.key, 10);
   if (!Number.isNaN(n) && n >= 1 && state.problem && n <= state.problem.options.length) {
     selectOption(LETTERS[n - 1]);
   }
 });
 $("next-btn").addEventListener("click", advance);
+$("note-toggle").addEventListener("click", () =>
+  setNoteOpen($("note-row").classList.contains("hidden")));
 
 // ---- Start -----------------------------------------------------------------
 $("email-form").addEventListener("submit", async (e) => {

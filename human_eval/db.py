@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS responses (
     position           INTEGER,
     flagged            INTEGER DEFAULT 0,
     revision           INTEGER DEFAULT 1,
+    note               TEXT,
     created_at         REAL NOT NULL,
     UNIQUE (email, problem_id)
 );
@@ -59,6 +60,8 @@ def init_db(db_path: Path = DB_PATH) -> None:
         cols = {r["name"] for r in conn.execute("PRAGMA table_info(responses)")}
         if "revision" not in cols:
             conn.execute("ALTER TABLE responses ADD COLUMN revision INTEGER DEFAULT 1")
+        if "note" not in cols:
+            conn.execute("ALTER TABLE responses ADD COLUMN note TEXT")
         conn.commit()
 
 
@@ -102,14 +105,15 @@ def record_answer(
     position: int,
     flagged: bool,
     revision: int,
+    note: Optional[str] = None,
 ) -> bool:
     """Insert a response. Returns False if this (email, problem) already exists."""
     try:
         conn.execute(
             "INSERT INTO responses "
             "(email, problem_id, selected, is_correct, client_elapsed_ms, hidden_ms, "
-            " served_at, answered_at, position, flagged, revision, created_at) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            " served_at, answered_at, position, flagged, revision, note, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (
                 email,
                 problem_id,
@@ -122,6 +126,7 @@ def record_answer(
                 position,
                 int(flagged),
                 revision,
+                note,
                 time.time(),
             ),
         )

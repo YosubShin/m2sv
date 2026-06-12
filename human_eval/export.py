@@ -72,6 +72,7 @@ def main() -> None:
                 "position": r["position"],
                 "flagged": bool(r["flagged"]),
                 "revision": (r["revision"] if "revision" in r.keys() else 1),
+                "note": (r["note"] if "note" in r.keys() else None),
             })
         correct = sum(1 for x in results if x["correct"])
         total = len(results)

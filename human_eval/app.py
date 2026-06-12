@@ -54,6 +54,17 @@ app = FastAPI(title="M2SV Human Eval")
 db.init_db()
 
 
+@app.middleware("http")
+async def revalidate_assets(request, call_next):
+    """Make browsers revalidate HTML/JS/CSS each load (cheap 304s) so deploys
+    take effect without a manual hard-refresh. Images stay cacheable."""
+    response = await call_next(request)
+    path = request.url.path
+    if path == "/" or path.endswith((".html", ".js", ".css")):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
+
+
 def normalize_email(email: str) -> str:
     email = (email or "").strip().lower()
     if not EMAIL_RE.match(email):
@@ -101,6 +112,7 @@ class AnswerReq(BaseModel):
     # and are recorded as rev 1, so answers from a not-yet-refreshed browser
     # stay correctly tagged with the condition the participant actually saw.
     revision: int = 1
+    note: Optional[str] = None  # optional free-text reasoning from the participant
 
 
 # Hide the you-vs-AI head-to-head until the participant has answered this many,
@@ -185,6 +197,7 @@ def answer(req: AnswerReq) -> dict:
             position=position,
             flagged=req.flagged,
             revision=req.revision,
+            note=(req.note.strip()[:2000] or None) if req.note else None,
         )
         prog = db.progress(conn, email)
         sc = score_for(conn, email)
