@@ -208,26 +208,25 @@ Sval = {pid: s for pid, s in Sval.items() if s is not None and pid in prt}
 ordered = sorted(Sval, key=lambda p: Sval[p])          # ascending S: Q1 = symmetric
 nq = len(ordered)
 qbin = {pid: min(4, i * 5 // nq) for i, pid in enumerate(ordered)}
-# Plot INDIVIDUAL annotator x problem RTs (preserves within-bin spread, which is
-# the actual claim) rather than the per-problem mean, which smooths it away.
-rng = np.random.default_rng(0)
+# Per-quintile distribution as a box plot: box = IQR, whiskers = 10th-90th
+# percentile, line = median, diamond = mean. Makes the spread directly
+# comparable (the scatter cloud did not).
+data = [[rtp[a][p] for p in ordered if qbin[p] == b for a in ENG3 if p in rtp[a]]
+        for b in range(5)]
 fig, ax = plt.subplots(figsize=(4.8, 3.0))
-xs, ys = [], []
-for p in ordered:
-    for a in ENG3:
-        if p in rtp[a]:
-            xs.append(qbin[p] + 1 + rng.uniform(-0.16, 0.16)); ys.append(rtp[a][p])
-ax.scatter(xs, ys, s=8, alpha=0.28, color="#2e6fdb", edgecolors="none")
-mx, my = [], []
-for b in range(5):
-    bt = [rtp[a][p] for p in ordered if qbin[p] == b for a in ENG3 if p in rtp[a]]
-    if bt:
-        mx.append(b + 1); my.append(float(np.mean(bt)))
-ax.plot(mx, my, color="#e67e22", lw=2, marker="o", ms=4, label="Mean", zorder=3)
-ax.set_xticks([1, 2, 3, 4, 5]); ax.set_xticklabels(["Q1", "Q2", "Q3", "Q4", "Q5"])
+ax.boxplot(data, whis=[10, 90], showfliers=False, showmeans=True, widths=0.62,
+           patch_artist=True,
+           boxprops=dict(facecolor="#cfe0fb", edgecolor="#2e6fdb"),
+           medianprops=dict(color="#1f4e9b", lw=1.5),
+           whiskerprops=dict(color="#2e6fdb"), capprops=dict(color="#2e6fdb"),
+           meanprops=dict(marker="D", markerfacecolor="#e67e22",
+                          markeredgecolor="#e67e22", markersize=5))
+ax.set_xticklabels(["Q1", "Q2", "Q3", "Q4", "Q5"])
 ax.set_xlabel("Road-azimuth symmetry quintile (Q1 symmetric, Q5 asymmetric)")
-ax.set_ylabel("Human response time (s)"); ax.set_ylim(0, 90)
+ax.set_ylabel("Human response time (s)"); ax.set_ylim(0, 52)
 ax.set_title("Human time vs. road-azimuth symmetry (multi-annotator)", fontsize=9)
-ax.legend(fontsize=7, frameon=False)
+ax.plot([], [], color="#1f4e9b", lw=1.5, label="median")
+ax.plot([], [], marker="D", color="#e67e22", lw=0, label="mean")
+ax.legend(fontsize=7, frameon=False, loc="upper right")
 save(fig, "symmetry_vs_time_multi")
 print("wrote symmetry_vs_time_multi")
