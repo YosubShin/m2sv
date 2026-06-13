@@ -592,11 +592,13 @@ bound} on difficulty but does not determine the realized difficulty of an exampl
   \includegraphics[width=\linewidth]{figures/symmetry_vs_time_multi.png}
   \caption{
     \textbf{Human response time vs.\ road-azimuth symmetry (multi-annotator).}
-    Each point is one of the 200 analysis examples; the $y$-value is the mean
-    response time across the engaged annotators who completed all 200 items, and
+    Each point is one annotator's response time on one example, pooled over the
+    engaged annotators who completed all 200 items (horizontally jittered);
     examples are binned into symmetry quintiles of $S$ (Eq.~\ref{eq:symmetry};
-    Q1 symmetric, Q5 asymmetric). Symmetric intersections show a wide spread of
-    response times, while asymmetric ones are uniformly fast.
+    Q1 symmetric, Q5 asymmetric). Symmetric intersections (Q1) show the widest
+    spread and the slowest examples, whereas asymmetric intersections (Q5) are
+    uniformly fast (lowest spread, 90th percentile, and maximum), so structural
+    symmetry bounds difficulty without determining it.
   }
   \label{fig:human-time-vs-symmetry}
 \end{figure}
