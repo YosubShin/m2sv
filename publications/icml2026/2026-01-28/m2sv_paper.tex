@@ -17,7 +17,16 @@
 
 \newcommand{\theHalgorithm}{\arabic{algorithm}}
 
-\usepackage{icml2026}
+\usepackage[accepted]{icml2026}
+
+% This is a CTB@ICML 2026 workshop paper, not the main conference: override the
+% style's default "Proceedings of ... ICML" appearing-in notice.
+\makeatletter
+\renewcommand{\ICML@appearing}{\textit{Presented at the Combining Theory and
+Benchmarks (CTB) Workshop at the $\mathit{43}^{rd}$ International Conference on
+Machine Learning (ICML)}, Seoul, South Korea, 2026 (non-archival).
+Copyright 2026 by the author(s).}
+\makeatother
 
 \icmltitlerunning{m2sv: Map-to-Street-View Spatial Reasoning Benchmark}
 
@@ -59,9 +68,10 @@ ambiguity, along with \textbf{m2sv-sft-11k}, a curated set of structured reasoni
 traces for supervised fine-tuning.
 
 Despite strong performance on existing multimodal benchmarks, the best evaluated
-VLM achieves only 65.2\% accuracy on m2sv, far below the human baseline of 95\%.
-While supervised fine-tuning and reinforcement learning yield consistent gains,
-cross-benchmark evaluations reveal limited transfer.
+VLM achieves only 65.2\% accuracy on m2sv, below human annotators who reach
+74.8\% on average (and 95\% for an expert) with strong inter-annotator agreement
+($\kappa$ up to 0.76). While supervised fine-tuning and reinforcement learning
+yield consistent gains, cross-benchmark evaluations reveal limited transfer.
 Beyond aggregate accuracy, we systematically analyze \emph{difficulty} in
 map-to-street-view reasoning using both structural signals and human effort, and
 conduct an extensive failure analysis of adapted open models. Our findings
@@ -183,6 +193,20 @@ Our contributions are:
   (Section~\ref{sec:failure-analysis}).
 \end{itemize}
 
+\paragraph{Reproducibility and open release.}
+All artifacts are publicly available at our project repository.\footnote{Code,
+data, and interface: \url{https://github.com/yosubshin/m2sv}. Live
+human-evaluation interface: \url{https://m2sv.yosubshin.com}.} We release: (i) the
+\textbf{m2sv-20k} blueprints---intersection coordinates, candidate azimuths,
+ground-truth labels, and Street View panorama identifiers---together with the
+deterministic rendering pipeline, so the full benchmark can be reconstructed on
+demand under licensing constraints; (ii) the \textbf{m2sv-sft-11k} reasoning
+traces; (iii) all evaluation and fine-tuning code, including prompts and
+hyperparameters; and (iv) the interactive human-evaluation interface, hosted live
+at \url{https://m2sv.yosubshin.com}, along with the collected per-item human
+labels and response times. Together these enable reproduction of the zero-shot,
+adaptation, and human-baseline results reported in this paper.
+
 % ===============================================================
 \section{Benchmark Design}
 
@@ -272,7 +296,9 @@ subset.
 
 \begin{table}[t]
   \centering
-  \caption{Zero-shot baseline performance on m2sv with 95\% confidence intervals.}
+  \caption{Zero-shot baseline performance on m2sv with 95\% confidence intervals.
+  The engaged-human row reports the mean over six annotators with the
+  between-annotator standard deviation (not a binomial interval).}
   \label{tab:m2sv-baselines}
   \begin{tabular}{l r r}
     \toprule
@@ -286,18 +312,63 @@ subset.
     Qwen3-VL-235B-A22B-Thinking & 1k & 42.7 $\pm$ 3.1 \\
     \midrule
     Random baseline & 1k & 31.4 $\pm$ 2.9 \\
-    Human baseline & 200 & 95.0 $\pm$ 3.0 \\
+    \midrule
+    Human (engaged, $n{=}6$) & 200 & 74.8 $\pm$ 6.8 \\
+    Human (expert) & 200 & 95.0 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Human accuracy reaches 95\%, establishing a clear upper bound on task difficulty
-and confirming that m2sv is reliably solvable by people despite real-world visual
-noise and temporal mismatch. In contrast, even the strongest proprietary model
-(Gemini-3-Pro) falls more than 30 points below human performance, while most open
-models operate only marginally above the random baseline. This large and
-consistent gap indicates that zero-shot pretrained VLMs lack robust mechanisms
-for aligning overhead maps with egocentric street-level views.
+To establish a robust human reference, we conduct an independent multi-annotator
+study on the 200-example subset. Seven naive annotators---none of whom
+participated in dataset construction or had prior exposure to the sampled
+cities---each answer between 17 and 200 items through a web interface that logs
+the selected option and per-item response time; four complete all 200. We
+additionally retain the original expert annotator (a dataset author) as a ceiling
+reference.
+
+Human accuracy is high but effort-dependent
+(Figure~\ref{fig:human-dist}). Six mutually consistent annotators average
+$74.8\%$ (between-annotator SD $6.8\%$) and the expert reaches $95\%$, all above
+the strongest model (Gemini-3-Pro, $65.2\%$); a single low-effort annotator
+answered near chance ($42\%$) and is flagged not by accuracy but by near-zero
+agreement with every other rater (Cohen's $\kappa < 0.2$). Inter-annotator
+agreement is otherwise moderate to substantial (Figure~\ref{fig:kappa}): the
+expert and the engaged annotators form a high-agreement block
+($\kappa = 0.37$--$0.76$), confirming that the labels are reliable and that
+attentive humans converge on the same answers. In contrast, Gemini-3-Pro agrees
+with humans only moderately ($\kappa = 0.26$--$0.49$, below the human--human
+range) and Qwen3-VL is near chance ($\kappa \approx 0$). The human--model gap is
+thus visible not only in accuracy but in agreement structure: the best model lies
+measurably outside the human consensus, indicating that zero-shot pretrained VLMs
+lack robust mechanisms for aligning overhead maps with egocentric street-level
+views.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/human_accuracy_dist.png}
+  \caption{
+    \textbf{Per-annotator human accuracy on the 200-example subset}
+    (dot size $\propto$ number of items answered). Naive annotators span
+    $42\%$--$83\%$; the low-agreement outlier ($\kappa<0.3$ with all raters) is
+    shown in red and the expert as a star. Dashed lines denote model and random
+    baselines.
+  }
+  \label{fig:human-dist}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/agreement_kappa.png}
+  \caption{
+    \textbf{Inter-rater agreement (Cohen's $\kappa$),} chance-corrected per item
+    by candidate count. The expert (A1) and engaged annotators (A2--A7) form a
+    high-agreement block; Gemini-3-Pro sits below the human consensus and
+    Qwen3-VL is near chance. The low-effort annotator (A8) is an outlier against
+    all raters.
+  }
+  \label{fig:kappa}
+\end{figure}
 
 \subsection{Adaptation baselines on m2sv}
 \label{sec:results-adaptation}
@@ -485,11 +556,12 @@ enable difficult cases but do not make them uniformly hard.
 
 Structural measures do not capture visual confusability between candidate
 directions, which often determines whether fine-grained spatial alignment is
-required. To probe these effects directly, we analyze difficulty as perceived by a
-human annotator, using response time as a proxy for cognitive effort.
+required. To probe these effects directly, we analyze difficulty as perceived by
+human annotators, using response time as a proxy for cognitive effort.
 
-During manual evaluation on a 200-example analysis subset, we record the elapsed
-time required for a human to answer each question. Figure~\ref{fig:human-time-vs-symmetry}
+Using the multi-annotator study of Section~\ref{sec:results-zeroshot}, we record
+per-item response time for every annotator on the 200-example subset.
+Figure~\ref{fig:human-time-vs-symmetry}
 plots human response time as a function of azimuth symmetry. While highly
 asymmetric intersections are consistently easy for humans, symmetric
 intersections exhibit a wide spread of response times, ranging from trivially
@@ -510,12 +582,17 @@ of an example.
 \end{figure}
 
 Finally, Figure~\ref{fig:accuracy-vs-human-time} shows accuracy as a function of
-human-perceived difficulty, defined by tertiles of response time. Humans maintain
-near-ceiling performance across all buckets, with only a modest drop on the
-hardest examples, indicating that longer response times reflect increased effort
-rather than intrinsic ambiguity. In contrast, all evaluated models degrade sharply
-with increasing difficulty and approach chance-level performance on the hardest
-examples.
+human-perceived difficulty, with examples partitioned into tertiles by the
+\emph{mean} response time across the three engaged annotators who completed all
+200 items. Because the bins are defined from response time while accuracy is
+measured separately, this avoids the circularity of deriving the difficulty axis
+and the accuracy curve from a single annotator. Human accuracy degrades gracefully
+with difficulty ($88\% \to 63\%$), confirming that these bins capture genuine
+ambiguity rather than effort alone. Models degrade more steeply: Gemini-3-Pro falls
+from $83\%$ to $51\%$, while Qwen3-VL remains near chance throughout. The
+human--model gap therefore \emph{widens} with difficulty (from $5$ to $12$ points
+against Gemini-3-Pro), indicating that models fail precisely where fine-grained
+spatial alignment is most required.
 
 Taken together, these results suggest that model failures are driven not by
 geometry alone, but by an inability to exploit subtle, stable cues when visual
@@ -526,13 +603,13 @@ training and adaptive inference.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{figures/time_difficulty_accuracy.png}
+  \includegraphics[width=\linewidth]{figures/human_difficulty_decircular.png}
   \caption{
-    \textbf{Accuracy vs.\ human-perceived difficulty.}
-    Accuracy as a function of difficulty defined by human response time.
-    Examples are partitioned into Easy, Medium, and Hard buckets by response-time
-    tertiles.
-    Error bars indicate 95\% binomial confidence intervals.
+    \textbf{Accuracy vs.\ human-perceived difficulty (multi-annotator).}
+    Examples are partitioned into Easy/Medium/Hard tertiles by mean response time
+    across three engaged annotators who completed all 200 items; accuracy is then
+    measured separately, avoiding circularity. Humans degrade gracefully, while
+    Gemini-3-Pro degrades more steeply and Qwen3-VL is difficulty-blind.
   }
   \label{fig:accuracy-vs-human-time}
 \end{figure}
@@ -839,13 +916,16 @@ uneven geographic coverage and representation. The benchmark is restricted to
 public road intersections and does not include private, restricted, or sensitive
 locations.
 
-Human evaluation in this work is conducted with a single participant due to time
-and resource constraints at the time of data collection. While this limits the
-ability to characterize inter-subject variability, the collected data provides a
-useful reference point for comparing human and model behavior on structurally
-ambiguous cases. To support future work, we will release both the interactive
-labeling interface and the manually curated labels, including elapsed time
-metadata from human annotation, to facilitate larger-scale human studies and
+Our human evaluation comprises seven naive annotators together with one expert on
+the 200-example analysis subset, with inter-annotator agreement reported in
+Section~\ref{sec:results-zeroshot}. While this is sufficient to characterize
+between-annotator variance and to de-confound the response-time difficulty
+analysis, the annotator pool remains modest and was recruited opportunistically
+rather than through a controlled, pre-registered protocol; a larger and more
+demographically balanced study would further strengthen the human reference. We
+release both the interactive labeling interface (hosted live at
+\url{https://m2sv.yosubshin.com}) and the collected labels, including per-item
+response-time metadata, to facilitate such larger-scale human studies and
 alternative analyses of spatial reasoning difficulty.
 
 Our transfer experiments are limited in scope and focus on generalization to a
@@ -869,6 +949,28 @@ representations and reasoning under uncertainty. By isolating this core alignmen
 primitive and characterizing both difficulty and failure modes, m2sv serves as a
 diagnostic complement to existing spatial benchmarks and highlights open
 challenges for grounded spatial reasoning.
+
+% ===============================================================
+\section*{Acknowledgments}
+\label{sec:acknowledgments}
+
+This work was supported by the National Science Foundation NRT-AI 2244574.
+
+This work used cloud GPU resources at NCSA Delta cluster through allocation number
+CIS240027 from the Advanced Cyberinfrastructure Coordination Ecosystem: Services
+\& Support (ACCESS) program, which is supported by National Science Foundation
+grants \#~2138259, \#~2138286, \#~2138307, \#~2137603, and \#~2138296.
+
+The technical support and advanced computing resources from University of Hawaii
+Information Technology Services -- Research Cyberinfrastructure, funded in part by
+the National Science Foundation CC* awards \#~2201428 and \#~2232862 are gratefully
+acknowledged.
+
+This material is based upon work supported by the National Science Foundation CISE
+Graduate Fellowships under Grant \#~2313998. Any opinions, findings, and
+conclusions or recommendations expressed in this material are those of the
+author(s) and do not necessarily reflect the views of the National Science
+Foundation.
 
 \FloatBarrier
 

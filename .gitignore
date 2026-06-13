@@ -24,3 +24,8 @@ human_eval/eval.db
 human_eval/eval.db-*
 human_eval/export/
 human_eval/__pycache__/
+
+# human-eval analysis: keep participant PII out of git
+analysis/participants.local.json
+*.local.json
+eval-prod.db
