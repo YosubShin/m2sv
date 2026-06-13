@@ -49,7 +49,8 @@ anon = {e: f"A{i+2}" for i, e in enumerate(sorted(NAIVE, key=acc, reverse=True))
 
 bundle = {
     "_about": "Anonymized m2sv human-baseline data. No PII. See analysis/human_baseline_figs.py.",
-    "problems": {pid: {"answer": p["answer"], "n_options": len(p["options"])}
+    "problems": {pid: {"answer": p["answer"], "n_options": len(p["options"]),
+                       "azimuths": p.get("meta", {}).get("azimuths", [])}
                  for pid, p in P.items()},
     "expert": EXPERT,
     "models": MODELS,

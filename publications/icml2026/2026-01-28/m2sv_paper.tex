@@ -580,21 +580,23 @@ human annotators, using response time as a proxy for cognitive effort.
 Using the multi-annotator study of Section~\ref{sec:results-zeroshot}, we record
 per-item response time for every annotator on the 200-example subset.
 Figure~\ref{fig:human-time-vs-symmetry}
-plots human response time as a function of azimuth symmetry. While highly
-asymmetric intersections are consistently easy for humans, symmetric
-intersections exhibit a wide spread of response times, ranging from trivially
-easy to extremely challenging. This demonstrates that structural symmetry defines
-an \emph{upper bound} on difficulty but does not determine the realized difficulty
-of an example.
+plots the mean response time across the engaged annotators as a function of
+road-azimuth symmetry $S$ (Eq.~\ref{eq:symmetry}). While highly asymmetric
+intersections are consistently easy for humans, symmetric intersections exhibit a
+wide spread of response times, ranging from trivially easy to extremely
+challenging. This demonstrates that structural symmetry defines an \emph{upper
+bound} on difficulty but does not determine the realized difficulty of an example.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{figures/symmetry_vs_time.png}
+  \includegraphics[width=\linewidth]{figures/symmetry_vs_time_multi.png}
   \caption{
-    \textbf{Human response time vs.\ road-azimuth symmetry.}
-    Each point denotes a single example from the 200-example analysis subset.
-    Highly symmetric intersections exhibit a wide range of difficulty, while
-    asymmetric intersections are uniformly easy for humans.
+    \textbf{Human response time vs.\ road-azimuth symmetry (multi-annotator).}
+    Each point is one of the 200 analysis examples; the $y$-value is the mean
+    response time across the engaged annotators who completed all 200 items, and
+    examples are binned into symmetry quintiles of $S$ (Eq.~\ref{eq:symmetry};
+    Q1 symmetric, Q5 asymmetric). Symmetric intersections show a wide spread of
+    response times, while asymmetric ones are uniformly fast.
   }
   \label{fig:human-time-vs-symmetry}
 \end{figure}

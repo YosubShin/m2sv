@@ -187,7 +187,40 @@ for xi, (h, g) in enumerate(zip(H, G)):
 ax.set_xticks(x); ax.set_xticklabels(["Easy", "Medium", "Hard"])
 ax.set_ylabel("Accuracy"); ax.set_ylim(0.2, 1.0)
 ax.set_yticks(np.arange(.2, 1.01, .2)); ax.set_yticklabels([f"{int(v*100)}%" for v in np.arange(.2, 1.01, .2)])
-ax.set_title("Accuracy vs.\\ human-perceived difficulty", fontsize=9)
+ax.set_title("Accuracy vs. human-perceived difficulty", fontsize=9)
 ax.legend(fontsize=7, frameon=False, loc="lower left")
 save(fig, "human_difficulty_decircular")
 print(f"wrote human_difficulty_decircular  (H={[f'{h:.0%}' for h in H]} G={[f'{g:.0%}' for g in G]})")
+
+# ---- Fig 5: human response time vs road-azimuth symmetry (multi-annotator) ----
+# Symmetry S = max-gap / min-gap of the consecutive azimuth gaps (Eq. in paper).
+# RT is the per-problem mean across the engaged completers (prt, from Fig 4),
+# replacing the original single-annotator scatter.
+def gap_ratio(az):
+    az = sorted(a % 360.0 for a in az)
+    if len(az) < 2:
+        return None
+    gaps = [az[i + 1] - az[i] for i in range(len(az) - 1)] + [360.0 + az[0] - az[-1]]
+    return max(gaps) / min(gaps) if min(gaps) > 0 else None
+
+Sval = {pid: gap_ratio(DATA["problems"][pid].get("azimuths", [])) for pid in P}
+Sval = {pid: s for pid, s in Sval.items() if s is not None and pid in prt}
+ordered = sorted(Sval, key=lambda p: Sval[p])          # ascending S: Q1 = symmetric
+nq = len(ordered)
+qbin = {pid: min(4, i * 5 // nq) for i, pid in enumerate(ordered)}
+fig, ax = plt.subplots(figsize=(4.8, 3.0))
+ax.scatter([qbin[p] + 1 for p in ordered], [prt[p] for p in ordered],
+           s=14, alpha=0.45, color="#2e6fdb")
+mx, my = [], []
+for b in range(5):
+    bt = [prt[p] for p in ordered if qbin[p] == b]
+    if bt:
+        mx.append(b + 1); my.append(float(np.mean(bt)))
+ax.plot(mx, my, color="#e67e22", lw=2, marker="o", ms=4, label="Mean")
+ax.set_xticks([1, 2, 3, 4, 5]); ax.set_xticklabels(["Q1", "Q2", "Q3", "Q4", "Q5"])
+ax.set_xlabel("Road-azimuth symmetry quintile (Q1 symmetric, Q5 asymmetric)")
+ax.set_ylabel("Human response time (s)")
+ax.set_title("Human time vs. road-azimuth symmetry (multi-annotator)", fontsize=9)
+ax.legend(fontsize=7, frameon=False)
+save(fig, "symmetry_vs_time_multi")
+print("wrote symmetry_vs_time_multi")

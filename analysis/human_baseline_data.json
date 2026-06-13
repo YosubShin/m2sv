@@ -3,803 +3,1854 @@
 "problems": {
 "282171709": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+300
+]
 },
 "261214458": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "4908106630": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+240,
+300
+]
 },
 "2304129206": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+240
+]
 },
 "61348747": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "9937412361": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+270
+]
 },
 "7856602092": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+210,
+300,
+330
+]
 },
 "5867979085": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+240,
+300
+]
 },
 "15864054": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "152792809": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "442534796": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+330
+]
 },
 "152159805": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "8559113110": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+360
+]
 },
 "5751882269": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "259061539": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+210,
+360
+]
 },
 "41518609": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "4939086805": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+180,
+210
+]
 },
 "5709115809": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "176084786": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "26679063": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "319124767": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+150,
+240,
+330
+]
 },
 "248745281": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "2948839124": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+300
+]
 },
 "390270677": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+240
+]
 },
 "61467723": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+300
+]
 },
 "3646213019": {
 "answer": "B",
-"n_options": 2
+"n_options": 2,
+"azimuths": [
+120,
+300
+]
 },
 "1099022823": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+150,
+330
+]
 },
 "12657770469": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "2142569337": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+300,
+330
+]
 },
 "42881195": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+180,
+240
+]
 },
 "289617292": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "298808373": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+90,
+240
+]
 },
 "152362755": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+180,
+300
+]
 },
 "12108413126": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+300
+]
 },
 "34843156": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+180,
+270,
+360
+]
 },
 "46434224": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "72027653": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "4349762966": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+330
+]
 },
 "1692384574": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "310948572": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+210,
+270
+]
 },
 "9870154195": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "9707010177": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+90,
+240
+]
 },
 "253996528": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+180
+]
 },
 "1672645449": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+270,
+360
+]
 },
 "2183206172": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+300
+]
 },
 "99249356": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+360
+]
 },
 "261293468": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "1633530934": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "2074178066": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+120,
+210,
+300
+]
 },
 "1716637231": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+300
+]
 },
 "4602990159": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "5031056569": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+180,
+210,
+360
+]
 },
 "3139425631": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "1600316357": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "471185593": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "32123605": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "61345688": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+150,
+240,
+330
+]
 },
 "32345338": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+240,
+330
+]
 },
 "6051479435": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "25953000": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+330
+]
 },
 "6367373395": {
 "answer": "A",
-"n_options": 2
+"n_options": 2,
+"azimuths": [
+180,
+360
+]
 },
 "61366400": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+120,
+240,
+300
+]
 },
 "176089129": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "11394133156": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+240,
+360
+]
 },
 "483493958": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "41316217": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+270
+]
 },
 "2262418977": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+90,
+180,
+270
+]
 },
 "3579864397": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "4411771771": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "123008054": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+180
+]
 },
 "309889372": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+300,
+330
+]
 },
 "368092": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+120,
+240,
+300
+]
 },
 "1088437014": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+120,
+180
+]
 },
 "122815471": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "472737020": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+150,
+300
+]
 },
 "5214574336": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+240
+]
 },
 "1530451435": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+330
+]
 },
 "122608699": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+120,
+240
+]
 },
 "269425656": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "29604314": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+330
+]
 },
 "9959433699": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "29800676": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+270
+]
 },
 "302684485": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+360
+]
 },
 "2228791592": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+270,
+360
+]
 },
 "2362943944": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+120,
+210,
+300
+]
 },
 "5394976794": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "9962869113": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+30,
+210
+]
 },
 "314500686": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+150,
+210,
+330
+]
 },
 "2014381488": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "2242552246": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+210,
+330
+]
 },
 "300112357": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "2296170442": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+330
+]
 },
 "8144697111": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+210,
+360
+]
 },
 "152112256": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "61340537": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+90,
+270
+]
 },
 "53231627": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "150894997": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "53084208": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "73772949": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+270,
+360
+]
 },
 "2129835338": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+150,
+300
+]
 },
 "151427623": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+240
+]
 },
 "913486836": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+210,
+240
+]
 },
 "259134184": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+270
+]
 },
 "151825762": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+150,
+210,
+270
+]
 },
 "26965683": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+210
+]
 },
 "2374574": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+120,
+210
+]
 },
 "42854984": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+180,
+240,
+360
+]
 },
 "2844590522": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+300
+]
 },
 "3464379100": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+270
+]
 },
 "364174373": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "130234985": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "3846542597": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+270,
+360
+]
 },
 "1937110596": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+240,
+330
+]
 },
 "1403228505": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+300
+]
 },
 "90113869": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+360
+]
 },
 "3869572577": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+300
+]
 },
 "4818913633": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+180,
+360
+]
 },
 "122387942": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "99015617": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+360
+]
 },
 "42964934": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "6383901698": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+240
+]
 },
 "5753325802": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+300
+]
 },
 "259262303": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "99092916": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+270,
+360
+]
 },
 "123423022": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "30431658": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "34173652": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "34168105": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+180,
+270
+]
 },
 "261119335": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "41748494": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "1129084921": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+180,
+270
+]
 },
 "1126253135": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+270
+]
 },
 "46301761": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+150,
+240,
+330
+]
 },
 "4604526193": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "122610180": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+180,
+270,
+360
+]
 },
 "262459097": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+240,
+330
+]
 },
 "5455550979": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+300
+]
 },
 "1342426861": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "1957490897": {
 "answer": "A",
-"n_options": 2
+"n_options": 2,
+"azimuths": [
+150,
+330
+]
 },
 "316385337": {
 "answer": "A",
-"n_options": 2
+"n_options": 2,
+"azimuths": [
+60,
+240
+]
 },
 "27364372": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+210
+]
 },
 "1692859507": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+360
+]
 },
 "81570925": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+90,
+180,
+270
+]
 },
 "1582418459": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+120,
+270
+]
 },
 "8777247322": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "2373582668": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+120,
+150,
+270,
+300
+]
 },
 "152695524": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+120,
+210,
+300
+]
 },
 "25188963": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+90,
+210
+]
 },
 "290248154": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+120,
+270
+]
 },
 "7155323643": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+210
+]
 },
 "2270549376": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+180,
+210,
+330
+]
 },
 "53204787": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "53088805": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+60,
+180,
+240
+]
 },
 "662751510": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+300
+]
 },
 "1838695735": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+210,
+300
+]
 },
 "42525371": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "1849767181": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+150,
+240,
+330
+]
 },
 "2228979340": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+90,
+270
+]
 },
 "42812659": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+270
+]
 },
 "152762919": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "6353492503": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+330
+]
 },
 "418865002": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+180,
+330
+]
 },
 "2278921370": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+180,
+210
+]
 },
 "61410457": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "4600400807": {
 "answer": "D",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "9520306484": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+90,
+240
+]
 },
 "2083925005": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "7548293575": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+210,
+270
+]
 },
 "91611265": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+120,
+180,
+300
+]
 },
 "176071802": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "99098869": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "261211637": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+180,
+270
+]
 },
 "1854525425": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+90,
+210
+]
 },
 "5421414194": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+240,
+300
+]
 },
 "911856817": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+180,
+240
+]
 },
 "912830575": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+240,
+300
+]
 },
 "9912682904": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+270,
+300
+]
 },
 "9406802173": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+150,
+240,
+330
+]
 },
 "317417804": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "41862488": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "6046794804": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+90,
+210
+]
 },
 "61388169": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+180,
+270,
+300
+]
 },
 "364855514": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+360
+]
 },
 "61339683": {
 "answer": "C",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+60,
+120,
+240,
+300
+]
 },
 "4333836143": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+240,
+330
+]
 },
 "24972586": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "255398786": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+30,
+150,
+210,
+300
+]
 },
 "176067457": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+300
+]
 },
 "261130307": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+150,
+240
+]
 },
 "98982395": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+210,
+240
+]
 },
 "1127796707": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+120,
+240
+]
 },
 "343305156": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+0,
+120,
+270
+]
 },
 "152794442": {
 "answer": "A",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+90,
+180,
+270,
+360
+]
 },
 "285913144": {
 "answer": "B",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+270
+]
 },
 "3776331899": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+120,
+210,
+330
+]
 },
 "33386563": {
 "answer": "B",
-"n_options": 4
+"n_options": 4,
+"azimuths": [
+0,
+90,
+180,
+270
+]
 },
 "1753204685": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+120,
+270
+]
 },
 "61340993": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+60,
+120,
+240
+]
 },
 "10041499911": {
 "answer": "C",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+30,
+150,
+210
+]
 },
 "152461793": {
 "answer": "A",
-"n_options": 3
+"n_options": 3,
+"azimuths": [
+90,
+180,
+330
+]
 }
 },
 "expert": {
