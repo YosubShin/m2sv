@@ -589,45 +589,26 @@ required. To probe these effects directly, we analyze difficulty as perceived by
 human annotators, using response time as a proxy for cognitive effort.
 
 Using the multi-annotator study of Section~\ref{sec:results-zeroshot}, we record
-per-item response time for every annotator on the 200-example subset.
-Figure~\ref{fig:human-time-vs-symmetry} plots human response time against symmetry
-within the same three-option stratum (Eq.~\ref{eq:symmetry}). Consistent with the
-model results, humans spend the most effort on symmetric intersections---median
-and upper-quartile times are highest at $S<2$ and decline as asymmetry
-increases---while the lower quartile is similar throughout. Symmetric layouts thus
-raise the \emph{ceiling} on difficulty: they contain the slowest,
-deliberation-heavy examples without making every such example hard.
+per-item response time for every annotator on the 200-example subset. Unlike
+models, humans show no symmetry-dependent slowdown: per-problem median response
+time is essentially flat across symmetry ($\sim$15\,s in every three-option
+symmetry bin), so humans resolve symmetric and asymmetric intersections with
+comparable effort even though models collapse on the symmetric ones
+(Figure~\ref{fig:accuracy-vs-symmetry}).
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/symmetry_vs_time_multi.png}
-  \caption{
-    \textbf{Human response time vs.\ road-azimuth symmetry (three-option
-    intersections).}
-    Distribution of per-response times (engaged annotators who completed all 200
-    items) by symmetry level $S$ (Eq.~\ref{eq:symmetry}), holding candidate count
-    fixed. Boxes show the interquartile range, whiskers the
-    10th--90th percentiles, the line the median, and the diamond the mean. The
-    lower quartile is similar across all levels (a shared easy floor), but
-    symmetric intersections ($S<2$) have a markedly longer upper tail (higher
-    75th/90th percentiles) than asymmetric ones ($S>2$): structural symmetry raises
-    the \emph{ceiling} on difficulty without determining it.
-  }
-  \label{fig:human-time-vs-symmetry}
-\end{figure}
-
-Finally, Figure~\ref{fig:accuracy-vs-human-time} shows accuracy as a function of
-human-perceived difficulty, with examples partitioned into tertiles by the
-\emph{mean} response time across the engaged annotators who completed all
-200 items. Because the bins are defined from response time while accuracy is
+Figure~\ref{fig:accuracy-vs-human-time} instead uses response time as a global
+difficulty signal: examples are partitioned into tertiles by the \emph{median}
+response time across the engaged annotators who completed all 200 items (the
+median is robust to occasional idle responses, which the visibility detector
+cannot catch). Because the bins are defined from response time while accuracy is
 measured separately, this avoids the circularity of deriving the difficulty axis
-and the accuracy curve from a single annotator. Human accuracy degrades gracefully
-with difficulty ($85\% \to 67\%$), confirming that these bins capture genuine
-ambiguity rather than effort alone. Models degrade more steeply: Gemini-3-Pro falls
-from $85\%$ to $56\%$, while Qwen3-VL remains near chance throughout. The
-human--model gap therefore \emph{widens} with difficulty: Gemini matches humans on
-the easiest examples but trails by 11--18 points on harder ones, indicating that
-models fail precisely where fine-grained spatial alignment is most required.
+and the accuracy curve from a single annotator. All groups degrade with
+difficulty, but at different rates: humans fall from $86\%$ to $66\%$,
+Gemini-3-Pro more steeply from $83\%$ to $50\%$, and Qwen3-VL from $41\%$ to
+$26\%$. The human--model gap therefore \emph{widens} with difficulty---Gemini
+nearly matches humans on the easiest tier but trails by $16$ points on the
+hardest---indicating that models fail precisely where fine-grained spatial
+alignment is most required.
 
 Taken together, these results suggest that model failures are driven not by
 geometry alone, but by an inability to exploit subtle, stable cues when visual
@@ -641,10 +622,11 @@ training and adaptive inference.
   \includegraphics[width=\linewidth]{figures/human_difficulty_decircular.png}
   \caption{
     \textbf{Accuracy vs.\ human-perceived difficulty (multi-annotator).}
-    Examples are partitioned into Easy/Medium/Hard tertiles by mean response time
-    across the engaged annotators who completed all 200 items; accuracy is then
-    measured separately, avoiding circularity. Humans degrade gracefully, while
-    Gemini-3-Pro degrades more steeply and Qwen3-VL is difficulty-blind.
+    Examples are partitioned into Easy/Medium/Hard tertiles by \emph{median}
+    response time across the engaged annotators who completed all 200 items;
+    accuracy is then measured separately, avoiding circularity. All groups degrade
+    with difficulty; Gemini-3-Pro degrades more steeply than humans, widening the
+    gap on the hardest examples.
   }
   \label{fig:accuracy-vs-human-time}
 \end{figure}
@@ -653,8 +635,8 @@ training and adaptive inference.
 \label{sec:analysis-model-behavior-vs-difficulty}
 
 We analyze how models modulate the length of their reasoning traces as a function
-of problem difficulty. As a proxy for difficulty, we use human annotation elapsed
-time, which correlates with structural ambiguity and symmetry.
+of problem difficulty. As the difficulty axis we reuse the same multi-annotator
+median-response-time tertiles as Figure~\ref{fig:accuracy-vs-human-time}.
 Trace length is measured as the approximate number of generated tokens in the
 model’s reasoning output.
 
@@ -665,22 +647,17 @@ We exclude GPT-5 from this analysis, as we observed that it does not reliably
 produce explicit reasoning traces and often responds with a direct answer only,
 making trace-length measurements inconsistent.
 
-Both Gemini~3~Pro and Qwen3-VL-235B (Thinking) exhibit a clear monotonic increase in
-trace length with difficulty, indicating that these models expand their reasoning
-as ambiguity increases.
-Interestingly, the base Qwen3-VL-8B Instruct model shows a similar trend, despite
-its substantially lower accuracy, suggesting that it retains sensitivity to
-problem difficulty even when it lacks the capacity to resolve it reliably.
+Gemini~3~Pro expands its reasoning on harder examples, increasing trace length
+monotonically across difficulty; Qwen3-VL-235B (Thinking) trends upward overall
+but less cleanly. The base Qwen3-VL-8B Instruct model produces long traces but
+without a consistent difficulty trend.
 
-In contrast, both the supervised fine-tuned Qwen3-VL-8B (SFT) model and the
-Qwen3-VL-8B (SFT+RL) model produce nearly constant-length traces across difficulty
-levels.
-This indicates that the loss of difficulty-adaptive reasoning emerges during the
-supervised fine-tuning stage and is not recovered through reinforcement learning,
-even though overall accuracy improves.
-Together, these results suggest that current adaptation pipelines primarily
-optimize for earlier commitment to salient cues rather than preserving flexible,
-difficulty-aware deliberation.
+In contrast, both the supervised fine-tuned Qwen3-VL-8B (SFT) and the
+Qwen3-VL-8B (SFT+RL) models produce \emph{markedly shorter and nearly
+constant-length} traces across difficulty levels. Adaptation thus compresses
+reasoning toward a short, fixed budget rather than preserving the
+difficulty-adaptive expansion exhibited by the strongest model, even though
+overall accuracy improves.
 
 Taken together, trace length modulation and task accuracy appear to be separable
 capabilities.
@@ -697,8 +674,9 @@ finer-grained spatial evidence.
   \includegraphics[width=\linewidth]{figures/trace_length_by_difficulty.png}
   \caption{
     \textbf{Reasoning trace length vs.\ difficulty.}
-    Average trace length (in tokens) as a function of difficulty, measured by
-    human annotation elapsed time.
+    Average trace length (in tokens) as a function of difficulty (multi-annotator
+    median-response-time tertiles, the same bins as
+    Figure~\ref{fig:accuracy-vs-human-time}).
     Gemini~3~Pro and Qwen3-VL-235B (Thinking) increase trace length on harder
     examples, while Qwen3-VL-8B models adapted via SFT and SFT+RL produce
     near-constant-length traces despite higher accuracy.

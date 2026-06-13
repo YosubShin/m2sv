@@ -160,18 +160,22 @@ save(fig, "difficulty_by_options")
 print("wrote difficulty_by_options")
 
 # ---- Fig 4: de-circularized difficulty by human RT tertiles ---------------
-# Difficulty = per-problem mean RT across the 3 engaged annotators who completed
-# all 200 (kappa>=0.5). Accuracy is then measured separately for humans/models,
-# so difficulty and the accuracy curve do not come from one annotator.
+# Difficulty = per-problem MEDIAN RT across the engaged annotators who completed
+# all 200 (median is robust to "idle with the tab focused" outliers, which the
+# visibility/blur detector cannot catch). Accuracy is measured separately for
+# humans/models, so difficulty and the accuracy curve are not from one annotator.
 ENG3 = [aid for aid in ENGAGED if completed[aid]]   # engaged full-completers
 prt, ha = {}, {}
 for pid in P:
     rts = [rtp[a][pid] for a in ENG3 if pid in rtp[a]]
     cors = [1 if ans[a][pid] == P[pid]["answer"] else 0 for a in ENG3 if pid in ans[a]]
     if rts:
-        prt[pid] = float(np.mean(rts)); ha[pid] = float(np.mean(cors))
+        prt[pid] = float(np.median(rts)); ha[pid] = float(np.mean(cors))
 order = sorted(prt, key=lambda p: prt[p]); t = len(order) // 3
 buckets = [("Easy", order[:t]), ("Medium", order[t:2*t]), ("Hard", order[2*t:])]
+# Single source of truth for difficulty bins (also consumed by plot_trace_length.py).
+(ROOT / "analysis/difficulty_bins.json").write_text(
+    json.dumps({pid: name for name, ids in buckets for pid in ids}))
 def macc(d, ids): return float(np.mean([1 if d.get(p) == P[p]["answer"] else 0 for p in ids]))
 H = [float(np.mean([ha[p] for p in ids])) for _, ids in buckets]
 G = [macc(GEM, ids) for _, ids in buckets]
@@ -192,37 +196,6 @@ ax.legend(fontsize=7, frameon=False, loc="lower left")
 save(fig, "human_difficulty_decircular")
 print(f"wrote human_difficulty_decircular  (H={[f'{h:.0%}' for h in H]} G={[f'{g:.0%}' for g in G]})")
 
-# ---- Fig 5: human RT vs symmetry, WITHIN 3-option (removes the #options confound) ----
-# 3 untied bins of S = max-gap/min-gap (Eq. in paper): Symmetric (S<2),
-# Intermediate (S=2), Asymmetric (S>2). The earlier across-#options quintiles were
-# confounded (symmetric == 4-way junctions) and arbitrarily sliced the S=2 ties.
-def gap_ratio(az):
-    az = sorted(a % 360.0 for a in az)
-    if len(az) < 2:
-        return None
-    gaps = [az[i + 1] - az[i] for i in range(len(az) - 1)] + [360.0 + az[0] - az[-1]]
-    return max(gaps) / min(gaps) if min(gaps) > 0 else None
-
-def sym_bin(pid):
-    s = gap_ratio(DATA["problems"][pid].get("azimuths", []))
-    return None if s is None else (0 if s < 2 else 1 if s < 2.01 else 2)
-
-three = [p for p in P if DATA["problems"][p]["n_options"] == 3 and p in prt and sym_bin(p) is not None]
-data = [[rtp[a][p] for p in three if sym_bin(p) == b for a in ENG3 if p in rtp[a]] for b in range(3)]
-fig, ax = plt.subplots(figsize=(4.6, 3.0))
-ax.boxplot(data, whis=[10, 90], showfliers=False, showmeans=True, widths=0.6,
-           patch_artist=True,
-           boxprops=dict(facecolor="#cfe0fb", edgecolor="#2e6fdb"),
-           medianprops=dict(color="#1f4e9b", lw=1.5),
-           whiskerprops=dict(color="#2e6fdb"), capprops=dict(color="#2e6fdb"),
-           meanprops=dict(marker="D", markerfacecolor="#e67e22",
-                          markeredgecolor="#e67e22", markersize=5))
-ax.set_xticklabels(["Symmetric\n(S<2)", "Intermediate\n(S=2)", "Asymmetric\n(S>2)"])
-ax.set_xlabel("Road-azimuth symmetry (3-option intersections)")
-ax.set_ylabel("Human response time (s)"); ax.set_ylim(0, 52)
-ax.set_title("Human time vs. symmetry (3-option)", fontsize=9)
-ax.plot([], [], color="#1f4e9b", lw=1.5, label="median")
-ax.plot([], [], marker="D", color="#e67e22", lw=0, label="mean")
-ax.legend(fontsize=7, frameon=False, loc="upper right")
-save(fig, "symmetry_vs_time_multi")
-print(f"wrote symmetry_vs_time_multi  (3-opt bin n: {[len(d) for d in data]})")
+# (Dropped) human RT vs symmetry: with robust per-problem medians the effect is
+# null (humans ~15s across all symmetry levels), so the paper states it in one
+# sentence and relies on the model symmetry figure (plot_symmetry_accuracy.py).

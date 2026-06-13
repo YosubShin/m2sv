@@ -1,3 +1,6 @@
+# /// script
+# dependencies = ["matplotlib"]
+# ///
 import csv
 import json
 import math
@@ -22,7 +25,7 @@ MODEL_SOURCES = [
 ]
 
 OUT_DIR = Path("analysis/plots")
-OUT_TRACE_BY_DIFFICULTY = OUT_DIR / "trace_length_by_difficulty.png"
+OUT_TRACE_BY_DIFFICULTY = Path("publications/icml2026/2026-01-28/figures/trace_length_by_difficulty.png")
 OUT_EARLY_COMMIT = OUT_DIR / "early_commitment_hard.png"
 
 
@@ -154,45 +157,34 @@ def _mean_and_sem(values):
 
 
 def main():
-    human_elapsed = _load_human_elapsed(HUMAN_PATH)
-    if not human_elapsed:
-        raise ValueError("No human elapsed times found.")
-
-    bucket_fn, cuts = _bucketize(list(human_elapsed.values()))
-    print("Difficulty cuts (elapsed seconds):", cuts)
+    # Use the SAME difficulty bins as Fig 7 (multi-annotator median RT), written by
+    # analysis/human_baseline_figs.py -- NOT the old single-expert manual.json.
+    bins_path = Path("analysis/difficulty_bins.json")
+    if not bins_path.exists():
+        raise SystemExit("Missing analysis/difficulty_bins.json; run "
+                         "analysis/human_baseline_figs.py first.")
+    bins = json.loads(bins_path.read_text())   # {id: "Easy"/"Medium"/"Hard"}
+    print(f"Loaded {len(bins)} shared difficulty bins")
 
     records = []
     for label, kind, path, raw_key in MODEL_SOURCES:
-        if kind == "json":
-            model = _load_model_json(path, raw_key)
-        elif kind == "csv":
-            model = _load_model_csv(path, raw_key)
-        else:
-            raise ValueError(f"Unknown model kind: {kind}")
-
-        for rid, elapsed in human_elapsed.items():
+        model = _load_model_json(path, raw_key) if kind == "json" else _load_model_csv(path, raw_key)
+        for rid, bucket in bins.items():
             if rid not in model:
                 continue
             raw = model[rid]["raw"]
             records.append({
-                "model": label,
-                "id": rid,
-                "elapsed": elapsed,
-                "bucket": bucket_fn(elapsed),
-                "tokens": _count_tokens(raw),
-                "correct": model[rid]["correct"],
+                "model": label, "id": rid, "bucket": bucket,
+                "tokens": _count_tokens(raw), "correct": model[rid]["correct"],
                 "commit_frac": _commit_fraction(raw),
             })
 
     if not records:
-        raise ValueError("No matched records between human annotations and model outputs.")
+        raise ValueError("No matched records between difficulty bins and model outputs.")
 
     # Plot 1: Trace length vs difficulty bucket.
     buckets = ["Easy", "Medium", "Hard"]
-    bucket_counts = {
-        b: sum(1 for elapsed in human_elapsed.values() if bucket_fn(elapsed) == b)
-        for b in buckets
-    }
+    bucket_counts = {b: sum(1 for v in bins.values() if v == b) for b in buckets}
     models = [m[0] for m in MODEL_SOURCES]
     colors = ["#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E"]
 
@@ -212,7 +204,7 @@ def main():
 
     ax1.set_xticks(x)
     ax1.set_xticklabels([f"{b}\n(n={bucket_counts[b]})" for b in buckets])
-    ax1.set_xlabel("Difficulty bucket (human elapsed time)")
+    ax1.set_xlabel("Difficulty bucket (human median RT, multi-annotator)")
     ax1.set_ylabel("Approx. trace tokens")
     ax1.set_title("Trace length vs. difficulty")
     ax1.legend(frameon=False, fontsize=9)
