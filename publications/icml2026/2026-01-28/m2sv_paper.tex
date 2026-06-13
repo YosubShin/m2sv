@@ -523,6 +523,24 @@ azimuths (e.g., four-way junctions) are geometrically symmetric, while those wit
 highly uneven spacing exhibit a dominant road direction and are structurally
 asymmetric.
 
+Concretely, let $\theta_1 \le \cdots \le \theta_K$ be the $K$ candidate azimuths
+(in degrees) sorted on the circle, and define the $K$ consecutive angular gaps
+\begin{equation}
+  g_i = \theta_{i+1} - \theta_i \;\; (1 \le i < K), \qquad
+  g_K = 360^\circ + \theta_1 - \theta_K ,
+\end{equation}
+where $g_K$ is the wrap-around gap. We define the \emph{road-azimuth symmetry} of
+an intersection as the ratio of its largest to smallest gap,
+\begin{equation}
+  S \;=\; \frac{\max_i g_i}{\min_i g_i} \;\ge\; 1 .
+  \label{eq:symmetry}
+\end{equation}
+A regular intersection with evenly spaced rays has $S = 1$ (maximally symmetric),
+whereas a dominant-road layout containing one large gap has $S \gg 1$
+(asymmetric). We partition examples into quintiles of $S$, with $Q1$ the most
+symmetric ($S \approx 1$) and $Q5$ the most asymmetric, computing quintile
+boundaries within each model's evaluated subset to respect differing $N$.
+
 Figure~\ref{fig:accuracy-vs-symmetry} shows model accuracy as a function of azimuth
 symmetry quantiles, with Q1 denoting the most symmetric and Q5 the most asymmetric
 examples. Across both open and proprietary models, accuracy does not decrease
