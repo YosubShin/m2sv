@@ -1,0 +1,889 @@
+%%%%%%%% ICML 2026 EXAMPLE LATEX SUBMISSION FILE %%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{dblfloatfix}
+\usepackage{placeins}
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage{icml2026}
+
+\icmltitlerunning{m2sv: Map-to-Street-View Spatial Reasoning Benchmark}
+
+\begin{document}
+
+\twocolumn[
+\icmltitle{m2sv: A Scalable Benchmark for Map-to-Street-View Spatial Reasoning}
+
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+  \icmlauthor{Yosub Shin}{uhm}
+  \icmlauthor{Michael Buriek}{uhm,pwc}
+  \icmlauthor{Igor Molybog}{uhm}
+  \end{icmlauthorlist}
+  
+  \icmlaffiliation{uhm}{University of Hawai'i at M\=anoa, Honolulu, HI, USA}
+  \icmlaffiliation{pwc}{PwC, USA}
+  
+  \icmlcorrespondingauthor{Yosub Shin}{yosubs@hawaii.edu}
+  
+  \icmlkeywords{vision-language models, spatial reasoning, geospatial understanding, multimodal benchmarks, map-to-image alignment, grounded reasoning}
+
+\vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+% ===============================================================
+\begin{abstract}
+Vision--language models (VLMs) achieve strong performance on many multimodal
+benchmarks but remain brittle on spatial reasoning tasks that require aligning
+abstract overhead representations with egocentric views. We introduce
+\textbf{m2sv}, a scalable benchmark for map-to-street-view spatial reasoning that
+asks models to infer camera viewing direction by aligning a north-up overhead map
+with a Street View image captured at the same real-world intersection.
+We release \textbf{m2sv-20k}, a geographically diverse benchmark with controlled
+ambiguity, along with \textbf{m2sv-sft-11k}, a curated set of structured reasoning
+traces for supervised fine-tuning.
+
+Despite strong performance on existing multimodal benchmarks, the best evaluated
+VLM achieves only 65.2\% accuracy on m2sv, far below the human baseline of 95\%.
+While supervised fine-tuning and reinforcement learning yield consistent gains,
+cross-benchmark evaluations reveal limited transfer.
+Beyond aggregate accuracy, we systematically analyze \emph{difficulty} in
+map-to-street-view reasoning using both structural signals and human effort, and
+conduct an extensive failure analysis of adapted open models. Our findings
+highlight persistent gaps in geometric alignment, evidence aggregation, and
+reasoning consistency, motivating future work on grounded spatial reasoning
+across viewpoints.
+\end{abstract}
+
+% ===============================================================
+\begin{figure*}[!t]
+  \centering
+  \begin{minipage}[t]{0.28\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{subfigure}[t]{\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/sample-question-1-map.jpg}
+      \caption{North-up overhead map with labeled candidate directions.}
+      \label{fig:m2sv-example-map}
+    \end{subfigure}
+
+    \vspace{0.5em}
+    \begin{subfigure}[t]{\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/sample-question-1-sv.jpg}
+      \caption{Street View image captured at the same intersection.}
+      \label{fig:m2sv-example-sv}
+    \end{subfigure}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.71\linewidth}
+    \vspace{0pt}
+    \footnotesize
+    \begin{tabular}{p{0.96\linewidth}}
+      \toprule
+      \textbf{Question} \\
+      Which labeled direction on the map corresponds to the direction in which the street view photo was taken? Options: A, B, C, D. \\
+      \midrule
+      \textbf{Generated trace (Gemini-2.5-Pro)} \\
+      \textbf{Step 1: Analyze the street-view photo.} The photo is taken from the center of an intersection, looking straight ahead. On the immediate right is a very tall, light-colored (white or beige) apartment or office building. \\
+      It runs along the street from the corner onwards. On the immediate left is a fenced-off open area, which looks like a park or a sports field. \\
+      There are trees lining the sidewalk. \\
+      In the distance, further down the road, at least two prominent skyscrapers are visible. The road itself is a multi-lane street. \\
+      \textbf{Step 2: Analyze the overhead map and evaluate each option.} The camera is at the central intersection. \\
+      Option A (looking East): To the right (south) is a large white building. To the left (north) is another large white building. This does not match the photo, which has a park/field on the left. \\
+      Option B (looking South): To the right (west) is a large white building. To the left (east) is another large white building. This does not match the photo. \\
+      Option C (looking West): To the right (north) is a large green area with a baseball field. To the left (south) is a large white building. This is the opposite of the street view (building on the right, park on the left). \\
+      Option D (looking North): To the right (east) is a long, rectangular, light-colored building located right at the corner. To the left (west) is a large green area containing a baseball field. This arrangement perfectly matches the street-view photo. \\
+      \textbf{Step 3: Conclude the comparison.} Direction D is the only view from the intersection that has a large park/baseball field on the left and a tall, long building on the right. Final answer: \textbackslash boxed\{D\}. \\
+      \midrule
+      \textbf{Ground truth} \\
+      D \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+
+  \caption{Illustrative m2sv example with paired images and a model-generated
+  reasoning trace. The model correctly infers the viewing direction by aligning
+  stable map geometry with the Street View image.}
+  \label{fig:m2sv-example}
+\end{figure*}
+
+\section{Introduction}
+
+Vision--language models have demonstrated impressive capabilities in object
+recognition, diagram understanding, and text-heavy multimodal reasoning.
+However, they continue to struggle with tasks that require consistent spatial
+grounding across viewpoints. In particular, aligning abstract overhead
+representations such as maps with egocentric, ground-level imagery remains a
+fundamental challenge. This capability is essential for applications in
+navigation, robotics, and embodied assistants, yet is weakly represented in
+current evaluation benchmarks.
+
+Most existing multimodal reasoning benchmarks emphasize synthetic diagrams,
+charts, or carefully curated visual puzzles where geometry is simplified or
+explicitly annotated. Real-world spatial reasoning is substantially harder: it
+requires coping with viewpoint changes, partial observability, temporal mismatch
+between data sources, and ambiguity arising from repeated or symmetric structures.
+As a result, current benchmarks may overestimate spatial competence by avoiding
+the alignment of disparate viewpoints. We reserve a deeper discussion of related
+work and background for Appendix~\ref{sec:background}.
+
+In this work, we introduce \textbf{m2sv} (map-to-street-view), a benchmark designed
+to isolate a core spatial reasoning primitive: inferring camera viewing direction
+by aligning a north-up overhead map with a Street View image captured at the same
+real-world intersection (Figure~\ref{fig:m2sv-example}). Each example requires
+models to reason about road topology, intersection geometry, and stable landmarks,
+while ignoring transient or unreliable cues such as vehicles, lighting, or
+pedestrians. By grounding questions in real-world imagery and geometry, m2sv
+exposes failure modes that are largely hidden in synthetic or single-view tasks.
+
+Beyond serving as a benchmark, m2sv enables a systematic study of \emph{difficulty}
+in spatial reasoning. Because intersection geometry and candidate directions are
+known a priori, we can define scalable structural difficulty signals such as the
+number of candidate directions and angular symmetry. We complement these with
+human response-time measurements, allowing us to distinguish between structural
+ambiguity and human-perceived difficulty. This dual view reveals that even
+moderate geometric ambiguity induces sharp performance drops in models, while
+humans remain near ceiling.
+
+Finally, we perform an extensive failure analysis of our best adapted open model,
+going beyond aggregate accuracy to identify recurring
+breakdowns such as egocentric--allocentric confusion, symmetry traps, unreliable
+cue reliance, and internal reasoning inconsistencies.
+
+Our contributions are:
+\begin{itemize}
+  \item A fully automated pipeline for constructing large-scale map-to-street-view
+  spatial reasoning benchmarks, including image data sourcing, candidate response
+  generation, and labeling tools.
+  \item \textbf{m2sv-20k}, a geographically diverse benchmark with controlled
+  ambiguity and statistically reliable evaluation, and \textbf{m2sv-sft-11k}, a
+  curated set of structured reasoning traces for supervised fine-tuning.
+  \item A systematic characterization of \textbf{difficulty in spatial reasoning},
+  combining structural signals (e.g., number of candidate directions and angular
+  symmetry) with human effort and model behavior (Section~\ref{sec:analysis-difficulty}).
+  \item An extensive evaluation and \textbf{failure mode analysis}, identifying
+  recurring breakdowns such as egocentric--allocentric confusion, symmetry traps,
+  unreliable cue reliance, and internal reasoning inconsistencies
+  (Section~\ref{sec:failure-analysis}).
+\end{itemize}
+
+% ===============================================================
+\section{Benchmark Design}
+
+Each m2sv example consists of two images: (1) a north-up overhead map centered at
+a real-world intersection, annotated with labeled directional rays, and (2) a
+Street View image captured near the same intersection and oriented along one of
+those rays. The task is to identify which labeled direction corresponds to the
+Street View camera orientation.
+
+The number of candidate directions per example ranges from 2 to 7, with a median
+of 3 (mean: 3.24). Accordingly, the random-guess baseline is approximately
+31.4\%. Accuracy is measured over multiple-choice labels.
+
+
+
+% ===============================================================
+\section{Dataset and Blueprint Pipeline}
+
+\subsection{Blueprint specification}
+
+We decouple dataset specification from image rendering by releasing blueprint
+metadata that records intersection coordinates, candidate azimuths, correct
+labels, and Street View panorama identifiers. Images are rendered on demand using
+a standardized pipeline, enabling deterministic reconstruction of the dataset.
+
+\subsection{Sampling and filtering}
+
+Intersections are sampled from a seed list of major metropolitan areas worldwide
+to encourage broad geographic coverage. The sampling pipeline itself is
+city-agnostic and can be readily extended to additional regions by modifying the
+city list.
+
+To control ambiguity and ensure fair evaluation, we apply several filtering
+criteria. Street View panoramas are restricted to within 5 m of the intersection
+center, resulting in a tightly controlled offset distribution (median: 2.05 m;
+95th percentile: 4.51 m). We further enforce a minimum angular separation of 15°
+between candidate azimuths to exclude near-collinear road configurations that are
+difficult even for humans to disambiguate.
+
+\subsection{Dataset statistics}
+
+m2sv-20k contains 20,000 examples (10k train, 10k validation) spanning 32 cities across multiple continents.
+Per-city caps prevent over-representation of dense urban areas. The number of
+candidate directions per example ranges from 2 to 7 (min: 2, max: 7, mean: 3.24,
+median: 3). Table~\ref{tab:dataset-stats} in the appendix reports additional statistics.
+
+
+\subsection{Reasoning traces}
+
+We curate \textbf{m2sv-sft-11k}, a subset of 11,000 examples annotated with
+structured reasoning traces generated by Gemini-2.5-Pro. Traces explicitly
+compare map geometry and Street View imagery and terminate in a boxed final
+answer. Fine-tuning on all traces slightly underperformed, so we filter to
+correct traces only, yielding 4.4k examples total (4.37k train, 485 validation).
+These traces are used exclusively for supervised fine-tuning experiments.
+
+% ===============================================================
+\section{Experimental Setup}
+
+We evaluate a range of proprietary and open-source VLMs using a standardized
+prompt that describes the task and instructs models to ignore transient visual
+elements. Accuracy and 95\% confidence intervals are reported.
+
+We fine-tune from Qwen3-VL-8B-Instruct using LoRA for both SFT and RL. SFT uses
+the filtered correct-trace subset (4.4k) and LoRA improves accuracy by 1.2\%
+over full-parameter SFT. We train with LR 2e-4, cosine schedule with 0.03 warmup
+ratio, batch size 4, and early stopping at 2.3 epochs (max 4), using 1xH200 for
+about 2 hours. RL starts from the SFT checkpoint and uses LoRA with LR 2e-5,
+generation\_batch\_size 64, per\_device\_train\_batch\_size 16, and gradient\_accumulation\_steps 16,
+trained on 2xH200 for about 36 hours; we report results from the step-550
+checkpoint.
+
+% TODO: Move prompt template and full hyperparameters to appendix.
+
+% ===============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Zero-shot baselines and the human performance gap}
+\label{sec:results-zeroshot}
+
+We begin by establishing zero-shot baselines and the human performance ceiling on
+m2sv. Table~\ref{tab:m2sv-baselines} reports accuracy for a range of proprietary
+and open vision--language models evaluated without task-specific adaptation,
+alongside a random baseline and human performance measured on a 200-example
+subset.
+
+\begin{table}[t]
+  \centering
+  \caption{Zero-shot baseline performance on m2sv with 95\% confidence intervals.}
+  \label{tab:m2sv-baselines}
+  \begin{tabular}{l r r}
+    \toprule
+    Model & N & Accuracy (\%) \\
+    \midrule
+    Gemini-3-Pro & 1k & 65.2 $\pm$ 3.0 \\
+    GPT-5 & 1k & 57.2 $\pm$ 3.1 \\
+    Gemini-2.5-Pro & 1k & 47.2 $\pm$ 3.1 \\
+    \midrule
+    Qwen3-VL-8B-Instruct & 1k & 35.5 $\pm$ 3.0 \\
+    Qwen3-VL-235B-A22B-Thinking & 1k & 42.7 $\pm$ 3.1 \\
+    \midrule
+    Random baseline & 1k & 31.4 $\pm$ 2.9 \\
+    Human baseline & 200 & 95.0 $\pm$ 3.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Human accuracy reaches 95\%, establishing a clear upper bound on task difficulty
+and confirming that m2sv is reliably solvable by people despite real-world visual
+noise and temporal mismatch. In contrast, even the strongest proprietary model
+(Gemini-3-Pro) falls more than 30 points below human performance, while most open
+models operate only marginally above the random baseline. This large and
+consistent gap indicates that zero-shot pretrained VLMs lack robust mechanisms
+for aligning overhead maps with egocentric street-level views.
+
+\subsection{Adaptation baselines on m2sv}
+\label{sec:results-adaptation}
+
+We next evaluate whether task-specific adaptation can mitigate this gap.
+Table~\ref{tab:m2sv-main-results} reports results for Qwen3-VL-8B under three
+training regimes: the base model, supervised fine-tuning (SFT) on m2sv reasoning
+traces, and reinforcement learning (RL) applied on top of SFT.
+
+\begin{table}[t]
+  \centering
+  \caption{Adaptation results on m2sv-20k (10k validation).}
+  \label{tab:m2sv-main-results}
+  \begin{tabular}{l l r}
+    \toprule
+    Model & Training & Accuracy (\%) \\
+    \midrule
+    Qwen3-VL-8B & Base & 34.3 $\pm$ 0.9 \\
+    Qwen3-VL-8B & SFT & 39.8 $\pm$ 1.0 \\
+    Qwen3-VL-8B & SFT+RL & 43.9 $\pm$ 1.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Supervised fine-tuning yields a consistent improvement over the base model, and
+reinforcement learning provides an additional gain of approximately four points.
+These results demonstrate that m2sv-specific supervision teaches useful task
+structure and improves decision consistency. However, even after SFT and RL,
+performance remains more than 50 points below the human ceiling, indicating that
+adaptation alone does not close the gap in spatial alignment capability.
+
+\subsection{Cross-benchmark transfer}
+\label{sec:results-transfer}
+
+To assess whether improvements on m2sv reflect more general spatial reasoning
+abilities, we evaluate m2sv-trained models on established multimodal benchmarks.
+Table~\ref{tab:transfer} in the appendix reports performance on a subset of commonly used
+benchmarks for Qwen3-VL-8B variants.
+
+
+
+Transfer results are mixed and do not show consistent improvements across
+benchmarks. Some metrics improve under SFT or SFT+RL, while others degrade or
+remain unchanged. This sensitivity suggests that gains on m2sv do not reliably
+translate into broader multimodal reasoning improvements, and may instead reflect
+benchmark-specific adaptations.
+
+\subsection{Asymmetric transfer with MindCube}
+\label{sec:results-mindcube}
+
+To further probe transferability, we conduct a focused evaluation on the MindCube
+suite, which also targets spatial reasoning but differs in input structure and
+output format. Table~\ref{tab:m2sv-generalization} in the appendix reports performance under
+multiple prompting configurations for Qwen3-VL-8B variants.
+
+
+m2sv-trained models occasionally outperform the base model on MindCube, but gains
+are highly sensitive to prompting format and are largest in \emph{direct answer}
+settings. When explicit reasoning traces are requested, the base model matches or
+exceeds the adapted variants. Conversely, models trained on MindCube perform near
+random on m2sv, indicating asymmetric and
+limited transfer.
+
+Together, these results suggest that current fine-tuning pipelines induce
+benchmark-specific reasoning policies rather than transferable spatial
+representations, despite surface-level similarity between tasks.
+
+% ===============================================================
+\section{Measuring Difficulty in Map-to-Street-View Reasoning}
+\label{sec:analysis-difficulty}
+
+A central challenge in evaluating spatial reasoning is defining what makes an
+example \emph{difficult}. In the map-to-street-view task, difficulty does not arise
+from a single factor but from an interaction between intersection geometry and
+fine-grained visual confusability across candidate directions. We therefore
+distinguish between two complementary notions of difficulty:
+\emph{structural difficulty}, which is automatically measurable and scalable, and
+\emph{human-perceived difficulty}, which reflects the cognitive effort required to
+resolve subtle spatial ambiguities. We reflect on the backgroung of vision-language spatial reasoning difficulty analysis in Appendix~\ref{sec:prior-difficulty}.
+
+Structural measures are attractive for large-scale dataset analysis and potential
+curriculum learning, but they are necessarily coarse. Human-perceived difficulty,
+while expensive to obtain, provides a diagnostic signal that captures visual and
+semantic factors beyond geometry. We analyze both to characterize where current
+vision--language models succeed and where they fail.
+
+\subsection{Structural difficulty signals}
+\label{sec:analysis-difficulty-structural-signals}
+
+
+\subsubsection{Structural Difficulty via Number of Candidate Directions}
+\label{sec:analysis-options}
+
+We analyze difficulty through a structural lens using the number of candidate
+directions (\#options) provided in each question. This quantity is derived
+directly from intersection geometry and is available for every example without
+human annotation, making it a scalable proxy for geometric ambiguity and a
+natural signal for dataset filtering or curriculum learning.
+
+A direct comparison of raw accuracy across different values of \#options is
+confounded by varying chance levels (e.g., $0.5$ for two options vs.\ $0.25$ for
+four options). To account for this, we report \emph{chance-normalized accuracy
+gain}, defined as $(a - c)/(1 - c)$, where $a$ is model accuracy and
+$c = 1/K$ is the chance accuracy for $K$ options. This normalization measures how
+much useful signal a model extracts beyond random guessing.
+
+Figure~\ref{fig:accuracy-vs-options} reports chance-normalized performance as a
+function of the number of options (2, 3, and 4) for our best open model
+(Qwen3-VL-8B SFT+RL) evaluated on the full 10k validation set, and for two strong
+proprietary models evaluated on a 1k subset. This enables a statistically stable,
+large-scale analysis of structural difficulty.
+
+Across all models, normalized performance does \emph{not} degrade monotonically
+with the number of options. Instead, three-option intersections yield the highest
+normalized gains, outperforming both two- and four-option cases. This pattern is
+consistent across open and proprietary systems and reflects the role of
+geometric asymmetry: three-way intersections are often T-junctions with
+distinctive spatial layouts, whereas two- and four-way intersections are more
+likely to be symmetric and thus ambiguous.
+
+These results demonstrate that the number of candidate directions alone is an
+incomplete measure of structural difficulty. Intersection cardinality interacts
+with geometric symmetry, and higher difficulty arises not simply from having
+more choices, but from the absence of asymmetry that can break directional
+ambiguity. This motivates the finer-grained structural and perceptual difficulty
+analyses that follow.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/options_accuracy_normalized.png}
+  \caption{
+    \textbf{Chance-normalized accuracy vs.\ structural difficulty.}
+    Accuracy normalized by chance level as a function of the number of candidate
+    directions (\#options).
+    Qwen3-VL-8B (SFT+RL) is evaluated on the full 10k validation set, while
+    Gemini~3~Pro and GPT-5 are evaluated on a 1k subset.
+    Three-option intersections yield the highest normalized gains across models,
+    reflecting the benefit of geometric asymmetry.
+    Error bars denote 95\% binomial confidence intervals.
+  }
+  \label{fig:accuracy-vs-options}
+\end{figure}
+
+\subsubsection{Structural Ambiguity via Road-Azimuth Symmetry}
+\label{sec:analysis-symmetry}
+
+The number of options captures how many candidate directions are present, but not
+how \emph{interchangeable} those directions are. To refine the notion of
+structural difficulty, we introduce a road-azimuth symmetry measure based on the
+angular spacing between candidate directions. Intersections with evenly spaced
+azimuths (e.g., four-way junctions) are geometrically symmetric, while those with
+highly uneven spacing exhibit a dominant road direction and are structurally
+asymmetric.
+
+Figure~\ref{fig:accuracy-vs-symmetry} shows model accuracy as a function of azimuth
+symmetry quantiles, with Q1 denoting the most symmetric and Q5 the most asymmetric
+examples. Across both open and proprietary models, accuracy does not decrease
+monotonically with symmetry. Instead, performance peaks at intermediate symmetry
+levels and declines slightly for both highly symmetric and highly asymmetric
+cases.
+
+This non-monotonic trend indicates that azimuth symmetry is a necessary but
+insufficient explanation for difficulty. While structural asymmetry collapses the
+hypothesis space for humans—making these cases uniformly easy—it does not
+guarantee high model performance. Conversely, highly symmetric intersections
+enable difficult cases but do not make them uniformly hard.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/symmetry_accuracy.png}
+  \caption{
+    \textbf{Accuracy vs.\ road-azimuth symmetry.}
+    Model accuracy as a function of azimuth symmetry quantiles (Q1 = most
+    symmetric, Q5 = most asymmetric).
+    Structural symmetry alone does not predict difficulty: accuracy peaks at
+    intermediate symmetry levels and degrades in both highly symmetric and highly
+    asymmetric regimes.
+    Error bars denote 95\% binomial confidence intervals.
+  }
+  \label{fig:accuracy-vs-symmetry}
+\end{figure}
+
+\subsection{Human effort as a difficulty proxy}
+\label{sec:analysis-human-time}
+
+Structural measures do not capture visual confusability between candidate
+directions, which often determines whether fine-grained spatial alignment is
+required. To probe these effects directly, we analyze difficulty as perceived by a
+human annotator, using response time as a proxy for cognitive effort.
+
+During manual evaluation on a 200-example analysis subset, we record the elapsed
+time required for a human to answer each question. Figure~\ref{fig:human-time-vs-symmetry}
+plots human response time as a function of azimuth symmetry. While highly
+asymmetric intersections are consistently easy for humans, symmetric
+intersections exhibit a wide spread of response times, ranging from trivially
+easy to extremely challenging. This demonstrates that structural symmetry defines
+an \emph{upper bound} on difficulty but does not determine the realized difficulty
+of an example.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/symmetry_vs_time.png}
+  \caption{
+    \textbf{Human response time vs.\ road-azimuth symmetry.}
+    Each point denotes a single example from the 200-example analysis subset.
+    Highly symmetric intersections exhibit a wide range of difficulty, while
+    asymmetric intersections are uniformly easy for humans.
+  }
+  \label{fig:human-time-vs-symmetry}
+\end{figure}
+
+Finally, Figure~\ref{fig:accuracy-vs-human-time} shows accuracy as a function of
+human-perceived difficulty, defined by tertiles of response time. Humans maintain
+near-ceiling performance across all buckets, with only a modest drop on the
+hardest examples, indicating that longer response times reflect increased effort
+rather than intrinsic ambiguity. In contrast, all evaluated models degrade sharply
+with increasing difficulty and approach chance-level performance on the hardest
+examples.
+
+Taken together, these results suggest that model failures are driven not by
+geometry alone, but by an inability to exploit subtle, stable cues when visual
+ambiguity remains high. While structural asymmetry allows humans to shortcut the
+alignment process, current vision--language models do not reliably adapt their
+inference strategy to difficulty, motivating future work on difficulty-aware
+training and adaptive inference.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/time_difficulty_accuracy.png}
+  \caption{
+    \textbf{Accuracy vs.\ human-perceived difficulty.}
+    Accuracy as a function of difficulty defined by human response time.
+    Examples are partitioned into Easy, Medium, and Hard buckets by response-time
+    tertiles.
+    Error bars indicate 95\% binomial confidence intervals.
+  }
+  \label{fig:accuracy-vs-human-time}
+\end{figure}
+
+\subsection{Model behavior vs. difficulty}
+\label{sec:analysis-model-behavior-vs-difficulty}
+
+We analyze how models modulate the length of their reasoning traces as a function
+of problem difficulty. As a proxy for difficulty, we use human annotation elapsed
+time, which correlates with structural ambiguity and symmetry.
+Trace length is measured as the approximate number of generated tokens in the
+model’s reasoning output.
+
+Figure~\ref{fig:trace-length-vs-difficulty} reports average trace length across
+difficulty buckets (easy, medium, hard) for proprietary models and multiple
+variants of Qwen3-VL.
+We exclude GPT-5 from this analysis, as we observed that it does not reliably
+produce explicit reasoning traces and often responds with a direct answer only,
+making trace-length measurements inconsistent.
+
+Both Gemini~3~Pro and Qwen3-VL-235B (Thinking) exhibit a clear monotonic increase in
+trace length with difficulty, indicating that these models expand their reasoning
+as ambiguity increases.
+Interestingly, the base Qwen3-VL-8B Instruct model shows a similar trend, despite
+its substantially lower accuracy, suggesting that it retains sensitivity to
+problem difficulty even when it lacks the capacity to resolve it reliably.
+
+In contrast, both the supervised fine-tuned Qwen3-VL-8B (SFT) model and the
+Qwen3-VL-8B (SFT+RL) model produce nearly constant-length traces across difficulty
+levels.
+This indicates that the loss of difficulty-adaptive reasoning emerges during the
+supervised fine-tuning stage and is not recovered through reinforcement learning,
+even though overall accuracy improves.
+Together, these results suggest that current adaptation pipelines primarily
+optimize for earlier commitment to salient cues rather than preserving flexible,
+difficulty-aware deliberation.
+
+Taken together, trace length modulation and task accuracy appear to be separable
+capabilities.
+Stronger proprietary models retain both difficulty awareness and effective
+multi-cue integration, while adapted open models achieve higher accuracy at the
+cost of reduced adaptive reasoning depth.
+This behavior aligns with the failure modes identified in
+Section~\ref{sec:failure-analysis}, where adapted models often commit prematurely
+under symmetry or rely on a single dominant feature instead of escalating to
+finer-grained spatial evidence.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/trace_length_by_difficulty.png}
+  \caption{
+    \textbf{Reasoning trace length vs.\ difficulty.}
+    Average trace length (in tokens) as a function of difficulty, measured by
+    human annotation elapsed time.
+    Gemini~3~Pro and Qwen3-VL-235B (Thinking) increase trace length on harder
+    examples, while Qwen3-VL-8B models adapted via SFT and SFT+RL produce
+    near-constant-length traces despite higher accuracy.
+    Error bars denote standard error of the mean.
+  }
+  \label{fig:trace-length-vs-difficulty}
+\end{figure}
+
+\section{Failure Mode Analysis}
+\label{sec:failure-analysis}
+
+To better understand why current vision--language models fail on m2sv despite
+strong zero-shot performance on other multimodal benchmarks, we conduct a
+qualitative failure analysis on a subset of challenging examples. Rather than
+attempting an exhaustive taxonomy, we focus on a small number of recurring
+failure patterns that consistently appear across models and difficulty regimes.
+
+Importantly, these failures do not reflect fundamentally unsolvable cases: human
+annotators are able to solve nearly all examples, often by investing additional
+effort and exploiting subtle but stable spatial cues. Model errors instead arise
+from brittle alignment strategies and inappropriate reliance on unreliable visual
+evidence.
+
+Below, we summarize common failure modes observed in both open and
+proprietary models, illustrated with representative examples.
+
+\begin{figure*}[t]
+  \centering
+  \renewcommand{\arraystretch}{1.15}
+  
+  % ================= Row (a) =================
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-0-map.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-0-sv.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.50\linewidth}
+      \vspace{0pt}
+      \fbox{
+        \begin{minipage}[t]{\linewidth}
+        \footnotesize
+        \textbf{Ground truth:} A, \textbf{Prediction:} C
+        \medskip
+
+        \textbf{Model trace (excerpt):}
+  
+        Looking from the center towards A, the road curves to the right. This contradicts the left curve seen in the photo.
+  
+        \medskip
+        \textbf{Failure:}
+        Egocentric--allocentric left/right inversion: Overhead map shows a left curve, but model reasons as if it were a right curve.
+        \end{minipage}
+      }
+    \end{minipage}
+  
+    \vspace{0.4em}
+    \centering
+    {\small\textbf{(a) Egocentric--allocentric confusion (left--right inversion)}}
+  \end{minipage}
+  
+  \vspace{0.8em}
+  
+  % ================= Row (b) =================
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-1-map.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-1-sv.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.50\linewidth}
+      \vspace{0pt}
+      \fbox{
+        \begin{minipage}[t]{\linewidth}
+        \footnotesize
+        \textbf{Ground truth:} B, \textbf{Prediction:} D
+        \medskip
+
+        \textbf{Model trace (excerpt):}
+  
+        Looking south from the center, the buildings on both corners appear to have gray roofs. There is no prominent reddish-orange house on the left corner as seen in the photo.
+Therefore, B is incorrect.
+  
+        \medskip
+        \textbf{Failure:}
+        The Street View angle of the roof is shallow, and the roof color is lighting-dependent.
+        Humans would discount this cue.
+
+        \end{minipage}
+      }
+    \end{minipage}
+  
+    \vspace{0.4em}
+    \centering
+    {\small\textbf{(b) Over-reliance on unreliable visual cues}}
+  \end{minipage}
+
+  \vspace{0.8em}
+  
+  % ================= Row (c) =================
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-5-map.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.24\linewidth}
+      \centering
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{figures/failure-mode-5-sv.jpg}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.50\linewidth}
+      \vspace{0pt}
+      \fbox{
+        \begin{minipage}[t]{\linewidth}
+        \footnotesize
+        \textbf{Ground truth:} A, \textbf{Prediction:} B
+        \medskip
+
+        \textbf{Model trace (excerpt):}
+  
+        Facing direction A (east), we look down a relatively straight road.
+        To the immediate left (north) of this view is a corner lot. The house on this corner has a large swimming pool in its backyard. This does not match the houses seen in the street view, which do not have prominent pools immediately adjacent to the road like this one does.
+  
+        \medskip
+        \textbf{Failure:}
+        The corner house does not have a pool, but a pool exists two houses down.
+        The model misattributes a nearby landmark to the wrong spatial anchor.
+        \end{minipage}
+      }
+    \end{minipage}
+  
+    \vspace{0.4em}
+    \centering
+    {\small\textbf{(c) Landmark misbinding}}
+  \end{minipage}
+
+  
+  \caption{
+  \textbf{Representative qualitative failure modes on m2sv.}
+  Each row shows the same map--street-view pair with a different erroneous reasoning
+  pattern exhibited by the model. From left to right: overhead map with candidate
+  directions, corresponding street-view image, and an excerpt from the model’s
+  reasoning trace highlighting the incorrect assumption. All examples are correctly
+  solved by human annotators.
+  }
+  \label{fig:failure-examples}
+  \end{figure*}
+
+\paragraph{Egocentric--allocentric confusion (left--right inversion).}
+Models frequently misinterpret the relationship between egocentric directions in
+the street-view image and allocentric directions on the overhead map. This often
+manifests as left--right inversions, where a correct identification of landmarks
+is followed by an incorrect mapping to map orientation, particularly at
+four-way intersections (Fig.~\ref{fig:failure-examples}a).
+
+\paragraph{Over-reliance on unreliable cues.}
+In many failures, models base eliminations on visually salient but unstable cues
+such as roof color, shadows, lighting conditions, or image blur. These cues are
+often weakly or not at all represented in overhead imagery and can vary
+substantially with capture time, leading to confident but incorrect conclusions
+(Fig.~\ref{fig:failure-examples}b).
+
+\paragraph{Landmark misbinding.}
+Models sometimes correctly identify salient landmarks in the overhead view but
+misassociate them with the wrong candidate direction or parcel. For example, a
+swimming pool visible several houses away may be incorrectly attributed to the
+immediate intersection, leading to erroneous eliminations. This suggests limited
+precision in spatial binding between landmarks and their local context
+(Fig.~\ref{fig:failure-examples}c).
+
+\paragraph{False landmark projection.}
+In other cases, models introduce landmarks that are not present within the local
+intersection context, such as distant structures or perspective-induced artifacts.
+These projected landmarks are then treated as decisive evidence, despite lacking
+support in the overhead map, indicating weak control over spatial scope and
+relevance (Fig.~\ref{fig:failure-examples-appendix}d).
+
+\paragraph{Failure to maintain a consistent spatial representation.}
+In some failures, models do not maintain globally consistent spatial properties
+across options, treating shared structures as independent entities. This can
+manifest as assigning different road widths, lane counts, or landmark layouts to
+opposite headings of the same road, or contradicting earlier correct spatial
+descriptions during later reasoning. These errors suggest that models evaluate
+options in isolation rather than constructing and enforcing a coherent global
+spatial model (Fig.~\ref{fig:failure-examples-appendix}a).
+
+\paragraph{Internal contradiction and state inconsistency.}
+In some failures, models correctly identify spatial relationships or landmark
+configurations, but subsequently contradict themselves while reasoning or
+verbalizing the solution. These errors are characterized by internally
+inconsistent statements (e.g., asserting a correct left--right relation and then
+rejecting it), even though the underlying spatial alignment is correct. Unlike
+egocentric--allocentric confusion, these failures arise from an inability to
+maintain and consistently apply inferred spatial commitments across reasoning
+steps (Fig.~\ref{fig:failure-examples-appendix}b).
+
+\paragraph{Symmetry traps and insufficient cue escalation.}
+At symmetric or near-symmetric intersections, models often identify multiple
+plausible candidate directions but fail to escalate to finer-grained geometric
+cues—such as lane counts, road markings, curb geometry, or persistent vegetation—
+that would resolve the ambiguity. Instead, models rely on weak or unstable
+evidence and prematurely eliminate the correct option
+(Fig.~\ref{fig:failure-examples-appendix}c).
+
+
+\subsection{Implications.}
+Taken together, our analyses suggest that model failures on m2sv are not driven
+primarily by geometric complexity or lack of visual information, but by an
+inability to adapt inference strategies to the level of ambiguity present in an
+example. Structural asymmetry allows humans to shortcut reasoning on easy cases,
+while symmetric or visually confusable cases trigger deeper, more careful
+comparison. Current vision--language models, by contrast, exhibit relatively
+uniform reasoning behavior across difficulty regimes, leading to brittle
+decisions when subtle spatial cues are required.
+
+This gap highlights an important limitation of current training and inference
+pipelines: models do not reliably escalate their reasoning depth or evidence
+aggregation in response to increased difficulty. Addressing this limitation may
+require difficulty-aware training curricula, adaptive inference mechanisms, or
+explicit modeling of uncertainty in spatial alignment tasks.
+
+
+% ===============================================================
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\textbf{m2sv} relies on the availability and coverage of commercial mapping services
+and consequently inherits biases from their data collection practices, including
+uneven geographic coverage and representation. The benchmark is restricted to
+public road intersections and does not include private, restricted, or sensitive
+locations.
+
+Human evaluation in this work is conducted with a single participant due to time
+and resource constraints at the time of data collection. While this limits the
+ability to characterize inter-subject variability, the collected data provides a
+useful reference point for comparing human and model behavior on structurally
+ambiguous cases. To support future work, we will release both the interactive
+labeling interface and the manually curated labels, including elapsed time
+metadata from human annotation, to facilitate larger-scale human studies and
+alternative analyses of spatial reasoning difficulty.
+
+Our transfer experiments are limited in scope and focus on generalization to a
+single adjacent benchmark (MindCube). Other relevant benchmarks were not
+incorporated into our initial experimental setup, either because they were not
+publicly available at the time (e.g., CityCube) or were released shortly before
+our experiments and follow different evaluation protocols (e.g., Ego3D-Bench,
+UrBench). Extending transfer evaluations to additional spatial reasoning and
+cross-view benchmarks remains an important direction for future work.
+
+% ===============================================================
+\section{Conclusion}
+
+m2sv provides a scalable benchmark for evaluating map-to-street-view spatial
+reasoning under real-world conditions. Despite strong performance on existing
+multimodal benchmarks, vision–language models remain far below human accuracy on
+this task, with failures increasing sharply under geometric ambiguity and
+symmetry. Our analyses show that these errors are not solely due to missing
+knowledge, but to difficulties in maintaining consistent allocentric–egocentric
+representations and reasoning under uncertainty. By isolating this core alignment
+primitive and characterizing both difficulty and failure modes, m2sv serves as a
+diagnostic complement to existing spatial benchmarks and highlights open
+challenges for grounded spatial reasoning.
+
+\FloatBarrier
+
+\newpage 
+
+% ===============================================================
+\bibliographystyle{icml2026}
+\bibliography{m2sv_paper}
+
+\newpage 
+ % \quad
+\newpage
+
+\appendix
+\input{appendix}
+
+
+\end{document}
