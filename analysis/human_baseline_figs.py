@@ -192,10 +192,10 @@ ax.legend(fontsize=7, frameon=False, loc="lower left")
 save(fig, "human_difficulty_decircular")
 print(f"wrote human_difficulty_decircular  (H={[f'{h:.0%}' for h in H]} G={[f'{g:.0%}' for g in G]})")
 
-# ---- Fig 5: human response time vs road-azimuth symmetry (multi-annotator) ----
-# Symmetry S = max-gap / min-gap of the consecutive azimuth gaps (Eq. in paper).
-# RT is the per-problem mean across the engaged completers (prt, from Fig 4),
-# replacing the original single-annotator scatter.
+# ---- Fig 5: human RT vs symmetry, WITHIN 3-option (removes the #options confound) ----
+# 3 untied bins of S = max-gap/min-gap (Eq. in paper): Symmetric (S<2),
+# Intermediate (S=2), Asymmetric (S>2). The earlier across-#options quintiles were
+# confounded (symmetric == 4-way junctions) and arbitrarily sliced the S=2 ties.
 def gap_ratio(az):
     az = sorted(a % 360.0 for a in az)
     if len(az) < 2:
@@ -203,30 +203,26 @@ def gap_ratio(az):
     gaps = [az[i + 1] - az[i] for i in range(len(az) - 1)] + [360.0 + az[0] - az[-1]]
     return max(gaps) / min(gaps) if min(gaps) > 0 else None
 
-Sval = {pid: gap_ratio(DATA["problems"][pid].get("azimuths", [])) for pid in P}
-Sval = {pid: s for pid, s in Sval.items() if s is not None and pid in prt}
-ordered = sorted(Sval, key=lambda p: Sval[p])          # ascending S: Q1 = symmetric
-nq = len(ordered)
-qbin = {pid: min(4, i * 5 // nq) for i, pid in enumerate(ordered)}
-# Per-quintile distribution as a box plot: box = IQR, whiskers = 10th-90th
-# percentile, line = median, diamond = mean. Makes the spread directly
-# comparable (the scatter cloud did not).
-data = [[rtp[a][p] for p in ordered if qbin[p] == b for a in ENG3 if p in rtp[a]]
-        for b in range(5)]
-fig, ax = plt.subplots(figsize=(4.8, 3.0))
-ax.boxplot(data, whis=[10, 90], showfliers=False, showmeans=True, widths=0.62,
+def sym_bin(pid):
+    s = gap_ratio(DATA["problems"][pid].get("azimuths", []))
+    return None if s is None else (0 if s < 2 else 1 if s < 2.01 else 2)
+
+three = [p for p in P if DATA["problems"][p]["n_options"] == 3 and p in prt and sym_bin(p) is not None]
+data = [[rtp[a][p] for p in three if sym_bin(p) == b for a in ENG3 if p in rtp[a]] for b in range(3)]
+fig, ax = plt.subplots(figsize=(4.6, 3.0))
+ax.boxplot(data, whis=[10, 90], showfliers=False, showmeans=True, widths=0.6,
            patch_artist=True,
            boxprops=dict(facecolor="#cfe0fb", edgecolor="#2e6fdb"),
            medianprops=dict(color="#1f4e9b", lw=1.5),
            whiskerprops=dict(color="#2e6fdb"), capprops=dict(color="#2e6fdb"),
            meanprops=dict(marker="D", markerfacecolor="#e67e22",
                           markeredgecolor="#e67e22", markersize=5))
-ax.set_xticklabels(["Q1", "Q2", "Q3", "Q4", "Q5"])
-ax.set_xlabel("Road-azimuth symmetry quintile (Q1 symmetric, Q5 asymmetric)")
+ax.set_xticklabels(["Symmetric\n(S<2)", "Intermediate\n(S=2)", "Asymmetric\n(S>2)"])
+ax.set_xlabel("Road-azimuth symmetry (3-option intersections)")
 ax.set_ylabel("Human response time (s)"); ax.set_ylim(0, 52)
-ax.set_title("Human time vs. road-azimuth symmetry (multi-annotator)", fontsize=9)
+ax.set_title("Human time vs. symmetry (3-option)", fontsize=9)
 ax.plot([], [], color="#1f4e9b", lw=1.5, label="median")
 ax.plot([], [], marker="D", color="#e67e22", lw=0, label="mean")
 ax.legend(fontsize=7, frameon=False, loc="upper right")
 save(fig, "symmetry_vs_time_multi")
-print("wrote symmetry_vs_time_multi")
+print(f"wrote symmetry_vs_time_multi  (3-opt bin n: {[len(d) for d in data]})")

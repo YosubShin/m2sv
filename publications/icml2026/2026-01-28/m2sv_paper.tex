@@ -537,33 +537,41 @@ an intersection as the ratio of its largest to smallest gap,
 \end{equation}
 A regular intersection with evenly spaced rays has $S = 1$ (maximally symmetric),
 whereas a dominant-road layout containing one large gap has $S \gg 1$
-(asymmetric). We partition examples into quintiles of $S$, with $Q1$ the most
-symmetric ($S \approx 1$) and $Q5$ the most asymmetric, computing quintile
-boundaries within each model's evaluated subset to respect differing $N$.
+(asymmetric). Two properties of $S$ require care. First, because candidate
+azimuths are coarsely quantized, $S$ takes few distinct values---a single value
+$S=2$ accounts for nearly half of all three-option intersections---so fine-grained
+quantile binning arbitrarily splits ties. Second, symmetry is correlated with
+candidate count: the most symmetric intersections ($S\approx 1$) are
+overwhelmingly four-way junctions. To avoid both pitfalls, we hold candidate count
+fixed---analyzing the three-option stratum, the largest group---and bin into three
+well-separated, untied levels: \emph{Symmetric} ($S<2$), \emph{Intermediate}
+($S=2$), and \emph{Asymmetric} ($S>2$).
 
-Figure~\ref{fig:accuracy-vs-symmetry} shows model accuracy as a function of azimuth
-symmetry quantiles, with Q1 denoting the most symmetric and Q5 the most asymmetric
-examples. Across both open and proprietary models, accuracy does not decrease
-monotonically with symmetry. Instead, performance peaks at intermediate symmetry
-levels and declines slightly for both highly symmetric and highly asymmetric
-cases.
+Figure~\ref{fig:accuracy-vs-symmetry} reports model accuracy across these bins.
+Even with candidate count held fixed, accuracy is non-monotonic in symmetry: all
+three models are hardest on the most \emph{symmetric} intersections (e.g.,
+Gemini-3-Pro $59\%$ vs.\ $73\%$ at intermediate symmetry), with a smaller decline
+toward the most asymmetric layouts. The dip at high symmetry is consistent across
+open and proprietary systems, confirming that near-even (Y-shaped) intersections
+are genuinely the most confusable rather than an artifact of candidate count.
 
-This non-monotonic trend indicates that azimuth symmetry is a necessary but
-insufficient explanation for difficulty. While structural asymmetry collapses the
-hypothesis space for humans—making these cases uniformly easy—it does not
-guarantee high model performance. Conversely, highly symmetric intersections
-enable difficult cases but do not make them uniformly hard.
+This pattern indicates that azimuth symmetry is a real but non-monotonic driver of
+difficulty. Near-even intersections offer no dominant road to anchor the candidate
+directions and are the hardest; a single straight through-road (intermediate
+symmetry) is the most recognizable; and strongly dominant-road layouts are
+slightly harder again. Symmetry thus bounds difficulty without fully determining
+it.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/symmetry_accuracy.png}
   \caption{
-    \textbf{Accuracy vs.\ road-azimuth symmetry.}
-    Model accuracy as a function of azimuth symmetry quantiles (Q1 = most
-    symmetric, Q5 = most asymmetric).
-    Structural symmetry alone does not predict difficulty: accuracy peaks at
-    intermediate symmetry levels and degrades in both highly symmetric and highly
-    asymmetric regimes.
+    \textbf{Model accuracy vs.\ road-azimuth symmetry (three-option
+    intersections).}
+    Accuracy by symmetry level $S$ (Eq.~\ref{eq:symmetry}) with candidate count
+    held fixed, removing the confound between symmetry and the number of options.
+    All three models are hardest on symmetric ($S<2$) intersections and peak at
+    intermediate symmetry ($S=2$).
     Error bars denote 95\% binomial confidence intervals.
   }
   \label{fig:accuracy-vs-symmetry}
@@ -579,26 +587,27 @@ human annotators, using response time as a proxy for cognitive effort.
 
 Using the multi-annotator study of Section~\ref{sec:results-zeroshot}, we record
 per-item response time for every annotator on the 200-example subset.
-Figure~\ref{fig:human-time-vs-symmetry}
-plots the mean response time across the engaged annotators as a function of
-road-azimuth symmetry $S$ (Eq.~\ref{eq:symmetry}). While highly asymmetric
-intersections are consistently easy for humans, symmetric intersections exhibit a
-wide spread of response times, ranging from trivially easy to extremely
-challenging. This demonstrates that structural symmetry defines an \emph{upper
-bound} on difficulty but does not determine the realized difficulty of an example.
+Figure~\ref{fig:human-time-vs-symmetry} plots human response time against symmetry
+within the same three-option stratum (Eq.~\ref{eq:symmetry}). Consistent with the
+model results, humans spend the most effort on symmetric intersections---median
+and upper-quartile times are highest at $S<2$ and decline as asymmetry
+increases---while the lower quartile is similar throughout. Symmetric layouts thus
+raise the \emph{ceiling} on difficulty: they contain the slowest,
+deliberation-heavy examples without making every such example hard.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/symmetry_vs_time_multi.png}
   \caption{
-    \textbf{Human response time vs.\ road-azimuth symmetry (multi-annotator).}
+    \textbf{Human response time vs.\ road-azimuth symmetry (three-option
+    intersections).}
     Distribution of per-response times (engaged annotators who completed all 200
-    items) within each symmetry quintile of $S$ (Eq.~\ref{eq:symmetry};
-    Q1 symmetric, Q5 asymmetric). Boxes show the interquartile range, whiskers the
+    items) by symmetry level $S$ (Eq.~\ref{eq:symmetry}), holding candidate count
+    fixed. Boxes show the interquartile range, whiskers the
     10th--90th percentiles, the line the median, and the diamond the mean. The
-    lower quartile is similar across all quintiles (a shared easy floor), but
-    symmetric intersections (Q1) have a markedly longer upper tail (higher
-    75th/90th percentiles) than asymmetric ones (Q5): structural symmetry raises
+    lower quartile is similar across all levels (a shared easy floor), but
+    symmetric intersections ($S<2$) have a markedly longer upper tail (higher
+    75th/90th percentiles) than asymmetric ones ($S>2$): structural symmetry raises
     the \emph{ceiling} on difficulty without determining it.
   }
   \label{fig:human-time-vs-symmetry}
