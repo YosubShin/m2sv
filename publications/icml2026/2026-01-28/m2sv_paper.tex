@@ -69,7 +69,7 @@ traces for supervised fine-tuning.
 
 Despite strong performance on existing multimodal benchmarks, the best evaluated
 VLM achieves only 65.2\% accuracy on m2sv, below human annotators who reach
-73.2\% on average (and 95\% for an expert) with strong inter-annotator agreement
+74.0\% on average (and 95\% for an expert) with strong inter-annotator agreement
 ($\kappa$ up to 0.76). While supervised fine-tuning and reinforcement learning
 yield consistent gains, cross-benchmark evaluations reveal limited transfer.
 Beyond aggregate accuracy, we systematically analyze \emph{difficulty} in
@@ -297,7 +297,7 @@ subset.
 \begin{table}[t]
   \centering
   \caption{Zero-shot baseline performance on m2sv with 95\% confidence intervals.
-  The engaged-human row reports the mean over seven annotators with the
+  The engaged-human row reports the mean over eight annotators with the
   between-annotator standard deviation (not a binomial interval).}
   \label{tab:m2sv-baselines}
   \begin{tabular}{l r r}
@@ -313,23 +313,23 @@ subset.
     \midrule
     Random baseline & 1k & 31.4 $\pm$ 2.9 \\
     \midrule
-    Human (engaged, $n{=}7$) & 200 & 73.2 $\pm$ 7.4 \\
+    Human (engaged, $n{=}8$) & 200 & 74.0 $\pm$ 7.3 \\
     Human (expert) & 200 & 95.0 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 To establish a robust human reference, we conduct an independent multi-annotator
-study on the 200-example subset. Eight naive annotators---none of whom
+study on the 200-example subset. Nine naive annotators---none of whom
 participated in dataset construction or had prior exposure to the sampled
 cities---each answer between 17 and 200 items through a web interface that logs
-the selected option and per-item response time; five complete all 200. We
+the selected option and per-item response time; seven complete all 200. We
 additionally retain the original expert annotator (a dataset author) as a ceiling
 reference.
 
 Human accuracy is high but effort-dependent
-(Figure~\ref{fig:human-dist}). Seven mutually consistent annotators average
-$73.2\%$ (between-annotator SD $7.4\%$) and the expert reaches $95\%$, all above
+(Figure~\ref{fig:human-dist}). Eight mutually consistent annotators average
+$74.0\%$ (between-annotator SD $7.3\%$) and the expert reaches $95\%$, all above
 the strongest model (Gemini-3-Pro, $65.2\%$); a single low-effort annotator
 answered near chance ($42\%$) and is flagged not by accuracy but by near-zero
 agreement with every other rater (Cohen's $\kappa < 0.2$). Inter-annotator
@@ -350,7 +350,7 @@ views.
   \caption{
     \textbf{Per-annotator human accuracy on the 200-example subset}
     (dot size $\propto$ number of items answered). Naive annotators span
-    $42\%$--$83\%$; the low-agreement outlier ($\kappa<0.3$ with all raters) is
+    $42\%$--$84\%$; the low-agreement outlier ($\kappa<0.3$ with all raters) is
     shown in red and the expert as a star. Dashed lines denote model and random
     baselines.
   }
@@ -362,9 +362,9 @@ views.
   \includegraphics[width=\linewidth]{figures/agreement_kappa.png}
   \caption{
     \textbf{Inter-rater agreement (Cohen's $\kappa$),} chance-corrected per item
-    by candidate count. The expert (A1) and engaged annotators (A2--A8) form a
+    by candidate count. The expert (A1) and engaged annotators (A2--A9) form a
     high-agreement block; Gemini-3-Pro sits below the human consensus and
-    Qwen3-VL is near chance. The low-effort annotator (A9) is an outlier against
+    Qwen3-VL is near chance. The low-effort annotator (A10) is an outlier against
     all raters.
   }
   \label{fig:kappa}
@@ -619,11 +619,11 @@ human-perceived difficulty, with examples partitioned into tertiles by the
 200 items. Because the bins are defined from response time while accuracy is
 measured separately, this avoids the circularity of deriving the difficulty axis
 and the accuracy curve from a single annotator. Human accuracy degrades gracefully
-with difficulty ($82\% \to 62\%$), confirming that these bins capture genuine
+with difficulty ($85\% \to 67\%$), confirming that these bins capture genuine
 ambiguity rather than effort alone. Models degrade more steeply: Gemini-3-Pro falls
-from $82\%$ to $50\%$, while Qwen3-VL remains near chance throughout. The
+from $85\%$ to $56\%$, while Qwen3-VL remains near chance throughout. The
 human--model gap therefore \emph{widens} with difficulty: Gemini matches humans on
-the easiest examples but trails by $12$ points on the hardest, indicating that
+the easiest examples but trails by 11--18 points on harder ones, indicating that
 models fail precisely where fine-grained spatial alignment is most required.
 
 Taken together, these results suggest that model failures are driven not by

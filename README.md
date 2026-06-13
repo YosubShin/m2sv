@@ -30,14 +30,14 @@ traces for fine-tuning.
 
 ## Headline results
 
-The best VLM sits **~22 points below** attentive humans and **30 below** the
+The best VLM sits **~9 points below** attentive humans and **~30 below** the
 expert; most open models are near chance. Task-specific SFT+RL helps but doesn't
 close the gap.
 
 | Model | N | Accuracy |
 |---|---:|---:|
 | **Human (expert)** | 200 | **95.0%** |
-| **Human (engaged, n=7)** | 200 | **73.2% ± 7.4** |
+| **Human (engaged, n=8)** | 200 | **74.0% ± 7.3** |
 | Gemini-3-Pro | 1k | 65.2% |
 | GPT-5 | 1k | 57.2% |
 | Gemini-2.5-Pro | 1k | 47.2% |
