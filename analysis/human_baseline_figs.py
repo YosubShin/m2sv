@@ -145,7 +145,7 @@ gem = {k: (np.mean([1 if GEM.get(pid) == P[pid]["answer"] else 0
             for pid in P if len(P[pid]["options"]) == k]), 0) for k in (2, 3, 4)}
 ks = [2, 3, 4]; x = np.arange(len(ks)); w = 0.38
 fig, ax = plt.subplots(figsize=(4.2, 3.0))
-ax.bar(x - w/2, [hum[k][0] for k in ks], w, label="Engaged humans (n=6)", color="#2e6fdb")
+ax.bar(x - w/2, [hum[k][0] for k in ks], w, label=f"Engaged humans (n={len(ENGAGED)})", color="#2e6fdb")
 ax.bar(x + w/2, [gem[k][0] for k in ks], w, label="Gemini-3-Pro", color="#e67e22")
 ax.plot(x, [1/k for k in ks], "k--", lw=.9, marker="o", ms=3, label="random")
 for xi, k in zip(x, ks):
@@ -178,7 +178,7 @@ G = [macc(GEM, ids) for _, ids in buckets]
 Q = [macc(QWEN, ids) for _, ids in buckets]
 x = np.arange(3)
 fig, ax = plt.subplots(figsize=(4.4, 3.0))
-ax.plot(x, H, "-o", color="#1e8449", label="Human (engaged, n=3)")
+ax.plot(x, H, "-o", color="#1e8449", label=f"Human (engaged, n={len(ENG3)})")
 ax.plot(x, G, "-s", color="#e67e22", label="Gemini-3-Pro")
 ax.plot(x, Q, "-^", color="#7f8c8d", label="Qwen3-VL")
 for xi, (h, g) in enumerate(zip(H, G)):
