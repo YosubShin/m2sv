@@ -320,12 +320,15 @@ subset.
 \end{table}
 
 To establish a robust human reference, we conduct an independent multi-annotator
-study on the 200-example subset. Nine naive annotators---none of whom
-participated in dataset construction or had prior exposure to the sampled
-cities---each answer between 17 and 200 items through a web interface that logs
-the selected option and per-item response time; seven complete all 200. We
-additionally retain the original expert annotator (a dataset author) as a ceiling
-reference.
+study on the 200-example subset. Nine annotators---none of whom participated in
+dataset construction or had prior exposure to the benchmark
+items\footnote{Eight are external volunteers; the ninth is a co-author who
+contributed to the reinforcement-learning pipeline but not to the benchmark data
+or the human-evaluation protocol, and encountered the items for the first time
+during the study.}---each answer between 17 and 200 items through a web interface
+that logs the selected option and per-item response time; seven complete all 200.
+We additionally retain the original expert annotator (a dataset author) as a
+ceiling reference.
 
 Human accuracy is high but effort-dependent
 (Figure~\ref{fig:human-dist}). Eight mutually consistent annotators average
@@ -349,7 +352,7 @@ views.
   \includegraphics[width=\linewidth]{figures/human_accuracy_dist.png}
   \caption{
     \textbf{Per-annotator human accuracy on the 200-example subset}
-    (dot size $\propto$ number of items answered). Naive annotators span
+    (dot size $\propto$ number of items answered). Annotators span
     $42\%$--$84\%$; the low-agreement outlier ($\kappa<0.3$ with all raters) is
     shown in red and the expert as a star. Dashed lines denote model and random
     baselines.
@@ -807,7 +810,7 @@ uneven geographic coverage and representation. The benchmark is restricted to
 public road intersections and does not include private, restricted, or sensitive
 locations.
 
-Our human evaluation comprises seven naive annotators together with one expert on
+Our human evaluation comprises nine annotators together with one expert on
 the 200-example analysis subset, with inter-annotator agreement reported in
 Section~\ref{sec:results-zeroshot}. While this is sufficient to characterize
 between-annotator variance and to de-confound the response-time difficulty
