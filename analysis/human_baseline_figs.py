@@ -106,7 +106,7 @@ save(fig, "human_accuracy_dist")
 print("\nwrote human_accuracy_dist")
 
 # ---- Fig 2: Cohen's kappa agreement heatmap -------------------------------
-humans_sorted = sorted(NAIVE, key=lambda e: LABEL[e])  # A2..A8
+humans_sorted = sorted(NAIVE, key=lambda e: int(LABEL[e][1:]))  # A2, A3, ... (numeric)
 raters = [("A1 (expert)", EXP)] + [(LABEL[e], ans[e]) for e in humans_sorted] + \
          [("Gemini-3-Pro", GEM), ("Qwen-plus", QWEN)]
 names = [n for n, _ in raters]

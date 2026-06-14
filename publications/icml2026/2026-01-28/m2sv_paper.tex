@@ -320,9 +320,9 @@ subset.
 \end{table}
 
 To establish a robust human reference, we conduct an independent multi-annotator
-study on the 200-example subset. Nine annotators---none of whom participated in
+study on the 200-example subset. Ten annotators---none of whom participated in
 dataset construction or had prior exposure to the benchmark
-items\footnote{Eight are external volunteers; the ninth is a co-author who
+items\footnote{Nine are external volunteers; the tenth is a co-author who
 contributed to the reinforcement-learning pipeline but not to the benchmark data
 or the human-evaluation protocol, and encountered the items for the first time
 during the study.}---each answer between 17 and 200 items through a web interface
@@ -333,9 +333,10 @@ ceiling reference.
 Human accuracy is high but effort-dependent
 (Figure~\ref{fig:human-dist}). Eight mutually consistent annotators average
 $74.0\%$ (between-annotator SD $7.3\%$) and the expert reaches $95\%$, all above
-the strongest model (Gemini-3-Pro, $65.2\%$); a single low-effort annotator
-answered near chance ($42\%$) and is flagged not by accuracy but by near-zero
-agreement with every other rater (Cohen's $\kappa < 0.2$). Inter-annotator
+the strongest model (Gemini-3-Pro, $65.2\%$); two annotators answered at or below
+chance ($42\%$ and $21\%$) and are flagged not by accuracy but by near-zero or
+negative agreement with every other rater (Cohen's $\kappa \le 0.15$)---one was
+fast and one slow, so the exclusion reflects disagreement, not speed. Inter-annotator
 agreement is otherwise moderate to substantial (Figure~\ref{fig:kappa}): the
 expert and the engaged annotators form a high-agreement block
 ($\kappa = 0.28$--$0.76$), confirming that the labels are reliable and that
@@ -353,8 +354,8 @@ views.
   \caption{
     \textbf{Per-annotator human accuracy on the 200-example subset}
     (dot size $\propto$ number of items answered). Annotators span
-    $42\%$--$84\%$; the low-agreement outlier ($\kappa<0.3$ with all raters) is
-    shown in red and the expert as a star. Dashed lines denote model and random
+    $21\%$--$84\%$; the two low-agreement outliers ($\kappa<0.3$ with all raters)
+    are shown in red and the expert as a star. Dashed lines denote model and random
     baselines.
   }
   \label{fig:human-dist}
@@ -367,7 +368,7 @@ views.
     \textbf{Inter-rater agreement (Cohen's $\kappa$),} chance-corrected per item
     by candidate count. The expert (A1) and engaged annotators (A2--A9) form a
     high-agreement block; Gemini-3-Pro sits below the human consensus and
-    Qwen3-VL is near chance. The low-effort annotator (A10) is an outlier against
+    Qwen3-VL is near chance. The low-agreement annotators (A10, A11) are outliers against
     all raters.
   }
   \label{fig:kappa}
@@ -788,7 +789,7 @@ uneven geographic coverage and representation. The benchmark is restricted to
 public road intersections and does not include private, restricted, or sensitive
 locations.
 
-Our human evaluation comprises nine annotators together with one expert on
+Our human evaluation comprises ten annotators together with one expert on
 the 200-example analysis subset, with inter-annotator agreement reported in
 Section~\ref{sec:results-zeroshot}. While this is sufficient to characterize
 between-annotator variance and to de-confound the response-time difficulty
