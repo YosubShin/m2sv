@@ -31,7 +31,7 @@
 % Compact failure card: #1 map, #2 sv, #3 title, #4 GT letter, #5 Pred letter, #6 reason
 \newcommand{\failmini}[6]{%
 \begin{tcolorbox}[colback=failbg,colframe=failrule,boxrule=1pt,arc=3pt,
-  left=6pt,right=6pt,top=5pt,bottom=5pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,equal height group=failcards,
   title={#3\hfill{\normalfont\footnotesize GT:\,#4\ \ Pred:\,#5}},
   coltitle=white,colbacktitle=failrule,fonttitle=\small\bfseries]
 \centering
@@ -72,9 +72,12 @@ center; letters point outward along each road.
 \end{center}
 \vspace{0.2cm}
 \centering\normalsize\textbf{Ground truth: D} (camera faces north).
-\par\vspace{0.2cm}
-\footnotesize\raggedright\emph{Solve by aligning stable map geometry (roads,
-parcels, landmarks) with the ground-level view --- not transient cues.}
+\par\vspace{0.25cm}
+\footnotesize\raggedright\textbf{How a correct trace reasons} (Gemini-2.5-Pro):
+\emph{(1)} the photo shows a tall building on the right, an open park/field on the
+left, and skyscrapers ahead; \emph{(2)} only heading \textbf{D} (north) puts a long
+corner building on the right and a baseball field on the left; \emph{(3)}
+$\Rightarrow$ \textbf{D}. Solve by aligning \emph{stable} geometry, not transient cues.
 \end{block}
 
 \begin{block}{Benchmark \& Data (open)}
@@ -134,6 +137,22 @@ model-independent axis. Humans degrade gently ($83\!\to\!63\%$) and stay above b
 models; models lose the most ground on the hardest tier, falling to (Qwen) or
 toward (Gemini, $50\%$) chance. \textbf{Symmetric} intersections (azimuth-gap ratio
 $S=\frac{\max}{\min}$) are hardest for all models.
+\end{block}
+
+\begin{block}{Adapting open models (Qwen3-VL-8B, m2sv-20k 10k val)}
+\centering
+\begin{tabular}{l l r}
+\toprule
+Model & Training & Acc.\ (\%)\\
+\midrule
+Qwen3-VL-8B & Base    & 34.3 $\pm$ 0.9\\
+Qwen3-VL-8B & SFT     & 39.8 $\pm$ 1.0\\
+Qwen3-VL-8B & SFT$+$RL & \textbf{43.9 $\pm$ 1.0}\\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\flushleft\footnotesize SFT$+$RL adds $\sim$10 points on m2sv, but cross-benchmark
+transfer is weak --- fine-tuning induces \emph{benchmark-specific} policies.
 \end{block}
 
 \begin{block}{Takeaways}
