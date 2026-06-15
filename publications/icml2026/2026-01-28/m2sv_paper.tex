@@ -69,7 +69,7 @@ traces for supervised fine-tuning.
 
 Despite strong performance on existing multimodal benchmarks, the best evaluated
 VLM achieves only 65.2\% accuracy on m2sv, below human annotators who reach
-71.7\% on average (and 95\% for an expert) with strong inter-annotator agreement
+72.0\% on average (and 95\% for an expert) with strong inter-annotator agreement
 ($\kappa$ up to 0.76). While supervised fine-tuning and reinforcement learning
 yield consistent gains, cross-benchmark evaluations reveal limited transfer.
 Beyond aggregate accuracy, we systematically analyze \emph{difficulty} in
@@ -297,7 +297,7 @@ subset.
 \begin{table}[t]
   \centering
   \caption{Zero-shot baseline performance on m2sv with 95\% confidence intervals.
-  The engaged-human row reports the mean over ten annotators with the
+  The engaged-human row reports the mean over eight annotators with the
   between-annotator standard deviation (not a binomial interval).}
   \label{tab:m2sv-baselines}
   \begin{tabular}{l r r}
@@ -313,7 +313,7 @@ subset.
     \midrule
     Random baseline & 1k & 31.4 $\pm$ 2.9 \\
     \midrule
-    Human (engaged, $n{=}10$) & 200 & 71.7 $\pm$ 9.1 \\
+    Human (engaged, $n{=}8$) & 200 & 72.0 $\pm$ 9.7 \\
     Human (expert) & 200 & 95.0 \\
     \bottomrule
   \end{tabular}
@@ -325,14 +325,16 @@ dataset construction or had prior exposure to the benchmark
 items\footnote{Eleven are external volunteers; the twelfth is a co-author who
 contributed to the reinforcement-learning pipeline but not to the benchmark data
 or the human-evaluation protocol, and encountered the items for the first time
-during the study.}---each answer between 17 and 200 items through a web interface
-that logs the selected option and per-item response time; ten complete all 200.
-We additionally retain the original expert annotator (a dataset author) as a
-ceiling reference.
+during the study.}---answer items through a web interface that logs the selected
+option and per-item response time. Ten completed all 200 items and form our
+analysis set; the remaining two answered only 17 and 76 items and are excluded for
+comparability (their small overlap also makes pairwise agreement unstable). We
+additionally retain the original expert annotator (a dataset author) as a ceiling
+reference.
 
 Human accuracy is high but effort-dependent
-(Figure~\ref{fig:human-dist}). Ten mutually consistent annotators average
-$71.7\%$ (between-annotator SD $9.1\%$) and the expert reaches $95\%$, all above
+(Figure~\ref{fig:human-dist}). Eight mutually consistent annotators average
+$72.0\%$ (between-annotator SD $9.7\%$) and the expert reaches $95\%$, all above
 the strongest model (Gemini-3-Pro, $65.2\%$); two annotators answered at or below
 chance ($42\%$ and $22\%$) and are flagged not by accuracy but by near-zero or
 negative agreement with every other rater (Cohen's $\kappa \le 0.15$)---one was
@@ -349,7 +351,7 @@ agreement is otherwise moderate to substantial (Figure~\ref{fig:kappa}): the
 expert and the engaged annotators agree well with one another (median pairwise
 $\kappa = 0.48$, up to $0.76$), confirming that the labels are reliable and that
 attentive humans converge on the same answers. In contrast, Gemini-3-Pro agrees
-with humans only moderately (median $\kappa = 0.38$, below the human--human
+with humans only moderately (median $\kappa = 0.42$, below the human--human
 median) and Qwen3-VL-235B shows only slight agreement (median $\kappa = 0.15$). The human--model gap is
 thus visible not only in accuracy but in agreement structure: the best model sits
 below the human consensus, indicating that zero-shot pretrained VLMs
@@ -361,7 +363,7 @@ views.
   \includegraphics[width=\linewidth]{figures/human_accuracy_dist.png}
   \caption{
     \textbf{Per-annotator human accuracy on the 200-example subset}
-    (dot size $\propto$ number of items answered). Annotators span
+    (the ten annotators who completed all 200 items). Annotators span
     $22\%$--$84\%$; the two low-agreement outliers ($\kappa<0.3$ with the expert)
     are shown in red and the expert as a star. Dashed lines denote model and random
     baselines.
@@ -374,9 +376,9 @@ views.
   \includegraphics[width=\linewidth]{figures/agreement_kappa.png}
   \caption{
     \textbf{Inter-rater agreement (Cohen's $\kappa$),} chance-corrected per item
-    by candidate count. The expert (A1) and engaged annotators (A2--A11) form a
+    by candidate count. The expert (A1) and engaged annotators (A2--A9) form a
     high-agreement block; Gemini-3-Pro sits below the human consensus and
-    Qwen3-VL-235B lower still. The low-agreement annotators (A12, A13) are outliers against
+    Qwen3-VL-235B lower still. The low-agreement annotators (A10, A11) are outliers against
     all raters.
   }
   \label{fig:kappa}

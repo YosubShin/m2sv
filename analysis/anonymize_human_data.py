@@ -45,8 +45,13 @@ def acc(e):
     cm = [r for r in resp[e] if r["problem_id"] in P]
     return sum(1 for r in cm if r["selected"] == P[r["problem_id"]]["answer"]) / len(cm)
 
+# Analyze only annotators who completed all 200 items, so every figure is computed
+# over the same item set. Two partial annotators (17 and 76 items) are excluded for
+# comparability; their small overlap makes per-pair kappa unstable.
+COMPLETERS = [e for e in NAIVE if len([r for r in resp[e] if r["problem_id"] in P]) >= 200]
+
 # Anonymize: expert = A1; naive annotators = A2.. by descending accuracy.
-anon = {e: f"A{i+2}" for i, e in enumerate(sorted(NAIVE, key=acc, reverse=True))}
+anon = {e: f"A{i+2}" for i, e in enumerate(sorted(COMPLETERS, key=acc, reverse=True))}
 
 bundle = {
     "_about": "Anonymized m2sv human-baseline data. No PII. See analysis/human_baseline_figs.py.",
@@ -62,7 +67,7 @@ bundle = {
                            "elapsed_ms": r["client_elapsed_ms"]}
                           for r in resp[e] if r["problem_id"] in P],
         }
-        for e in NAIVE
+        for e in COMPLETERS
     },
 }
 out = ROOT / "analysis/human_baseline_data.json"

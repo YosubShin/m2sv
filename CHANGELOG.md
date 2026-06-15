@@ -2,10 +2,11 @@
 
 ## 2026-06 — CTB@ICML 2026 camera-ready
 - **Multi-annotator human baseline** replacing the single-annotator pilot: 12
-  annotators (10 completed all 200) + 1 expert, collected via the hostable
-  human-eval web app (`human_eval/`, live at https://m2sv.yosubshin.com).
+  annotators participated; the 10 who completed all 200 form the analysis set
+  (+ 1 expert), collected via the hostable human-eval web app (`human_eval/`,
+  live at https://m2sv.yosubshin.com).
   - Engaged annotators (excluding two near-chance, low-agreement outliers) average
-    **71.7% ± 9.1%**; expert **95%**; inter-annotator agreement (median pairwise
+    **72.0% ± 9.7%**; expert **95%**; inter-annotator agreement (median pairwise
     Cohen's kappa **0.48**, up to **0.76**). Best VLM (Gemini-3-Pro) is **65.2%**.
 - **Model-independent difficulty axis**: difficulty bins come from human response
   time (group median over engaged completers, robust to a single rater's

@@ -87,7 +87,7 @@ for i, e in enumerate(order):
     out = kappa(ans[e], EXP) < 0.3
     ax.scatter(i, a, s=30 + n, color="#c0392b" if out else "#2e6fdb",
                zorder=3, edgecolor="white", linewidth=.5)
-    ax.annotate(f"{a:.0%}\n(n={n})", (i, a), textcoords="offset points",
+    ax.annotate(f"{a:.0%}", (i, a), textcoords="offset points",
                 xytext=(0, 8), ha="center", fontsize=7)
 ax.scatter(len(order), ea, marker="*", s=180, color="#1e8449", zorder=3,
            edgecolor="white", linewidth=.5)
