@@ -1,7 +1,7 @@
 % m2sv poster -- CTB@ICML 2026
-% Build: latexmk -pdf poster.tex   (A0 landscape, 3 columns)
+% Portrait, 24in (W) x 36in (H) = 60.96cm x 91.44cm. Build: latexmk -pdf poster.tex
 \documentclass[final]{beamer}
-\usepackage[size=a0,orientation=landscape,scale=1.32]{beamerposter}
+\usepackage[orientation=portrait,size=custom,width=60.96,height=91.44,scale=1.05]{beamerposter}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb}
@@ -13,6 +13,8 @@
 \definecolor{accent}{RGB}{198,146,20}    % gold
 \definecolor{ink}{RGB}{30,30,30}
 \definecolor{soft}{RGB}{244,246,245}
+\definecolor{failbg}{RGB}{251,246,240}
+\definecolor{failrule}{RGB}{176,58,46}
 
 \setbeamercolor{block title}{fg=white,bg=uhgreen}
 \setbeamercolor{block body}{fg=ink,bg=soft}
@@ -22,10 +24,26 @@
 
 \newcommand{\FIG}{../2026-01-28/figures}
 
-% tighter block spacing
-\setlength{\columnsep}{2.2cm}
+\setlength{\columnsep}{2.0cm}
 \newlength{\colw}
-\setlength{\colw}{0.305\paperwidth}
+\setlength{\colw}{0.475\paperwidth}
+
+% Failure-mode card: #1 map img, #2 sv img, #3 GT/Pred, #4 trace excerpt, #5 reason
+\newcommand{\failcard}[5]{%
+\begin{tcolorbox}[colback=failbg,colframe=failrule,boxrule=1.2pt,arc=4pt,
+  left=10pt,right=10pt,top=8pt,bottom=8pt,title=#3,
+  coltitle=white,colbacktitle=failrule,fonttitle=\normalsize\bfseries]
+\begin{minipage}[c]{0.30\linewidth}\centering
+  \includegraphics[width=\linewidth]{#1}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.30\linewidth}\centering
+  \includegraphics[width=\linewidth]{#2}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}\footnotesize
+  \textit{``#4''}
+\end{minipage}
+\vspace{4pt}\par\footnotesize\textbf{Why:} #5
+\end{tcolorbox}\vspace{0.5cm}}
 
 \begin{document}
 \begin{frame}[t]
@@ -33,18 +51,20 @@
 % ================= TITLE BAR =================
 \begin{tcolorbox}[colback=uhgreen,colframe=uhgreen,boxrule=0pt,arc=8pt,left=18pt,right=18pt,top=14pt,bottom=14pt]
 \centering
-{\color{white}\Huge\textbf{m2sv: A Scalable Benchmark for Map-to-Street-View Spatial Reasoning}}\\[10pt]
-{\color{white}\large Yosub Shin\quad Michael Buriek\quad Igor Molybog \quad$\cdot$\quad University of Hawai\textquoteright i at M\=anoa\ \ (Buriek also PwC)}\\[4pt]
-{\color{accent}\large\textbf{Combining Theory and Benchmarks (CTB) Workshop @ ICML 2026 \quad$\cdot$\quad non-archival}}\\[3pt]
-{\color{white}\normalsize \texttt{github.com/YosubShin/m2sv}\qquad\qquad live demo: \texttt{m2sv.yosubshin.com}}
+{\color{white}\Huge\textbf{m2sv: A Scalable Benchmark for}}\\[6pt]
+{\color{white}\Huge\textbf{Map-to-Street-View Spatial Reasoning}}\\[12pt]
+{\color{white}\large Yosub Shin \quad Michael Buriek \quad Igor Molybog}\\[4pt]
+{\color{white}\normalsize University of Hawai\textquoteright i at M\=anoa\ \ (Buriek also PwC)}\\[6pt]
+{\color{accent}\large\textbf{CTB Workshop @ ICML 2026 \quad$\cdot$\quad non-archival}}\\[4pt]
+{\color{white}\normalsize \texttt{github.com/YosubShin/m2sv} \qquad live demo: \texttt{m2sv.yosubshin.com}}
 \end{tcolorbox}
 
-\vspace{1.2cm}
+\vspace{0.9cm}
 
 % ================= COLUMNS =================
 \begin{columns}[t]
 
-% ---------------- COLUMN 1 ----------------
+% ===================== LEFT COLUMN: what & how well =====================
 \begin{column}{\colw}
 
 \begin{block}{The Task}
@@ -52,42 +72,26 @@ Given a \textbf{north-up overhead map} with labeled candidate directions and a
 \textbf{Street View photo} taken at the same intersection, infer \emph{which
 labeled direction the camera was facing}. The camera sits at the intersection
 center; letters point outward along each road.
-\vspace{0.6cm}
+\vspace{0.5cm}
 \begin{center}
-\includegraphics[width=0.46\linewidth]{\FIG/sample-question-1-map.jpg}\hfill
-\includegraphics[width=0.46\linewidth]{\FIG/sample-question-1-sv.jpg}
+\includegraphics[width=0.44\linewidth]{\FIG/sample-question-1-map.jpg}\hfill
+\includegraphics[width=0.44\linewidth]{\FIG/sample-question-1-sv.jpg}
 \end{center}
-\vspace{0.3cm}
+\vspace{0.2cm}
 \footnotesize\emph{Solve by aligning stable map geometry (roads, parcels,
 landmarks) with the ground-level view --- not transient cues.}
-\end{block}
-
-\begin{block}{Why it is hard}
-\begin{itemize}
-  \item \textbf{Allocentric $\leftrightarrow$ egocentric} alignment across two
-        very different viewpoints.
-  \item \textbf{Temporal mismatch}: map and photo may be captured years apart.
-  \item \textbf{Geometric ambiguity}: symmetric intersections admit multiple
-        plausible headings and demand fine-grained cue escalation.
-\end{itemize}
 \end{block}
 
 \begin{block}{Benchmark \& Data (open)}
 \begin{itemize}
   \item \textbf{m2sv-20k} --- 20{,}000 real intersections (10k train / 10k
-        validation) across \textbf{32 cities}, multiple continents, with
-        controlled candidate ambiguity.
-  \item \textbf{m2sv-sft-11k} --- 11k curated structured reasoning traces for
-        supervised fine-tuning.
+        validation) across \textbf{32 cities}, multiple continents, controlled
+        candidate ambiguity.
+  \item \textbf{m2sv-sft-11k} --- 11k curated structured reasoning traces for SFT.
   \item Released as \textbf{blueprints} (coordinates + azimuths) plus rendering
         code to respect map licensing; all eval/training code public.
 \end{itemize}
 \end{block}
-
-\end{column}
-
-% ---------------- COLUMN 2 ----------------
-\begin{column}{\colw}
 
 \begin{block}{Zero-shot: humans clear the best VLM}
 \centering
@@ -105,89 +109,77 @@ Random baseline         & 1k  & 31.4 $\pm$ 2.9\\
 \textbf{Human (expert)}            & 200 & \textbf{95.0}\\
 \bottomrule
 \end{tabular}
-\vspace{0.5cm}
-\flushleft\footnotesize New multi-annotator study (12 participated; the 10 who
-finished all 200 are analyzed) replaces the single-annotator pilot. Engaged $=$
-Cohen's $\kappa_{\text{expert}}\!\ge\!0.3$; two low-agreement outliers excluded by
-\emph{agreement}, not accuracy.
+\vspace{0.4cm}
+\flushleft\footnotesize Multi-annotator study (12 participated; the 10 who finished
+all 200 are analyzed). Two low-agreement outliers excluded by \emph{agreement}
+($\kappa_{\text{expert}}\!<\!0.3$), not accuracy.
 \end{block}
 
-\begin{block}{Human baseline \& inter-rater agreement}
+\begin{block}{Human baseline \& agreement}
 \begin{center}
-\includegraphics[width=0.99\linewidth]{\FIG/human_accuracy_dist.png}
+\includegraphics[width=0.92\linewidth]{\FIG/human_accuracy_dist.png}
 \end{center}
 \footnotesize Attentive humans converge (median pairwise $\kappa=0.48$, up to
-$0.76$); Gemini-3-Pro sits \emph{below} the human consensus (median
-$\kappa=0.38$), Qwen3-VL near chance ($\kappa\!\approx\!0.05$). The gap shows up
-in \emph{agreement structure}, not only accuracy.
+$0.76$); Gemini-3-Pro sits \emph{below} the human consensus (median $\kappa=0.42$),
+Qwen3-VL-235B lower still ($0.15$). The gap shows up in \emph{agreement structure},
+not only accuracy.
 \end{block}
 
-\begin{block}{Adaptation helps, but transfer is limited}
-\centering
-\begin{tabular}{l l r}
-\toprule
-Model & Training & Acc.\ (\%)\\
-\midrule
-Qwen3-VL-8B & Base    & 34.3 $\pm$ 0.9\\
-Qwen3-VL-8B & SFT     & 39.8 $\pm$ 1.0\\
-Qwen3-VL-8B & SFT+RL  & \textbf{43.9 $\pm$ 1.0}\\
-\bottomrule
-\end{tabular}
-\vspace{0.4cm}
-\flushleft\footnotesize SFT $+$ RL gains $\sim$10 points on m2sv, but
-cross-benchmark transfer is asymmetric and weak --- fine-tuning induces
-\emph{benchmark-specific} policies, not transferable spatial skill.
+\begin{block}{Difficulty: the hardest-tier collapse}
+\begin{center}
+\includegraphics[width=0.86\linewidth]{\FIG/human_difficulty_decircular.png}
+\end{center}
+\footnotesize Difficulty bins from \textbf{human response time}; accuracy from a
+model-independent axis. Humans degrade gently ($83\!\to\!63\%$) and stay above both
+models; models lose the most ground on the hardest tier, falling to (Qwen) or
+toward (Gemini, $50\%$) chance. \textbf{Symmetric} intersections (azimuth-gap ratio
+$S=\frac{\max}{\min}$) are hardest for all models.
 \end{block}
 
 \end{column}
 
-% ---------------- COLUMN 3 ----------------
+% ===================== RIGHT COLUMN: why models fail =====================
 \begin{column}{\colw}
 
-\begin{block}{Difficulty: the gap widens where it matters}
-\begin{center}
-\includegraphics[width=0.99\linewidth]{\FIG/human_difficulty_decircular.png}
-\end{center}
-\footnotesize Difficulty bins from \textbf{human response time}; accuracy from
-\emph{separate} annotators (de-circularized). Easy$\to$Hard: humans
-$83\!\to\!63\%$, Gemini $82\!\to\!50\%$, Qwen $42\!\to\!29\%$. Gemini nearly
-matches humans on easy items but trails by \textbf{13 pts} on hard ones.
+\begin{block}{Why models fail (qualitative analysis)}
+\footnotesize Humans solve nearly all of these. Model errors come from
+\emph{brittle alignment strategies and reliance on unstable evidence}, not missing
+information. Each card: overhead map, street view, a trace excerpt, and the error.
+\end{block}
+
 \vspace{0.4cm}
 
-\textbf{Road-azimuth symmetry.} We define a structural difficulty metric
-$S=\dfrac{\max\text{ angular gap}}{\min\text{ angular gap}}$. Stratifying
-3-option items by $S$, \emph{symmetric} intersections are hardest for all
-models.
-\end{block}
+\failcard{\FIG/failure-mode-0-map.jpg}{\FIG/failure-mode-0-sv.jpg}
+{Ego$\leftrightarrow$allo inversion \hfill GT: A\ \ Pred: C}
+{Looking from the center towards A, the road curves to the right --- contradicting the left curve in the photo.}
+{The map shows a \emph{left} curve, but the model reasons as if it were a right curve. Left/right inversion at the map$\leftrightarrow$photo boundary.}
 
-\begin{block}{How models fail}
-\begin{itemize}
-  \item \textbf{Ego$\leftrightarrow$allo confusion} --- left/right inversions at
-        4-way junctions.
-  \item \textbf{Unreliable cues} --- roof color, shadows, blur drive confident
-        wrong eliminations.
-  \item \textbf{Landmark misbinding / false projection} --- attaching distant or
-        absent landmarks to the intersection.
-  \item \textbf{Symmetry traps} --- fail to escalate to lane counts, markings,
-        curb geometry that resolve ambiguity.
-\end{itemize}
-\vspace{0.2cm}
-\footnotesize Common thread: models apply \emph{uniform} reasoning across
-difficulty; humans escalate effort on ambiguous cases.
-\end{block}
+\failcard{\FIG/failure-mode-1-map.jpg}{\FIG/failure-mode-1-sv.jpg}
+{Over-reliance on unstable cues \hfill GT: B\ \ Pred: D}
+{Both corners appear to have gray roofs; there is no reddish house on the left corner, so B is incorrect.}
+{Roof color is lighting- and angle-dependent and weakly represented in overhead imagery. A human would discount this cue.}
+
+\failcard{\FIG/failure-mode-5-map.jpg}{\FIG/failure-mode-5-sv.jpg}
+{Landmark misbinding \hfill GT: A\ \ Pred: B}
+{The corner house has a large swimming pool in its backyard; this does not match the street view, so A is wrong.}
+{The corner house has \emph{no} pool --- one exists two houses down. The model binds a nearby landmark to the wrong spatial anchor.}
+
+\failcard{\FIG/failure-mode-2-map.jpg}{\FIG/failure-mode-2-sv.jpg}
+{Symmetry trap \hfill GT: D\ \ Pred: B}
+{Several headings look equally plausible; the model commits on a weak cue instead of resolving the ambiguity.}
+{At symmetric intersections, models fail to \emph{escalate} to fine cues (lane counts, markings, curb geometry) that would disambiguate.}
 
 \begin{block}{Takeaways}
 \begin{itemize}
-  \item m2sv isolates a core, scalable \textbf{map$\leftrightarrow$street-view
-        alignment} primitive that frontier VLMs have \emph{not} solved.
-  \item Humans beat the best model and \textbf{agree with each other}; models
-        lie outside that consensus.
-  \item Difficulty is real and structural --- failures concentrate on
-        \emph{symmetric} geometry.
+  \item m2sv isolates a scalable \textbf{map$\leftrightarrow$street-view alignment}
+        primitive frontier VLMs have \emph{not} solved (best 65\% vs human 72/95\%).
+  \item Humans beat the best model \emph{and} agree with one another; models lie
+        outside that consensus and collapse on the hardest, symmetric cases.
+  \item SFT$+$RL on m2sv helps ($+$10 pts) but transfer is limited --- failures are
+        about \emph{adapting reasoning to ambiguity}, not missing data.
 \end{itemize}
 \vspace{0.3cm}
-\centering\small
-\textbf{Code/data:} \texttt{github.com/YosubShin/m2sv}\\
+\centering\small\textbf{Code/data:} \texttt{github.com/YosubShin/m2sv} \qquad
 \textbf{Try it:} \texttt{m2sv.yosubshin.com}
 \end{block}
 
@@ -195,7 +187,7 @@ difficulty; humans escalate effort on ambiguous cases.
 
 \end{columns}
 
-\vspace{0.6cm}
+\vspace{0.5cm}
 \begin{center}
 \footnotesize\color{ink} Supported by NSF NRT-AI 2244574. \quad Contact: \texttt{yosubs@hawaii.edu}
 \end{center}
