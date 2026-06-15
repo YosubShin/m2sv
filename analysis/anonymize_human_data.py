@@ -32,7 +32,8 @@ def model(path):
     return {str(r["id"]): str(r.get("pred", "")).strip().upper()
             for r in json.loads((ROOT / path).read_text())["results"]}
 MODELS = {"Gemini-3-Pro": model("results/gemini-3-pro.json"),
-          "Qwen3-VL": model("results/qwen3-vl-plus.json")}
+          "Qwen3-VL": model("results/qwen3-vl-plus.json"),
+          "Qwen3-VL-235B-Thinking": model("past_results/2025-10-23/qwen3-vl-235b-a22b-thinking.json")}
 
 conn = sqlite3.connect(DB); conn.row_factory = sqlite3.Row
 resp = {e: conn.execute(

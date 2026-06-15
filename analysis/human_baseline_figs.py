@@ -179,12 +179,13 @@ buckets = [("Easy", order[:t]), ("Medium", order[t:2*t]), ("Hard", order[2*t:])]
 def macc(d, ids): return float(np.mean([1 if d.get(p) == P[p]["answer"] else 0 for p in ids]))
 H = [float(np.mean([ha[p] for p in ids])) for _, ids in buckets]
 G = [macc(GEM, ids) for _, ids in buckets]
-Q = [macc(QWEN, ids) for _, ids in buckets]
+QWEN235 = DATA["models"]["Qwen3-VL-235B-Thinking"]
+Q = [macc(QWEN235, ids) for _, ids in buckets]
 x = np.arange(3)
 fig, ax = plt.subplots(figsize=(4.4, 3.0))
 ax.plot(x, H, "-o", color="#1e8449", label=f"Human (engaged, n={len(ENG3)})")
 ax.plot(x, G, "-s", color="#e67e22", label="Gemini-3-Pro")
-ax.plot(x, Q, "-^", color="#7f8c8d", label="Qwen3-VL")
+ax.plot(x, Q, "-^", color="#7f8c8d", label="Qwen3-VL-235B (Thinking)")
 ax.axhline(RAND, ls="--", lw=1, color="#b03a2e", alpha=0.7, label=f"Chance ({RAND:.0%})")
 for xi, (h, g) in enumerate(zip(H, G)):
     ax.text(xi, h + .03, f"{h:.0%}", ha="center", fontsize=7, color="#1e8449")
