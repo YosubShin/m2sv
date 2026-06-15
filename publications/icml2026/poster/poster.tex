@@ -28,43 +28,32 @@
 \newlength{\colw}
 \setlength{\colw}{0.475\paperwidth}
 
-% Failure-mode card: #1 map img, #2 sv img, #3 GT/Pred, #4 trace excerpt, #5 reason
-\newcommand{\failcard}[5]{%
-\begin{tcolorbox}[colback=failbg,colframe=failrule,boxrule=1.2pt,arc=4pt,
-  left=10pt,right=10pt,top=8pt,bottom=8pt,title=#3,
-  coltitle=white,colbacktitle=failrule,fonttitle=\normalsize\bfseries]
-\begin{minipage}[c]{0.30\linewidth}\centering
-  \includegraphics[width=\linewidth]{#1}
-\end{minipage}\hfill
-\begin{minipage}[c]{0.30\linewidth}\centering
-  \includegraphics[width=\linewidth]{#2}
-\end{minipage}\hfill
-\begin{minipage}[c]{0.36\linewidth}\footnotesize
-  \textit{``#4''}
-\end{minipage}
-\vspace{4pt}\par\footnotesize\textbf{Why:} #5
-\end{tcolorbox}\vspace{0.5cm}}
+% Compact failure card: #1 map, #2 sv, #3 title, #4 GT/Pred, #5 reason
+\newcommand{\failmini}[5]{%
+\begin{tcolorbox}[colback=failbg,colframe=failrule,boxrule=1pt,arc=3pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,title={#3\hfill #4},
+  coltitle=white,colbacktitle=failrule,fonttitle=\small\bfseries]
+\centering
+\includegraphics[width=0.47\linewidth]{#1}\hfill\includegraphics[width=0.47\linewidth]{#2}
+\par\vspace{4pt}\footnotesize\raggedright #5
+\end{tcolorbox}}
 
 \begin{document}
 \begin{frame}[t]
 
-% ================= TITLE BAR =================
-\begin{tcolorbox}[colback=uhgreen,colframe=uhgreen,boxrule=0pt,arc=8pt,left=18pt,right=18pt,top=14pt,bottom=14pt]
+% ================= TITLE BAR (compact) =================
+\begin{tcolorbox}[colback=uhgreen,colframe=uhgreen,boxrule=0pt,arc=8pt,left=18pt,right=18pt,top=10pt,bottom=10pt]
 \centering
-{\color{white}\Huge\textbf{m2sv: A Scalable Benchmark for}}\\[6pt]
-{\color{white}\Huge\textbf{Map-to-Street-View Spatial Reasoning}}\\[12pt]
-{\color{white}\large Yosub Shin \quad Michael Buriek \quad Igor Molybog}\\[4pt]
-{\color{white}\normalsize University of Hawai\textquoteright i at M\=anoa\ \ (Buriek also PwC)}\\[6pt]
-{\color{accent}\large\textbf{CTB Workshop @ ICML 2026 \quad$\cdot$\quad non-archival}}\\[4pt]
-{\color{white}\normalsize \texttt{github.com/YosubShin/m2sv} \qquad live demo: \texttt{m2sv.yosubshin.com}}
+{\color{white}\LARGE\textbf{m2sv: A Scalable Benchmark for Map-to-Street-View Spatial Reasoning}}\\[8pt]
+{\color{white}\large Yosub Shin \quad Michael Buriek \quad Igor Molybog \quad$\cdot$\quad University of Hawai\textquoteright i at M\=anoa\ (Buriek also PwC) \quad$\cdot$\quad \texttt{github.com/YosubShin/m2sv} \quad \texttt{m2sv.yosubshin.com}}
 \end{tcolorbox}
 
-\vspace{0.9cm}
+\vspace{0.7cm}
 
-% ================= COLUMNS =================
+% ================= TOP: MAIN CLAIMS + PLOTS =================
 \begin{columns}[t]
 
-% ===================== LEFT COLUMN: what & how well =====================
+% ---- LEFT ----
 \begin{column}{\colw}
 
 \begin{block}{The Task}
@@ -72,14 +61,16 @@ Given a \textbf{north-up overhead map} with labeled candidate directions and a
 \textbf{Street View photo} taken at the same intersection, infer \emph{which
 labeled direction the camera was facing}. The camera sits at the intersection
 center; letters point outward along each road.
-\vspace{0.5cm}
+\vspace{0.4cm}
 \begin{center}
-\includegraphics[width=0.44\linewidth]{\FIG/sample-question-1-map.jpg}\hfill
-\includegraphics[width=0.44\linewidth]{\FIG/sample-question-1-sv.jpg}
+\includegraphics[width=0.43\linewidth]{\FIG/sample-question-1-map.jpg}\hfill
+\includegraphics[width=0.43\linewidth]{\FIG/sample-question-1-sv.jpg}
 \end{center}
 \vspace{0.2cm}
-\footnotesize\emph{Solve by aligning stable map geometry (roads, parcels,
-landmarks) with the ground-level view --- not transient cues.}
+\centering\normalsize\textbf{Ground truth: D} (camera faces north).
+\par\vspace{0.2cm}
+\footnotesize\raggedright\emph{Solve by aligning stable map geometry (roads,
+parcels, landmarks) with the ground-level view --- not transient cues.}
 \end{block}
 
 \begin{block}{Benchmark \& Data (open)}
@@ -92,6 +83,21 @@ landmarks) with the ground-level view --- not transient cues.}
         code to respect map licensing; all eval/training code public.
 \end{itemize}
 \end{block}
+
+\begin{block}{Human baseline \& agreement}
+\begin{center}
+\includegraphics[width=0.86\linewidth]{\FIG/human_accuracy_dist.png}
+\end{center}
+\footnotesize Attentive humans converge (median pairwise $\kappa=0.48$, up to
+$0.76$); Gemini-3-Pro sits \emph{below} the human consensus (median $\kappa=0.42$),
+Qwen3-VL-235B lower still ($0.15$). The gap shows up in \emph{agreement structure},
+not only accuracy.
+\end{block}
+
+\end{column}
+
+% ---- RIGHT ----
+\begin{column}{\colw}
 
 \begin{block}{Zero-shot: humans clear the best VLM}
 \centering
@@ -109,25 +115,15 @@ Random baseline         & 1k  & 31.4 $\pm$ 2.9\\
 \textbf{Human (expert)}            & 200 & \textbf{95.0}\\
 \bottomrule
 \end{tabular}
-\vspace{0.4cm}
+\vspace{0.3cm}
 \flushleft\footnotesize Multi-annotator study (12 participated; the 10 who finished
 all 200 are analyzed). Two low-agreement outliers excluded by \emph{agreement}
 ($\kappa_{\text{expert}}\!<\!0.3$), not accuracy.
 \end{block}
 
-\begin{block}{Human baseline \& agreement}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{\FIG/human_accuracy_dist.png}
-\end{center}
-\footnotesize Attentive humans converge (median pairwise $\kappa=0.48$, up to
-$0.76$); Gemini-3-Pro sits \emph{below} the human consensus (median $\kappa=0.42$),
-Qwen3-VL-235B lower still ($0.15$). The gap shows up in \emph{agreement structure},
-not only accuracy.
-\end{block}
-
 \begin{block}{Difficulty: the hardest-tier collapse}
 \begin{center}
-\includegraphics[width=0.86\linewidth]{\FIG/human_difficulty_decircular.png}
+\includegraphics[width=0.80\linewidth]{\FIG/human_difficulty_decircular.png}
 \end{center}
 \footnotesize Difficulty bins from \textbf{human response time}; accuracy from a
 model-independent axis. Humans degrade gently ($83\!\to\!63\%$) and stay above both
@@ -135,39 +131,6 @@ models; models lose the most ground on the hardest tier, falling to (Qwen) or
 toward (Gemini, $50\%$) chance. \textbf{Symmetric} intersections (azimuth-gap ratio
 $S=\frac{\max}{\min}$) are hardest for all models.
 \end{block}
-
-\end{column}
-
-% ===================== RIGHT COLUMN: why models fail =====================
-\begin{column}{\colw}
-
-\begin{block}{Why models fail (qualitative analysis)}
-\footnotesize Humans solve nearly all of these. Model errors come from
-\emph{brittle alignment strategies and reliance on unstable evidence}, not missing
-information. Each card: overhead map, street view, a trace excerpt, and the error.
-\end{block}
-
-\vspace{0.4cm}
-
-\failcard{\FIG/failure-mode-0-map.jpg}{\FIG/failure-mode-0-sv.jpg}
-{Ego$\leftrightarrow$allo inversion \hfill GT: A\ \ Pred: C}
-{Looking from the center towards A, the road curves to the right --- contradicting the left curve in the photo.}
-{The map shows a \emph{left} curve, but the model reasons as if it were a right curve. Left/right inversion at the map$\leftrightarrow$photo boundary.}
-
-\failcard{\FIG/failure-mode-1-map.jpg}{\FIG/failure-mode-1-sv.jpg}
-{Over-reliance on unstable cues \hfill GT: B\ \ Pred: D}
-{Both corners appear to have gray roofs; there is no reddish house on the left corner, so B is incorrect.}
-{Roof color is lighting- and angle-dependent and weakly represented in overhead imagery. A human would discount this cue.}
-
-\failcard{\FIG/failure-mode-5-map.jpg}{\FIG/failure-mode-5-sv.jpg}
-{Landmark misbinding \hfill GT: A\ \ Pred: B}
-{The corner house has a large swimming pool in its backyard; this does not match the street view, so A is wrong.}
-{The corner house has \emph{no} pool --- one exists two houses down. The model binds a nearby landmark to the wrong spatial anchor.}
-
-\failcard{\FIG/failure-mode-2-map.jpg}{\FIG/failure-mode-2-sv.jpg}
-{Symmetry trap \hfill GT: D\ \ Pred: B}
-{Several headings look equally plausible; the model commits on a weak cue instead of resolving the ambiguity.}
-{At symmetric intersections, models fail to \emph{escalate} to fine cues (lane counts, markings, curb geometry) that would disambiguate.}
 
 \begin{block}{Takeaways}
 \begin{itemize}
@@ -178,18 +141,59 @@ information. Each card: overhead map, street view, a trace excerpt, and the erro
   \item SFT$+$RL on m2sv helps ($+$10 pts) but transfer is limited --- failures are
         about \emph{adapting reasoning to ambiguity}, not missing data.
 \end{itemize}
-\vspace{0.3cm}
-\centering\small\textbf{Code/data:} \texttt{github.com/YosubShin/m2sv} \qquad
-\textbf{Try it:} \texttt{m2sv.yosubshin.com}
 \end{block}
 
 \end{column}
 
 \end{columns}
 
+% ================= BOTTOM: FAILURE-MODE GALLERY =================
+\vspace{0.5cm}
+\begin{tcolorbox}[colback=uhgreen,colframe=uhgreen,boxrule=0pt,arc=6pt,left=16pt,right=16pt,top=8pt,bottom=8pt]
+\centering{\color{white}\Large\textbf{Seven qualitative failure modes --- every case is solved by humans, missed by the model}}\\[3pt]
+{\color{white}\footnotesize Errors come from \emph{brittle alignment and reliance on unstable evidence}, not missing information. Each card: overhead map, street view, GT/prediction, and the error.}
+\end{tcolorbox}
+\vspace{0.5cm}
+
+\begin{columns}[t]
+\begin{column}{0.235\paperwidth}
+\failmini{\FIG/failure-mode-0-map.jpg}{\FIG/failure-mode-0-sv.jpg}{Ego$\leftrightarrow$allo inversion}{A\,$\to$\,C}
+{Map shows a \emph{left} curve; the model reasons as if it curved right. Left/right flip at the map$\leftrightarrow$photo boundary.}
+\end{column}
+\begin{column}{0.235\paperwidth}
+\failmini{\FIG/failure-mode-1-map.jpg}{\FIG/failure-mode-1-sv.jpg}{Unstable visual cues}{B\,$\to$\,D}
+{Eliminates on roof color, which is lighting- and angle-dependent and weak in overhead imagery. A human discounts it.}
+\end{column}
+\begin{column}{0.235\paperwidth}
+\failmini{\FIG/failure-mode-5-map.jpg}{\FIG/failure-mode-5-sv.jpg}{Landmark misbinding}{A\,$\to$\,B}
+{Attributes a pool to the corner house --- it is two houses down. Binds a landmark to the wrong spatial anchor.}
+\end{column}
+\begin{column}{0.235\paperwidth}
+\failmini{\FIG/failure-mode-3-map.jpg}{\FIG/failure-mode-3-sv.jpg}{False landmark projection}{D\,$\to$\,A}
+{Invents a nonexistent structure (underpass/bridge) and reasons as if it were present in the map.}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+
+\begin{columns}[t]
+\begin{column}{0.315\paperwidth}
+\failmini{\FIG/failure-mode-6-map.jpg}{\FIG/failure-mode-6-sv.jpg}{Inconsistent spatial state}{A\,$\to$\,C}
+{Treats the two sides of one street as having different road widths, instead of enforcing a single coherent layout.}
+\end{column}
+\begin{column}{0.315\paperwidth}
+\failmini{\FIG/failure-mode-4-map.jpg}{\FIG/failure-mode-4-sv.jpg}{Internal contradiction}{D\,$\to$\,C}
+{Identifies left--right relations correctly, then contradicts its own assignment mid-reasoning --- loses spatial state.}
+\end{column}
+\begin{column}{0.315\paperwidth}
+\failmini{\FIG/failure-mode-2-map.jpg}{\FIG/failure-mode-2-sv.jpg}{Symmetry trap}{D\,$\to$\,B}
+{Narrows to two symmetric candidates but will not escalate to fine cues (lane counts, curb geometry) to break the tie.}
+\end{column}
+\end{columns}
+
 \vspace{0.5cm}
 \begin{center}
-\footnotesize\color{ink} Supported by NSF NRT-AI 2244574. \quad Contact: \texttt{yosubs@hawaii.edu}
+\footnotesize\color{ink} Supported by NSF NRT-AI 2244574. \quad Contact: \texttt{yosubs@hawaii.edu} \quad$\cdot$\quad Code/data: \texttt{github.com/YosubShin/m2sv} \quad Try it: \texttt{m2sv.yosubshin.com}
 \end{center}
 
 \end{frame}
