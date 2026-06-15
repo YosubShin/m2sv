@@ -617,13 +617,18 @@ in our pilot, also removes the within-subject coupling between one rater's
 per-trial speed and correctness that would otherwise be conflated with item
 difficulty. The human accuracy curve is shown for reference: that effort and
 accuracy co-vary within the same annotators is expected and is not the claim we
-draw from this figure. All groups degrade with
-difficulty, but at different rates: humans fall from $83\%$ to $63\%$,
-Gemini-3-Pro more steeply from $82\%$ to $50\%$, and Qwen3-VL from $42\%$ to
-$29\%$. The human--model gap therefore \emph{widens} with difficulty---Gemini
-nearly matches humans on the easiest tier but trails by $13$ points on the
-hardest---indicating that models fail precisely where fine-grained spatial
-alignment is most required.
+draw from this figure. Humans and the strongest model degrade with difficulty but
+at different rates: humans fall from $83\%$ to $63\%$ while Gemini-3-Pro drops more
+steeply from $82\%$ to $50\%$, remaining well above the per-bin chance level
+($\sim$31\%) throughout. The human--model gap therefore \emph{widens} with
+difficulty---Gemini nearly matches humans on the easiest tier but trails by $13$
+points on the hardest---indicating that models fail precisely where fine-grained
+spatial alignment is most required. Qwen3-VL, by contrast, exceeds chance only on
+the easiest tier ($42\%$ vs.\ $\sim$32\%) and collapses to chance by the medium
+tier ($30\%$, then $29\%$); its near-flat medium-to-hard segment is a floor
+effect---it retains essentially no spatial signal to lose---rather than robustness
+to difficulty. Candidate-count composition is similar across bins, so chance is
+$\sim$30--32\% in all three tiers.
 
 Taken together, these results suggest that model failures are driven not by
 geometry alone, but by an inability to exploit subtle, stable cues when visual
