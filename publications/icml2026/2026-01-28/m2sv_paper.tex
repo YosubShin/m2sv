@@ -337,10 +337,13 @@ the strongest model (Gemini-3-Pro, $65.2\%$); two annotators answered at or belo
 chance ($42\%$ and $21\%$) and are flagged not by accuracy but by near-zero or
 negative agreement with every other rater (Cohen's $\kappa \le 0.15$)---one was
 fast and one slow, so the exclusion reflects disagreement, not speed. The
-below-chance annotator's errors are not random but systematic: its choices are
-predominantly the \emph{opposite} road direction (median angular error
-$150^\circ$, negative $\kappa$), the human analogue of the egocentric--allocentric
-inversion that is the dominant model failure mode (Section~\ref{sec:failure-analysis}).
+below-chance annotator's answers were systematically the \emph{opposite} heading
+(median angular error $150^\circ$, negative $\kappa$); a debrief traced this to a
+misunderstood convention---treating the labeled marker as the camera's location
+rather than the intersection center, which inverts every heading---rather than a
+spatial-reasoning deficit, plausibly compounded by non-native instructions.
+Agreement-based exclusion thus removes task misunderstanding that an accuracy
+threshold alone would conflate with poor spatial ability.
 Inter-annotator
 agreement is otherwise moderate to substantial (Figure~\ref{fig:kappa}): the
 expert and the engaged annotators form a high-agreement block
