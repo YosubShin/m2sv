@@ -27,6 +27,7 @@ P = {pid: {"answer": d["answer"], "options": LETTERS[:d["n_options"]]}
 EXP = DATA["expert"]                        # expert annotator predictions (A1)
 GEM = DATA["models"]["Gemini-3-Pro"]
 QWEN = DATA["models"]["Qwen3-VL"]
+QWEN235 = DATA["models"]["Qwen3-VL-235B-Thinking"]
 
 NAIVE = sorted(DATA["annotators"])           # already anonymized: A2..A8
 ans, rt, rtp, completed = {}, {}, {}, {}
@@ -66,7 +67,7 @@ print(f"{'EXPERT':<14} {200:>5} {ea:>5.0%}     -")
 print(f"\nAll naive (n={len(naive_acc)}): mean {np.mean(naive_acc):.1%}  SD {np.std(naive_acc):.1%}")
 eng = [accuracy(ans[e])[0] for e in ENGAGED]
 print(f"Engaged   (n={len(eng)}): mean {np.mean(eng):.1%}  SD {np.std(eng):.1%}")
-print(f"Models: Gemini-3-Pro {accuracy(GEM)[0]:.0%}  Qwen-plus {accuracy(QWEN)[0]:.0%}")
+print(f"Models: Gemini-3-Pro {accuracy(GEM)[0]:.0%}  Qwen-235B {accuracy(QWEN235)[0]:.0%}")
 
 FIGDIR.mkdir(parents=True, exist_ok=True)
 plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False})
@@ -108,7 +109,7 @@ print("\nwrote human_accuracy_dist")
 # ---- Fig 2: Cohen's kappa agreement heatmap -------------------------------
 humans_sorted = sorted(NAIVE, key=lambda e: int(LABEL[e][1:]))  # A2, A3, ... (numeric)
 raters = [("A1 (expert)", EXP)] + [(LABEL[e], ans[e]) for e in humans_sorted] + \
-         [("Gemini-3-Pro", GEM), ("Qwen-plus", QWEN)]
+         [("Gemini-3-Pro", GEM), ("Qwen3-VL-235B", QWEN235)]
 names = [n for n, _ in raters]
 M = np.full((len(raters), len(raters)), np.nan)
 for i, (_, di) in enumerate(raters):
@@ -179,7 +180,6 @@ buckets = [("Easy", order[:t]), ("Medium", order[t:2*t]), ("Hard", order[2*t:])]
 def macc(d, ids): return float(np.mean([1 if d.get(p) == P[p]["answer"] else 0 for p in ids]))
 H = [float(np.mean([ha[p] for p in ids])) for _, ids in buckets]
 G = [macc(GEM, ids) for _, ids in buckets]
-QWEN235 = DATA["models"]["Qwen3-VL-235B-Thinking"]
 Q = [macc(QWEN235, ids) for _, ids in buckets]
 x = np.arange(3)
 fig, ax = plt.subplots(figsize=(4.4, 3.0))

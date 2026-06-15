@@ -350,7 +350,7 @@ expert and the engaged annotators agree well with one another (median pairwise
 $\kappa = 0.48$, up to $0.76$), confirming that the labels are reliable and that
 attentive humans converge on the same answers. In contrast, Gemini-3-Pro agrees
 with humans only moderately (median $\kappa = 0.38$, below the human--human
-median) and Qwen3-VL is near chance (median $\kappa \approx 0.05$). The human--model gap is
+median) and Qwen3-VL-235B shows only slight agreement (median $\kappa = 0.15$). The human--model gap is
 thus visible not only in accuracy but in agreement structure: the best model sits
 below the human consensus, indicating that zero-shot pretrained VLMs
 lack robust mechanisms for aligning overhead maps with egocentric street-level
@@ -376,7 +376,7 @@ views.
     \textbf{Inter-rater agreement (Cohen's $\kappa$),} chance-corrected per item
     by candidate count. The expert (A1) and engaged annotators (A2--A11) form a
     high-agreement block; Gemini-3-Pro sits below the human consensus and
-    Qwen3-VL is near chance. The low-agreement annotators (A12, A13) are outliers against
+    Qwen3-VL-235B lower still. The low-agreement annotators (A12, A13) are outliers against
     all raters.
   }
   \label{fig:kappa}
