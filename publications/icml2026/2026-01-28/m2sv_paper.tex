@@ -609,9 +609,15 @@ Figure~\ref{fig:accuracy-vs-human-time} instead uses response time as a global
 difficulty signal: examples are partitioned into tertiles by the \emph{median}
 response time across the engaged annotators who completed all 200 items (the
 median is robust to occasional idle responses, which the visibility detector
-cannot catch). Because the bins are defined from response time while accuracy is
-measured separately, this avoids the circularity of deriving the difficulty axis
-and the accuracy curve from a single annotator. All groups degrade with
+cannot catch). This difficulty axis is a purely human-effort signal, computed
+without reference to any model, so the model accuracy curves---and hence the
+human--model gap---cannot be artifacts of how difficulty is defined. Taking the
+median across many annotators, rather than relying on a single rater's latency as
+in our pilot, also removes the within-subject coupling between one rater's
+per-trial speed and correctness that would otherwise be conflated with item
+difficulty. The human accuracy curve is shown for reference: that effort and
+accuracy co-vary within the same annotators is expected and is not the claim we
+draw from this figure. All groups degrade with
 difficulty, but at different rates: humans fall from $83\%$ to $63\%$,
 Gemini-3-Pro more steeply from $82\%$ to $50\%$, and Qwen3-VL from $42\%$ to
 $29\%$. The human--model gap therefore \emph{widens} with difficulty---Gemini
@@ -632,8 +638,10 @@ training and adaptive inference.
   \caption{
     \textbf{Accuracy vs.\ human-perceived difficulty (multi-annotator).}
     Examples are partitioned into Easy/Medium/Hard tertiles by \emph{median}
-    response time across the engaged annotators who completed all 200 items;
-    accuracy is then measured separately, avoiding circularity. All groups degrade
+    response time across the engaged annotators who completed all 200 items. The
+    difficulty axis is a human-effort signal independent of any model, so the model
+    curves and the widening gap are not artifacts of the binning; the human curve is
+    shown for reference. All groups degrade
     with difficulty; Gemini-3-Pro degrades more steeply than humans, widening the
     gap on the hardest examples.
   }

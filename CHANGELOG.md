@@ -7,9 +7,11 @@
   - Engaged annotators (excluding two near-chance, low-agreement outliers) average
     **71.7% ± 9.1%**; expert **95%**; inter-annotator agreement (median pairwise
     Cohen's kappa **0.48**, up to **0.76**). Best VLM (Gemini-3-Pro) is **65.2%**.
-- **De-circularized difficulty analysis**: response-time difficulty bins and the
-  accuracy curve now come from different annotators; human accuracy degrades
-  gracefully while models degrade more steeply.
+- **Model-independent difficulty axis**: difficulty bins come from human response
+  time (group median over engaged completers, robust to a single rater's
+  per-trial coupling). Model accuracy is independent of this axis, so the widening
+  human--model gap is not a binning artifact: humans degrade gracefully while
+  models degrade more steeply.
 - **Road-azimuth symmetry metric defined** (S = max gap / min gap) and the
   symmetry analysis stratified by candidate count (3-option) to remove the
   #options confound; symmetric intersections are hardest for all models.
