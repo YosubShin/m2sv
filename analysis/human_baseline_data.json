@@ -11405,7 +11405,7 @@
 ]
 },
 "A11": {
-"completed_all": false,
+"completed_all": true,
 "responses": [
 {
 "pid": "4604526193",
@@ -12271,6 +12271,141 @@
 "pid": "152112256",
 "selected": "C",
 "elapsed_ms": 33891
+},
+{
+"pid": "41518609",
+"selected": "D",
+"elapsed_ms": 28466
+},
+{
+"pid": "176089129",
+"selected": "D",
+"elapsed_ms": 26929
+},
+{
+"pid": "53084208",
+"selected": "A",
+"elapsed_ms": 34482
+},
+{
+"pid": "7548293575",
+"selected": "B",
+"elapsed_ms": 22155
+},
+{
+"pid": "91611265",
+"selected": "B",
+"elapsed_ms": 34839
+},
+{
+"pid": "262459097",
+"selected": "C",
+"elapsed_ms": 40411
+},
+{
+"pid": "34168105",
+"selected": "C",
+"elapsed_ms": 29653
+},
+{
+"pid": "61388169",
+"selected": "A",
+"elapsed_ms": 24114
+},
+{
+"pid": "4411771771",
+"selected": "A",
+"elapsed_ms": 24444
+},
+{
+"pid": "150894997",
+"selected": "A",
+"elapsed_ms": 40596
+},
+{
+"pid": "24972586",
+"selected": "A",
+"elapsed_ms": 36689
+},
+{
+"pid": "25953000",
+"selected": "B",
+"elapsed_ms": 76501
+},
+{
+"pid": "41862488",
+"selected": "C",
+"elapsed_ms": 14229
+},
+{
+"pid": "2373582668",
+"selected": "D",
+"elapsed_ms": 30484
+},
+{
+"pid": "1692859507",
+"selected": "A",
+"elapsed_ms": 79444
+},
+{
+"pid": "27364372",
+"selected": "C",
+"elapsed_ms": 19434
+},
+{
+"pid": "2374574",
+"selected": "C",
+"elapsed_ms": 28331
+},
+{
+"pid": "5214574336",
+"selected": "A",
+"elapsed_ms": 11285
+},
+{
+"pid": "1838695735",
+"selected": "C",
+"elapsed_ms": 18361
+},
+{
+"pid": "99015617",
+"selected": "A",
+"elapsed_ms": 67569
+},
+{
+"pid": "2948839124",
+"selected": "C",
+"elapsed_ms": 18913
+},
+{
+"pid": "314500686",
+"selected": "B",
+"elapsed_ms": 46904
+},
+{
+"pid": "8559113110",
+"selected": "B",
+"elapsed_ms": 53394
+},
+{
+"pid": "2242552246",
+"selected": "B",
+"elapsed_ms": 18382
+},
+{
+"pid": "30431658",
+"selected": "A",
+"elapsed_ms": 39787
+},
+{
+"pid": "1099022823",
+"selected": "A",
+"elapsed_ms": 9142
+},
+{
+"pid": "122815471",
+"selected": "C",
+"elapsed_ms": 15338
 }
 ]
 }

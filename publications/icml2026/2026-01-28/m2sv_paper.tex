@@ -326,7 +326,7 @@ items\footnote{Nine are external volunteers; the tenth is a co-author who
 contributed to the reinforcement-learning pipeline but not to the benchmark data
 or the human-evaluation protocol, and encountered the items for the first time
 during the study.}---each answer between 17 and 200 items through a web interface
-that logs the selected option and per-item response time; seven complete all 200.
+that logs the selected option and per-item response time; eight complete all 200.
 We additionally retain the original expert annotator (a dataset author) as a
 ceiling reference.
 
@@ -334,7 +334,7 @@ Human accuracy is high but effort-dependent
 (Figure~\ref{fig:human-dist}). Eight mutually consistent annotators average
 $74.0\%$ (between-annotator SD $7.3\%$) and the expert reaches $95\%$, all above
 the strongest model (Gemini-3-Pro, $65.2\%$); two annotators answered at or below
-chance ($42\%$ and $21\%$) and are flagged not by accuracy but by near-zero or
+chance ($42\%$ and $22\%$) and are flagged not by accuracy but by near-zero or
 negative agreement with every other rater (Cohen's $\kappa \le 0.15$)---one was
 fast and one slow, so the exclusion reflects disagreement, not speed. The
 below-chance annotator's answers were systematically the \emph{opposite} heading
@@ -362,7 +362,7 @@ views.
   \caption{
     \textbf{Per-annotator human accuracy on the 200-example subset}
     (dot size $\propto$ number of items answered). Annotators span
-    $21\%$--$84\%$; the two low-agreement outliers ($\kappa<0.3$ with all raters)
+    $22\%$--$84\%$; the two low-agreement outliers ($\kappa<0.3$ with all raters)
     are shown in red and the expert as a star. Dashed lines denote model and random
     baselines.
   }

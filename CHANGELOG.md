@@ -2,7 +2,7 @@
 
 ## 2026-06 — CTB@ICML 2026 camera-ready
 - **Multi-annotator human baseline** replacing the single-annotator pilot: 10
-  annotators (7 completed all 200) + 1 expert, collected via the hostable
+  annotators (8 completed all 200) + 1 expert, collected via the hostable
   human-eval web app (`human_eval/`, live at https://m2sv.yosubshin.com).
   - Engaged annotators (excluding one near-chance, low-agreement outlier) average
     **74.0% ± 7.3%**; expert **95%**; inter-annotator agreement Cohen's
