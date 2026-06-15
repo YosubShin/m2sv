@@ -28,15 +28,19 @@
 \newlength{\colw}
 \setlength{\colw}{0.475\paperwidth}
 
-% Compact failure card: #1 map, #2 sv, #3 title, #4 GT/Pred, #5 reason
-\newcommand{\failmini}[5]{%
+% Compact failure card: #1 map, #2 sv, #3 title, #4 GT letter, #5 Pred letter, #6 reason
+\newcommand{\failmini}[6]{%
 \begin{tcolorbox}[colback=failbg,colframe=failrule,boxrule=1pt,arc=3pt,
-  left=6pt,right=6pt,top=5pt,bottom=5pt,title={#3\hfill #4},
+  left=6pt,right=6pt,top=5pt,bottom=5pt,
+  title={#3\hfill{\normalfont\footnotesize GT:\,#4\ \ Pred:\,#5}},
   coltitle=white,colbacktitle=failrule,fonttitle=\small\bfseries]
 \centering
 \includegraphics[width=0.47\linewidth]{#1}\hfill\includegraphics[width=0.47\linewidth]{#2}
-\par\vspace{4pt}\footnotesize\raggedright #5
+\par\vspace{4pt}\footnotesize\raggedright #6
 \end{tcolorbox}}
+% Fixed-width card wrapper + centered row of cards
+\newlength{\cardw}\setlength{\cardw}{0.225\paperwidth}
+\newcommand{\fcard}[6]{\begin{minipage}[t]{\cardw}\failmini{#1}{#2}{#3}{#4}{#5}{#6}\end{minipage}}
 
 \begin{document}
 \begin{frame}[t]
@@ -155,41 +159,25 @@ $S=\frac{\max}{\min}$) are hardest for all models.
 \end{tcolorbox}
 \vspace{0.5cm}
 
-\begin{columns}[t]
-\begin{column}{0.235\paperwidth}
-\failmini{\FIG/failure-mode-0-map.jpg}{\FIG/failure-mode-0-sv.jpg}{Ego$\leftrightarrow$allo inversion}{A\,$\to$\,C}
-{Map shows a \emph{left} curve; the model reasons as if it curved right. Left/right flip at the map$\leftrightarrow$photo boundary.}
-\end{column}
-\begin{column}{0.235\paperwidth}
-\failmini{\FIG/failure-mode-1-map.jpg}{\FIG/failure-mode-1-sv.jpg}{Unstable visual cues}{B\,$\to$\,D}
-{Eliminates on roof color, which is lighting- and angle-dependent and weak in overhead imagery. A human discounts it.}
-\end{column}
-\begin{column}{0.235\paperwidth}
-\failmini{\FIG/failure-mode-5-map.jpg}{\FIG/failure-mode-5-sv.jpg}{Landmark misbinding}{A\,$\to$\,B}
-{Attributes a pool to the corner house --- it is two houses down. Binds a landmark to the wrong spatial anchor.}
-\end{column}
-\begin{column}{0.235\paperwidth}
-\failmini{\FIG/failure-mode-3-map.jpg}{\FIG/failure-mode-3-sv.jpg}{False landmark projection}{D\,$\to$\,A}
-{Invents a nonexistent structure (underpass/bridge) and reasons as if it were present in the map.}
-\end{column}
-\end{columns}
+\noindent\makebox[\linewidth][c]{%
+\fcard{\FIG/failure-mode-0-map.jpg}{\FIG/failure-mode-0-sv.jpg}{Ego$\leftrightarrow$allo inversion}{A}{C}
+{Map shows a \emph{left} curve; the model reasons as if it curved right. Left/right flip at the map$\leftrightarrow$photo boundary.}\hspace{1.0cm}%
+\fcard{\FIG/failure-mode-1-map.jpg}{\FIG/failure-mode-1-sv.jpg}{Unstable visual cues}{B}{D}
+{Eliminates on roof color, which is lighting- and angle-dependent and weak in overhead imagery. A human discounts it.}\hspace{1.0cm}%
+\fcard{\FIG/failure-mode-5-map.jpg}{\FIG/failure-mode-5-sv.jpg}{Landmark misbinding}{A}{B}
+{Attributes a pool to the corner house --- it is two houses down. Binds a landmark to the wrong spatial anchor.}\hspace{1.0cm}%
+\fcard{\FIG/failure-mode-3-map.jpg}{\FIG/failure-mode-3-sv.jpg}{False landmark}{D}{A}
+{Invents a nonexistent structure (underpass/bridge) and reasons as if it were present in the map.}}
 
 \vspace{0.5cm}
 
-\begin{columns}[t]
-\begin{column}{0.315\paperwidth}
-\failmini{\FIG/failure-mode-6-map.jpg}{\FIG/failure-mode-6-sv.jpg}{Inconsistent spatial state}{A\,$\to$\,C}
-{Treats the two sides of one street as having different road widths, instead of enforcing a single coherent layout.}
-\end{column}
-\begin{column}{0.315\paperwidth}
-\failmini{\FIG/failure-mode-4-map.jpg}{\FIG/failure-mode-4-sv.jpg}{Internal contradiction}{D\,$\to$\,C}
-{Identifies left--right relations correctly, then contradicts its own assignment mid-reasoning --- loses spatial state.}
-\end{column}
-\begin{column}{0.315\paperwidth}
-\failmini{\FIG/failure-mode-2-map.jpg}{\FIG/failure-mode-2-sv.jpg}{Symmetry trap}{D\,$\to$\,B}
-{Narrows to two symmetric candidates but will not escalate to fine cues (lane counts, curb geometry) to break the tie.}
-\end{column}
-\end{columns}
+\noindent\makebox[\linewidth][c]{%
+\fcard{\FIG/failure-mode-6-map.jpg}{\FIG/failure-mode-6-sv.jpg}{Spatial inconsistency}{A}{C}
+{Treats the two sides of one street as having different road widths, instead of enforcing a single coherent layout.}\hspace{1.0cm}%
+\fcard{\FIG/failure-mode-4-map.jpg}{\FIG/failure-mode-4-sv.jpg}{Internal contradiction}{D}{C}
+{Identifies left--right relations correctly, then contradicts its own assignment mid-reasoning --- loses spatial state.}\hspace{1.0cm}%
+\fcard{\FIG/failure-mode-2-map.jpg}{\FIG/failure-mode-2-sv.jpg}{Symmetry trap}{D}{B}
+{Narrows to two symmetric candidates but will not escalate to fine cues (lane counts, curb geometry) to break the tie.}}
 
 \vspace{0.5cm}
 \begin{center}
