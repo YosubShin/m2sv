@@ -1,0 +1,204 @@
+% m2sv poster -- CTB@ICML 2026
+% Build: latexmk -pdf poster.tex   (A0 landscape, 3 columns)
+\documentclass[final]{beamer}
+\usepackage[size=a0,orientation=landscape,scale=1.32]{beamerposter}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% ---- palette ----
+\definecolor{uhgreen}{RGB}{0,76,55}      % deep green
+\definecolor{accent}{RGB}{198,146,20}    % gold
+\definecolor{ink}{RGB}{30,30,30}
+\definecolor{soft}{RGB}{244,246,245}
+
+\setbeamercolor{block title}{fg=white,bg=uhgreen}
+\setbeamercolor{block body}{fg=ink,bg=soft}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+
+\newcommand{\FIG}{../2026-01-28/figures}
+
+% tighter block spacing
+\setlength{\columnsep}{2.2cm}
+\newlength{\colw}
+\setlength{\colw}{0.305\paperwidth}
+
+\begin{document}
+\begin{frame}[t]
+
+% ================= TITLE BAR =================
+\begin{tcolorbox}[colback=uhgreen,colframe=uhgreen,boxrule=0pt,arc=8pt,left=18pt,right=18pt,top=14pt,bottom=14pt]
+\centering
+{\color{white}\Huge\textbf{m2sv: A Scalable Benchmark for Map-to-Street-View Spatial Reasoning}}\\[10pt]
+{\color{white}\large Yosub Shin\quad Michael Buriek\quad Igor Molybog \quad$\cdot$\quad University of Hawai\textquoteright i at M\=anoa\ \ (Buriek also PwC)}\\[4pt]
+{\color{accent}\large\textbf{Combining Theory and Benchmarks (CTB) Workshop @ ICML 2026 \quad$\cdot$\quad non-archival}}\\[3pt]
+{\color{white}\normalsize \texttt{github.com/YosubShin/m2sv}\qquad\qquad live demo: \texttt{m2sv.yosubshin.com}}
+\end{tcolorbox}
+
+\vspace{1.2cm}
+
+% ================= COLUMNS =================
+\begin{columns}[t]
+
+% ---------------- COLUMN 1 ----------------
+\begin{column}{\colw}
+
+\begin{block}{The Task}
+Given a \textbf{north-up overhead map} with labeled candidate directions and a
+\textbf{Street View photo} taken at the same intersection, infer \emph{which
+labeled direction the camera was facing}. The camera sits at the intersection
+center; letters point outward along each road.
+\vspace{0.6cm}
+\begin{center}
+\includegraphics[width=0.46\linewidth]{\FIG/sample-question-1-map.jpg}\hfill
+\includegraphics[width=0.46\linewidth]{\FIG/sample-question-1-sv.jpg}
+\end{center}
+\vspace{0.3cm}
+\footnotesize\emph{Solve by aligning stable map geometry (roads, parcels,
+landmarks) with the ground-level view --- not transient cues.}
+\end{block}
+
+\begin{block}{Why it is hard}
+\begin{itemize}
+  \item \textbf{Allocentric $\leftrightarrow$ egocentric} alignment across two
+        very different viewpoints.
+  \item \textbf{Temporal mismatch}: map and photo may be captured years apart.
+  \item \textbf{Geometric ambiguity}: symmetric intersections admit multiple
+        plausible headings and demand fine-grained cue escalation.
+\end{itemize}
+\end{block}
+
+\begin{block}{Benchmark \& Data (open)}
+\begin{itemize}
+  \item \textbf{m2sv-20k} --- 20{,}000 real intersections (10k train / 10k
+        validation) across \textbf{32 cities}, multiple continents, with
+        controlled candidate ambiguity.
+  \item \textbf{m2sv-sft-11k} --- 11k curated structured reasoning traces for
+        supervised fine-tuning.
+  \item Released as \textbf{blueprints} (coordinates + azimuths) plus rendering
+        code to respect map licensing; all eval/training code public.
+\end{itemize}
+\end{block}
+
+\end{column}
+
+% ---------------- COLUMN 2 ----------------
+\begin{column}{\colw}
+
+\begin{block}{Zero-shot: humans clear the best VLM}
+\centering
+\begin{tabular}{l r r}
+\toprule
+Model & N & Acc.\ (\%)\\
+\midrule
+Gemini-3-Pro            & 1k  & 65.2 $\pm$ 3.0\\
+GPT-5                   & 1k  & 57.2 $\pm$ 3.1\\
+Gemini-2.5-Pro          & 1k  & 47.2 $\pm$ 3.1\\
+Qwen3-VL-235B (Think)   & 1k  & 42.7 $\pm$ 3.1\\
+Random baseline         & 1k  & 31.4 $\pm$ 2.9\\
+\midrule
+\textbf{Human (engaged, $n{=}10$)} & 200 & \textbf{71.7 $\pm$ 9.1}\\
+\textbf{Human (expert)}            & 200 & \textbf{95.0}\\
+\bottomrule
+\end{tabular}
+\vspace{0.5cm}
+\flushleft\footnotesize New multi-annotator study (12 annotators, 10 finished
+all 200) replaces the single-annotator pilot. Engaged $=$ Cohen's
+$\kappa_{\text{expert}}\!\ge\!0.3$; two low-agreement outliers excluded by
+\emph{agreement}, not accuracy.
+\end{block}
+
+\begin{block}{Human baseline \& inter-rater agreement}
+\begin{center}
+\includegraphics[width=0.99\linewidth]{\FIG/human_accuracy_dist.png}
+\end{center}
+\footnotesize Attentive humans converge (median pairwise $\kappa=0.48$, up to
+$0.76$); Gemini-3-Pro sits \emph{below} the human consensus (median
+$\kappa=0.38$), Qwen3-VL near chance ($\kappa\!\approx\!0.05$). The gap shows up
+in \emph{agreement structure}, not only accuracy.
+\end{block}
+
+\begin{block}{Adaptation helps, but transfer is limited}
+\centering
+\begin{tabular}{l l r}
+\toprule
+Model & Training & Acc.\ (\%)\\
+\midrule
+Qwen3-VL-8B & Base    & 34.3 $\pm$ 0.9\\
+Qwen3-VL-8B & SFT     & 39.8 $\pm$ 1.0\\
+Qwen3-VL-8B & SFT+RL  & \textbf{43.9 $\pm$ 1.0}\\
+\bottomrule
+\end{tabular}
+\vspace{0.4cm}
+\flushleft\footnotesize SFT $+$ RL gains $\sim$10 points on m2sv, but
+cross-benchmark transfer is asymmetric and weak --- fine-tuning induces
+\emph{benchmark-specific} policies, not transferable spatial skill.
+\end{block}
+
+\end{column}
+
+% ---------------- COLUMN 3 ----------------
+\begin{column}{\colw}
+
+\begin{block}{Difficulty: the gap widens where it matters}
+\begin{center}
+\includegraphics[width=0.99\linewidth]{\FIG/human_difficulty_decircular.png}
+\end{center}
+\footnotesize Difficulty bins from \textbf{human response time}; accuracy from
+\emph{separate} annotators (de-circularized). Easy$\to$Hard: humans
+$83\!\to\!63\%$, Gemini $82\!\to\!50\%$, Qwen $42\!\to\!29\%$. Gemini nearly
+matches humans on easy items but trails by \textbf{13 pts} on hard ones.
+\vspace{0.4cm}
+
+\textbf{Road-azimuth symmetry.} We define a structural difficulty metric
+$S=\dfrac{\max\text{ angular gap}}{\min\text{ angular gap}}$. Stratifying
+3-option items by $S$, \emph{symmetric} intersections are hardest for all
+models.
+\end{block}
+
+\begin{block}{How models fail}
+\begin{itemize}
+  \item \textbf{Ego$\leftrightarrow$allo confusion} --- left/right inversions at
+        4-way junctions.
+  \item \textbf{Unreliable cues} --- roof color, shadows, blur drive confident
+        wrong eliminations.
+  \item \textbf{Landmark misbinding / false projection} --- attaching distant or
+        absent landmarks to the intersection.
+  \item \textbf{Symmetry traps} --- fail to escalate to lane counts, markings,
+        curb geometry that resolve ambiguity.
+\end{itemize}
+\vspace{0.2cm}
+\footnotesize Common thread: models apply \emph{uniform} reasoning across
+difficulty; humans escalate effort on ambiguous cases.
+\end{block}
+
+\begin{block}{Takeaways}
+\begin{itemize}
+  \item m2sv isolates a core, scalable \textbf{map$\leftrightarrow$street-view
+        alignment} primitive that frontier VLMs have \emph{not} solved.
+  \item Humans beat the best model and \textbf{agree with each other}; models
+        lie outside that consensus.
+  \item Difficulty is real and structural --- failures concentrate on
+        \emph{symmetric} geometry.
+\end{itemize}
+\vspace{0.3cm}
+\centering\small
+\textbf{Code/data:} \texttt{github.com/YosubShin/m2sv}\\
+\textbf{Try it:} \texttt{m2sv.yosubshin.com}
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\vspace{0.6cm}
+\begin{center}
+\footnotesize\color{ink} Supported by NSF NRT-AI 2244574. \quad Contact: \texttt{yosubs@hawaii.edu}
+\end{center}
+
+\end{frame}
+\end{document}
